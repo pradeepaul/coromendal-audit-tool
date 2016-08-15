@@ -1658,6 +1658,14 @@
     <TypeScriptCompile Include="Scripts\typings\slickgrid\slickgrid.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\sortablejs\sortablejs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
+    <Content Include="Modules\ACN\Acn\AcnIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Acn\AcnGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acn\AcnDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acn\AcnEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acn\AcnEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1931,6 +1939,12 @@
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryColumns.cs" />
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryRepository.cs" />
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryEndpoint.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnRow.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnColumns.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnForm.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnRepository.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnEndpoint.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

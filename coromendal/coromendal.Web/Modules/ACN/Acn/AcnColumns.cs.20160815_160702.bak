@@ -1,0 +1,23 @@
+﻿
+namespace coromendal.ACN.Columns
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using System;
+    using System.ComponentModel;
+    using System.Collections.Generic;
+    using System.IO;
+
+    [ColumnsScript("ACN.Acn")]
+    [BasedOnRow(typeof(Entities.AcnRow))]
+    public class AcnColumns
+    {
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        public Int32 AcnId { get; set; }
+        [EditLink]
+        public String AcnTilte { get; set; }
+        public String Auditor { get; set; }
+        public String Auditee { get; set; }
+    }
+}

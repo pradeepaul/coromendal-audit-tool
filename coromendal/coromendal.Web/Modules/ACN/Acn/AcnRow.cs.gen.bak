@@ -1,0 +1,62 @@
+﻿
+
+namespace coromendal.ACN.Entities
+{
+    using Newtonsoft.Json;
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using Serenity.Data.Mapping;
+    using System;
+    using System.ComponentModel;
+    using System.IO;
+
+    [ConnectionKey("Default"), DisplayName("Acn"), InstanceName("Acn"), TwoLevelCached]
+    [ReadPermission("Administration")]
+    [ModifyPermission("Administration")]
+    public sealed class AcnRow : Row, IIdRow, INameRow
+    {
+        [DisplayName("Acn Id"), Column("acnID"), Identity]
+        public Int32? AcnId
+        {
+            get { return Fields.AcnId[this]; }
+            set { Fields.AcnId[this] = value; }
+        }
+
+        [DisplayName("Acn Tilte"), Size(40), QuickSearch]
+        public String AcnTilte
+        {
+            get { return Fields.AcnTilte[this]; }
+            set { Fields.AcnTilte[this] = value; }
+        }
+
+        IIdField IIdRow.IdField
+        {
+            get { return Fields.AcnId; }
+        }
+
+        StringField INameRow.NameField
+        {
+            get { return Fields.AcnTilte; }
+        }
+
+        public static readonly RowFields Fields = new RowFields().Init();
+
+        public AcnRow()
+            : base(Fields)
+        {
+        }
+
+        public class RowFields : RowFieldsBase
+        {
+            public Int32Field AcnId;
+            public StringField AcnTilte;
+
+            public RowFields()
+                : base("[dbo].[Acn]")
+            {
+                LocalTextPrefix = "ACN.Acn";
+            }
+        }
+    }
+}
