@@ -7846,3 +7846,102 @@ section.content > .s-DataGrid {
 .s-NoteDialog .ui-dialog-content {
   padding-bottom: 10px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-AcnDialog > .size {
+  width: 650px;
+}
+.s-ACN-AcnDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-AcnAuditeeDialog > .size {
+  width: 650px;
+}
+.s-ACN-AcnAuditeeDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-AcnAuditorDialog > .size {
+  width: 650px;
+}
+.s-ACN-AcnAuditorDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-AcnAuditeeRefDialog > .size {
+  width: 650px;
+}
+.s-ACN-AcnAuditeeRefDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-AcnAuditorRefDialog > .size {
+  width: 650px;
+}
+.s-ACN-AcnAuditorRefDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-MinutesofmeetingDialog > .size {
+  width: 650px;
+}
+.s-ACN-MinutesofmeetingDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-MeetingIssueDialog > .size {
+  width: 650px;
+}
+.s-ACN-MeetingIssueDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-NotesDialog > .size {
+  width: 650px;
+}
+.s-ACN-NotesDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-MyNotesDialog > .size {
+  width: 650px;
+}
+.s-ACN-MyNotesDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-MeetingAbsentDialog > .size {
+  width: 650px;
+}
+.s-ACN-MeetingAbsentDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-MeetingPointsDialog > .size {
+  width: 650px;
+}
+.s-ACN-MeetingPointsDialog .caption {
+  width: 150px;
+}

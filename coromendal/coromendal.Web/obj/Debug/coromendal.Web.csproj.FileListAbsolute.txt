@@ -1,3 +1,4 @@
+E:\project\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.Web.csprojResolveAssemblyReference.cache
 E:\project\coromendal-audit-tool\coromendal\coromendal.Web\bin\coromendal.Web.dll.config
 E:\project\coromendal-audit-tool\coromendal\coromendal.Web\bin\coromendal.Web.dll
 E:\project\coromendal-audit-tool\coromendal\coromendal.Web\bin\coromendal.Web.pdb
@@ -40,4 +41,3 @@ E:\project\coromendal-audit-tool\coromendal\coromendal.Web\bin\System.Web.WebPag
 E:\project\coromendal-audit-tool\coromendal\coromendal.Web\bin\System.Web.WebPages.Razor.xml
 E:\project\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.Web.dll
 E:\project\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.Web.pdb
-E:\project\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.Web.csprojResolveAssemblyReference.cache

@@ -1659,13 +1659,147 @@
     <TypeScriptCompile Include="Scripts\typings\sortablejs\sortablejs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
     <Content Include="Modules\ACN\Acn\AcnIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnGrid.ts" />
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnEditorDialog.ts" />
+    <Content Include="Modules\ACN\AcnAuditee\AcnAuditeeIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditee\AcnAuditeeGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditee\AcnAuditeeDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditee\AcnAuditeeEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditee\AcnAuditeeEditorDialog.ts" />
+    <Content Include="Modules\ACN\AcnAuditor\AcnAuditorIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditorRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditorService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditorForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditor\AcnAuditorGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditor\AcnAuditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditor\AcnAuditorEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditor\AcnAuditorEditorDialog.ts" />
+    <Content Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeRefRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeRefService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeRefForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefEditorDialog.ts" />
+    <Content Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditorRefRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditorRefService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditorRefForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefEditorDialog.ts" />
+    <Content Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MinutesofmeetingRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MinutesofmeetingService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MinutesofmeetingForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingEditorDialog.ts" />
+    <Content Include="Modules\ACN\MeetingIssue\MeetingIssueIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingIssueRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingIssueService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingIssueForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueEditor.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NotesRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NotesService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NotesForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Notes\NotesDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Notes\NotesEditor.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MyNotesRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MyNotesService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MyNotesForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\ACN\MeetingAbsent\MeetingAbsentIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsent\MeetingAbsentDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsent\MeetingAbsentEditor.ts" />
+    <Content Include="Modules\ACN\MeetingPoints\MeetingPointsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingPointsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingPointsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingPointsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1681,6 +1815,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ACN\Minutesofmeeting\MeetingAbsentEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MeetingIssueEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MeetingPointsEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Notes\NotesBehavior.cs" />
+    <Compile Include="Modules\ACN\Notes\NotesEditorAttribute.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
@@ -1945,6 +2084,54 @@
     <Compile Include="Modules\ACN\Acn\AcnRepository.cs" />
     <Compile Include="Modules\ACN\Acn\AcnEndpoint.cs" />
     <Compile Include="Modules\ACN\Acn\AcnPage.cs" />
+    <Compile Include="Modules\ACN\AcnAuditee\AcnAuditeeRow.cs" />
+    <Compile Include="Modules\ACN\AcnAuditee\AcnAuditeeColumns.cs" />
+    <Compile Include="Modules\ACN\AcnAuditee\AcnAuditeeForm.cs" />
+    <Compile Include="Modules\ACN\AcnAuditee\AcnAuditeeRepository.cs" />
+    <Compile Include="Modules\ACN\AcnAuditee\AcnAuditeeEndpoint.cs" />
+    <Compile Include="Modules\ACN\AcnAuditee\AcnAuditeePage.cs" />
+    <Compile Include="Modules\ACN\AcnAuditor\AcnAuditorRow.cs" />
+    <Compile Include="Modules\ACN\AcnAuditor\AcnAuditorColumns.cs" />
+    <Compile Include="Modules\ACN\AcnAuditor\AcnAuditorForm.cs" />
+    <Compile Include="Modules\ACN\AcnAuditor\AcnAuditorRepository.cs" />
+    <Compile Include="Modules\ACN\AcnAuditor\AcnAuditorEndpoint.cs" />
+    <Compile Include="Modules\ACN\AcnAuditor\AcnAuditorPage.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefRow.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefColumns.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefForm.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefRepository.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefEndpoint.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeRef\AcnAuditeeRefPage.cs" />
+    <Compile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefRow.cs" />
+    <Compile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefColumns.cs" />
+    <Compile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefForm.cs" />
+    <Compile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefRepository.cs" />
+    <Compile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefEndpoint.cs" />
+    <Compile Include="Modules\ACN\AcnAuditorRef\AcnAuditorRefPage.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingRow.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingColumns.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingForm.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingRepository.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingEndpoint.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingPage.cs" />
+    <Compile Include="Modules\ACN\MeetingIssue\MeetingIssueRow.cs" />
+    <Compile Include="Modules\ACN\MeetingIssue\MeetingIssueColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingIssue\MeetingIssueForm.cs" />
+    <Compile Include="Modules\ACN\MeetingIssue\MeetingIssueRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingIssue\MeetingIssueEndpoint.cs" />
+    <Compile Include="Modules\ACN\Notes\NotesRow.cs" />
+    <Compile Include="Modules\ACN\Notes\NotesRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentRow.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentForm.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentEndpoint.cs" />
+    <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsRow.cs" />
+    <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsForm.cs" />
+    <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsEndpoint.cs" />
+    <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

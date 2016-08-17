@@ -17,6 +17,7 @@ namespace coromendal.ACN.Entities
     [ConnectionKey("Default"), DisplayName("Acn"), InstanceName("Acn"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [LookupScript("ACN")]
     public sealed class AcnRow : Row, IIdRow, INameRow
     {
         [DisplayName("Acn Id"), Column("acnID"), Identity]

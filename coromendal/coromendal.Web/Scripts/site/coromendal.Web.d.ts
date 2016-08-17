@@ -1,105 +1,502 @@
-﻿declare namespace coromendal.Northwind {
-    class TerritoryDialog extends Serenity.EntityDialog<TerritoryRow, any> {
+﻿declare namespace coromendal.ACN {
+    class AcnDialog extends Serenity.EntityDialog<AcnRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: TerritoryForm;
-        protected getLanguages(): string[][];
+        protected form: AcnForm;
     }
 }
-declare namespace coromendal.Northwind {
-    class TerritoryGrid extends Serenity.EntityGrid<TerritoryRow, any> {
+declare namespace coromendal.Common {
+    class GridEditorBase<TEntity> extends Serenity.EntityGrid<TEntity, any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
+        protected getIdProperty(): string;
+        private nextId;
+        constructor(container: JQuery);
+        protected id(entity: TEntity): any;
+        protected save(opt: Serenity.ServiceOptions<any>, callback: (r: Serenity.ServiceResponse) => void): void;
+        protected deleteEntity(id: number): boolean;
+        protected validateEntity(row: TEntity, id: number): boolean;
+        protected setEntities(items: TEntity[]): void;
+        protected getNewEntity(): TEntity;
+        protected getButtons(): Serenity.ToolButton[];
+        protected editItem(entityOrId: any): void;
+        getEditValue(property: any, target: any): void;
+        setEditValue(source: any, property: any): void;
+        value: TEntity[];
+        protected getGridCanLoad(): boolean;
+        protected usePager(): boolean;
+        protected getInitialTitle(): any;
+        protected createQuickSearchInput(): void;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnEditor extends Common.GridEditorBase<AcnRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): any;
+        protected getDialogType(): typeof AcnEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Common {
+    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
+        protected getIdProperty(): string;
+        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
+        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
+        destroy(): void;
+        protected updateInterface(): void;
+        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
+        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnEditorDialog extends Common.GridEditorDialog<AcnRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: AcnForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnGrid extends Serenity.EntityGrid<AcnRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
     }
 }
-declare namespace coromendal.Northwind {
-    class SupplierDialog extends Serenity.EntityDialog<SupplierRow, any> {
+declare namespace coromendal.ACN {
+    class AcnAuditeeDialog extends Serenity.EntityDialog<AcnAuditeeRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: SupplierForm;
-        protected getLanguages(): string[][];
+        protected form: AcnAuditeeForm;
     }
 }
-declare namespace coromendal.Northwind {
-    class SupplierGrid extends Serenity.EntityGrid<SupplierRow, any> {
+declare namespace coromendal.ACN {
+    class AcnAuditeeEditor extends Common.GridEditorBase<AcnAuditeeRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): any;
+        protected getDialogType(): typeof AcnAuditeeEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditeeEditorDialog extends Common.GridEditorDialog<AcnAuditeeRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: AcnAuditeeForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditeeGrid extends Serenity.EntityGrid<AcnAuditeeRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnAuditeeDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
     }
 }
-declare namespace coromendal.Northwind {
-    class ShipperDialog extends Serenity.EntityDialog<ShipperRow, any> {
+declare namespace coromendal.ACN {
+    class AcnAuditeeRefDialog extends Serenity.EntityDialog<AcnAuditeeRefRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
         protected getService(): string;
-        protected form: ShipperForm;
-        protected getLanguages(): string[][];
+        protected form: AcnAuditeeRefForm;
     }
 }
-declare namespace coromendal.Northwind {
-    class ShipperFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-    }
-}
-declare namespace coromendal.Northwind {
-    class ShipperGrid extends Serenity.EntityGrid<ShipperRow, any> {
+declare namespace coromendal.ACN {
+    class AcnAuditeeRefEditor extends Common.GridEditorBase<AcnAuditeeRefRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): any;
+        protected getDialogType(): typeof AcnAuditeeRefEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditeeRefEditorDialog extends Common.GridEditorDialog<AcnAuditeeRefRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: AcnAuditeeRefForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditeeRefGrid extends Serenity.EntityGrid<AcnAuditeeRefRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnAuditeeRefDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
     }
 }
-declare namespace coromendal.Northwind {
-    class PhoneEditor extends Serenity.StringEditor {
-        constructor(input: JQuery);
-        protected formatValue(): void;
-        protected getFormattedValue(): string;
-        multiple: boolean;
-        get_value(): string;
-        set_value(value: string): void;
-        static validate(phone: string, isMultiple: boolean): string;
-        static isValidPhone(phone: string): boolean;
-        static formatPhone(phone: any): any;
-        static formatMulti(phone: string, format: (s: string) => string): string;
-        static isValidMulti(phone: string, check: (s: string) => boolean): boolean;
-    }
-}
-declare namespace coromendal.Northwind {
-    class RegionDialog extends Serenity.EntityDialog<RegionRow, any> {
+declare namespace coromendal.ACN {
+    class AcnAuditorDialog extends Serenity.EntityDialog<AcnAuditorRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: RegionForm;
-        protected getLanguages(): string[][];
+        protected form: AcnAuditorForm;
     }
 }
-declare namespace coromendal.Northwind {
-    class RegionGrid extends Serenity.EntityGrid<RegionRow, any> {
+declare namespace coromendal.ACN {
+    class AcnAuditorEditor extends Common.GridEditorBase<AcnAuditorRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): any;
+        protected getDialogType(): typeof AcnAuditorEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditorEditorDialog extends Common.GridEditorDialog<AcnAuditorRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: AcnAuditorForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditorGrid extends Serenity.EntityGrid<AcnAuditorRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnAuditorDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditorRefDialog extends Serenity.EntityDialog<AcnAuditorRefRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: AcnAuditorRefForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditorRefEditor extends Common.GridEditorBase<AcnAuditorRefRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnAuditorRefEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditorRefEditorDialog extends Common.GridEditorDialog<AcnAuditorRefRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: AcnAuditorRefForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditorRefGrid extends Serenity.EntityGrid<AcnAuditorRefRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnAuditorRefDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingIssueDialog extends Serenity.EntityDialog<MeetingIssueRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MeetingIssueForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingIssueEditor extends Common.GridEditorBase<MeetingIssueRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MeetingIssueEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingIssueEditorDialog extends Common.GridEditorDialog<MeetingIssueRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: MeetingIssueForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingIssueGrid extends Serenity.EntityGrid<MeetingIssueRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MeetingIssueDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class MinutesofmeetingDialog extends Serenity.EntityDialog<MinutesofmeetingRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MinutesofmeetingForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class MinutesofmeetingEditor extends Common.GridEditorBase<MinutesofmeetingRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MinutesofmeetingEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class MinutesofmeetingEditorDialog extends Common.GridEditorDialog<MinutesofmeetingRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: MinutesofmeetingForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class MinutesofmeetingGrid extends Serenity.EntityGrid<MinutesofmeetingRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MinutesofmeetingDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class NotesDialog extends Serenity.EntityDialog<NotesRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: NotesForm;
+    }
+}
+declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
+    class NotesEditorDialog extends Common.GridEditorDialog<NotesRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: NotesForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class NotesGrid extends Serenity.EntityGrid<NotesRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof NotesDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Administration {
+    class LanguageDialog extends Serenity.EntityDialog<LanguageRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: LanguageForm;
+    }
+}
+declare namespace coromendal.Administration {
+    class LanguageGrid extends Serenity.EntityGrid<LanguageRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof LanguageDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getDefaultSortBy(): string[];
+    }
+}
+declare namespace coromendal.Administration {
+    class RoleDialog extends Serenity.EntityDialog<RoleRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: RoleForm;
+        protected getToolbarButtons(): Serenity.ToolButton[];
+        protected updateInterface(): void;
+    }
+}
+declare namespace coromendal.Administration {
+    class RoleGrid extends Serenity.EntityGrid<RoleRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RoleDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getDefaultSortBy(): string[];
+    }
+}
+declare namespace coromendal.Administration {
+    class RolePermissionDialog extends Serenity.TemplatedDialog<RolePermissionDialogOptions> {
+        private permissions;
+        constructor(opt: RolePermissionDialogOptions);
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        protected getTemplate(): string;
+    }
+    interface RolePermissionDialogOptions {
+        roleID?: number;
+        title?: string;
+    }
+}
+declare namespace coromendal.Administration {
+    class TranslationGrid extends Serenity.EntityGrid<TranslationItem, any> {
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        private hasChanges;
+        private searchText;
+        private sourceLanguage;
+        private targetLanguage;
+        private targetLanguageKey;
+        constructor(container: JQuery);
+        protected onClick(e: JQueryEventObject, row: number, cell: number): any;
+        protected getColumns(): Slick.Column[];
+        protected createToolbarExtensions(): void;
+        protected saveChanges(language: string): RSVP.Promise<any>;
+        protected onViewSubmit(): boolean;
+        protected getButtons(): Serenity.ToolButton[];
+        protected createQuickSearchInput(): void;
+        protected onViewFilter(item: TranslationItem): boolean;
+        protected usePager(): boolean;
+    }
+}
+declare namespace coromendal.Administration {
+    class UserDialog extends Serenity.EntityDialog<UserRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getIsActiveProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: UserForm;
+        constructor();
+        protected getToolbarButtons(): Serenity.ToolButton[];
+        protected updateInterface(): void;
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace coromendal.Administration {
+    class UserGrid extends Serenity.EntityGrid<UserRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof UserDialog;
+        protected getIdProperty(): string;
+        protected getIsActiveProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getDefaultSortBy(): string[];
+    }
+}
+declare namespace coromendal.Authorization {
+    let userDefinition: ScriptUserDefinition;
+    function hasPermission(permissionKey: string): boolean;
+}
+declare namespace coromendal.Administration {
+    class PermissionCheckEditor extends Serenity.DataGrid<PermissionCheckItem, PermissionCheckEditorOptions> {
+        protected getIdProperty(): string;
+        private searchText;
+        private byParentKey;
+        private rolePermissions;
+        constructor(container: JQuery, opt: PermissionCheckEditorOptions);
+        private getItemGrantRevokeClass(item, grant);
+        private getItemEffectiveClass(item);
+        protected getColumns(): Slick.Column[];
+        setItems(items: PermissionCheckItem[]): void;
+        protected onViewSubmit(): boolean;
+        protected onViewFilter(item: PermissionCheckItem): boolean;
+        private matchContains(item);
+        private getDescendants(item, excludeGroups);
+        protected onClick(e: any, row: any, cell: any): void;
+        private getParentKey(key);
+        protected getButtons(): Serenity.ToolButton[];
+        protected createToolbarExtensions(): void;
+        private getSortedGroupAndPermissionKeys(titleByKey);
+        get_value(): UserPermissionRow[];
+        set_value(value: UserPermissionRow[]): void;
+        get_rolePermissions(): string[];
+        set_rolePermissions(value: string[]): void;
+    }
+    interface PermissionCheckEditorOptions {
+        showRevoke?: boolean;
+    }
+    interface PermissionCheckItem {
+        ParentKey?: string;
+        Key?: string;
+        Title?: string;
+        IsGroup?: boolean;
+        GrantRevoke?: boolean;
+    }
+}
+declare namespace coromendal.Administration {
+    class UserPermissionDialog extends Serenity.TemplatedDialog<UserPermissionDialogOptions> {
+        private permissions;
+        constructor(opt: UserPermissionDialogOptions);
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        protected getTemplate(): string;
+    }
+    interface UserPermissionDialogOptions {
+        userID?: number;
+        username?: string;
+    }
+}
+declare namespace coromendal.Administration {
+    class RoleCheckEditor extends Serenity.CheckTreeEditor<Serenity.CheckTreeItem<any>, any> {
+        private searchText;
+        constructor(div: JQuery);
+        protected createToolbarExtensions(): void;
+        protected getButtons(): any[];
+        protected getTreeItems(): Serenity.CheckTreeItem<any>[];
+        protected onViewFilter(item: any): boolean;
+    }
+}
+declare namespace coromendal.Administration {
+    class UserRoleDialog extends Serenity.TemplatedDialog<UserRoleDialogOptions> {
+        private permissions;
+        constructor(opt: UserRoleDialogOptions);
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        protected getTemplate(): string;
+    }
+    interface UserRoleDialogOptions {
+        userID: number;
+        username: string;
+    }
+}
+declare var Morris: any;
+declare namespace coromendal.BasicSamples {
+    class ChartInDialog extends Serenity.TemplatedDialog<any> {
+        private areaChart;
+        static initializePage(): void;
+        protected onDialogOpen(): void;
+        protected arrange(): void;
+        protected getTemplate(): string;
+        protected getDialogOptions(): JQueryUI.DialogOptions;
     }
 }
 declare namespace coromendal.Northwind {
@@ -111,6 +508,15 @@ declare namespace coromendal.Northwind {
         protected getService(): string;
         protected form: ProductForm;
         protected getLanguages(): string[][];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class CloneableEntityDialog extends Northwind.ProductDialog {
+        protected updateInterface(): void;
+        /**
+         * Overriding this method is optional to customize cloned entity
+         */
+        protected getCloningEntity(): Northwind.ProductRow;
     }
 }
 declare namespace coromendal.Northwind {
@@ -142,45 +548,273 @@ declare namespace coromendal.Northwind {
         private saveClick();
     }
 }
-declare namespace coromendal.Common {
-    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
-        protected getIdProperty(): string;
-        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
-        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
-        destroy(): void;
-        protected updateInterface(): void;
-        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
-        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
+declare namespace coromendal.BasicSamples {
+    /**
+     * Subclass of ProductGrid to override dialog type to CloneableEntityDialog
+     */
+    class CloneableEntityGrid extends Northwind.ProductGrid {
+        protected getDialogType(): typeof CloneableEntityDialog;
+        constructor(container: JQuery);
     }
 }
 declare namespace coromendal.Northwind {
-    class OrderDetailDialog extends Common.GridEditorDialog<OrderDetailRow> {
-        protected getFormKey(): string;
+    class OrderGrid extends Serenity.EntityGrid<OrderRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
-        protected form: OrderDetailForm;
+        protected getService(): string;
+        protected shippingStateFilter: Serenity.EnumEditor;
+        constructor(container: JQuery);
+        protected createQuickFilters(): void;
+        protected getButtons(): Serenity.ToolButton[];
+        set_shippingState(value: number): void;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class DefaultValuesInNewGrid extends Northwind.OrderGrid {
+        constructor(container: JQuery);
+        /**
+         * This method is called when New Item button is clicked.
+         * By default, it calls EditItem with an empty entity.
+         * This is a good place to fill in default values for New Item button.
+         */
+        protected addButtonClick(): void;
+        protected getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace coromendal.BasicSamples.DialogBoxes {
+    function initializePage(): void;
+}
+declare namespace coromendal.Northwind {
+    class CategoryDialog extends Serenity.EntityDialog<CategoryRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: CategoryForm;
+        protected getLanguages(): string[][];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class GetInsertedRecordIdDialog extends Northwind.CategoryDialog {
+        /**
+         * This method is called after the save request to service
+         * is completed succesfully. This can be an insert or update.
+         *
+         * @param response Response that is returned from server
+         */
+        protected onSaveSuccess(response: Serenity.SaveResponse): void;
+    }
+}
+declare namespace coromendal.Northwind {
+    class CategoryGrid extends Serenity.EntityGrid<CategoryRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Subclass of CategoryGrid to override dialog type to GetInsertedRecordIdDialog
+     */
+    class GetInsertedRecordIdGrid extends Northwind.CategoryGrid {
+        protected getDialogType(): typeof GetInsertedRecordIdDialog;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Northwind {
+    class OrderDialog extends Serenity.EntityDialog<OrderRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: OrderForm;
+        constructor();
+        getToolbarButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Styling for columns is done with CSS in site.basicsamples.less file.
+     * When comparing this to MultiColumnDialog sample, you may notice that
+     * this version requires much less JS and CSS code.
+     */
+    class MultiColumnResponsiveDialog extends Northwind.OrderDialog {
         constructor();
     }
 }
-declare namespace coromendal.Common {
-    class GridEditorBase<TEntity> extends Serenity.EntityGrid<TEntity, any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
-        protected getIdProperty(): string;
-        private nextId;
+declare namespace coromendal.BasicSamples {
+    /**
+     * Subclass of OrderGrid to override dialog type to MultiColumnResponsiveDialog
+     */
+    class MultiColumnResponsiveGrid extends Northwind.OrderGrid {
+        protected getDialogType(): typeof MultiColumnResponsiveDialog;
         constructor(container: JQuery);
-        protected id(entity: TEntity): any;
-        protected save(opt: Serenity.ServiceOptions<any>, callback: (r: Serenity.ServiceResponse) => void): void;
-        protected deleteEntity(id: number): boolean;
-        protected validateEntity(row: TEntity, id: number): boolean;
-        protected setEntities(items: TEntity[]): void;
-        protected getNewEntity(): TEntity;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class PopulateLinkedDataDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: PopulateLinkedDataForm;
+        constructor();
+        private setCustomerDetails(details);
+        /**
+         * This dialog will have CSS class "s-PopulateLinkedDataDialog"
+         * We are changing it here to "s-OrderDialog", to make it use default OrderDialog styles
+         * This has no effect other than looks on populate linked data demonstration
+         */
+        protected getCssClass(): string;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * A subclass of OrderGrid that launches PopulateLinkedDataDialog
+     */
+    class PopulateLinkedDataGrid extends Northwind.OrderGrid {
+        protected getDialogType(): typeof PopulateLinkedDataDialog;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Northwind {
+    class SupplierDialog extends Serenity.EntityDialog<SupplierRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SupplierForm;
+        protected getLanguages(): string[][];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class ReadOnlyDialog extends Northwind.SupplierDialog {
+        /**
+         * This is the method that gets list of tool
+         * buttons to be created in a dialog.
+         *
+         * Here we'll remove save and close button, and
+         * apply changes buttons.
+         */
+        protected getToolbarButtons(): Serenity.ToolButton[];
+        /**
+         * This method is a good place to update states of
+         * interface elements. It is called after dialog
+         * is initialized and an entity is loaded into dialog.
+         * This is also called in new item mode.
+         */
+        protected updateInterface(): void;
+        /**
+         * This method is called when dialog title needs to be updated.
+         * Base class returns something like 'Edit xyz' for edit mode,
+         * and 'New xyz' for new record mode.
+         *
+         * But our dialog is readonly, so we should change it to 'View xyz'
+         */
+        protected getEntityTitle(): string;
+        /**
+         * This method is actually the one that calls getEntityTitle()
+         * and updates the dialog title. We could do it here too...
+         */
+        protected updateTitle(): void;
+    }
+}
+declare namespace coromendal.Northwind {
+    class SupplierGrid extends Serenity.EntityGrid<SupplierRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * A readonly grid that launches ReadOnlyDialog
+     */
+    class ReadOnlyGrid extends Northwind.SupplierGrid {
+        protected getDialogType(): typeof ReadOnlyDialog;
+        constructor(container: JQuery);
+        /**
+         * Removing add button from grid using its css class
+         */
         protected getButtons(): Serenity.ToolButton[];
-        protected editItem(entityOrId: any): void;
-        getEditValue(property: any, target: any): void;
-        setEditValue(source: any, property: any): void;
-        value: TEntity[];
-        protected getGridCanLoad(): boolean;
-        protected usePager(): boolean;
-        protected getInitialTitle(): any;
-        protected createQuickSearchInput(): void;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Adding Responsive attribute makes this dialog use full screen in mobile devices.
+     */
+    class ResponsiveDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        constructor();
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Subclass of OrderGrid to override dialog type to ResponsiveDialog
+     */
+    class ResponsiveGrid extends Northwind.OrderGrid {
+        protected getDialogType(): typeof ResponsiveDialog;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Northwind {
+    class CustomerDialog extends Serenity.EntityDialog<CustomerRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: CustomerForm;
+        private ordersGrid;
+        private loadedState;
+        constructor();
+        getSaveState(): string;
+        loadResponse(data: any): void;
+        loadEntity(entity: CustomerRow): void;
+        onSaveSuccess(response: any): void;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class SerialAutoNumberDialog extends Northwind.CustomerDialog {
+        constructor();
+        protected afterLoadEntity(): void;
+        private getNextNumber();
+    }
+}
+declare namespace coromendal.Northwind {
+    class CustomerGrid extends Serenity.EntityGrid<CustomerRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Subclass of CustomerGrid to override dialog type to SerialAutoNumberDialog
+     */
+    class SerialAutoNumberGrid extends Northwind.CustomerGrid {
+        protected getDialogType(): typeof SerialAutoNumberDialog;
+        constructor(container: JQuery);
     }
 }
 declare namespace coromendal.Northwind {
@@ -192,9 +826,305 @@ declare namespace coromendal.Northwind {
         validateEntity(row: any, id: any): boolean;
     }
 }
+declare namespace coromendal.BasicSamples {
+    /**
+     * Our subclass of Order Details editor with a CategoryID property
+     */
+    class FilteredLookupDetailEditor extends Northwind.OrderDetailsEditor {
+        protected getDialogType(): typeof FilteredLookupOrderDetailDialog;
+        constructor(container: JQuery);
+        categoryID: number;
+        /**
+         * This method is called to initialize an edit dialog created by
+         * grid editor when Add button or an edit link is clicked
+         * We have an opportunity here to pass CategoryID to edit dialog
+         */
+        protected initEntityDialog(itemType: string, dialog: Serenity.Widget<any>): void;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Basic order dialog with a category selection
+     */
+    class FilteredLookupInDetailDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        private form;
+        constructor();
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Subclass of OrderGrid to override dialog type to FilteredLookupInDetailDialog
+     */
+    class FilteredLookupInDetailGrid extends Northwind.OrderGrid {
+        protected getDialogType(): typeof FilteredLookupInDetailDialog;
+        constructor(container: JQuery);
+    }
+}
 declare namespace coromendal.Northwind {
-    class FreightFormatter implements Slick.Formatter {
+    class OrderDetailDialog extends Common.GridEditorDialog<OrderDetailRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: OrderDetailForm;
+        constructor();
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Our subclass of order detail dialog with a CategoryID property
+     * that will be used to set CascadeValue of product editor
+     */
+    class FilteredLookupOrderDetailDialog extends Northwind.OrderDetailDialog {
+        constructor();
+        /**
+         * This method is called just before an entity is loaded to dialog
+         * This is also called for new record mode with an empty entity
+         */
+        protected beforeLoadEntity(entity: any): void;
+        categoryID: number;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * This is our custom product dialog that uses a different product form
+     * (LookupFilterByMultipleForm) with our special category editor.
+     */
+    class LookupFilterByMultipleDialog extends Northwind.ProductDialog {
+        protected getFormKey(): string;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * Subclass of ProductGrid to override dialog type to CloneableEntityDialog
+     */
+    class LookupFilterByMultipleGrid extends Northwind.ProductGrid {
+        protected getDialogType(): typeof LookupFilterByMultipleDialog;
+        constructor(container: JQuery);
+        /**
+         * This method is called just before List request is sent to service.
+         * You have an opportunity here to cancel request or modify it.
+         * Here we'll add a custom criteria to list request.
+         */
+        protected onViewSubmit(): boolean;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    /**
+     * This is our category editor that will show only categories of Produce and
+     * Seafood. We are subclassing LookupEditorBase which also LookupEditor
+     * derives from.
+     *
+     * After compiling and transforming templates, this editor type will be
+     * available in server side to use in our LookupFilterByMultipleForm,
+     * which is a version of ProductForm that uses our custom editor.
+     */
+    class ProduceSeafoodCategoryEditor extends Serenity.LookupEditorBase<Serenity.LookupEditorOptions, Northwind.CategoryRow> {
+        constructor(container: JQuery, opt: Serenity.LookupEditorOptions);
+        /**
+         * Normally LookupEditor requires a lookup key to determine which set of
+         * lookup data to show in editor. As our editor will only show category
+         * data, we lock it to category lookup key.
+         */
+        protected getLookupKey(): string;
+        /**
+         * Here we are filtering by category name but you could filter by any field.
+         * Just make sure the fields you filter on has [LookupInclude] attribute on them,
+         * otherwise their value will be null in client side as they are not sent back
+         * from server in lookup script.
+         */
+        protected getItems(lookup: Q.Lookup<Northwind.CategoryRow>): Northwind.CategoryRow[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class CancellableBulkActionGrid extends Northwind.OrderGrid {
+        private rowSelection;
+        constructor(container: JQuery);
+        protected createToolbarExtensions(): void;
+        protected getButtons(): {
+            title: string;
+            cssClass: string;
+            onClick: () => void;
+        }[];
+        protected getColumns(): Slick.Column[];
+        protected getViewOptions(): Slick.RemoteViewOptions;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class ConditionalFormattingGrid extends Serenity.EntityGrid<Northwind.ProductRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        /**
+         * We override getColumns() to be able to add a custom CSS class to UnitPrice
+         * We could also add this class in ProductColumns.cs but didn't want to modify
+         * it solely for this sample.
+         */
+        protected getColumns(): Slick.Column[];
+        /**
+         * This method is called for all rows
+         * @param item Data item for current row
+         * @param index Index of the row in grid
+         */
+        protected getItemCssClass(item: Northwind.ProductRow, index: number): string;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class CustomLinksInGrid extends Northwind.OrderGrid {
+        constructor(container: JQuery);
+        /**
+         * We override getColumns() to change format functions for some columns.
+         * You could also write them as formatter classes, and use them at server side
+         */
+        protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
+        /**
+         * This method is called for columns with [EditLink] attribute,
+         * but only for edit links of this grid's own item type.
+         * It is also called by Add Product button with a NULL entityOrId
+         * parameter so we should check that entityOrId is a string
+         * to be sure it is originating from a link.
+         *
+         * As we changed format for other columns, this will only be called
+         * for links in remaining OrderID column
+         */
+        protected editItem(entityOrId: any): void;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class GridFilteredByCriteria extends Northwind.ProductGrid {
+        constructor(container: JQuery);
+        protected onViewSubmit(): boolean;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class GroupingAndSummariesInGrid extends Northwind.ProductGrid {
+        constructor(container: JQuery);
+        protected createSlickGrid(): Slick.Grid;
+        protected getColumns(): Slick.Column[];
+        protected getSlickOptions(): Slick.GridOptions;
+        protected usePager(): boolean;
+        protected getButtons(): {
+            title: string;
+            cssClass: string;
+            onClick: () => void;
+        }[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class InitialValuesForQuickFilters extends Northwind.OrderGrid {
+        constructor(container: JQuery);
+        /**
+         * This method is called to get list of quick filters to be created for this grid.
+         * By default, it returns quick filter objects corresponding to properties that
+         * have a [QuickFilter] attribute at server side OrderColumns.cs
+         */
+        protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
+        /**
+         * This method is another possible place to modify quick filter widgets.
+         * It is where the quick filter widgets are actually created.
+         *
+         * By default, it calls getQuickFilters() then renders UI for these
+         * quick filters.
+         *
+         * We could use getQuickFilters() method for ShipVia too,
+         * but this is for demonstration purposes
+         */
+        protected createQuickFilters(): void;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class InlineImageFormatter implements Slick.Formatter, Serenity.IInitializeColumn {
         format(ctx: Slick.FormatterContext): string;
+        initializeColumn(column: Slick.Column): void;
+        fileProperty: string;
+        thumb: boolean;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class InlineImageInGrid extends Serenity.EntityGrid<Northwind.ProductRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getSlickOptions(): Slick.GridOptions;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class ProductExcelImportDialog extends Serenity.PropertyDialog<any, any> {
+        private form;
+        constructor();
+        protected getDialogTitle(): string;
+        protected getDialogButtons(): Serenity.DialogButton[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class ProductExcelImportGrid extends Northwind.ProductGrid {
+        constructor(container: JQuery);
+        /**
+         * This method is called to get list of buttons to be created.
+         */
+        protected getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class RemovingAddButton extends Northwind.SupplierGrid {
+        constructor(container: JQuery);
+        /**
+         * This method is called to get list of buttons to be created.
+         */
+        protected getButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class ViewWithoutIDGrid extends Serenity.EntityGrid<Northwind.SalesByCategoryRow, any> {
+        protected getColumnsKey(): string;
+        protected getIdProperty(): string;
+        protected getNameProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        private nextId;
+        constructor(container: JQuery);
+        /**
+         * This method is called to preprocess data returned from the list service
+         */
+        protected onViewProcessData(response: Serenity.ListResponse<Northwind.SalesByCategoryRow>): Serenity.ListResponse<Northwind.SalesByCategoryRow>;
+        protected getButtons(): any[];
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class VSGalleryQAGrid extends Serenity.EntityGrid<BasicSamples.VSGalleryQAThread, any> {
+        protected getColumnsKey(): string;
+        protected getIdProperty(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getButtons(): any[];
+        protected getSlickOptions(): Slick.GridOptions;
+        protected getColumns(): Slick.Column[];
+        protected getInitialTitle(): any;
+    }
+}
+declare namespace coromendal.ScriptInitialization {
+}
+declare namespace coromendal {
+    class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
+        constructor();
+        cancelled: boolean;
+        max: number;
+        value: number;
+        title: string;
+        cancelTitle: string;
+        getDialogOptions(): JQueryUI.DialogOptions;
+        initDialog(): void;
+        getTemplate(): string;
     }
 }
 declare namespace coromendal.Common {
@@ -235,253 +1165,38 @@ declare namespace coromendal.Common {
         set_errorCount(value: number): void;
     }
 }
-declare namespace coromendal.BasicSamples {
-    class OrderBulkAction extends Common.BulkServiceAction {
-        /**
-         * This controls how many service requests will be used in parallel.
-         * Determine this number based on how many requests your server
-         * might be able to handle, and amount of wait on external resources.
-         */
-        protected getParallelRequests(): number;
-        /**
-         * These number of records IDs will be sent to your service in one
-         * service call. If your service is designed to handle one record only,
-         * set it to 1. But note that, if you have 5000 records, this will
-         * result in 5000 service calls / requests.
-         */
-        protected getBatchSize(): number;
-        /**
-         * This is where you should call your service.
-         * Batch parameter contains the selected order IDs
-         * that should be processed in this service call.
-         */
-        protected executeForBatch(batch: any): void;
-    }
-}
-declare namespace coromendal.Northwind {
-    class OrderDialog extends Serenity.EntityDialog<OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: OrderForm;
-        constructor();
-        getToolbarButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace coromendal.Northwind {
-    class OrderGrid extends Serenity.EntityGrid<OrderRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected shippingStateFilter: Serenity.EnumEditor;
-        constructor(container: JQuery);
-        protected createQuickFilters(): void;
-        protected getButtons(): Serenity.ToolButton[];
-        set_shippingState(value: number): void;
-    }
-}
-declare namespace coromendal.Northwind {
-    class NoteDialog extends Serenity.TemplatedDialog<any> {
-        private textEditor;
-        constructor();
-        protected getTemplate(): string;
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-        text: string;
-        okClick: () => void;
-    }
-}
-declare namespace coromendal.Northwind {
-    class NotesEditor extends Serenity.TemplatedWidget<any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
-        private isDirty;
-        private items;
-        constructor(div: JQuery);
-        protected getTemplate(): string;
-        protected updateContent(): void;
-        protected addClick(): void;
-        protected editClick(e: any): void;
-        deleteClick(e: any): void;
-        value: NoteRow[];
-        getEditValue(prop: Serenity.PropertyItem, target: any): void;
-        setEditValue(source: any, prop: Serenity.PropertyItem): void;
-        get_isDirty(): boolean;
-        set_isDirty(value: any): void;
-        onChange: () => void;
-    }
-}
-declare namespace coromendal.Northwind {
-    class EmployeeFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-        genderProperty: string;
-        initializeColumn(column: Slick.Column): void;
-    }
-}
-declare namespace coromendal.Northwind {
-    class CustomerDialog extends Serenity.EntityDialog<CustomerRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: CustomerForm;
-        private ordersGrid;
-        private loadedState;
-        constructor();
-        getSaveState(): string;
-        loadResponse(data: any): void;
-        loadEntity(entity: CustomerRow): void;
-        onSaveSuccess(response: any): void;
-    }
-}
-declare namespace coromendal.Northwind {
-    class CustomerEditor extends Serenity.LookupEditorBase<CustomerRow, any> {
-        constructor(hidden: JQuery);
-        protected getLookupKey(): string;
-        protected getItemText(item: any, lookup: any): string;
-    }
-}
-declare namespace coromendal.Northwind {
-    class CustomerGrid extends Serenity.EntityGrid<CustomerRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace coromendal.Northwind {
-    class CustomerOrderDialog extends OrderDialog {
-        constructor();
-        updateInterface(): void;
-    }
-}
-declare namespace coromendal.Northwind {
-    class CustomerOrdersGrid extends OrderGrid {
-        protected getDialogType(): typeof CustomerOrderDialog;
-        constructor(container: JQuery);
-        protected getColumns(): Slick.Column[];
-        protected initEntityDialog(itemType: any, dialog: any): void;
-        protected addButtonClick(): void;
-        protected getInitialTitle(): any;
-        protected getGridCanLoad(): boolean;
-        private _customerID;
-        customerID: string;
-    }
-}
-declare namespace coromendal.Northwind {
-    class EmployeeListFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-    }
-}
-declare namespace coromendal.Northwind {
-    class CategoryDialog extends Serenity.EntityDialog<CategoryRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: CategoryForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace coromendal.Northwind {
-    class CategoryGrid extends Serenity.EntityGrid<CategoryRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.Membership {
-    class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.Membership {
-    class SignUpPanel extends Serenity.PropertyPanel<SignUpRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.Membership {
-    class ResetPasswordPanel extends Serenity.PropertyPanel<ResetPasswordRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.Membership {
-    class ForgotPasswordPanel extends Serenity.PropertyPanel<ForgotPasswordRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.Membership {
-    class ChangePasswordPanel extends Serenity.PropertyPanel<ChangePasswordRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ScriptInitialization {
+declare namespace coromendal.DialogUtils {
+    function pendingChangesConfirmation(element: JQuery, hasPendingChanges: () => boolean): void;
 }
 declare namespace coromendal.Common {
-    class UserPreferenceStorage implements Serenity.SettingStorage {
-        getItem(key: string): string;
-        setItem(key: string, data: string): void;
-    }
-}
-declare namespace coromendal.Common {
-    interface PdfExportOptions {
+    interface ExcelExportOptions {
         grid: Serenity.DataGrid<any, any>;
+        service: string;
         onViewSubmit: () => boolean;
         title?: string;
         hint?: string;
         separator?: boolean;
-        reportTitle?: string;
-        titleTop?: number;
-        titleFontSize?: number;
-        fileName?: string;
-        pageNumbers?: boolean;
-        columnTitles?: {
-            [key: string]: string;
-        };
-        tableOptions?: jsPDF.AutoTableOptions;
-        output?: string;
-        autoPrint?: boolean;
     }
-    namespace PdfExportHelper {
-        function exportToPdf(options: PdfExportOptions): void;
-        function createToolButton(options: PdfExportOptions): Serenity.ToolButton;
+    namespace ExcelExportHelper {
+        function createToolButton(options: ExcelExportOptions): Serenity.ToolButton;
     }
 }
-declare namespace coromendal.Common {
-    class LanguageSelection extends Serenity.Widget<any> {
-        constructor(select: JQuery, currentLanguage: string);
-    }
+declare namespace coromendal.LanguageList {
+    function getValue(): string[][];
 }
 declare namespace coromendal.Common {
-    class SidebarSearch extends Serenity.Widget<any> {
-        private menuUL;
-        constructor(input: JQuery, menuUL: JQuery);
-        protected updateMatchFlags(text: string): void;
+    interface ReportButtonOptions {
+        title?: string;
+        cssClass?: string;
+        icon?: string;
+        download?: boolean;
+        reportKey: string;
+        extension?: string;
+        getParams?: () => any;
+        target?: string;
     }
-}
-declare namespace coromendal.Common {
-    class ThemeSelection extends Serenity.Widget<any> {
-        constructor(select: JQuery);
-        protected getCurrentTheme(): string;
+    namespace ReportHelper {
+        function createToolButton(options: ReportButtonOptions): Serenity.ToolButton;
     }
 }
 declare namespace coromendal.ACN {
@@ -763,6 +1478,189 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingIssueForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MeetingIssueForm {
+        MeetingId: Serenity.IntegerEditor;
+        AreaofOperation: Serenity.StringEditor;
+        Issue: Serenity.StringEditor;
+        Status: Serenity.StringEditor;
+        ExpectedDate: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface MeetingIssueRow {
+        MeetingIssueId?: number;
+        MeetingId?: number;
+        AreaofOperation?: string;
+        Issue?: string;
+        Status?: string;
+        ExpectedDate?: string;
+        MeetingAcnid?: number;
+        MeetingTitle?: string;
+        MeetingAuditscope?: string;
+        MeetingPeriod?: string;
+        MeetingTime?: number;
+        MeetingVenue?: string;
+        MeetingAuditor?: number;
+        MeetingAuditee?: number;
+    }
+    namespace MeetingIssueRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const MeetingIssueId: any;
+            const MeetingId: any;
+            const AreaofOperation: any;
+            const Issue: any;
+            const Status: any;
+            const ExpectedDate: any;
+            const MeetingAcnid: string;
+            const MeetingTitle: string;
+            const MeetingAuditscope: string;
+            const MeetingPeriod: string;
+            const MeetingTime: string;
+            const MeetingVenue: string;
+            const MeetingAuditor: string;
+            const MeetingAuditee: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace MeetingIssueService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<MeetingIssueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MeetingIssueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingIssueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingIssueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    class MinutesofmeetingForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MinutesofmeetingForm {
+        Acnid: Serenity.IntegerEditor;
+        Title: Serenity.StringEditor;
+        Auditscope: Serenity.StringEditor;
+        Period: Serenity.StringEditor;
+        Time: Serenity.IntegerEditor;
+        Venue: Serenity.StringEditor;
+        Auditor: Serenity.IntegerEditor;
+        Auditee: Serenity.IntegerEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface MinutesofmeetingRow {
+        Meetingid?: number;
+        Acnid?: number;
+        Title?: string;
+        Auditscope?: string;
+        Period?: string;
+        Time?: number;
+        Venue?: string;
+        Auditor?: number;
+        Auditee?: number;
+        AcnidAcnTilte?: string;
+    }
+    namespace MinutesofmeetingRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Meetingid: any;
+            const Acnid: any;
+            const Title: any;
+            const Auditscope: any;
+            const Period: any;
+            const Time: any;
+            const Venue: any;
+            const Auditor: any;
+            const Auditee: any;
+            const AcnidAcnTilte: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace MinutesofmeetingService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<MinutesofmeetingRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MinutesofmeetingRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MinutesofmeetingRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MinutesofmeetingRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    class NotesForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface NotesForm {
+        EntityType: Serenity.StringEditor;
+        EntityId: Serenity.IntegerEditor;
+        Text: Serenity.StringEditor;
+        InsertUserId: Serenity.IntegerEditor;
+        InsertDate: Serenity.DateEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface NotesRow {
+        NoteId?: number;
+        EntityType?: string;
+        EntityId?: number;
+        Text?: string;
+        InsertUserId?: number;
+        InsertDate?: string;
+    }
+    namespace NotesRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const NoteId: any;
+            const EntityType: any;
+            const EntityId: any;
+            const Text: any;
+            const InsertUserId: any;
+            const InsertDate: any;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace NotesService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<NotesRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<NotesRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<NotesRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<NotesRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2448,873 +3346,260 @@ declare namespace coromendal {
         };
     }
 }
-declare namespace coromendal {
-    class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
-        constructor();
-        cancelled: boolean;
-        max: number;
-        value: number;
-        title: string;
-        cancelTitle: string;
-        getDialogOptions(): JQueryUI.DialogOptions;
-        initDialog(): void;
-        getTemplate(): string;
+declare namespace coromendal.Common {
+    class LanguageSelection extends Serenity.Widget<any> {
+        constructor(select: JQuery, currentLanguage: string);
     }
 }
-declare namespace coromendal.DialogUtils {
-    function pendingChangesConfirmation(element: JQuery, hasPendingChanges: () => boolean): void;
+declare namespace coromendal.Common {
+    class SidebarSearch extends Serenity.Widget<any> {
+        private menuUL;
+        constructor(input: JQuery, menuUL: JQuery);
+        protected updateMatchFlags(text: string): void;
+    }
 }
 declare namespace coromendal.Common {
-    interface ExcelExportOptions {
+    class ThemeSelection extends Serenity.Widget<any> {
+        constructor(select: JQuery);
+        protected getCurrentTheme(): string;
+    }
+}
+declare namespace coromendal.Common {
+    interface PdfExportOptions {
         grid: Serenity.DataGrid<any, any>;
-        service: string;
         onViewSubmit: () => boolean;
         title?: string;
         hint?: string;
         separator?: boolean;
+        reportTitle?: string;
+        titleTop?: number;
+        titleFontSize?: number;
+        fileName?: string;
+        pageNumbers?: boolean;
+        columnTitles?: {
+            [key: string]: string;
+        };
+        tableOptions?: jsPDF.AutoTableOptions;
+        output?: string;
+        autoPrint?: boolean;
     }
-    namespace ExcelExportHelper {
-        function createToolButton(options: ExcelExportOptions): Serenity.ToolButton;
+    namespace PdfExportHelper {
+        function exportToPdf(options: PdfExportOptions): void;
+        function createToolButton(options: PdfExportOptions): Serenity.ToolButton;
     }
-}
-declare namespace coromendal.LanguageList {
-    function getValue(): string[][];
 }
 declare namespace coromendal.Common {
-    interface ReportButtonOptions {
-        title?: string;
-        cssClass?: string;
-        icon?: string;
-        download?: boolean;
-        reportKey: string;
-        extension?: string;
-        getParams?: () => any;
-        target?: string;
-    }
-    namespace ReportHelper {
-        function createToolButton(options: ReportButtonOptions): Serenity.ToolButton;
+    class UserPreferenceStorage implements Serenity.SettingStorage {
+        getItem(key: string): string;
+        setItem(key: string, data: string): void;
     }
 }
-declare namespace coromendal.BasicSamples {
-    class VSGalleryQAGrid extends Serenity.EntityGrid<BasicSamples.VSGalleryQAThread, any> {
-        protected getColumnsKey(): string;
-        protected getIdProperty(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getButtons(): any[];
-        protected getSlickOptions(): Slick.GridOptions;
-        protected getColumns(): Slick.Column[];
-        protected getInitialTitle(): any;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class ViewWithoutIDGrid extends Serenity.EntityGrid<Northwind.SalesByCategoryRow, any> {
-        protected getColumnsKey(): string;
-        protected getIdProperty(): string;
-        protected getNameProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        private nextId;
-        constructor(container: JQuery);
-        /**
-         * This method is called to preprocess data returned from the list service
-         */
-        protected onViewProcessData(response: Serenity.ListResponse<Northwind.SalesByCategoryRow>): Serenity.ListResponse<Northwind.SalesByCategoryRow>;
-        protected getButtons(): any[];
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class RemovingAddButton extends Northwind.SupplierGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called to get list of buttons to be created.
-         */
-        protected getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class ProductExcelImportDialog extends Serenity.PropertyDialog<any, any> {
-        private form;
-        constructor();
-        protected getDialogTitle(): string;
-        protected getDialogButtons(): Serenity.DialogButton[];
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class ProductExcelImportGrid extends Northwind.ProductGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called to get list of buttons to be created.
-         */
-        protected getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class InlineImageFormatter implements Slick.Formatter, Serenity.IInitializeColumn {
-        format(ctx: Slick.FormatterContext): string;
-        initializeColumn(column: Slick.Column): void;
-        fileProperty: string;
-        thumb: boolean;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class InlineImageInGrid extends Serenity.EntityGrid<Northwind.ProductRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getSlickOptions(): Slick.GridOptions;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class InitialValuesForQuickFilters extends Northwind.OrderGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called to get list of quick filters to be created for this grid.
-         * By default, it returns quick filter objects corresponding to properties that
-         * have a [QuickFilter] attribute at server side OrderColumns.cs
-         */
-        protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
-        /**
-         * This method is another possible place to modify quick filter widgets.
-         * It is where the quick filter widgets are actually created.
-         *
-         * By default, it calls getQuickFilters() then renders UI for these
-         * quick filters.
-         *
-         * We could use getQuickFilters() method for ShipVia too,
-         * but this is for demonstration purposes
-         */
-        protected createQuickFilters(): void;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class GroupingAndSummariesInGrid extends Northwind.ProductGrid {
-        constructor(container: JQuery);
-        protected createSlickGrid(): Slick.Grid;
-        protected getColumns(): Slick.Column[];
-        protected getSlickOptions(): Slick.GridOptions;
-        protected usePager(): boolean;
-        protected getButtons(): {
-            title: string;
-            cssClass: string;
-            onClick: () => void;
-        }[];
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class GridFilteredByCriteria extends Northwind.ProductGrid {
-        constructor(container: JQuery);
-        protected onViewSubmit(): boolean;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class CustomLinksInGrid extends Northwind.OrderGrid {
-        constructor(container: JQuery);
-        /**
-         * We override getColumns() to change format functions for some columns.
-         * You could also write them as formatter classes, and use them at server side
-         */
-        protected getColumns(): Slick.Column[];
-        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
-        /**
-         * This method is called for columns with [EditLink] attribute,
-         * but only for edit links of this grid's own item type.
-         * It is also called by Add Product button with a NULL entityOrId
-         * parameter so we should check that entityOrId is a string
-         * to be sure it is originating from a link.
-         *
-         * As we changed format for other columns, this will only be called
-         * for links in remaining OrderID column
-         */
-        protected editItem(entityOrId: any): void;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class ConditionalFormattingGrid extends Serenity.EntityGrid<Northwind.ProductRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        /**
-         * We override getColumns() to be able to add a custom CSS class to UnitPrice
-         * We could also add this class in ProductColumns.cs but didn't want to modify
-         * it solely for this sample.
-         */
-        protected getColumns(): Slick.Column[];
-        /**
-         * This method is called for all rows
-         * @param item Data item for current row
-         * @param index Index of the row in grid
-         */
-        protected getItemCssClass(item: Northwind.ProductRow, index: number): string;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class CancellableBulkActionGrid extends Northwind.OrderGrid {
-        private rowSelection;
-        constructor(container: JQuery);
-        protected createToolbarExtensions(): void;
-        protected getButtons(): {
-            title: string;
-            cssClass: string;
-            onClick: () => void;
-        }[];
-        protected getColumns(): Slick.Column[];
-        protected getViewOptions(): Slick.RemoteViewOptions;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * This is our custom product dialog that uses a different product form
-     * (LookupFilterByMultipleForm) with our special category editor.
-     */
-    class LookupFilterByMultipleDialog extends Northwind.ProductDialog {
+declare namespace coromendal.Membership {
+    class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
         protected getFormKey(): string;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Subclass of ProductGrid to override dialog type to CloneableEntityDialog
-     */
-    class LookupFilterByMultipleGrid extends Northwind.ProductGrid {
-        protected getDialogType(): typeof LookupFilterByMultipleDialog;
+        private form;
         constructor(container: JQuery);
-        /**
-         * This method is called just before List request is sent to service.
-         * You have an opportunity here to cancel request or modify it.
-         * Here we'll add a custom criteria to list request.
-         */
-        protected onViewSubmit(): boolean;
     }
 }
-declare namespace coromendal.BasicSamples {
-    /**
-     * This is our category editor that will show only categories of Produce and
-     * Seafood. We are subclassing LookupEditorBase which also LookupEditor
-     * derives from.
-     *
-     * After compiling and transforming templates, this editor type will be
-     * available in server side to use in our LookupFilterByMultipleForm,
-     * which is a version of ProductForm that uses our custom editor.
-     */
-    class ProduceSeafoodCategoryEditor extends Serenity.LookupEditorBase<Serenity.LookupEditorOptions, Northwind.CategoryRow> {
-        constructor(container: JQuery, opt: Serenity.LookupEditorOptions);
-        /**
-         * Normally LookupEditor requires a lookup key to determine which set of
-         * lookup data to show in editor. As our editor will only show category
-         * data, we lock it to category lookup key.
-         */
+declare namespace coromendal.Membership {
+    class ChangePasswordPanel extends Serenity.PropertyPanel<ChangePasswordRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Membership {
+    class ForgotPasswordPanel extends Serenity.PropertyPanel<ForgotPasswordRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Membership {
+    class ResetPasswordPanel extends Serenity.PropertyPanel<ResetPasswordRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Membership {
+    class SignUpPanel extends Serenity.PropertyPanel<SignUpRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Northwind {
+    class CustomerEditor extends Serenity.LookupEditorBase<CustomerRow, any> {
+        constructor(hidden: JQuery);
         protected getLookupKey(): string;
-        /**
-         * Here we are filtering by category name but you could filter by any field.
-         * Just make sure the fields you filter on has [LookupInclude] attribute on them,
-         * otherwise their value will be null in client side as they are not sent back
-         * from server in lookup script.
-         */
-        protected getItems(lookup: Q.Lookup<Northwind.CategoryRow>): Northwind.CategoryRow[];
+        protected getItemText(item: any, lookup: any): string;
     }
 }
-declare namespace coromendal.BasicSamples {
-    /**
-     * Our subclass of Order Details editor with a CategoryID property
-     */
-    class FilteredLookupDetailEditor extends Northwind.OrderDetailsEditor {
-        protected getDialogType(): typeof FilteredLookupOrderDetailDialog;
-        constructor(container: JQuery);
-        categoryID: number;
-        /**
-         * This method is called to initialize an edit dialog created by
-         * grid editor when Add button or an edit link is clicked
-         * We have an opportunity here to pass CategoryID to edit dialog
-         */
-        protected initEntityDialog(itemType: string, dialog: Serenity.Widget<any>): void;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Basic order dialog with a category selection
-     */
-    class FilteredLookupInDetailDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        private form;
+declare namespace coromendal.Northwind {
+    class CustomerOrderDialog extends OrderDialog {
         constructor();
+        updateInterface(): void;
     }
 }
-declare namespace coromendal.BasicSamples {
-    /**
-     * Subclass of OrderGrid to override dialog type to FilteredLookupInDetailDialog
-     */
-    class FilteredLookupInDetailGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof FilteredLookupInDetailDialog;
+declare namespace coromendal.Northwind {
+    class CustomerOrdersGrid extends OrderGrid {
+        protected getDialogType(): typeof CustomerOrderDialog;
         constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Our subclass of order detail dialog with a CategoryID property
-     * that will be used to set CascadeValue of product editor
-     */
-    class FilteredLookupOrderDetailDialog extends Northwind.OrderDetailDialog {
-        constructor();
-        /**
-         * This method is called just before an entity is loaded to dialog
-         * This is also called for new record mode with an empty entity
-         */
-        protected beforeLoadEntity(entity: any): void;
-        categoryID: number;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class SerialAutoNumberDialog extends Northwind.CustomerDialog {
-        constructor();
-        protected afterLoadEntity(): void;
-        private getNextNumber();
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Subclass of CustomerGrid to override dialog type to SerialAutoNumberDialog
-     */
-    class SerialAutoNumberGrid extends Northwind.CustomerGrid {
-        protected getDialogType(): typeof SerialAutoNumberDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Adding Responsive attribute makes this dialog use full screen in mobile devices.
-     */
-    class ResponsiveDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        constructor();
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Subclass of OrderGrid to override dialog type to ResponsiveDialog
-     */
-    class ResponsiveGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof ResponsiveDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class ReadOnlyDialog extends Northwind.SupplierDialog {
-        /**
-         * This is the method that gets list of tool
-         * buttons to be created in a dialog.
-         *
-         * Here we'll remove save and close button, and
-         * apply changes buttons.
-         */
-        protected getToolbarButtons(): Serenity.ToolButton[];
-        /**
-         * This method is a good place to update states of
-         * interface elements. It is called after dialog
-         * is initialized and an entity is loaded into dialog.
-         * This is also called in new item mode.
-         */
-        protected updateInterface(): void;
-        /**
-         * This method is called when dialog title needs to be updated.
-         * Base class returns something like 'Edit xyz' for edit mode,
-         * and 'New xyz' for new record mode.
-         *
-         * But our dialog is readonly, so we should change it to 'View xyz'
-         */
-        protected getEntityTitle(): string;
-        /**
-         * This method is actually the one that calls getEntityTitle()
-         * and updates the dialog title. We could do it here too...
-         */
-        protected updateTitle(): void;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * A readonly grid that launches ReadOnlyDialog
-     */
-    class ReadOnlyGrid extends Northwind.SupplierGrid {
-        protected getDialogType(): typeof ReadOnlyDialog;
-        constructor(container: JQuery);
-        /**
-         * Removing add button from grid using its css class
-         */
-        protected getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class PopulateLinkedDataDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: PopulateLinkedDataForm;
-        constructor();
-        private setCustomerDetails(details);
-        /**
-         * This dialog will have CSS class "s-PopulateLinkedDataDialog"
-         * We are changing it here to "s-OrderDialog", to make it use default OrderDialog styles
-         * This has no effect other than looks on populate linked data demonstration
-         */
-        protected getCssClass(): string;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * A subclass of OrderGrid that launches PopulateLinkedDataDialog
-     */
-    class PopulateLinkedDataGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof PopulateLinkedDataDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Styling for columns is done with CSS in site.basicsamples.less file.
-     * When comparing this to MultiColumnDialog sample, you may notice that
-     * this version requires much less JS and CSS code.
-     */
-    class MultiColumnResponsiveDialog extends Northwind.OrderDialog {
-        constructor();
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Subclass of OrderGrid to override dialog type to MultiColumnResponsiveDialog
-     */
-    class MultiColumnResponsiveGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof MultiColumnResponsiveDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.BasicSamples {
-    class GetInsertedRecordIdDialog extends Northwind.CategoryDialog {
-        /**
-         * This method is called after the save request to service
-         * is completed succesfully. This can be an insert or update.
-         *
-         * @param response Response that is returned from server
-         */
-        protected onSaveSuccess(response: Serenity.SaveResponse): void;
-    }
-}
-declare namespace coromendal.BasicSamples {
-    /**
-     * Subclass of CategoryGrid to override dialog type to GetInsertedRecordIdDialog
-     */
-    class GetInsertedRecordIdGrid extends Northwind.CategoryGrid {
-        protected getDialogType(): typeof GetInsertedRecordIdDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.BasicSamples.DialogBoxes {
-    function initializePage(): void;
-}
-declare namespace coromendal.BasicSamples {
-    class DefaultValuesInNewGrid extends Northwind.OrderGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called when New Item button is clicked.
-         * By default, it calls EditItem with an empty entity.
-         * This is a good place to fill in default values for New Item button.
-         */
+        protected getColumns(): Slick.Column[];
+        protected initEntityDialog(itemType: any, dialog: any): void;
         protected addButtonClick(): void;
-        protected getButtons(): Serenity.ToolButton[];
+        protected getInitialTitle(): any;
+        protected getGridCanLoad(): boolean;
+        private _customerID;
+        customerID: string;
     }
 }
-declare namespace coromendal.BasicSamples {
-    class CloneableEntityDialog extends Northwind.ProductDialog {
-        protected updateInterface(): void;
-        /**
-         * Overriding this method is optional to customize cloned entity
-         */
-        protected getCloningEntity(): Northwind.ProductRow;
+declare namespace coromendal.Northwind {
+    class EmployeeListFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
     }
 }
-declare namespace coromendal.BasicSamples {
-    /**
-     * Subclass of ProductGrid to override dialog type to CloneableEntityDialog
-     */
-    class CloneableEntityGrid extends Northwind.ProductGrid {
-        protected getDialogType(): typeof CloneableEntityDialog;
-        constructor(container: JQuery);
+declare namespace coromendal.Northwind {
+    class EmployeeFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+        genderProperty: string;
+        initializeColumn(column: Slick.Column): void;
     }
 }
-declare var Morris: any;
-declare namespace coromendal.BasicSamples {
-    class ChartInDialog extends Serenity.TemplatedDialog<any> {
-        private areaChart;
-        static initializePage(): void;
-        protected onDialogOpen(): void;
-        protected arrange(): void;
-        protected getTemplate(): string;
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-    }
-}
-declare namespace coromendal.Administration {
-    class RoleCheckEditor extends Serenity.CheckTreeEditor<Serenity.CheckTreeItem<any>, any> {
-        private searchText;
-        constructor(div: JQuery);
-        protected createToolbarExtensions(): void;
-        protected getButtons(): any[];
-        protected getTreeItems(): Serenity.CheckTreeItem<any>[];
-        protected onViewFilter(item: any): boolean;
-    }
-}
-declare namespace coromendal.Administration {
-    class UserRoleDialog extends Serenity.TemplatedDialog<UserRoleDialogOptions> {
-        private permissions;
-        constructor(opt: UserRoleDialogOptions);
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-        protected getTemplate(): string;
-    }
-    interface UserRoleDialogOptions {
-        userID: number;
-        username: string;
-    }
-}
-declare namespace coromendal.Administration {
-    class PermissionCheckEditor extends Serenity.DataGrid<PermissionCheckItem, PermissionCheckEditorOptions> {
-        protected getIdProperty(): string;
-        private searchText;
-        private byParentKey;
-        private rolePermissions;
-        constructor(container: JQuery, opt: PermissionCheckEditorOptions);
-        private getItemGrantRevokeClass(item, grant);
-        private getItemEffectiveClass(item);
-        protected getColumns(): Slick.Column[];
-        setItems(items: PermissionCheckItem[]): void;
-        protected onViewSubmit(): boolean;
-        protected onViewFilter(item: PermissionCheckItem): boolean;
-        private matchContains(item);
-        private getDescendants(item, excludeGroups);
-        protected onClick(e: any, row: any, cell: any): void;
-        private getParentKey(key);
-        protected getButtons(): Serenity.ToolButton[];
-        protected createToolbarExtensions(): void;
-        private getSortedGroupAndPermissionKeys(titleByKey);
-        get_value(): UserPermissionRow[];
-        set_value(value: UserPermissionRow[]): void;
-        get_rolePermissions(): string[];
-        set_rolePermissions(value: string[]): void;
-    }
-    interface PermissionCheckEditorOptions {
-        showRevoke?: boolean;
-    }
-    interface PermissionCheckItem {
-        ParentKey?: string;
-        Key?: string;
-        Title?: string;
-        IsGroup?: boolean;
-        GrantRevoke?: boolean;
-    }
-}
-declare namespace coromendal.Administration {
-    class UserPermissionDialog extends Serenity.TemplatedDialog<UserPermissionDialogOptions> {
-        private permissions;
-        constructor(opt: UserPermissionDialogOptions);
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-        protected getTemplate(): string;
-    }
-    interface UserPermissionDialogOptions {
-        userID?: number;
-        username?: string;
-    }
-}
-declare namespace coromendal.Administration {
-    class UserDialog extends Serenity.EntityDialog<UserRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getIsActiveProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: UserForm;
+declare namespace coromendal.Northwind {
+    class NoteDialog extends Serenity.TemplatedDialog<any> {
+        private textEditor;
         constructor();
-        protected getToolbarButtons(): Serenity.ToolButton[];
-        protected updateInterface(): void;
-        protected afterLoadEntity(): void;
-    }
-}
-declare namespace coromendal.Administration {
-    class UserGrid extends Serenity.EntityGrid<UserRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof UserDialog;
-        protected getIdProperty(): string;
-        protected getIsActiveProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getDefaultSortBy(): string[];
-    }
-}
-declare namespace coromendal.Authorization {
-    let userDefinition: ScriptUserDefinition;
-    function hasPermission(permissionKey: string): boolean;
-}
-declare namespace coromendal.Administration {
-    class TranslationGrid extends Serenity.EntityGrid<TranslationItem, any> {
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        private hasChanges;
-        private searchText;
-        private sourceLanguage;
-        private targetLanguage;
-        private targetLanguageKey;
-        constructor(container: JQuery);
-        protected onClick(e: JQueryEventObject, row: number, cell: number): any;
-        protected getColumns(): Slick.Column[];
-        protected createToolbarExtensions(): void;
-        protected saveChanges(language: string): RSVP.Promise<any>;
-        protected onViewSubmit(): boolean;
-        protected getButtons(): Serenity.ToolButton[];
-        protected createQuickSearchInput(): void;
-        protected onViewFilter(item: TranslationItem): boolean;
-        protected usePager(): boolean;
-    }
-}
-declare namespace coromendal.Administration {
-    class RolePermissionDialog extends Serenity.TemplatedDialog<RolePermissionDialogOptions> {
-        private permissions;
-        constructor(opt: RolePermissionDialogOptions);
-        protected getDialogOptions(): JQueryUI.DialogOptions;
         protected getTemplate(): string;
-    }
-    interface RolePermissionDialogOptions {
-        roleID?: number;
-        title?: string;
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        text: string;
+        okClick: () => void;
     }
 }
-declare namespace coromendal.Administration {
-    class RoleDialog extends Serenity.EntityDialog<RoleRow, any> {
+declare namespace coromendal.Northwind {
+    class NotesEditor extends Serenity.TemplatedWidget<any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
+        private isDirty;
+        private items;
+        constructor(div: JQuery);
+        protected getTemplate(): string;
+        protected updateContent(): void;
+        protected addClick(): void;
+        protected editClick(e: any): void;
+        deleteClick(e: any): void;
+        value: NoteRow[];
+        getEditValue(prop: Serenity.PropertyItem, target: any): void;
+        setEditValue(source: any, prop: Serenity.PropertyItem): void;
+        get_isDirty(): boolean;
+        set_isDirty(value: any): void;
+        onChange: () => void;
+    }
+}
+declare namespace coromendal.Northwind {
+    class FreightFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace coromendal.BasicSamples {
+    class OrderBulkAction extends Common.BulkServiceAction {
+        /**
+         * This controls how many service requests will be used in parallel.
+         * Determine this number based on how many requests your server
+         * might be able to handle, and amount of wait on external resources.
+         */
+        protected getParallelRequests(): number;
+        /**
+         * These number of records IDs will be sent to your service in one
+         * service call. If your service is designed to handle one record only,
+         * set it to 1. But note that, if you have 5000 records, this will
+         * result in 5000 service calls / requests.
+         */
+        protected getBatchSize(): number;
+        /**
+         * This is where you should call your service.
+         * Batch parameter contains the selected order IDs
+         * that should be processed in this service call.
+         */
+        protected executeForBatch(batch: any): void;
+    }
+}
+declare namespace coromendal.Northwind {
+    class RegionDialog extends Serenity.EntityDialog<RegionRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: RoleForm;
-        protected getToolbarButtons(): Serenity.ToolButton[];
-        protected updateInterface(): void;
+        protected form: RegionForm;
+        protected getLanguages(): string[][];
     }
 }
-declare namespace coromendal.Administration {
-    class RoleGrid extends Serenity.EntityGrid<RoleRow, any> {
+declare namespace coromendal.Northwind {
+    class RegionGrid extends Serenity.EntityGrid<RegionRow, any> {
         protected getColumnsKey(): string;
-        protected getDialogType(): typeof RoleDialog;
+        protected getDialogType(): any;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
-        protected getDefaultSortBy(): string[];
     }
 }
-declare namespace coromendal.Administration {
-    class LanguageDialog extends Serenity.EntityDialog<LanguageRow, any> {
+declare namespace coromendal.Northwind {
+    class PhoneEditor extends Serenity.StringEditor {
+        constructor(input: JQuery);
+        protected formatValue(): void;
+        protected getFormattedValue(): string;
+        multiple: boolean;
+        get_value(): string;
+        set_value(value: string): void;
+        static validate(phone: string, isMultiple: boolean): string;
+        static isValidPhone(phone: string): boolean;
+        static formatPhone(phone: any): any;
+        static formatMulti(phone: string, format: (s: string) => string): string;
+        static isValidMulti(phone: string, check: (s: string) => boolean): boolean;
+    }
+}
+declare namespace coromendal.Northwind {
+    class ShipperDialog extends Serenity.EntityDialog<ShipperRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: LanguageForm;
+        protected form: ShipperForm;
+        protected getLanguages(): string[][];
     }
 }
-declare namespace coromendal.Administration {
-    class LanguageGrid extends Serenity.EntityGrid<LanguageRow, any> {
+declare namespace coromendal.Northwind {
+    class ShipperFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace coromendal.Northwind {
+    class ShipperGrid extends Serenity.EntityGrid<ShipperRow, any> {
         protected getColumnsKey(): string;
-        protected getDialogType(): typeof LanguageDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getDefaultSortBy(): string[];
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditorRefDialog extends Serenity.EntityDialog<AcnAuditorRefRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected form: AcnAuditorRefForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditorRefEditor extends Common.GridEditorBase<AcnAuditorRefRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditorRefEditorDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditorRefEditorDialog extends Common.GridEditorDialog<AcnAuditorRefRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected form: AcnAuditorRefForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditorRefGrid extends Serenity.EntityGrid<AcnAuditorRefRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditorRefDialog;
+        protected getDialogType(): any;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
     }
 }
-declare namespace coromendal.ACN {
-    class AcnAuditorDialog extends Serenity.EntityDialog<AcnAuditorRow, any> {
+declare namespace coromendal.Northwind {
+    class TerritoryDialog extends Serenity.EntityDialog<TerritoryRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: AcnAuditorForm;
+        protected form: TerritoryForm;
+        protected getLanguages(): string[][];
     }
 }
-declare namespace coromendal.ACN {
-    class AcnAuditorEditor extends Common.GridEditorBase<AcnAuditorRow> {
+declare namespace coromendal.Northwind {
+    class TerritoryGrid extends Serenity.EntityGrid<TerritoryRow, any> {
         protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditorEditorDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditorEditorDialog extends Common.GridEditorDialog<AcnAuditorRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected form: AcnAuditorForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditorGrid extends Serenity.EntityGrid<AcnAuditorRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditorDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeRefDialog extends Serenity.EntityDialog<AcnAuditeeRefRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected form: AcnAuditeeRefForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeRefEditor extends Common.GridEditorBase<AcnAuditeeRefRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditeeRefEditorDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeRefEditorDialog extends Common.GridEditorDialog<AcnAuditeeRefRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected form: AcnAuditeeRefForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeRefGrid extends Serenity.EntityGrid<AcnAuditeeRefRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditeeRefDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeDialog extends Serenity.EntityDialog<AcnAuditeeRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: AcnAuditeeForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeEditor extends Common.GridEditorBase<AcnAuditeeRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditeeEditorDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeEditorDialog extends Common.GridEditorDialog<AcnAuditeeRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected form: AcnAuditeeForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnAuditeeGrid extends Serenity.EntityGrid<AcnAuditeeRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnAuditeeDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnDialog extends Serenity.EntityDialog<AcnRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: AcnForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnEditor extends Common.GridEditorBase<AcnRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnEditorDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnEditorDialog extends Common.GridEditorDialog<AcnRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected form: AcnForm;
-    }
-}
-declare namespace coromendal.ACN {
-    class AcnGrid extends Serenity.EntityGrid<AcnRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof AcnDialog;
+        protected getDialogType(): any;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
