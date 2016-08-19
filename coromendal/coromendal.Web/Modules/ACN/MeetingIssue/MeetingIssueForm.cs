@@ -18,5 +18,7 @@ namespace coromendal.ACN.Forms
         public String Issue { get; set; }
         public String Status { get; set; }
         public String ExpectedDate { get; set; }
+        [TextAreaEditor(Rows = 8)]
+        public String Comments { get; set; }
     }
 }

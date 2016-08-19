@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("MeetingIssue"), InstanceName("MeetingIssue"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.MeetingIssue.View)]
+    [ModifyPermission(ACN.PermissionKeys.MeetingIssue.Modify)]
+    [DeletePermission(ACN.PermissionKeys.MeetingIssue.Delete)]
     public sealed class MeetingIssueRow : Row, IIdRow, INameRow
     {
         [DisplayName("Meeting Issue Id"), Column("MeetingIssueID"), Identity]
@@ -56,6 +57,12 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.ExpectedDate[this]; }
             set { Fields.ExpectedDate[this] = value; }
+        }
+        [DisplayName("Comments"), Size(200), NotNull]
+        public String Comments
+        {
+            get { return Fields.Comments[this]; }
+            set { Fields.Comments[this] = value; }
         }
 
         [DisplayName("Meeting Acnid"), Expression("jMeeting.[acnid]")]
@@ -139,6 +146,7 @@ namespace coromendal.ACN.Entities
             public StringField Issue;
             public StringField Status;
             public StringField ExpectedDate;
+            public StringField Comments;
 
             public Int32Field MeetingAcnid;
             public StringField MeetingTitle;

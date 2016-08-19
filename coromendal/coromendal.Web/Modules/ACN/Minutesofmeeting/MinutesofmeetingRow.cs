@@ -13,8 +13,10 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("minutesofmeeting"), InstanceName("minutesofmeeting"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.minutesofmeeting.View)]
+    [ModifyPermission(ACN.PermissionKeys.minutesofmeeting.Modify)]
+    [DeletePermission(ACN.PermissionKeys.minutesofmeeting.Delete)]
+    [LookupScript("MinutesofmeetingRow")]
     public sealed class MinutesofmeetingRow : Row, IIdRow, INameRow
     {
         [DisplayName("Meetingid"), Column("meetingid"), Identity]
@@ -25,7 +27,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Acnid"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
-        [LookupEditor(typeof(AcnRow)),]
+        [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }

@@ -13,8 +13,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Notes"), InstanceName("Note"), TwoLevelCached]
-    [ReadPermission(Northwind.PermissionKeys.General)]
-    [ModifyPermission(Northwind.PermissionKeys.General)]
+    [ReadPermission(ACN.PermissionKeys.Notes.View)]
+    [ModifyPermission(ACN.PermissionKeys.Notes.Modify)]
+    [DeletePermission(ACN.PermissionKeys.Notes.Delete)]
     public sealed class NoteRow : Row, IIdRow, INameRow, IInsertLogRow
     {
         [DisplayName("Note Id"), Identity]

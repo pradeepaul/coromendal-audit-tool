@@ -10,7 +10,7 @@ namespace coromendal.ACN.Endpoints
     using MyRow = Entities.MeetingAbsentRow;
 
     [RoutePrefix("Services/ACN/MeetingAbsent"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Default"), ServiceAuthorize("ACNAdministration")]
     public class MeetingAbsentController : ServiceEndpoint
     {
         [HttpPost]

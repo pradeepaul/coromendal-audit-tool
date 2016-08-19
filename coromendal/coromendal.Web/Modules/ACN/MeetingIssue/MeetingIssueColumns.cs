@@ -21,5 +21,7 @@ namespace coromendal.ACN.Columns
         public String Issue { get; set; }
         public String Status { get; set; }
         public String ExpectedDate { get; set; }
+
+        public String Comments { get; set; }
     }
 }

@@ -7895,7 +7895,8 @@ section.content > .s-DataGrid {
 /* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
 /* ------------------------------------------------------------------------- */
 .s-ACN-MinutesofmeetingDialog > .size {
-  width: 650px;
+  width: 1200px;
+  height: 450px;
 }
 .s-ACN-MinutesofmeetingDialog .caption {
   width: 150px;
@@ -7943,5 +7944,23 @@ section.content > .s-DataGrid {
   width: 650px;
 }
 .s-ACN-MeetingPointsDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-QuestionsDialog > .size {
+  width: 650px;
+}
+.s-ACN-QuestionsDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-FeedbackDialog > .size {
+  width: 650px;
+}
+.s-ACN-FeedbackDialog .caption {
   width: 150px;
 }

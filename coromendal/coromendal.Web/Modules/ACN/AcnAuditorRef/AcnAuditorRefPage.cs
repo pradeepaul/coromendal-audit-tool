@@ -11,7 +11,7 @@ namespace coromendal.ACN.Pages
     [RoutePrefix("ACN/AcnAuditorRef"), Route("{action=index}")]
     public class AcnAuditorRefController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize("ACNAdministration")]
         public ActionResult Index()
         {
             return View("~/Modules/ACN/AcnAuditorRef/AcnAuditorRefIndex.cshtml");

@@ -10,7 +10,7 @@ namespace coromendal.ACN.Endpoints
     using MyRow = Entities.MeetingIssueRow;
 
     [RoutePrefix("Services/ACN/MeetingIssue"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Default"), ServiceAuthorize("ACNAdministration")]
     public class MeetingIssueController : ServiceEndpoint
     {
         [HttpPost]

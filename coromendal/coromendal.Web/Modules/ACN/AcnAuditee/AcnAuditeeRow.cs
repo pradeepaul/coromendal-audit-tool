@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("AcnAuditee"), InstanceName("AcnAuditee"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.AcnAuditee.View)]
+    [ModifyPermission(ACN.PermissionKeys.AcnAuditee.Modify)]
+    [DeletePermission(ACN.PermissionKeys.AcnAuditee.Delete)]
     [LookupScript("Northwind.AcnAuditee")]
     public sealed class AcnAuditeeRow : Row, IIdRow, INameRow
     {

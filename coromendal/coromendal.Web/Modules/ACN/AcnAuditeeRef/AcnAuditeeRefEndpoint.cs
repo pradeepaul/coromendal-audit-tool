@@ -10,7 +10,7 @@ namespace coromendal.ACN.Endpoints
     using MyRow = Entities.AcnAuditeeRefRow;
 
     [RoutePrefix("Services/ACN/AcnAuditeeRef"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Default"), ServiceAuthorize("ACNAdministration")]
     public class AcnAuditeeRefController : ServiceEndpoint
     {
         [HttpPost]

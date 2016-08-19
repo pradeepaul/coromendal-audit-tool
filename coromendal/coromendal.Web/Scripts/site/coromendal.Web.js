@@ -2554,6 +2554,55 @@ var coromendal;
 (function (coromendal) {
     var ACN;
     (function (ACN) {
+        var FeedbackForm = (function (_super) {
+            __extends(FeedbackForm, _super);
+            function FeedbackForm() {
+                _super.apply(this, arguments);
+            }
+            FeedbackForm.formKey = 'ACN.Feedback';
+            return FeedbackForm;
+        }(Serenity.PrefixedContext));
+        ACN.FeedbackForm = FeedbackForm;
+        [['FeedbackQuestionId', function () { return Serenity.IntegerEditor; }], ['FeedbackMeetingId', function () { return Serenity.IntegerEditor; }], ['FeedbackRating', function () { return Serenity.IntegerEditor; }], ['FeedbackRemarks', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(FeedbackForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var FeedbackRow;
+        (function (FeedbackRow) {
+            FeedbackRow.idProperty = 'FeedbackId';
+            FeedbackRow.nameProperty = 'FeedbackRemarks';
+            FeedbackRow.localTextPrefix = 'ACN.Feedback';
+            var Fields;
+            (function (Fields) {
+            })(Fields = FeedbackRow.Fields || (FeedbackRow.Fields = {}));
+            ['FeedbackId', 'FeedbackQuestionId', 'FeedbackMeetingId', 'FeedbackRating', 'FeedbackRemarks', 'FeedbackQuestionQuestiontext', 'FeedbackMeetingAcnid', 'FeedbackMeetingTitle', 'FeedbackMeetingAuditscope', 'FeedbackMeetingPeriod', 'FeedbackMeetingTime', 'FeedbackMeetingVenue', 'FeedbackMeetingAuditor', 'FeedbackMeetingAuditee'].forEach(function (x) { return Fields[x] = x; });
+        })(FeedbackRow = ACN.FeedbackRow || (ACN.FeedbackRow = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var FeedbackService;
+        (function (FeedbackService) {
+            FeedbackService.baseUrl = 'ACN/Feedback';
+            var Methods;
+            (function (Methods) {
+            })(Methods = FeedbackService.Methods || (FeedbackService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                FeedbackService[x] = function (r, s, o) { return Q.serviceRequest(FeedbackService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = FeedbackService.baseUrl + '/' + x;
+            });
+        })(FeedbackService = ACN.FeedbackService || (ACN.FeedbackService = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
         var MeetingAbsentForm = (function (_super) {
             __extends(MeetingAbsentForm, _super);
             function MeetingAbsentForm() {
@@ -2842,6 +2891,55 @@ var coromendal;
                 Methods[x] = NotesService.baseUrl + '/' + x;
             });
         })(NotesService = ACN.NotesService || (ACN.NotesService = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var QuestionsForm = (function (_super) {
+            __extends(QuestionsForm, _super);
+            function QuestionsForm() {
+                _super.apply(this, arguments);
+            }
+            QuestionsForm.formKey = 'ACN.Questions';
+            return QuestionsForm;
+        }(Serenity.PrefixedContext));
+        ACN.QuestionsForm = QuestionsForm;
+        [['Questiontext', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(QuestionsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var QuestionsRow;
+        (function (QuestionsRow) {
+            QuestionsRow.idProperty = 'QuestionId';
+            QuestionsRow.nameProperty = 'Questiontext';
+            QuestionsRow.localTextPrefix = 'ACN.Questions';
+            var Fields;
+            (function (Fields) {
+            })(Fields = QuestionsRow.Fields || (QuestionsRow.Fields = {}));
+            ['QuestionId', 'Questiontext'].forEach(function (x) { return Fields[x] = x; });
+        })(QuestionsRow = ACN.QuestionsRow || (ACN.QuestionsRow = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var QuestionsService;
+        (function (QuestionsService) {
+            QuestionsService.baseUrl = 'ACN/Questions';
+            var Methods;
+            (function (Methods) {
+            })(Methods = QuestionsService.Methods || (QuestionsService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                QuestionsService[x] = function (r, s, o) { return Q.serviceRequest(QuestionsService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = QuestionsService.baseUrl + '/' + x;
+            });
+        })(QuestionsService = ACN.QuestionsService || (ACN.QuestionsService = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -6783,6 +6881,96 @@ var coromendal;
 (function (coromendal) {
     var ACN;
     (function (ACN) {
+        var QuestionsDialog = (function (_super) {
+            __extends(QuestionsDialog, _super);
+            function QuestionsDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.QuestionsForm(this.idPrefix);
+            }
+            QuestionsDialog.prototype.getFormKey = function () { return ACN.QuestionsForm.formKey; };
+            QuestionsDialog.prototype.getIdProperty = function () { return ACN.QuestionsRow.idProperty; };
+            QuestionsDialog.prototype.getLocalTextPrefix = function () { return ACN.QuestionsRow.localTextPrefix; };
+            QuestionsDialog.prototype.getNameProperty = function () { return ACN.QuestionsRow.nameProperty; };
+            QuestionsDialog.prototype.getService = function () { return ACN.QuestionsService.baseUrl; };
+            QuestionsDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], QuestionsDialog);
+            return QuestionsDialog;
+        }(Serenity.EntityDialog));
+        ACN.QuestionsDialog = QuestionsDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var QuestionsEditor = (function (_super) {
+            __extends(QuestionsEditor, _super);
+            function QuestionsEditor(container) {
+                _super.call(this, container);
+            }
+            QuestionsEditor.prototype.getColumnsKey = function () { return 'ACN.Questions'; };
+            QuestionsEditor.prototype.getDialogType = function () { return ACN.QuestionsEditorDialog; };
+            QuestionsEditor.prototype.getLocalTextPrefix = function () { return ACN.QuestionsRow.localTextPrefix; };
+            QuestionsEditor = __decorate([
+                Serenity.Decorators.registerClass()
+            ], QuestionsEditor);
+            return QuestionsEditor;
+        }(coromendal.Common.GridEditorBase));
+        ACN.QuestionsEditor = QuestionsEditor;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var QuestionsEditorDialog = (function (_super) {
+            __extends(QuestionsEditorDialog, _super);
+            function QuestionsEditorDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.QuestionsForm(this.idPrefix);
+            }
+            QuestionsEditorDialog.prototype.getFormKey = function () { return ACN.QuestionsForm.formKey; };
+            QuestionsEditorDialog.prototype.getLocalTextPrefix = function () { return ACN.QuestionsRow.localTextPrefix; };
+            QuestionsEditorDialog.prototype.getNameProperty = function () { return ACN.QuestionsRow.nameProperty; };
+            QuestionsEditorDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], QuestionsEditorDialog);
+            return QuestionsEditorDialog;
+        }(coromendal.Common.GridEditorDialog));
+        ACN.QuestionsEditorDialog = QuestionsEditorDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var QuestionsGrid = (function (_super) {
+            __extends(QuestionsGrid, _super);
+            function QuestionsGrid(container) {
+                _super.call(this, container);
+            }
+            QuestionsGrid.prototype.getColumnsKey = function () { return 'ACN.Questions'; };
+            QuestionsGrid.prototype.getDialogType = function () { return ACN.QuestionsDialog; };
+            QuestionsGrid.prototype.getIdProperty = function () { return ACN.QuestionsRow.idProperty; };
+            QuestionsGrid.prototype.getLocalTextPrefix = function () { return ACN.QuestionsRow.localTextPrefix; };
+            QuestionsGrid.prototype.getService = function () { return ACN.QuestionsService.baseUrl; };
+            QuestionsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], QuestionsGrid);
+            return QuestionsGrid;
+        }(Serenity.EntityGrid));
+        ACN.QuestionsGrid = QuestionsGrid;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
         var NoteDialog = (function (_super) {
             __extends(NoteDialog, _super);
             function NoteDialog() {
@@ -7231,6 +7419,96 @@ var coromendal;
             return MeetingAbsentEditor;
         }(coromendal.Common.GridEditorBase));
         ACN.MeetingAbsentEditor = MeetingAbsentEditor;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var FeedbackDialog = (function (_super) {
+            __extends(FeedbackDialog, _super);
+            function FeedbackDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.FeedbackForm(this.idPrefix);
+            }
+            FeedbackDialog.prototype.getFormKey = function () { return ACN.FeedbackForm.formKey; };
+            FeedbackDialog.prototype.getIdProperty = function () { return ACN.FeedbackRow.idProperty; };
+            FeedbackDialog.prototype.getLocalTextPrefix = function () { return ACN.FeedbackRow.localTextPrefix; };
+            FeedbackDialog.prototype.getNameProperty = function () { return ACN.FeedbackRow.nameProperty; };
+            FeedbackDialog.prototype.getService = function () { return ACN.FeedbackService.baseUrl; };
+            FeedbackDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], FeedbackDialog);
+            return FeedbackDialog;
+        }(Serenity.EntityDialog));
+        ACN.FeedbackDialog = FeedbackDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var FeedbackEditor = (function (_super) {
+            __extends(FeedbackEditor, _super);
+            function FeedbackEditor(container) {
+                _super.call(this, container);
+            }
+            FeedbackEditor.prototype.getColumnsKey = function () { return 'ACN.Feedback'; };
+            FeedbackEditor.prototype.getDialogType = function () { return ACN.FeedbackEditorDialog; };
+            FeedbackEditor.prototype.getLocalTextPrefix = function () { return ACN.FeedbackRow.localTextPrefix; };
+            FeedbackEditor = __decorate([
+                Serenity.Decorators.registerClass()
+            ], FeedbackEditor);
+            return FeedbackEditor;
+        }(coromendal.Common.GridEditorBase));
+        ACN.FeedbackEditor = FeedbackEditor;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var FeedbackEditorDialog = (function (_super) {
+            __extends(FeedbackEditorDialog, _super);
+            function FeedbackEditorDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.FeedbackForm(this.idPrefix);
+            }
+            FeedbackEditorDialog.prototype.getFormKey = function () { return ACN.FeedbackForm.formKey; };
+            FeedbackEditorDialog.prototype.getLocalTextPrefix = function () { return ACN.FeedbackRow.localTextPrefix; };
+            FeedbackEditorDialog.prototype.getNameProperty = function () { return ACN.FeedbackRow.nameProperty; };
+            FeedbackEditorDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], FeedbackEditorDialog);
+            return FeedbackEditorDialog;
+        }(coromendal.Common.GridEditorDialog));
+        ACN.FeedbackEditorDialog = FeedbackEditorDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var FeedbackGrid = (function (_super) {
+            __extends(FeedbackGrid, _super);
+            function FeedbackGrid(container) {
+                _super.call(this, container);
+            }
+            FeedbackGrid.prototype.getColumnsKey = function () { return 'ACN.Feedback'; };
+            FeedbackGrid.prototype.getDialogType = function () { return ACN.FeedbackDialog; };
+            FeedbackGrid.prototype.getIdProperty = function () { return ACN.FeedbackRow.idProperty; };
+            FeedbackGrid.prototype.getLocalTextPrefix = function () { return ACN.FeedbackRow.localTextPrefix; };
+            FeedbackGrid.prototype.getService = function () { return ACN.FeedbackService.baseUrl; };
+            FeedbackGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], FeedbackGrid);
+            return FeedbackGrid;
+        }(Serenity.EntityGrid));
+        ACN.FeedbackGrid = FeedbackGrid;
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;

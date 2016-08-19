@@ -11,7 +11,7 @@ namespace coromendal.ACN.Pages
     [RoutePrefix("ACN/MeetingPoints"), Route("{action=index}")]
     public class MeetingPointsController : Controller
     {
-        [PageAuthorize("Administration")]
+        [PageAuthorize("ACNAdministration")]
         public ActionResult Index()
         {
             return View("~/Modules/ACN/MeetingPoints/MeetingPointsIndex.cshtml");

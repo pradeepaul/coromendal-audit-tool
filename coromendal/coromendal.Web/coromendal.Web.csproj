@@ -1800,6 +1800,34 @@
     <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsEditorDialog.ts" />
+    <Content Include="Modules\ACN\Questions\QuestionsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.QuestionsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.QuestionsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.QuestionsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Questions\QuestionsGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Questions\QuestionsDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Questions\QuestionsEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Questions\QuestionsEditorDialog.ts" />
+    <Content Include="Modules\ACN\Feedback\FeedbackIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FeedbackRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FeedbackService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FeedbackForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1820,6 +1848,7 @@
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingPointsEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Notes\NotesBehavior.cs" />
     <Compile Include="Modules\ACN\Notes\NotesEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\PermissionKeys.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
@@ -2132,6 +2161,18 @@
     <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsRepository.cs" />
     <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsEndpoint.cs" />
     <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsPage.cs" />
+    <Compile Include="Modules\ACN\Questions\QuestionsRow.cs" />
+    <Compile Include="Modules\ACN\Questions\QuestionsColumns.cs" />
+    <Compile Include="Modules\ACN\Questions\QuestionsForm.cs" />
+    <Compile Include="Modules\ACN\Questions\QuestionsRepository.cs" />
+    <Compile Include="Modules\ACN\Questions\QuestionsEndpoint.cs" />
+    <Compile Include="Modules\ACN\Questions\QuestionsPage.cs" />
+    <Compile Include="Modules\ACN\Feedback\FeedbackRow.cs" />
+    <Compile Include="Modules\ACN\Feedback\FeedbackColumns.cs" />
+    <Compile Include="Modules\ACN\Feedback\FeedbackForm.cs" />
+    <Compile Include="Modules\ACN\Feedback\FeedbackRepository.cs" />
+    <Compile Include="Modules\ACN\Feedback\FeedbackEndpoint.cs" />
+    <Compile Include="Modules\ACN\Feedback\FeedbackPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

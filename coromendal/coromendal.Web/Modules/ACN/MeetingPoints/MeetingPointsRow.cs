@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("MeetingPoints"), InstanceName("MeetingPoints"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.MeetingPoints.View)]
+    [ModifyPermission(ACN.PermissionKeys.MeetingPoints.Modify)]
+    [DeletePermission(ACN.PermissionKeys.MeetingPoints.Delete)]
     public sealed class MeetingPointsRow : Row, IIdRow, INameRow
     {
         [DisplayName("Meeting Points Id"), Column("MeetingPointsID"), Identity]

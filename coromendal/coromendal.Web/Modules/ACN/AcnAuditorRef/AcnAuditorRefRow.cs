@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("AcnAuditorRef"), InstanceName("AcnAuditorRef"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.AcnAuditorRef.View)]
+    [ModifyPermission(ACN.PermissionKeys.AcnAuditorRef.Modify)]
+    [DeletePermission(ACN.PermissionKeys.AcnAuditorRef.Delete)]
     public sealed class AcnAuditorRefRow : Row, IIdRow
     {
         [DisplayName("Acn Auditor Ref Id"), Column("AcnAuditorRefID"), Identity]

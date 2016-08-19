@@ -12,9 +12,10 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("AcnAuditor"), InstanceName("AcnAuditor"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
     [LookupScript("Northwind.AcnAuditor")]
+    [ReadPermission(ACN.PermissionKeys.AcnAuditor.View)]
+    [ModifyPermission(ACN.PermissionKeys.AcnAuditor.Modify)]
+    [DeletePermission(ACN.PermissionKeys.AcnAuditor.Delete)]
     public sealed class AcnAuditorRow : Row, IIdRow, INameRow
     {
         [DisplayName("Acn Auditor Id"), Column("AcnAuditorID"), Identity]
