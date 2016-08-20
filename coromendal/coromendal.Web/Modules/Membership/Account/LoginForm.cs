@@ -12,9 +12,9 @@ namespace coromendal.Membership.Forms
     [BasedOnRow(typeof(Administration.Entities.UserRow))]
     public class LoginForm
     {
-        [Placeholder("default username is 'admin'")]
+        [Placeholder("")]
         public String Username { get; set; }
-        [PasswordEditor, Placeholder("default password for admin user is 'serenity'"), Required(true)]
+        [PasswordEditor, Placeholder(""), Required(true)]
         public String Password { get; set; }
     }
 }
