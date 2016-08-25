@@ -1933,7 +1933,19 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_131204_Feedback.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_130304_MeetingAbsent.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_130904_Question.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_112004_AcnAuditee.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_112404_AcnAuditor.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_113104_AcnAuditorRef.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_113604_AcnAuditeeRef.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_114904_Minutesofmeeting.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_120204_MeetingPoints.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_121304_MeetingIssues.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_122004_MyNotes.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160605_215300_Granted.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104304_Acn.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
