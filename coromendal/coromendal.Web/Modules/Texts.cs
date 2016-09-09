@@ -46,7 +46,7 @@ namespace coromendal
 
                 public static class ResetPassword
                 {
-                    public static LocalText EmailSubject = "Reset Your coromendal Password";
+                    public static LocalText EmailSubject = "Reset Your coromendel Password";
                     public static LocalText FormTitle = "Reset Password";
                     public static LocalText SubmitButton = "Reset Password";
                     public static LocalText Success = "Your password is changed. Please login with your new password.";
@@ -54,7 +54,7 @@ namespace coromendal
 
                 public static class Login
                 {
-                    public static LocalText FormTitle = "Welcome to Coromendal";
+                    public static LocalText FormTitle = "Welcome to Coromendel";
                     public static LocalText SignInButton = "Sign In";
                     public static LocalText ForgotPassword = "forgot password?";
                     public static LocalText SignUpButton = "register a new account";
@@ -62,7 +62,7 @@ namespace coromendal
 
                 public static class SignUp
                 {
-                    public static LocalText ActivateEmailSubject = "Activate Your coromendal Account";
+                    public static LocalText ActivateEmailSubject = "Activate Your coromendel Account";
                     public static LocalText ActivationCompleteMessage = "Your account is now activated. " +
                         "Use the e-mail and password you used while signing up to login.";
                     public static LocalText FormInfo = "Enter your details to create a free account.";
