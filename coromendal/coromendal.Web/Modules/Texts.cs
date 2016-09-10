@@ -46,7 +46,7 @@ namespace coromendal
 
                 public static class ResetPassword
                 {
-                    public static LocalText EmailSubject = "Reset Your coromendel Password";
+                    public static LocalText EmailSubject = "Reset Your coromandel Password";
                     public static LocalText FormTitle = "Reset Password";
                     public static LocalText SubmitButton = "Reset Password";
                     public static LocalText Success = "Your password is changed. Please login with your new password.";
@@ -54,7 +54,7 @@ namespace coromendal
 
                 public static class Login
                 {
-                    public static LocalText FormTitle = "Welcome to Coromendel";
+                    public static LocalText FormTitle = "Coromandel Audit Tool";
                     public static LocalText SignInButton = "Sign In";
                     public static LocalText ForgotPassword = "forgot password?";
                     public static LocalText SignUpButton = "register a new account";
@@ -62,11 +62,11 @@ namespace coromendal
 
                 public static class SignUp
                 {
-                    public static LocalText ActivateEmailSubject = "Activate Your coromendel Account";
+                    public static LocalText ActivateEmailSubject = "Activate Your coromandel Account";
                     public static LocalText ActivationCompleteMessage = "Your account is now activated. " +
                         "Use the e-mail and password you used while signing up to login.";
                     public static LocalText FormInfo = "Enter your details to create a free account.";
-                    public static LocalText FormTitle = "Sign up for coromendal";
+                    public static LocalText FormTitle = "Sign up for coromandal";
                     public static LocalText SubmitButton = "Sign Up";
                     public static LocalText Success = "An e-mail with instructions to active your account is " +
                         "sent to your e-mail address. Please check your e-mails.";
@@ -83,7 +83,7 @@ namespace coromendal
         public static class Navigation
         {
             public static LocalText LogoutLink = "Logout";
-            public static LocalText SiteTitle = "coromendal";
+            public static LocalText SiteTitle = "coromandal";
         }
 
         public static class Site
@@ -142,9 +142,9 @@ namespace coromendal
 
             public static class Layout
             {
-                public static LocalText FooterCopyright = "Copyright (c) 2016. Designed and Developed by Transfuse Inc";
+                public static LocalText FooterCopyright = "Copyright (c) 2016. Designed and Developed by Transfuse Inc.";
                 public static LocalText FooterInfo = "";
-                public static LocalText FooterRights = ".";
+                public static LocalText FooterRights = "";
                 public static LocalText GeneralSettings = "General Settings";
                 public static LocalText Language = "Language";
                 public static LocalText Theme = "Theme";

@@ -3,7 +3,7 @@ using Northwind = coromendal.Northwind.Pages;
 using Administration = coromendal.Administration.Pages;
 using Basic = coromendal.BasicSamples.Pages;
 
-[assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
+/*[assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 
 [assembly: NavigationMenu(7000, "Northwind", icon: "icon-anchor")]
 [assembly: NavigationLink(7100, "Northwind/Customers", typeof(Northwind.CustomerController), icon: "icon-wallet")]
@@ -85,7 +85,7 @@ using Basic = coromendal.BasicSamples.Pages;
 [assembly: NavigationLink(8820, "Theme Samples/Examples/Error 404", url: "~/AdminLTE/Examples/Error404", permission: "")]
 [assembly: NavigationLink(8820, "Theme Samples/Examples/Error 500", url: "~/AdminLTE/Examples/Error500", permission: "")]
 [assembly: NavigationLink(8820, "Theme Samples/Examples/Blank Page", url: "~/AdminLTE/Examples/BlankPage", permission: "")]
-[assembly: NavigationLink(8820, "Theme Samples/Examples/Pace Page", url: "~/AdminLTE/Examples/PacePage", permission: "")]
+[assembly: NavigationLink(8820, "Theme Samples/Examples/Pace Page", url: "~/AdminLTE/Examples/PacePage", permission: "")]*/
 
 [assembly: NavigationMenu(9000, "Administration", icon: "icon-screen-desktop")]
 [assembly: NavigationLink(9100, "Administration/Languages", typeof(Administration.LanguageController), icon: "icon-bubbles")]
