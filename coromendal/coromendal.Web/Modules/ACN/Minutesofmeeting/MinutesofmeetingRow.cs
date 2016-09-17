@@ -69,14 +69,19 @@ namespace coromendal.ACN.Entities
             set { Fields.Venue[this] = value; }
         }
 
-        [DisplayName("Auditor"), Column("auditor")]
+
+
+       [DisplayName("Auditor"), Column("auditor")]
+       [LookupEditor(typeof(AcnAuditorRow), Multiple = true), ClientSide]
         public Int32? Auditor
         {
             get { return Fields.Auditor[this]; }
             set { Fields.Auditor[this] = value; }
         }
 
-        [DisplayName("Auditee"), Column("auditee")]
+        
+       [DisplayName("Auditee"), Column("auditee")]
+       [LookupEditor(typeof(AcnAuditorRow), Multiple = true), ClientSide]
         public Int32? Auditee
         {
             get { return Fields.Auditee[this]; }

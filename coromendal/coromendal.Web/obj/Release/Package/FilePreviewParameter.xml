@@ -4,10 +4,10 @@
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\coromendal-audit-tool\\coromendal\\coromendal\.Web\\obj\\Release\\Package\\PackageTmp$" />
     <parameterEntry kind="ProviderPath" scope="setAcl" match="^F:\\coromendal-audit-tool\\coromendal\\coromendal\.Web\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="Default-Web.config Connection String" description="" value="Data Source=serenity-dev-tf.database.windows.net;User ID=tf_audit_tool_adm;Password=Tf@aud1tT00l" tags="">
+  <parameter name="Default-Web.config Connection String" description="" value="Data Source=serenity-dev-tf.database.windows.net;Initial Catalog=tf-audit-tool;User ID=tf_audit_tool_adm;Password=Tf@aud1tT00l" tags="">
     <parameterEntry kind="XmlFile" scope="F:\\coromendal-audit-tool\\coromendal\\coromendal\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Default']/@connectionString" />
   </parameter>
-  <parameter name="Northwind-Web.config Connection String" description="" value="Data Source=serenity-dev-tf.database.windows.net;User ID=tf_audit_tool_adm;Password=Tf@aud1tT00l" tags="">
+  <parameter name="Northwind-Web.config Connection String" description="" value="Data Source=serenity-dev-tf.database.windows.net;Initial Catalog=tf-audit-tool;User ID=tf_audit_tool_adm;Password=Tf@aud1tT00l" tags="">
     <parameterEntry kind="XmlFile" scope="F:\\coromendal-audit-tool\\coromendal\\coromendal\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Northwind']/@connectionString" />
   </parameter>
 </parameters>

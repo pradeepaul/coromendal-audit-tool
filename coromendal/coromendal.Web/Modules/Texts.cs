@@ -142,7 +142,7 @@ namespace coromendal
 
             public static class Layout
             {
-                public static LocalText FooterCopyright = "Copyright (c) 2016. Designed and Developed by Transfuse Inc.";
+                public static LocalText FooterCopyright = "Copyright (c) 2016. Designed and Developed by Hoopla";
                 public static LocalText FooterInfo = "";
                 public static LocalText FooterRights = "";
                 public static LocalText GeneralSettings = "General Settings";

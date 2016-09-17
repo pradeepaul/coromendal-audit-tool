@@ -25,6 +25,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Meeting"), Column("MeetingID"), ForeignKey("[dbo].[minutesofmeeting]", "meetingid"), LeftJoin("jMeeting"), TextualField("MeetingTitle")]
+        [LookupEditor(typeof(MinutesofmeetingRow))]
         public Int32? MeetingId
         {
             get { return Fields.MeetingId[this]; }
