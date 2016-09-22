@@ -49,7 +49,7 @@ namespace coromendal
 
             if (report is IDataOnlyReport)
             {
-                ext = "xlsx";
+                ext = "docx";
                 renderedBytes = new ReportRepository().Render((IDataOnlyReport)report);
             }
             else

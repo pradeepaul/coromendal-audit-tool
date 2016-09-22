@@ -57,6 +57,10 @@
       <HintPath>..\..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
       <Private>True</Private>
@@ -1107,6 +1111,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\RolePermission\RolePermissionDialog.ts" />
@@ -1184,6 +1189,7 @@
     <TypeScriptCompile Include="Modules\BasicSamples\Grids\InitialValuesForQuickFilters\InitialValuesForQuickFilters.ts" />
     <TypeScriptCompile Include="Modules\BasicSamples\Grids\CustomLinksInGrid\CustomLinksInGrid.ts" />
     <TypeScriptCompile Include="Modules\BasicSamples\Grids\VSGalleryQA\VSGalleryQAGrid.ts" />
+    <TypeScriptCompile Include="Modules\Common\Helpers\WordExportHelper.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\LanguageList.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\DialogUtils.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\BasicSamples.InlineImageInGridColumns.ts">
@@ -1845,9 +1851,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\AuditorLookup.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\AuditeeLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingAbsentEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingIssueEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingPointsEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MovieListRequest.cs" />
     <Compile Include="Modules\ACN\Notes\NotesBehavior.cs" />
     <Compile Include="Modules\ACN\Notes\NotesEditorAttribute.cs" />
     <Compile Include="Modules\ACN\PermissionKeys.cs" />
@@ -1973,6 +1983,7 @@
     <Compile Include="Modules\Common\Navigation\NavigationModel.cs" />
     <Content Include="Modules\Northwind\Customer\Northwind.CustomerDialog.Template.html" />
     <Compile Include="Modules\Common\Reporting\DynamicDataReport.cs" />
+    <Compile Include="Modules\Common\Reporting\WordReportGenerator.cs" />
     <Compile Include="Modules\Common\Reporting\ExcelReportGenerator.cs" />
     <Compile Include="Modules\Common\Reporting\ReportController.cs" />
     <Compile Include="Modules\Common\Reporting\ReportRepository.cs" />

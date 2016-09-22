@@ -7963,3 +7963,9 @@ section.content > .s-DataGrid {
 .s-ACN-FeedbackDialog .caption {
   width: 150px;
 }
+.percent-complete-bar {
+  display: inline-block;
+  height: 6px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}

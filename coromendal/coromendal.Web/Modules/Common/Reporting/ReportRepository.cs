@@ -16,7 +16,8 @@
             foreach (var item in list)
                 data.Add(item);
 
-            return ExcelReportGenerator.GeneratePackageBytes(columns, data);
+            //return ExcelReportGenerator.GeneratePackageBytes(columns, data);
+            return WordReportGenerator.GeneratePackageBytes(columns, data);
         }
     }
 }

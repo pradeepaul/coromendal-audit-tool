@@ -72,7 +72,6 @@ namespace coromendal.ACN.Entities
 
 
        [DisplayName("Auditor"), Column("auditor")]
-       [LookupEditor(typeof(AcnAuditorRow), Multiple = true), ClientSide]
         public Int32? Auditor
         {
             get { return Fields.Auditor[this]; }
@@ -81,7 +80,6 @@ namespace coromendal.ACN.Entities
 
         
        [DisplayName("Auditee"), Column("auditee")]
-       [LookupEditor(typeof(AcnAuditorRow), Multiple = true), ClientSide]
         public Int32? Auditee
         {
             get { return Fields.Auditee[this]; }

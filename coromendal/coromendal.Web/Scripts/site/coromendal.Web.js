@@ -4345,6 +4345,44 @@ var coromendal;
 })(coromendal || (coromendal = {}));
 var coromendal;
 (function (coromendal) {
+    var Common;
+    (function (Common) {
+        var WordExportHelper;
+        (function (WordExportHelper) {
+            function createToolButton(options) {
+                return {
+                    hint: Q.coalesce(options.title, 'Word'),
+                    title: Q.coalesce(options.hint, ''),
+                    cssClass: 'export-word-button',
+                    onClick: function () {
+                        if (!options.onViewSubmit()) {
+                            return;
+                        }
+                        var grid = options.grid;
+                        var request = Q.deepClone(grid.getView().params);
+                        request.Take = 0;
+                        request.Skip = 0;
+                        var sortBy = grid.getView().sortBy;
+                        if (sortBy) {
+                            request.Sort = sortBy;
+                        }
+                        request.IncludeColumns = [];
+                        var columns = grid.getGrid().getColumns();
+                        for (var _i = 0, columns_2 = columns; _i < columns_2.length; _i++) {
+                            var column = columns_2[_i];
+                            request.IncludeColumns.push(column.id || column.field);
+                        }
+                        Q.postToService({ service: options.service, request: request, target: '_blank' });
+                    },
+                    separator: options.separator
+                };
+            }
+            WordExportHelper.createToolButton = createToolButton;
+        })(WordExportHelper = Common.WordExportHelper || (Common.WordExportHelper = {}));
+    })(Common = coromendal.Common || (coromendal.Common = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
     var BasicSamples;
     (function (BasicSamples) {
         var VSGalleryQAGrid = (function (_super) {
@@ -7155,6 +7193,29 @@ var coromendal;
 (function (coromendal) {
     var ACN;
     (function (ACN) {
+        var AuditorListFormatter = (function () {
+            function AuditorListFormatter() {
+            }
+            AuditorListFormatter.prototype.format = function (ctx) {
+                var idList = ctx.value;
+                if (!idList || !idList.length)
+                    return "";
+                var byId = ACN.AcnAuditorRow.Fields.AcnAuditorId;
+                var z;
+                return idList.map(function (x) { return ((z = byId[x]) ? z.Name : x); }).join(", ");
+            };
+            AuditorListFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], AuditorListFormatter);
+            return AuditorListFormatter;
+        }());
+        ACN.AuditorListFormatter = AuditorListFormatter;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
         var MinutesofmeetingDialog = (function (_super) {
             __extends(MinutesofmeetingDialog, _super);
             function MinutesofmeetingDialog() {
@@ -7233,6 +7294,24 @@ var coromendal;
             MinutesofmeetingGrid.prototype.getIdProperty = function () { return ACN.MinutesofmeetingRow.idProperty; };
             MinutesofmeetingGrid.prototype.getLocalTextPrefix = function () { return ACN.MinutesofmeetingRow.localTextPrefix; };
             MinutesofmeetingGrid.prototype.getService = function () { return ACN.MinutesofmeetingService.baseUrl; };
+            MinutesofmeetingGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push(coromendal.Common.WordExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    service: 'ACN/Minutesofmeeting/DownloadWord',
+                    separator: true
+                }));
+                return buttons;
+            };
+            MinutesofmeetingGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                var fld = ACN.MinutesofmeetingRow.Fields;
+                Q.first(columns, function (x) { return x.field == fld.Auditee; }).format =
+                    function (ctx) { return ("<a href=\"javascript:;\" class=\"customer-link\">" + Q.htmlEncode(ctx.value) + "</a>"); };
+                return columns;
+            };
             MinutesofmeetingGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], MinutesofmeetingGrid);
