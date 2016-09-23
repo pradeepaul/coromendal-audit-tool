@@ -10,6 +10,7 @@ namespace coromendal.ACN {
         Venue?: string;
         Auditor?: number;
         Auditee?: number;
+        Download?: number;
         AcnidAcnTilte?: string;
     }
 
@@ -28,10 +29,11 @@ namespace coromendal.ACN {
             export declare const Venue;
             export declare const Auditor;
             export declare const Auditee;
+            export declare const Download;
             export declare const AcnidAcnTilte: string;
         }
 
-        ['Meetingid', 'Acnid', 'Title', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'AcnidAcnTilte'].forEach(x => (<any>Fields)[x] = x);
+        ['Meetingid', 'Acnid', 'Title', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee','Download', 'AcnidAcnTilte'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

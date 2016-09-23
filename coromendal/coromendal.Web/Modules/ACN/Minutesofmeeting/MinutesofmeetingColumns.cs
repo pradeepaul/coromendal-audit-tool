@@ -22,9 +22,9 @@ namespace coromendal.ACN.Columns
         public String Period { get; set; }
         public Int32 Time { get; set; }
         public String Venue { get; set; }
-        
         public Int32 Auditor { get; set; }
         public Int32 Auditee { get; set; }
+        public Int32 Download { get; set; }
 
     }
 }

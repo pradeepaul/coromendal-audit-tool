@@ -17,7 +17,9 @@ namespace coromendal.ACN.Columns
         public Int32 AcnId { get; set; }
         [EditLink]
         public String AcnTilte { get; set; }
+        [Width(250), AcnListFormatter]
         public String Auditor { get; set; }
+        [Width(250), AcnAuditeeListFormatter]
         public String Auditee { get; set; }
     }
 }

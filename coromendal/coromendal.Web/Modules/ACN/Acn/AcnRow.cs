@@ -14,11 +14,11 @@ namespace coromendal.ACN.Entities
     using ACN;
 
 
-    [ConnectionKey("Default"), DisplayName("Acn"), InstanceName("Acn"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Commencement Note"), InstanceName("Acn"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.NewAcn.View)]
     [ModifyPermission(ACN.PermissionKeys.NewAcn.Modify)]
     [DeletePermission(ACN.PermissionKeys.NewAcn.Delete)]
-    [LookupScript("ACN")]
+    [LookupScript("ACN.Acn")]
     public sealed class AcnRow : Row, IIdRow, INameRow
     {
         [DisplayName("Acn Id"), Column("acnID"), Identity]

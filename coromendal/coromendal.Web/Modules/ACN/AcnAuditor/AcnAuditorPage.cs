@@ -1,7 +1,4 @@
 ﻿
-
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/AcnAuditor", typeof(coromendal.ACN.Pages.AcnAuditorController))]
-
 namespace coromendal.ACN.Pages
 {
     using Serenity;

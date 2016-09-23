@@ -17,14 +17,15 @@ namespace coromendal.ACN.Scripts
 
         protected override void PrepareQuery(SqlQuery query)
         {
-            
+            string command = "SELECT * FROM Programs";
             var fld = Entities.MinutesofmeetingRow.Fields;
             var fl = Entities.AcnAuditeeRefRow.Fields.As("fl");
             var sa = query.Distinct(true)
-                .Select(fld.Auditee)
+                .Select(fl.AcnAuditeeId)
                 .LeftJoin(fl, fl.AcnId == fld.Acnid)
                 .Where(
-                   (fl.AcnId ==fld.Acnid ) & (fl.AcnAuditeeId == fld.Auditee));
+                   (fl.AcnId == 4 ));
+            System.Console.WriteLine(sa);
 
         }
 

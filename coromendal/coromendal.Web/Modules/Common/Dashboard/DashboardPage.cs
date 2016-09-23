@@ -6,6 +6,7 @@ namespace coromendal.Common.Pages
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
+    using Serenity.Web;
     using System;
     using System.Web.Mvc;
     using System.Web.Security;
@@ -13,7 +14,7 @@ namespace coromendal.Common.Pages
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        [Authorize, HttpGet, Route("~/")]
+         [PageAuthorize("Administration")]
         public ActionResult Index()
         {
             var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),

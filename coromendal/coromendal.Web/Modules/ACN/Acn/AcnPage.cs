@@ -1,7 +1,4 @@
 ﻿
-
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/Acn", typeof(coromendal.ACN.Pages.AcnController))]
-
 namespace coromendal.ACN.Pages
 {
     using Serenity;
@@ -11,7 +8,8 @@ namespace coromendal.ACN.Pages
     [RoutePrefix("ACN/Acn"), Route("{action=index}")]
     public class AcnController : Controller
     {
-        [PageAuthorize("ACNAdministration")]
+       
+        [Authorize, HttpGet, Route("~/")]
         public ActionResult Index()
         {
             return View("~/Modules/ACN/Acn/AcnIndex.cshtml");

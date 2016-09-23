@@ -21,20 +21,31 @@ namespace coromendal.ACN {
                 service: 'ACN/Minutesofmeeting/DownloadWord',
                 separator: true
             }));
+            
             return buttons;
         }
         protected getColumns(): Slick.Column[] {
             var columns = super.getColumns();
             var fld = ACN.MinutesofmeetingRow.Fields;
-            Q.first(columns, x => x.field == fld.Auditee).format =
-                ctx => `<a href="javascript:;" class="customer-link">${Q.htmlEncode(ctx.value)}</a>`;
+            Q.first(columns, x => x.field == fld.Download).format =
+                ctx => `<a href="javascript:;" class="customer-link">Click</a>`;
             return columns;
         }
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void {
 
-        
-       
-
-        
+            super.onClick(e, row, cell);
+            if (e.isDefaultPrevented()) {
+                return;
+            }
+            var item = this.itemAt(row);
+            var target = $(e.target);
+            if (target.hasClass("customer-link")) {
+                e.preventDefault();
+                var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
+                Q.postToService({ service: 'ACN/Minutesofmeeting/DownloadWord', request: request, target: '_blank' });
+                //this.getButtons();
+            }
+        }
 
 
     }

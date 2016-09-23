@@ -22,7 +22,7 @@ namespace coromendal.ACN.Scripts
                 .Select(fld.Auditor)
                 .LeftJoin(fl, fl.AcnId == fld.Acnid)
                 .Where(
-                   (fl.AcnId == fld.Acnid) & (fl.AcnAuditorId == fld.Auditor));
+                   (fl.AcnId == 4) & (fl.AcnAuditorId == fld.Auditor));
         }
 
         protected override void ApplyOrder(SqlQuery query)

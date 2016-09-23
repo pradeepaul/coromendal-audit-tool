@@ -15,7 +15,7 @@ namespace coromendal.ACN.Entities
     [ReadPermission(ACN.PermissionKeys.AcnAuditee.View)]
     [ModifyPermission(ACN.PermissionKeys.AcnAuditee.Modify)]
     [DeletePermission(ACN.PermissionKeys.AcnAuditee.Delete)]
-    [LookupScript("Northwind.AcnAuditee")]
+    [LookupScript("ACN.AcnAuditee")]
     public sealed class AcnAuditeeRow : Row, IIdRow, INameRow
     {
         [DisplayName("Acn Auditee Id"), Column("AcnAuditeeID"), Identity]

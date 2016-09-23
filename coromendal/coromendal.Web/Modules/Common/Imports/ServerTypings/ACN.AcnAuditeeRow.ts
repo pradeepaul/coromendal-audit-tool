@@ -9,7 +9,9 @@ namespace coromendal.ACN {
         export const idProperty = 'AcnAuditeeId';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'ACN.AcnAuditee';
-
+        export function getLookup(): Q.Lookup<AcnAuditeeRow> {
+            return Q.getLookup<AcnAuditeeRow>('ACN.AcnAuditee');
+        }
         export namespace Fields {
             export declare const AcnAuditeeId;
             export declare const Name;

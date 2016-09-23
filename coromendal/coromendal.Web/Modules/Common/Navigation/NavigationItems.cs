@@ -2,6 +2,7 @@
 using Northwind = coromendal.Northwind.Pages;
 using Administration = coromendal.Administration.Pages;
 using Basic = coromendal.BasicSamples.Pages;
+using coromendal;
 
 /*[assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 
@@ -92,3 +93,11 @@ using Basic = coromendal.BasicSamples.Pages;
 [assembly: NavigationLink(9200, "Administration/Translations", typeof(Administration.TranslationController), icon: "icon-speech")]
 [assembly: NavigationLink(9300, "Administration/Roles", typeof(Administration.RoleController), icon: "icon-lock")]
 [assembly: NavigationLink(9400, "Administration/User Management", typeof(Administration.UserController), icon: "icon-people")]
+
+[assembly: NavigationMenu(10000, "Audit Tool", icon: "icon-screen-desktop")]
+[assembly: NavigationLink(10001, "ACN/Commencement Note", typeof(coromendal.ACN.Pages.AcnController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Auditee", typeof(coromendal.ACN.Pages.AcnAuditeeController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Auditor", typeof(coromendal.ACN.Pages.AcnAuditorController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Meeting Points", typeof(coromendal.ACN.Pages.MeetingPointsController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Minutes of Meeting", typeof(coromendal.ACN.Pages.MinutesofmeetingController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Meeting Issue", typeof(coromendal.ACN.Pages.MeetingIssueController), icon: "icon-people")]

@@ -2332,6 +2332,10 @@ var coromendal;
             AcnAuditeeRow.idProperty = 'AcnAuditeeId';
             AcnAuditeeRow.nameProperty = 'Name';
             AcnAuditeeRow.localTextPrefix = 'ACN.AcnAuditee';
+            function getLookup() {
+                return Q.getLookup('ACN.AcnAuditee');
+            }
+            AcnAuditeeRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = AcnAuditeeRow.Fields || (AcnAuditeeRow.Fields = {}));
@@ -2477,6 +2481,10 @@ var coromendal;
             AcnAuditorRow.idProperty = 'AcnAuditorId';
             AcnAuditorRow.nameProperty = 'Name';
             AcnAuditorRow.localTextPrefix = 'ACN.AcnAuditor';
+            function getLookup() {
+                return Q.getLookup('ACN.AcnAuditor');
+            }
+            AcnAuditorRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = AcnAuditorRow.Fields || (AcnAuditorRow.Fields = {}));
@@ -2774,7 +2782,7 @@ var coromendal;
             var Fields;
             (function (Fields) {
             })(Fields = MinutesofmeetingRow.Fields || (MinutesofmeetingRow.Fields = {}));
-            ['Meetingid', 'Acnid', 'Title', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'AcnidAcnTilte'].forEach(function (x) { return Fields[x] = x; });
+            ['Meetingid', 'Acnid', 'Title', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'AcnidAcnTilte'].forEach(function (x) { return Fields[x] = x; });
         })(MinutesofmeetingRow = ACN.MinutesofmeetingRow || (ACN.MinutesofmeetingRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
@@ -7308,9 +7316,22 @@ var coromendal;
             MinutesofmeetingGrid.prototype.getColumns = function () {
                 var columns = _super.prototype.getColumns.call(this);
                 var fld = ACN.MinutesofmeetingRow.Fields;
-                Q.first(columns, function (x) { return x.field == fld.Auditee; }).format =
-                    function (ctx) { return ("<a href=\"javascript:;\" class=\"customer-link\">" + Q.htmlEncode(ctx.value) + "</a>"); };
+                Q.first(columns, function (x) { return x.field == fld.Download; }).format =
+                    function (ctx) { return "<a href=\"javascript:;\" class=\"customer-link\">Click</a>"; };
                 return columns;
+            };
+            MinutesofmeetingGrid.prototype.onClick = function (e, row, cell) {
+                _super.prototype.onClick.call(this, e, row, cell);
+                if (e.isDefaultPrevented()) {
+                    return;
+                }
+                var item = this.itemAt(row);
+                var target = $(e.target);
+                if (target.hasClass("customer-link")) {
+                    e.preventDefault();
+                    var request = Q.deepClone(this.getView().params);
+                    Q.postToService({ service: 'ACN/Minutesofmeeting/DownloadWord', request: request, target: '_blank' });
+                }
             };
             MinutesofmeetingGrid = __decorate([
                 Serenity.Decorators.registerClass()
@@ -7453,6 +7474,51 @@ var coromendal;
             return MeetingIssueEditor;
         }(coromendal.Common.GridEditorBase));
         ACN.MeetingIssueEditor = MeetingIssueEditor;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var MeetingIssueEditorDialog = (function (_super) {
+            __extends(MeetingIssueEditorDialog, _super);
+            function MeetingIssueEditorDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.MeetingIssueForm(this.idPrefix);
+            }
+            MeetingIssueEditorDialog.prototype.getFormKey = function () { return ACN.MeetingIssueForm.formKey; };
+            MeetingIssueEditorDialog.prototype.getLocalTextPrefix = function () { return ACN.MeetingIssueRow.localTextPrefix; };
+            MeetingIssueEditorDialog.prototype.getNameProperty = function () { return ACN.MeetingIssueRow.nameProperty; };
+            MeetingIssueEditorDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], MeetingIssueEditorDialog);
+            return MeetingIssueEditorDialog;
+        }(coromendal.Common.GridEditorDialog));
+        ACN.MeetingIssueEditorDialog = MeetingIssueEditorDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var MeetingIssueGrid = (function (_super) {
+            __extends(MeetingIssueGrid, _super);
+            function MeetingIssueGrid(container) {
+                _super.call(this, container);
+            }
+            MeetingIssueGrid.prototype.getColumnsKey = function () { return 'ACN.MeetingIssue'; };
+            MeetingIssueGrid.prototype.getDialogType = function () { return ACN.MeetingIssueDialog; };
+            MeetingIssueGrid.prototype.getIdProperty = function () { return ACN.MeetingIssueRow.idProperty; };
+            MeetingIssueGrid.prototype.getLocalTextPrefix = function () { return ACN.MeetingIssueRow.localTextPrefix; };
+            MeetingIssueGrid.prototype.getService = function () { return ACN.MeetingIssueService.baseUrl; };
+            MeetingIssueGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MeetingIssueGrid);
+            return MeetingIssueGrid;
+        }(Serenity.EntityGrid));
+        ACN.MeetingIssueGrid = MeetingIssueGrid;
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -7950,6 +8016,30 @@ var coromendal;
 (function (coromendal) {
     var ACN;
     (function (ACN) {
+        var AcnAuditeeListFormatter = (function () {
+            function AcnAuditeeListFormatter() {
+            }
+            AcnAuditeeListFormatter.prototype.format = function (ctx) {
+                var idList = ctx.value;
+                if (!idList || !idList.length)
+                    return "";
+                var byId = ACN.AcnAuditeeRow.getLookup().itemById;
+                console.log(byId);
+                var z;
+                return idList.map(function (x) { return ((z = byId[x]) ? z.Name : x); }).join(", ");
+            };
+            AcnAuditeeListFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], AcnAuditeeListFormatter);
+            return AcnAuditeeListFormatter;
+        }());
+        ACN.AcnAuditeeListFormatter = AcnAuditeeListFormatter;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
         var AcnDialog = (function (_super) {
             __extends(AcnDialog, _super);
             function AcnDialog() {
@@ -8034,6 +8124,30 @@ var coromendal;
             return AcnGrid;
         }(Serenity.EntityGrid));
         ACN.AcnGrid = AcnGrid;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var AcnListFormatter = (function () {
+            function AcnListFormatter() {
+            }
+            AcnListFormatter.prototype.format = function (ctx) {
+                var idList = ctx.value;
+                if (!idList || !idList.length)
+                    return "";
+                var byId = ACN.AcnAuditorRow.getLookup().itemById;
+                console.log(byId);
+                var z;
+                return idList.map(function (x) { return ((z = byId[x]) ? z.Name : x); }).join(", ");
+            };
+            AcnListFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], AcnListFormatter);
+            return AcnListFormatter;
+        }());
+        ACN.AcnListFormatter = AcnListFormatter;
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 //# sourceMappingURL=coromendal.Web.js.map

@@ -20,9 +20,9 @@ namespace coromendal.ACN.Forms
         public DateTime Period { get; set; }
         public Int32 Time { get; set; }
         public String Venue { get; set; }
-        [Width(130), LookupEditor(typeof(Scripts.AuditorLookup)), QuickFilter, AuditorListFormatter]
+        
         public Int32 Auditor { get; set; }
-        [Width(130), LookupEditor(typeof(Scripts.AuditeeLookup)), QuickFilter]
+       
         public Int32 Auditee { get; set; }
         [Category("Absent Details")]
         [MeetingAbsentEditor]

@@ -72,6 +72,7 @@ namespace coromendal.ACN.Entities
 
 
        [DisplayName("Auditor"), Column("auditor")]
+        [LookupEditor(typeof(AcnAuditorRow))]
         public Int32? Auditor
         {
             get { return Fields.Auditor[this]; }
@@ -80,10 +81,17 @@ namespace coromendal.ACN.Entities
 
         
        [DisplayName("Auditee"), Column("auditee")]
+       [LookupEditor(typeof(AcnAuditeeRow))]
         public Int32? Auditee
         {
             get { return Fields.Auditee[this]; }
             set { Fields.Auditee[this] = value; }
+        }
+        [DisplayName("Download"), Column("download")]
+        public Int32? Download
+        {
+            get { return Fields.Download[this]; }
+            set { Fields.Download[this] = value; }
         }
 
         [DisplayName("Acnid Acn Tilte"), Expression("jAcnid.[AcnTilte]")]
@@ -144,6 +152,7 @@ namespace coromendal.ACN.Entities
             public StringField Venue;
             public Int32Field Auditor;
             public Int32Field Auditee;
+            public Int32Field Download;
             public RowListField<NoteRow> NoteList;
             public StringField AcnidAcnTilte;
             public RowListField<MeetingIssueRow> DetailList;

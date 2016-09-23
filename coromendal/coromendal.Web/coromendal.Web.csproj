@@ -1111,6 +1111,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Modules\ACN\Acn\AcnAuditeeListFormatter.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acn\AcnListFormatter.ts" />
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageGrid.ts" />
@@ -1836,6 +1838,8 @@
     <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1851,6 +1855,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ACN\Acn\AcnAuditeeListFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditeeLookup.cs" />
@@ -2196,6 +2202,7 @@
     <Compile Include="Modules\ACN\Feedback\FeedbackRepository.cs" />
     <Compile Include="Modules\ACN\Feedback\FeedbackEndpoint.cs" />
     <Compile Include="Modules\ACN\Feedback\FeedbackPage.cs" />
+    <Compile Include="Modules\ACN\MeetingIssue\MeetingIssuePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

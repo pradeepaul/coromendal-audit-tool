@@ -33,6 +33,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Absent User"), QuickSearch]
+        [LookupEditor(typeof(AcnAuditeeRow))]
         public Int32? AbsentUser
         {
             get { return Fields.AbsentUser[this]; }

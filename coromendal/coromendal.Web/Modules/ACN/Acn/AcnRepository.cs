@@ -35,7 +35,8 @@ namespace coromendal.ACN.Repositories
 
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
-            return new MyListHandler().Process(connection, request);
+            var ro = new MyListHandler().Process(connection, request);
+            return ro;
         }
 
         private class MySaveHandler : SaveRequestHandler<MyRow> { }

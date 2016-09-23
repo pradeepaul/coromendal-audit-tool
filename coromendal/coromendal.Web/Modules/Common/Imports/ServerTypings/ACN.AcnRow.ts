@@ -9,7 +9,7 @@ namespace coromendal.ACN {
         export const idProperty = 'AcnId';
         export const nameProperty = 'AcnTilte';
         export const localTextPrefix = 'ACN.Acn';
-
+       
         export namespace Fields {
             export declare const AcnId;
             export declare const AcnTilte;

@@ -213,4 +213,3 @@ D:\project\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.
 D:\project\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.Web.dll
 D:\project\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.Web.pdb
 F:\coromendal-audit-tool\coromendal\coromendal.Web\bin\DocX.dll
-F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\coromendal.Web.csprojResolveAssemblyReference.cache
