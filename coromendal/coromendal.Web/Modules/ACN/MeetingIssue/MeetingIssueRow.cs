@@ -59,11 +59,29 @@ namespace coromendal.ACN.Entities
             get { return Fields.ExpectedDate[this]; }
             set { Fields.ExpectedDate[this] = value; }
         }
-        [DisplayName("Comments"), Size(200), NotNull]
+        [DisplayName("Comments"), Size(200)]
         public String Comments
         {
             get { return Fields.Comments[this]; }
             set { Fields.Comments[this] = value; }
+        }
+        [DisplayName("Area Covered"), Size(200)]
+        public String AreaCovered
+        {
+            get { return Fields.AreaCovered[this]; }
+            set { Fields.AreaCovered[this] = value; }
+        }
+        [DisplayName("Area Not Covered"), Size(200)]
+        public String AreaNotCovered
+        {
+            get { return Fields.AreaNotCovered[this]; }
+            set { Fields.AreaNotCovered[this] = value; }
+        }
+        [DisplayName("Command Creation Date"), Size(200)]
+        public String CommandCreationDate
+        {
+            get { return Fields.CommandCreationDate[this]; }
+            set { Fields.CommandCreationDate[this] = value; }
         }
 
         [DisplayName("Meeting Acnid"), Expression("jMeeting.[acnid]")]
@@ -148,6 +166,9 @@ namespace coromendal.ACN.Entities
             public StringField Status;
             public StringField ExpectedDate;
             public StringField Comments;
+            public StringField AreaCovered;
+            public StringField AreaNotCovered;
+            public StringField CommandCreationDate;
 
             public Int32Field MeetingAcnid;
             public StringField MeetingTitle;

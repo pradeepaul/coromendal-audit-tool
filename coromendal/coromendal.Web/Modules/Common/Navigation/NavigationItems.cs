@@ -96,8 +96,8 @@ using coromendal;
 
 [assembly: NavigationMenu(10000, "Audit Tool", icon: "icon-screen-desktop")]
 [assembly: NavigationLink(10001, "ACN/Commencement Note", typeof(coromendal.ACN.Pages.AcnController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Minutes of Meeting", typeof(coromendal.ACN.Pages.MinutesofmeetingController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/AOD", typeof(coromendal.ACN.Pages.MeetingIssueController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Report", typeof(coromendal.ACN.Pages.AcnreportController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Auditee", typeof(coromendal.ACN.Pages.AcnAuditeeController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Auditor", typeof(coromendal.ACN.Pages.AcnAuditorController), icon: "icon-people")]
-[assembly: NavigationLink(10001, "ACN/Meeting Points", typeof(coromendal.ACN.Pages.MeetingPointsController), icon: "icon-people")]
-[assembly: NavigationLink(10001, "ACN/Minutes of Meeting", typeof(coromendal.ACN.Pages.MinutesofmeetingController), icon: "icon-people")]
-[assembly: NavigationLink(10001, "ACN/Meeting Issue", typeof(coromendal.ACN.Pages.MeetingIssueController), icon: "icon-people")]

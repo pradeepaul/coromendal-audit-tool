@@ -15,6 +15,7 @@ namespace coromendal.ACN.Entities
     [ReadPermission(ACN.PermissionKeys.Feedback.View)]
     [ModifyPermission(ACN.PermissionKeys.Feedback.Modify)]
     [DeletePermission(ACN.PermissionKeys.Feedback.Delete)]
+    [LookupScript("FeedbackRow")]
     public sealed class FeedbackRow : Row, IIdRow, INameRow
     {
         [DisplayName("Feedback Id"), Identity]

@@ -1840,6 +1840,33 @@
     <TypeScriptCompile Include="Modules\ACN\Feedback\FeedbackEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueGrid.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueEditorDialog.ts" />
+    <Content Include="Modules\ACN\Scope\ScopeIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ScopeRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ScopeService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ScopeForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Scope\ScopeDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Scope\ScopeEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Scope\ScopeEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnreportRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnreportService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnreportForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\ACN\Acnreport\AcnreportIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\ACN\Acnreport\AcnreportGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acnreport\AcnreportDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acnreport\AcnreportEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acnreport\AcnreportEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1857,6 +1884,7 @@
     </Compile>
     <Compile Include="Modules\ACN\Acn\AcnAuditeeListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\AcnListFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Acn\ScopeEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditeeLookup.cs" />
@@ -1951,6 +1979,10 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104445_MeetingIssuealter.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104304_AcnAuditScope.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104304_Acnalter.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_121545_Report.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_131204_Feedback.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_130304_MeetingAbsent.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_130904_Question.cs" />
@@ -2203,6 +2235,17 @@
     <Compile Include="Modules\ACN\Feedback\FeedbackEndpoint.cs" />
     <Compile Include="Modules\ACN\Feedback\FeedbackPage.cs" />
     <Compile Include="Modules\ACN\MeetingIssue\MeetingIssuePage.cs" />
+    <Compile Include="Modules\ACN\Scope\ScopeRow.cs" />
+    <Compile Include="Modules\ACN\Scope\ScopeColumns.cs" />
+    <Compile Include="Modules\ACN\Scope\ScopeForm.cs" />
+    <Compile Include="Modules\ACN\Scope\ScopeRepository.cs" />
+    <Compile Include="Modules\ACN\Scope\ScopeEndpoint.cs" />
+    <Compile Include="Modules\ACN\Acnreport\AcnreportRow.cs" />
+    <Compile Include="Modules\ACN\Acnreport\AcnreportColumns.cs" />
+    <Compile Include="Modules\ACN\Acnreport\AcnreportForm.cs" />
+    <Compile Include="Modules\ACN\Acnreport\AcnreportRepository.cs" />
+    <Compile Include="Modules\ACN\Acnreport\AcnreportEndpoint.cs" />
+    <Compile Include="Modules\ACN\Acnreport\AcnreportPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

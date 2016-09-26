@@ -23,9 +23,9 @@ namespace Serenity.Reporting
         public static byte[] GeneratePackage(List<ReportColumn> columns, IList rows,
             string sheetName = "Page1", string tableName = "Table1")
         {
-            DocX document = DocX.Load(@"C:\\Users\\Asha\\Desktop\\temp\\one.docx");
+            DocX document = DocX.Load(@"C:\\Users\\Asha\\Desktop\\temp\\Report.docx");
             PopulateDocument(document, columns, rows, sheetName, tableName);
-            return File.ReadAllBytes("C:\\Users\\Asha\\Desktop\\temp\\one.docx");
+            return File.ReadAllBytes("C:\\Users\\Asha\\Desktop\\temp\\newReport.docx");
         }
         public static void PopulateDocument(DocX document, List<ReportColumn> columns, IList rows,
             string sheetName = "Page1", string tableName = "Table1")
@@ -42,16 +42,35 @@ namespace Serenity.Reporting
                 {
                     var obj = rows[rowNum - 2];
                     var col = columns[colNum - 1];
-                    var row = obj as coromendal.ACN.Entities.MinutesofmeetingRow;                                     
-                   // document.ReplaceText("%PRODUCT_NAME%", "001");
-                  //  document.ReplaceText("%PRODUCT_PRICE1%", "2016-09");
-                  //  document.ReplaceText("%PRODUCT_PRICE2%", row.Title);
-                   
+                    var row = obj as coromendal.ACN.Entities.AcnreportRow;
+                    string s = Convert.ToString(row.AcnidPhaseNo);
+                    document.ReplaceText("#%PHASENO%", s);
+                    DateTime dt = Convert.ToDateTime(row.AcnidCreationdate);
+                    document.ReplaceText("#%YEAR%", Convert.ToString(dt.Year));
+                    document.ReplaceText("#%AUDIT_TITLE%", row.Title);
+                    document.ReplaceText("#%LOCATION%", row.AcnidLocation);
+                    document.ReplaceText("#%DATE%", row.AcnidCreationdate);
+                    document.ReplaceText("#%DUEDATE%", Convert.ToString(dt.AddDays(10)));
+                    document.ReplaceText("#%CMDDATE%", Convert.ToString(dt.AddDays(12)));
+                    document.ReplaceText("#%FINALDATE%", Convert.ToString(dt.AddDays(12)));
+                    document.ReplaceText("#%TIME%", Convert.ToString(row.AcnidCreationdate));
+                    document.ReplaceText("#%PERIODFROM%", row.AcnidPeriodfrom);
+                    document.ReplaceText("#%PERIODTO%", row.AcnidPeriodto);
+                    document.ReplaceText("#%SCOPE%", row.MeetingidTitle);
+
 
                     // Save the document.
                 }
             }
-            document.Save();
+            document.SaveAs("C:\\Users\\Asha\\Desktop\\temp\\newReport.docx");
+        }
+        public static void PopulateIndexPage()
+        {
+
+        }
+        public static void MeetingInfo()
+        {
+
         }
     }
 }

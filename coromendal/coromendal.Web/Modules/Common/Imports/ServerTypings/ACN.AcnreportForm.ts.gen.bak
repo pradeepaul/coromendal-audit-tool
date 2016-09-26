@@ -1,0 +1,17 @@
+﻿
+
+namespace coromendal.ACN {
+    export class AcnreportForm extends Serenity.PrefixedContext {
+        static formKey = 'ACN.Acnreport';
+    }
+
+    export interface AcnreportForm {
+        Title: Serenity.StringEditor;
+        Acnid: Serenity.IntegerEditor;
+        Meetingid: Serenity.IntegerEditor;
+        Feedbackid: Serenity.IntegerEditor;
+        Download: Serenity.IntegerEditor;
+    }
+
+    [['ReportId', () => Serenity.IntegerEditor], ['Title', () => Serenity.StringEditor], ['Acnid', () => Serenity.IntegerEditor], ['Meetingid', () => Serenity.IntegerEditor], ['Feedbackid', () => Serenity.IntegerEditor], ['Download', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(AcnreportForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+}

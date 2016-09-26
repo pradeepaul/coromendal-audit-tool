@@ -41,3 +41,4 @@ F:\coromendal-audit-tool\coromendal\coromendal.Web\bin\System.Web.WebPages.Razor
 F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Release\coromendal.Web.csprojResolveAssemblyReference.cache
 F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Release\coromendal.Web.dll
 F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Release\coromendal.Web.pdb
+F:\coromendal-audit-tool\coromendal\coromendal.Web\bin\DocX.dll

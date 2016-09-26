@@ -8,11 +8,11 @@ namespace coromendal.ACN {
         protected getIdProperty() { return MinutesofmeetingRow.idProperty; }
         protected getLocalTextPrefix() { return MinutesofmeetingRow.localTextPrefix; }
         protected getService() { return MinutesofmeetingService.baseUrl; }
-
+        private rowSelection: Serenity.GridRowSelectionMixin;
         constructor(container: JQuery){
             super(container);
         }
-        getButtons() {
+        /*getButtons() {
             var buttons = super.getButtons();
 
             buttons.push(coromendal.Common.WordExportHelper.createToolButton({
@@ -42,10 +42,10 @@ namespace coromendal.ACN {
             if (target.hasClass("customer-link")) {
                 e.preventDefault();
                 var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
-                Q.postToService({ service: 'ACN/Minutesofmeeting/DownloadWord', request: request, target: '_blank' });
-                //this.getButtons();
+                Q.postToService({ service: 'ACN/Minutesofmeeting/DownloadWord', request: request, target: '_blank'});
+                console.log(item.Meetingid);
             }
-        }
+        }*/
 
 
     }

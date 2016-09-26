@@ -8,6 +8,7 @@ namespace coromendal.ACN.Endpoints
     using Serenity.Services;
     using Serenity.Web;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Web.Mvc;
     using MyRepository = Repositories.MinutesofmeetingRepository;
@@ -44,17 +45,5 @@ namespace coromendal.ACN.Endpoints
         {
             return new MyRepository().List(connection, request);
         }
-        public FileContentResult DownloadWord(IDbConnection connection, ListRequest request)
-        {
-            var data = List(connection, request).Entities;
-            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.MinutesofmeetingColumns));
-            var shippers = connection.List<MinutesofmeetingRow>(q => q.SelectTableFields().OrderBy(MinutesofmeetingRow.Fields.Acnid));
-            var fld = MinutesofmeetingRow.Fields;
-           
-            var bytes = new ReportRepository().Render(report);
-
-            return ExcelContentResult.Create(bytes, "List_" +
-                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".docx");
-        }
-    }
+      }
 }

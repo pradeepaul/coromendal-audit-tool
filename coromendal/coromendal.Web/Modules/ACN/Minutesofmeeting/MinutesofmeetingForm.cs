@@ -16,14 +16,15 @@ namespace coromendal.ACN.Forms
     {
         public Int32 Acnid { get; set; }
         public String Title { get; set; }
-        public String Auditscope { get; set; }
-        public DateTime Period { get; set; }
-        public Int32 Time { get; set; }
-        public String Venue { get; set; }
-        
-        public Int32 Auditor { get; set; }
-       
-        public Int32 Auditee { get; set; }
+        /* public String Title { get; set; }
+         public String Auditscope { get; set; }
+         public DateTime Period { get; set; }
+         public Int32 Time { get; set; }
+         public String Venue { get; set; }
+
+         public Int32 Auditor { get; set; }
+
+         public Int32 Auditee { get; set; }*/
         [Category("Absent Details")]
         [MeetingAbsentEditor]
         public List<MeetingAbsentRow> AbsentList { get; set; }

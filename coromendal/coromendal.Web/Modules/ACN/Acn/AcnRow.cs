@@ -27,6 +27,12 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
+        [DisplayName("Phase No"), Size(40), QuickSearch]
+        public Int32? PhaseNo
+        {
+            get { return Fields.PhaseNo[this]; }
+            set { Fields.PhaseNo[this] = value; }
+        }
 
         [DisplayName("Acn Tilte"), Size(40), QuickSearch]
         public String AcnTilte
@@ -49,6 +55,50 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.Auditee[this]; }
             set { Fields.Auditee[this] = value; }
+        }
+       
+        
+       [DisplayName("Period From"), Size(40), QuickSearch]
+        public String Periodfrom
+        {
+            get { return Fields.Periodfrom[this]; }
+            set { Fields.Periodfrom[this] = value; }
+        }
+        [DisplayName("Period To"), Size(40), QuickSearch]
+        public String Periodto
+        {
+            get { return Fields.Periodto[this]; }
+            set { Fields.Periodto[this] = value; }
+        }
+        [DisplayName("From Date"), Size(40), QuickSearch]
+        public String Fromdate
+        {
+            get { return Fields.Fromdate[this]; }
+            set { Fields.Fromdate[this] = value; }
+        }
+        [DisplayName("To Date"), Size(40), QuickSearch]
+        public String Todate
+        {
+            get { return Fields.Todate[this]; }
+            set { Fields.Todate[this] = value; }
+        }
+        [DisplayName("Location"), Size(40), QuickSearch]
+        public String location
+        {
+            get { return Fields.location[this]; }
+            set { Fields.location[this] = value; }
+        }
+        [DisplayName("Creation Date"), Size(40), QuickSearch]
+        public String creationdate
+        {
+            get { return Fields.creationdate[this]; }
+            set { Fields.creationdate[this] = value; }
+        }
+        [DisplayName("Scope List"), MasterDetailRelation(foreignKey: "acnId"), ClientSide]
+        public List<ScopeRow> ScopeList
+        {
+            get { return Fields.ScopeList[this]; }
+            set { Fields.ScopeList[this] = value; }
         }
         IIdField IIdRow.IdField
         {
@@ -73,6 +123,17 @@ namespace coromendal.ACN.Entities
             public StringField AcnTilte;
             public ListField<Int32> Auditor;
             public ListField<Int32> Auditee;
+
+            public Int32Field PhaseNo;
+            public StringField location;
+            public StringField Fromdate;
+            public StringField Todate;
+            public StringField Periodfrom;
+            public StringField Periodto;
+            public StringField creationdate;
+            public RowListField<ScopeRow> ScopeList;
+
+           
 
             public RowFields()
                 : base("[dbo].[Acn]")
