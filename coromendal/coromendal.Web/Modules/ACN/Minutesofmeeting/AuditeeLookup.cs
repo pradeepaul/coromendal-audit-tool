@@ -17,7 +17,7 @@ namespace coromendal.ACN.Scripts
 
         protected override void PrepareQuery(SqlQuery query)
         {
-            string command = "SELECT * FROM Programs";
+           
             var fld = Entities.MinutesofmeetingRow.Fields;
             var fl = Entities.AcnAuditeeRefRow.Fields.As("fl");
             var sa = query.Distinct(true)

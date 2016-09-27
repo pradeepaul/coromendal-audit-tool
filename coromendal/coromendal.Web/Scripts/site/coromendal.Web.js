@@ -2586,7 +2586,7 @@ var coromendal;
             var Fields;
             (function (Fields) {
             })(Fields = AcnRow.Fields || (AcnRow.Fields = {}));
-            ['AcnId', 'AcnTilte'].forEach(function (x) { return Fields[x] = x; });
+            ['AcnId', 'AcnTilte', 'PhaseNo', 'location', 'Fromdate', 'Todate', 'Periodto', 'Periodfrom', 'creationdate'].forEach(function (x) { return Fields[x] = x; });
         })(AcnRow = ACN.AcnRow || (ACN.AcnRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));

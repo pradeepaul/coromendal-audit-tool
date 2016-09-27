@@ -74,6 +74,8 @@ namespace coromendal.ACN
                             .Where(u.UserId.In(userIdList)))
                         .ToDictionary(x => (int)(x.UserId ?? x.USERID), x => (string)x.DisplayName);
 
+              
+
                 string s;
                 foreach (var x in notes)
                     if (x.InsertUserId != null && userDisplayNames.TryGetValue(x.InsertUserId.Value, out s))
