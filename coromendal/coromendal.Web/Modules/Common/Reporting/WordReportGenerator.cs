@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Novacode;
 using System.Linq;
+using System.Reflection;
 
 namespace Serenity.Reporting
 {
@@ -22,15 +23,19 @@ namespace Serenity.Reporting
         public static byte[] GeneratePackage(List<ReportColumn> columns, IList rows,
             string sheetName = "Page1", string tableName = "Table1")
         {
-            DocX document = DocX.Load(@"C:\\Users\\Asha\\Desktop\\temp\\Report.docx");
+            var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
+            var templateDocument = Path.Combine(projectBaseDir, "Report.docx");
+            DocX document = DocX.Load(templateDocument);
             PopulateDocument(document, columns, rows, sheetName, tableName);
-            return File.ReadAllBytes("C:\\Users\\Asha\\Desktop\\temp\\newReport.docx");
+            var finalDocument = Path.Combine(projectBaseDir, "finalDocument.docx");
+            return File.ReadAllBytes(finalDocument);
         }
         public static void PopulateDocument(DocX document, List<ReportColumn> columns, IList rows,
             string sheetName = "Page1", string tableName = "Table1")
         {
             // Add a new Paragraph to the document.
             Paragraph p = document.InsertParagraph();
+            var fld = coromendal.ACN.Entities.AcnreportRow.Fields;
             var fld1 = coromendal.ACN.Entities.AcnRow.Fields;
             dynamic resultSet;
             var sqlquery = new SqlQuery()
@@ -45,7 +50,7 @@ namespace Serenity.Reporting
                     .Select(fld1.Periodto)
                     .Select(fld1.creationdate)
                     .Where(
-                    fld1.AcnId == 4);
+                    fld1.AcnId == fld.Acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnRow>())
                 resultSet = connection.Query(sqlquery).FirstOrDefault();
             DateTime dt = Convert.ToDateTime(Convert.ToString(resultSet.creationdate));
@@ -71,7 +76,7 @@ namespace Serenity.Reporting
                     .From(auditor)
                     .Select(auditor.AcnAuditorId)
                     .Where(
-                    auditor.AcnId == 4);
+                    auditor.AcnId == fld.Acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditorRow>())
                 auditorResultSet = connection.Query(auditorsqlquery).ToList();
             var table = document.AddTable(1,1);
@@ -101,7 +106,7 @@ namespace Serenity.Reporting
                     .From(auditee)
                     .Select(auditee.AcnAuditeeId)
                     .Where(
-                    auditee.AcnId == 4);
+                    auditee.AcnId == fld.Acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditeeRefRow>())
                 auditeeResultSet = connection.Query(auditeesqlquery).ToList();
             var auditeetable = document.AddTable(1, 1);
@@ -131,7 +136,7 @@ namespace Serenity.Reporting
                     .From(scope)
                     .Select(scope.Title)
                     .Where(
-                    scope.AcnId == 4);
+                    scope.AcnId == fld.Acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.ScopeRow>())
                 scopeResultSet = connection.Query(scopesqlquery).ToList();
             var scopetable = document.AddTable(1, 1);
@@ -171,7 +176,7 @@ namespace Serenity.Reporting
                     .Select(issue.CommandCreationDate)
                     .Select(issue.Comments)
                     .Where(
-                    issue.MeetingId == 5);
+                    issue.MeetingId == fld.Meetingid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingIssueRow>())
                 issueResultSet = connection.Query(issuesqlquery).ToList();
             var issuetable = document.AddTable(1, 1);
@@ -285,7 +290,9 @@ namespace Serenity.Reporting
                       // Save the document.
                   }
               }*/
-            document.SaveAs("C:\\Users\\Asha\\Desktop\\temp\\newReport.docx");
+            var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
+            var finalSaveAsFileName = Path.Combine(projectBaseDir, "finalDocument.docx");
+            document.SaveAs(finalSaveAsFileName);
         }
         public static void PopulateIndexPage(int acnid)
         {

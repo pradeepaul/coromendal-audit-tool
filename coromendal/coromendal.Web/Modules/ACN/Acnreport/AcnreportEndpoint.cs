@@ -60,7 +60,7 @@ namespace coromendal.ACN.Endpoints
             var shippers = connection.List<MyRow>(q => q.SelectTableFields().OrderBy(MyRow.Fields.Acnid));
             var bytes = new ReportRepository().Render(report);
 
-            return ExcelContentResult.Create(bytes, "List_" +
+            return ExcelContentResult.Create(bytes, "REPORT_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".docx");
         }
     }

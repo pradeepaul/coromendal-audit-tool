@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <DbDacFx path="F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\AutoScripts\Northwind_IncrementalSchemaOnly.dacpac" dacpacAction="Deploy" />
+  <DbDacFx path="F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\AutoScripts\Default_IncrementalSchemaOnly.dacpac" dacpacAction="Deploy" />
+  <IisApp path="F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="F:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

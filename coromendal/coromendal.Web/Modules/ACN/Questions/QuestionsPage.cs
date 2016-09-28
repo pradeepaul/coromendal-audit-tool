@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/Questions", typeof(coromendal.ACN.Pages.QuestionsController))]
+
 
 namespace coromendal.ACN.Pages
 {

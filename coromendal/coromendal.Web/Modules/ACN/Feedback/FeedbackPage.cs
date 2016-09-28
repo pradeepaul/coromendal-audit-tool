@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/Feedback", typeof(coromendal.ACN.Pages.FeedbackController))]
+
 
 namespace coromendal.ACN.Pages
 {

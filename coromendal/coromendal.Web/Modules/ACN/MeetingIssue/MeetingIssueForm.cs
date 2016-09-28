@@ -19,7 +19,7 @@ namespace coromendal.ACN.Forms
         public String AreaofOperation { get; set; }
         public String Issue { get; set; }
         public String Status { get; set; }
-        public String ExpectedDate { get; set; }
+        public DateTime ExpectedDate { get; set; }
         [TextAreaEditor(Rows = 8)]
         public String AreaCovered { get; set; }
         [TextAreaEditor(Rows = 8)]

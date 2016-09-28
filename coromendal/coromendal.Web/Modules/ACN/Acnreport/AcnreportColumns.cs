@@ -21,16 +21,7 @@ namespace coromendal.ACN.Columns
         public String AcnidAcnTilte { get; set; }
         public Int32 Meetingid { get; set; }
         public String MeetingidTitle { get; set; }
-        public Int32 AcnidPhaseNo { get; set; }
         public Int32 Download { get; set; }
-        
-        public StringField AcnidLocation { get; set; }
-        public StringField AcnidFromdate { get; set; }
-        public StringField AcnidTodate { get; set; }
-        public StringField AcnidPeriodfrom { get; set; }
-        public StringField AcnidPeriodto { get; set; }
-        public StringField AcnidCreationdate { get; set; }
-        public Int32Field MeetingidAcnid { get; set; }
 
     }
 }
