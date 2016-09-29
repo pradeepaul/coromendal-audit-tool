@@ -11,7 +11,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("AcnAuditee"), InstanceName("AcnAuditee"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Auditee"), InstanceName("AcnAuditee"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.AcnAuditee.View)]
     [ModifyPermission(ACN.PermissionKeys.AcnAuditee.Modify)]
     [DeletePermission(ACN.PermissionKeys.AcnAuditee.Delete)]

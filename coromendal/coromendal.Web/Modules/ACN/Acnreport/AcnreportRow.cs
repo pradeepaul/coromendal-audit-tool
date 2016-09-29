@@ -8,10 +8,11 @@ namespace coromendal.ACN.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Acnreport"), InstanceName("Acnreport"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Acn Report"), InstanceName("Acnreport"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class AcnreportRow : Row, IIdRow, INameRow
@@ -30,7 +31,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Title[this] = value; }
         }
 
-        [DisplayName("Acnid"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [DisplayName("Acn Name"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
@@ -38,21 +39,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Acnid[this] = value; }
         }
 
-        [DisplayName("Meetingid"), Column("meetingid"), NotNull, ForeignKey("[dbo].[minutesofmeeting]", "meetingid"), LeftJoin("jMeetingid"), TextualField("MeetingidTitle")]
-        [LookupEditor(typeof(MinutesofmeetingRow))]
-        public Int32? Meetingid
-        {
-            get { return Fields.Meetingid[this]; }
-            set { Fields.Meetingid[this] = value; }
-        }
-
-        [DisplayName("Feedbackid"), Column("feedbackid"), ForeignKey("[dbo].[Feedback]", "FeedbackId"), LeftJoin("jFeedbackid"), TextualField("FeedbackidFeedbackRemarks")]
-        [LookupEditor(typeof(FeedbackRow))]
-        public Int32? Feedbackid
-        {
-            get { return Fields.Feedbackid[this]; }
-            set { Fields.Feedbackid[this] = value; }
-        }
+       
 
         [DisplayName("Download"), Column("download")]
         public Int32? Download
@@ -157,6 +144,12 @@ namespace coromendal.ACN.Entities
             get { return Fields.FeedbackidFeedbackRemarks[this]; }
             set { Fields.FeedbackidFeedbackRemarks[this] = value; }
         }
+        [DisplayName("Suggestion case"), ClientSide]
+        public List<AuditobservationRow> Auditobservation
+        {
+            get { return Fields.Auditobservation[this]; }
+            set { Fields.Auditobservation[this] = value; }
+        }
 
         IIdField IIdRow.IdField
         {
@@ -180,8 +173,6 @@ namespace coromendal.ACN.Entities
             public Int32Field ReportId;
             public StringField Title;
             public Int32Field Acnid;
-            public Int32Field Meetingid;
-            public Int32Field Feedbackid;
             public Int32Field Download;
 
             public StringField AcnidAcnTilte;
@@ -201,6 +192,8 @@ namespace coromendal.ACN.Entities
             public Int32Field FeedbackidFeedbackMeetingId;
             public Int32Field FeedbackidFeedbackRating;
             public StringField FeedbackidFeedbackRemarks;
+
+            public RowListField<AuditobservationRow> Auditobservation;
 
             public RowFields()
                 : base("[dbo].[Acnreport]")

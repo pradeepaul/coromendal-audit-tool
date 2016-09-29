@@ -14,7 +14,7 @@ namespace coromendal.ACN.Entities
     using ACN;
 
 
-    [ConnectionKey("Default"), DisplayName("Commencement Note"), InstanceName("Acn"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Assignment Note"), InstanceName("Acn"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.NewAcn.View)]
     [ModifyPermission(ACN.PermissionKeys.NewAcn.Modify)]
     [DeletePermission(ACN.PermissionKeys.NewAcn.Delete)]
@@ -34,7 +34,7 @@ namespace coromendal.ACN.Entities
             set { Fields.PhaseNo[this] = value; }
         }
 
-        [DisplayName("Acn Tilte"), Size(40), QuickSearch]
+        [DisplayName("Title"), Size(40), QuickSearch]
         public String AcnTilte
         {
             get { return Fields.AcnTilte[this]; }

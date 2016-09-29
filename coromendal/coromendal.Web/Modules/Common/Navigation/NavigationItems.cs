@@ -95,12 +95,14 @@ using coromendal;
 [assembly: NavigationLink(9400, "Administration/User Management", typeof(Administration.UserController), icon: "icon-people")]
 
 [assembly: NavigationMenu(10000, "Audit Tool", icon: "icon-screen-desktop")]
-[assembly: NavigationLink(10001, "ACN/Commencement Note", typeof(coromendal.ACN.Pages.AcnController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Assignment Note", typeof(coromendal.ACN.Pages.AcnController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Minutes of Meeting", typeof(coromendal.ACN.Pages.MinutesofmeetingController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/AOD", typeof(coromendal.ACN.Pages.MeetingIssueController), icon: "icon-people")]
-[assembly: NavigationLink(10001, "ACN/Questions", typeof(coromendal.ACN.Pages.QuestionsController), icon: "icon-people")]
-[assembly: NavigationLink(10001, "ACN/Feedback", typeof(coromendal.ACN.Pages.FeedbackController), icon: "icon-people")]
+//[assembly: NavigationLink(10001, "ACN/Questions", typeof(coromendal.ACN.Pages.QuestionsController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Feedback", typeof(coromendal.ACN.Pages.AcnFeedbackController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Report", typeof(coromendal.ACN.Pages.AcnreportController), icon: "icon-people")]
 //[assembly: NavigationLink(10001, "ACN/Auditee", typeof(coromendal.ACN.Pages.AcnAuditeeController), icon: "icon-people")]
 //[assembly: NavigationLink(10001, "ACN/Auditor", typeof(coromendal.ACN.Pages.AcnAuditorController), icon: "icon-people")]
+//[assembly: Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/AcnFeedback", typeof(coromendal.ACN.Pages.AcnFeedbackController))]
+
 //[assembly: Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/Questions", typeof(coromendal.ACN.Pages.QuestionsController))]

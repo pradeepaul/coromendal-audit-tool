@@ -12,6 +12,7 @@ namespace coromendal.ACN {
         constructor(container: JQuery){
             super(container);
         }
+
         /*getButtons() {
             var buttons = super.getButtons();
 

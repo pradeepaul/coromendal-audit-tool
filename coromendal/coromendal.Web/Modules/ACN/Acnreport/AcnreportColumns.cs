@@ -19,8 +19,6 @@ namespace coromendal.ACN.Columns
         public String Title { get; set; }
         public Int32 Acnid { get; set; }
         public String AcnidAcnTilte { get; set; }
-        public Int32 Meetingid { get; set; }
-        public String MeetingidTitle { get; set; }
         public Int32 Download { get; set; }
 
     }

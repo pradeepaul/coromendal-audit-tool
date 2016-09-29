@@ -59,7 +59,7 @@ namespace coromendal.ACN.Endpoints
             var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.AcnreportColumns));
             var shippers = connection.List<MyRow>(q => q.SelectTableFields().OrderBy(MyRow.Fields.Acnid));
             var bytes = new ReportRepository().Render(report);
-
+            var user = (UserDefinition)Authorization.UserDefinition;
             return ExcelContentResult.Create(bytes, "REPORT_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".docx");
         }

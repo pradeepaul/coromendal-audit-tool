@@ -176,7 +176,7 @@ namespace Serenity.Reporting
                     .Select(issue.CommandCreationDate)
                     .Select(issue.Comments)
                     .Where(
-                    issue.MeetingId == fld.Meetingid);
+                    issue.MeetingId == 5);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingIssueRow>())
                 issueResultSet = connection.Query(issuesqlquery).ToList();
             var issuetable = document.AddTable(1, 1);

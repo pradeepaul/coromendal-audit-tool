@@ -16,7 +16,6 @@ namespace coromendal.ACN.Columns
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Meetingid { get; set; }
         public String Title { get; set; }
-        public Int32 Acnid { get; set; }
         [EditLink]
         public Int32 MeetingTilte { get; set; }
         public Int32 PhaseNo { get; set; }

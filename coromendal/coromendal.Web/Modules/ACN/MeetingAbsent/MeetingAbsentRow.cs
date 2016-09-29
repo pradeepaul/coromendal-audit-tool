@@ -11,7 +11,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("MeetingAbsent"), InstanceName("MeetingAbsent"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Meeting Absent List"), InstanceName("MeetingAbsent"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.MeetingAbsent.View)]
     [ModifyPermission(ACN.PermissionKeys.MeetingAbsent.Modify)]
     [DeletePermission(ACN.PermissionKeys.MeetingAbsent.Delete)]

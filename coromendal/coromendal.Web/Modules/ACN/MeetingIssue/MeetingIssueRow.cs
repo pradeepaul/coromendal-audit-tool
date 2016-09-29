@@ -11,7 +11,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("MeetingIssue"), InstanceName("MeetingIssue"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Meeting Issue"), InstanceName("MeetingIssue"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.MeetingIssue.View)]
     [ModifyPermission(ACN.PermissionKeys.MeetingIssue.Modify)]
     [DeletePermission(ACN.PermissionKeys.MeetingIssue.Delete)]
@@ -32,7 +32,7 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Areaof Operation"), Size(200), QuickSearch]
+        [DisplayName("Area of Operation"), Size(200), QuickSearch]
         public String AreaofOperation
         {
             get { return Fields.AreaofOperation[this]; }

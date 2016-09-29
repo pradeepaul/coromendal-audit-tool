@@ -12,7 +12,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("minutesofmeeting"), InstanceName("minutesofmeeting"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Minutes Of Meeting"), InstanceName("minutesofmeeting"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.minutesofmeeting.View)]
     [ModifyPermission(ACN.PermissionKeys.minutesofmeeting.Modify)]
     [DeletePermission(ACN.PermissionKeys.minutesofmeeting.Delete)]
@@ -26,7 +26,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Meetingid[this] = value; }
         }
 
-        [DisplayName("Acnid"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [DisplayName("Acn"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
@@ -113,7 +113,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnidAcnTilte[this]; }
             set { Fields.AcnidAcnTilte[this] = value; }
         }
-        [NotesEditor, ClientSide]
+        [DisplayName("Notes"), NotesEditor, ClientSide]
         public List<NoteRow> NoteList
         {
             get { return Fields.NoteList[this]; }
@@ -138,7 +138,7 @@ namespace coromendal.ACN.Entities
             set { Fields.PointsList[this] = value; }
         }
 
-        [DisplayName("Meeting Title"), Expression("jAcnid.[AcnTilte]")]
+        [DisplayName("ACN Title"), Expression("jAcnid.[AcnTilte]")]
         public String MeetingTilte
         {
             get { return Fields.MeetingTilte[this]; }

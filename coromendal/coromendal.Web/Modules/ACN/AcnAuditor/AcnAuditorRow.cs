@@ -11,7 +11,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("AcnAuditor"), InstanceName("AcnAuditor"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Auditor"), InstanceName("AcnAuditor"), TwoLevelCached]
     [LookupScript("ACN.AcnAuditor")]
     [ReadPermission(ACN.PermissionKeys.AcnAuditor.View)]
     [ModifyPermission(ACN.PermissionKeys.AcnAuditor.Modify)]

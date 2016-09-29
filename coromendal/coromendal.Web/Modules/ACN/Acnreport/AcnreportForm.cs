@@ -8,6 +8,7 @@ namespace coromendal.ACN.Forms
     using System.ComponentModel;
     using System.Collections.Generic;
     using System.IO;
+    using Entities;
 
     [FormScript("ACN.Acnreport")]
     [BasedOnRow(typeof(Entities.AcnreportRow))]
@@ -15,7 +16,7 @@ namespace coromendal.ACN.Forms
     {
         public String Title { get; set; }
         public Int32 Acnid { get; set; }
-        public Int32 Meetingid { get; set; }
-        public Int32 Feedbackid { get; set; }
+        [AuditobservationEditor]
+        public List<AuditobservationRow> Auditobservation { get; set; }
     }
 }

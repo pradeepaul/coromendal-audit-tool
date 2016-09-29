@@ -2131,6 +2131,8 @@ a.s-LinkDropDown input {
   border-radius: 0;
   border: 0;
   margin-bottom: 6px;
+  display: none;
+  /*visibility: hidden;*/
 }
 .quick-filters-bar {
   border: 1px solid #e7e7e7;

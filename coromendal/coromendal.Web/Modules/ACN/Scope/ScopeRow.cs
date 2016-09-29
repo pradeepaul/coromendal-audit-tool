@@ -11,7 +11,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("scope"), InstanceName("scope"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Scope"), InstanceName("scope"), TwoLevelCached]
     [ReadPermission("ADMINISTRATION")]
     [ModifyPermission("ADMINISTRATION")]
     public sealed class ScopeRow : Row, IIdRow, INameRow
@@ -23,7 +23,7 @@ namespace coromendal.ACN.Entities
             set { Fields.ScopeId[this] = value; }
         }
 
-        [DisplayName("Title"), Column("title"), Size(100), QuickSearch]
+        [DisplayName("Scope"), Column("title"), Size(100), QuickSearch]
         public String Title
         {
             get { return Fields.Title[this]; }
@@ -31,6 +31,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Acn"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte")]
+        [LookupEditor(typeof(AcnRow))]
         public Int32? AcnId
         {
             get { return Fields.AcnId[this]; }
