@@ -1979,6 +1979,20 @@
     <TypeScriptCompile Include="Modules\ACN\Riskrating\RiskratingDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Riskrating\RiskratingEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Riskrating\RiskratingEditorDialog.ts" />
+    <Content Include="Modules\ACN\Keyfacts\KeyfactsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.KeyfactsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.KeyfactsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.KeyfactsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Keyfacts\KeyfactsGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Keyfacts\KeyfactsDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Keyfacts\KeyfactsEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Keyfacts\KeyfactsEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1996,6 +2010,7 @@
     </Compile>
     <Compile Include="Modules\ACN\AcnFeedback\AcnFeedback.cs" />
     <Compile Include="Modules\ACN\Acnreport\AuditobservationEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Acnreport\KeyfactsEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\AcnAuditeeListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\AcnListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\ScopeEditorAttribute.cs" />
@@ -2022,6 +2037,8 @@
     <Compile Include="Modules\Administration\PermissionKeys.cs" />
     <Compile Include="Modules\Administration\UserPermission\UserPermissionListRequest.cs" />
     <Compile Include="Modules\Administration\UserPermission\UserPermissionUpdateRequest.cs" />
+    <Compile Include="Modules\Administration\UserRole\AuditeeUserLookup.cs" />
+    <Compile Include="Modules\Administration\UserRole\UserLookup.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleUpdateRequest.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleListResponse.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleListRequest.cs" />
@@ -2033,6 +2050,7 @@
     <Compile Include="Modules\Administration\User\Authentication\IDirectoryService.cs" />
     <Compile Include="Modules\Administration\User\Authentication\ScriptUserDefinition.cs" />
     <Compile Include="Modules\Administration\User\UserColumns.cs" />
+    <Compile Include="Modules\Administration\User\UserLookup1.cs" />
     <Compile Include="Modules\AdminLTE\AdminLTEController.cs" />
     <Compile Include="Modules\AdminLTE\Charts\ChartsController.cs" />
     <Compile Include="Modules\AdminLTE\Examples\ExamplesController.cs" />
@@ -2101,6 +2119,8 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_094814_Auditobservation.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_092816_Suggestion.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_125504_KeyFacts.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_173404_Acnuseridalter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104605_ReportAlter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104445_MeetingIssuealter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104304_AcnAuditScope.cs" />
@@ -2414,6 +2434,12 @@
     <Compile Include="Modules\ACN\Riskrating\RiskratingForm.cs" />
     <Compile Include="Modules\ACN\Riskrating\RiskratingRepository.cs" />
     <Compile Include="Modules\ACN\Riskrating\RiskratingEndpoint.cs" />
+    <Compile Include="Modules\ACN\Keyfacts\KeyfactsRow.cs" />
+    <Compile Include="Modules\ACN\Keyfacts\KeyfactsColumns.cs" />
+    <Compile Include="Modules\ACN\Keyfacts\KeyfactsForm.cs" />
+    <Compile Include="Modules\ACN\Keyfacts\KeyfactsRepository.cs" />
+    <Compile Include="Modules\ACN\Keyfacts\KeyfactsEndpoint.cs" />
+    <Compile Include="Modules\ACN\Keyfacts\KeyfactsPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

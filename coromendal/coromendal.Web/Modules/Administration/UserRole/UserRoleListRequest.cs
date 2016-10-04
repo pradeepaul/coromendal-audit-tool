@@ -10,5 +10,6 @@ namespace coromendal.Administration
     public class UserRoleListRequest : ServiceRequest
     {
         public int? UserID { get; set; }
+        public int? Username { get; set; }
     }
 }

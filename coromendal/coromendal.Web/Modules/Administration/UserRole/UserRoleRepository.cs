@@ -21,7 +21,6 @@ namespace coromendal.Administration.Repositories
             Check.NotNull(request, "request");
             Check.NotNull(request.UserID, "userID");
             Check.NotNull(request.Roles, "permissions");
-
             var userID = request.UserID.Value;
             var oldList = new HashSet<Int32>(
                 GetExisting(uow.Connection, userID)

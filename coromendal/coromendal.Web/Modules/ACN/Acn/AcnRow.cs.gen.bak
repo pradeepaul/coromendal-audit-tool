@@ -30,6 +30,146 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnTilte[this] = value; }
         }
 
+        [DisplayName("Phase No")]
+        public Int32? PhaseNo
+        {
+            get { return Fields.PhaseNo[this]; }
+            set { Fields.PhaseNo[this] = value; }
+        }
+
+        [DisplayName("Location"), Column("location"), Size(40)]
+        public String Location
+        {
+            get { return Fields.Location[this]; }
+            set { Fields.Location[this] = value; }
+        }
+
+        [DisplayName("Fromdate"), Size(40)]
+        public String Fromdate
+        {
+            get { return Fields.Fromdate[this]; }
+            set { Fields.Fromdate[this] = value; }
+        }
+
+        [DisplayName("Todate"), Size(40)]
+        public String Todate
+        {
+            get { return Fields.Todate[this]; }
+            set { Fields.Todate[this] = value; }
+        }
+
+        [DisplayName("Periodfrom"), Size(40)]
+        public String Periodfrom
+        {
+            get { return Fields.Periodfrom[this]; }
+            set { Fields.Periodfrom[this] = value; }
+        }
+
+        [DisplayName("Periodto"), Size(40)]
+        public String Periodto
+        {
+            get { return Fields.Periodto[this]; }
+            set { Fields.Periodto[this] = value; }
+        }
+
+        [DisplayName("Creationdate"), Column("creationdate"), Size(40)]
+        public String Creationdate
+        {
+            get { return Fields.Creationdate[this]; }
+            set { Fields.Creationdate[this] = value; }
+        }
+
+        [DisplayName("Userid"), Column("userid"), ForeignKey("[dbo].[Users]", "UserId"), LeftJoin("jUserid"), TextualField("UseridUsername")]
+        public Int32? Userid
+        {
+            get { return Fields.Userid[this]; }
+            set { Fields.Userid[this] = value; }
+        }
+
+        [DisplayName("Userid Username"), Expression("jUserid.[Username]")]
+        public String UseridUsername
+        {
+            get { return Fields.UseridUsername[this]; }
+            set { Fields.UseridUsername[this] = value; }
+        }
+
+        [DisplayName("Userid Display Name"), Expression("jUserid.[DisplayName]")]
+        public String UseridDisplayName
+        {
+            get { return Fields.UseridDisplayName[this]; }
+            set { Fields.UseridDisplayName[this] = value; }
+        }
+
+        [DisplayName("Userid Email"), Expression("jUserid.[Email]")]
+        public String UseridEmail
+        {
+            get { return Fields.UseridEmail[this]; }
+            set { Fields.UseridEmail[this] = value; }
+        }
+
+        [DisplayName("Userid Source"), Expression("jUserid.[Source]")]
+        public String UseridSource
+        {
+            get { return Fields.UseridSource[this]; }
+            set { Fields.UseridSource[this] = value; }
+        }
+
+        [DisplayName("Userid Password Hash"), Expression("jUserid.[PasswordHash]")]
+        public String UseridPasswordHash
+        {
+            get { return Fields.UseridPasswordHash[this]; }
+            set { Fields.UseridPasswordHash[this] = value; }
+        }
+
+        [DisplayName("Userid Password Salt"), Expression("jUserid.[PasswordSalt]")]
+        public String UseridPasswordSalt
+        {
+            get { return Fields.UseridPasswordSalt[this]; }
+            set { Fields.UseridPasswordSalt[this] = value; }
+        }
+
+        [DisplayName("Userid Insert Date"), Expression("jUserid.[InsertDate]")]
+        public DateTime? UseridInsertDate
+        {
+            get { return Fields.UseridInsertDate[this]; }
+            set { Fields.UseridInsertDate[this] = value; }
+        }
+
+        [DisplayName("Userid Insert User Id"), Expression("jUserid.[InsertUserId]")]
+        public Int32? UseridInsertUserId
+        {
+            get { return Fields.UseridInsertUserId[this]; }
+            set { Fields.UseridInsertUserId[this] = value; }
+        }
+
+        [DisplayName("Userid Update Date"), Expression("jUserid.[UpdateDate]")]
+        public DateTime? UseridUpdateDate
+        {
+            get { return Fields.UseridUpdateDate[this]; }
+            set { Fields.UseridUpdateDate[this] = value; }
+        }
+
+        [DisplayName("Userid Update User Id"), Expression("jUserid.[UpdateUserId]")]
+        public Int32? UseridUpdateUserId
+        {
+            get { return Fields.UseridUpdateUserId[this]; }
+            set { Fields.UseridUpdateUserId[this] = value; }
+        }
+
+        [DisplayName("Userid Is Active"), Expression("jUserid.[IsActive]")]
+        public Int16? UseridIsActive
+        {
+            get { return Fields.UseridIsActive[this]; }
+            set { Fields.UseridIsActive[this] = value; }
+        }
+
+        [DisplayName("Userid Last Directory Update"), Expression("jUserid.[LastDirectoryUpdate]")]
+        public DateTime? UseridLastDirectoryUpdate
+        {
+            get { return Fields.UseridLastDirectoryUpdate[this]; }
+            set { Fields.UseridLastDirectoryUpdate[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.AcnId; }
@@ -51,6 +191,27 @@ namespace coromendal.ACN.Entities
         {
             public Int32Field AcnId;
             public StringField AcnTilte;
+            public Int32Field PhaseNo;
+            public StringField Location;
+            public StringField Fromdate;
+            public StringField Todate;
+            public StringField Periodfrom;
+            public StringField Periodto;
+            public StringField Creationdate;
+            public Int32Field Userid;
+
+            public StringField UseridUsername;
+            public StringField UseridDisplayName;
+            public StringField UseridEmail;
+            public StringField UseridSource;
+            public StringField UseridPasswordHash;
+            public StringField UseridPasswordSalt;
+            public DateTimeField UseridInsertDate;
+            public Int32Field UseridInsertUserId;
+            public DateTimeField UseridUpdateDate;
+            public Int32Field UseridUpdateUserId;
+            public Int16Field UseridIsActive;
+            public DateTimeField UseridLastDirectoryUpdate;
 
             public RowFields()
                 : base("[dbo].[Acn]")

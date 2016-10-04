@@ -18,5 +18,7 @@ namespace coromendal.Administration.Forms
         public String Email { get; set; }
         [Width(100)]
         public String Source { get; set; }
+        [Width(150)]
+        public String Role { get; set; }
     }
 }

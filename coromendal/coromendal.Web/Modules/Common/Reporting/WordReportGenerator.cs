@@ -33,6 +33,7 @@ namespace Serenity.Reporting
         public static void PopulateDocument(DocX document, List<ReportColumn> columns, IList rows,
             string sheetName = "Page1", string tableName = "Table1")
         {
+
             // Add a new Paragraph to the document.
             Paragraph p = document.InsertParagraph();
             var fld = coromendal.ACN.Entities.AcnreportRow.Fields;
@@ -161,9 +162,42 @@ namespace Serenity.Reporting
             }
             document.ReplaceText("#%SCOPETABLE%", "");
 
+            //key facts
+            var keyfacts = coromendal.ACN.Entities.KeyfactsRow.Fields;
+            List<dynamic> keyfactsResultSet;
+            var keyfactsqlquery = new SqlQuery()
+                    .From(keyfacts)
+                    .Select(keyfacts.Particulars)
+                    .Select(keyfacts.Value)
+                    .Where(
+                    scope.AcnId == fld.Acnid);
+            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.KeyfactsRow>())
+                keyfactsResultSet = connection.Query(keyfactsqlquery).ToList();
+            var keyfactstable = document.AddTable(3, 3);
+            keyfactstable.Alignment = Alignment.center;
+            var key = 0;
+            for (var i = 0; i < 1; i++)
+            {
+               
+                    foreach (var item in keyfactsResultSet)
+                    {
+                    keyfactstable.Rows[key].Cells[0].Paragraphs.First().Append(Convert.ToString(key+1));
+                    keyfactstable.Rows[key].Cells[1].Paragraphs.First().Append(Convert.ToString(item.Particulars));
+                    keyfactstable.Rows[key].Cells[2].Paragraphs.First().Append(Convert.ToString(item.Value));
+                    key++;
+                    }
 
-            //Area not covered
+            }
+
+            foreach (var paragraph in document.Paragraphs)
+            {
+                paragraph.FindAll("#%KEYTABLE%").ForEach(index => paragraph.InsertTableAfterSelf((keyfactstable)));
+
+            }
+            document.ReplaceText("#%KEYTABLE%", "");
+            //Meeting issue
             var issue = coromendal.ACN.Entities.MeetingIssueRow.Fields;
+
             List<dynamic> issueResultSet;
             var issuesqlquery = new SqlQuery()
                     .From(issue)

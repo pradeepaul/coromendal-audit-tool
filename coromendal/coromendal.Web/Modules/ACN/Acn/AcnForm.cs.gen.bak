@@ -14,5 +14,13 @@ namespace coromendal.ACN.Forms
     public class AcnForm
     {
         public String AcnTilte { get; set; }
+        public Int32 PhaseNo { get; set; }
+        public String Location { get; set; }
+        public String Fromdate { get; set; }
+        public String Todate { get; set; }
+        public String Periodfrom { get; set; }
+        public String Periodto { get; set; }
+        public String Creationdate { get; set; }
+        public Int32 Userid { get; set; }
     }
 }

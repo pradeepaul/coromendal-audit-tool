@@ -5431,7 +5431,7 @@
 			}));
 		},
 		getAddButtonCaption: function() {
-			return 'New';
+			return 'Add';
 		},
 		getButtons: function() {
 			return [];
@@ -7950,7 +7950,7 @@
 			return this.$itemName;
 		},
 		getAddButtonCaption: function() {
-			return ss.formatString(Q.text('Controls.EntityGrid.NewButton'), this.getItemName());
+			//return ss.formatString(Q.text('Controls.EntityGrid.NewButton'), this.getItemName());
 		},
 		getButtons: function() {
 			var self = this;

@@ -20,18 +20,20 @@ namespace coromendal.ACN {
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {
-
-            super.onClick(e, row, cell);
-            if (e.isDefaultPrevented()) {
-                return;
-            }
-            var item = this.itemAt(row);
-            var target = $(e.target);
-            if (target.hasClass("customer-link")) {
-                e.preventDefault();
-                var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
-                Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });
-                console.log(item.Meetingid);
+            var c = confirm("Are you sure you want to Generate report,once done Audit will clomplete?");
+            if (c == true) {
+                super.onClick(e, row, cell);
+                if (e.isDefaultPrevented()) {
+                    return;
+                }
+                var item = this.itemAt(row);
+                var target = $(e.target);
+                if (target.hasClass("customer-link")) {
+                    e.preventDefault();
+                    var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
+                    Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });
+                    console.log(item.Meetingid);
+                }
             }
         }
     }

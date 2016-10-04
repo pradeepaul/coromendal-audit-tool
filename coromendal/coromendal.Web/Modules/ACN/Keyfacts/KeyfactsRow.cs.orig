@@ -1,0 +1,160 @@
+﻿
+
+namespace coromendal.ACN.Entities
+{
+    using Newtonsoft.Json;
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using Serenity.Data.Mapping;
+    using System;
+    using System.ComponentModel;
+    using System.IO;
+
+    [ConnectionKey("Default"), DisplayName("Keyfacts"), InstanceName("Keyfacts"), TwoLevelCached]
+    [ReadPermission("Administration")]
+    [ModifyPermission("Administration")]
+    public sealed class KeyfactsRow : Row, IIdRow, INameRow
+    {
+        [DisplayName("Keyfacts Id"), Column("keyfactsId"), PrimaryKey]
+        public Int32? KeyfactsId
+        {
+            get { return Fields.KeyfactsId[this]; }
+            set { Fields.KeyfactsId[this] = value; }
+        }
+
+        [DisplayName("Acn Id"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte")]
+        [LookupEditor(typeof(AcnRow))]
+        public Int32? AcnId
+        {
+            get { return Fields.AcnId[this]; }
+            set { Fields.AcnId[this] = value; }
+        }
+        [DisplayName("Report Id"), Column("reportid"), ForeignKey("[dbo].[Acnreport]", "reportId"), LeftJoin("jReport"), TextualField("ReportTitle")]
+        [LookupEditor(typeof(AcnreportRow))]
+        public Int32? ReportId
+        {
+            get { return Fields.ReportId[this]; }
+            set { Fields.ReportId[this] = value; }
+        }
+
+        [DisplayName("Particulars"), Column("particulars"), Size(100), QuickSearch]
+        public String Particulars
+        {
+            get { return Fields.Particulars[this]; }
+            set { Fields.Particulars[this] = value; }
+        }
+
+        [DisplayName("Value"), Column("value"), Size(100)]
+        public String Value
+        {
+            get { return Fields.Value[this]; }
+            set { Fields.Value[this] = value; }
+        }
+
+        [DisplayName("Acn Acn Tilte"), Expression("jAcn.[AcnTilte]")]
+        public String AcnAcnTilte
+        {
+            get { return Fields.AcnAcnTilte[this]; }
+            set { Fields.AcnAcnTilte[this] = value; }
+        }
+
+        [DisplayName("Acn Phase No"), Expression("jAcn.[PhaseNo]")]
+        public Int32? AcnPhaseNo
+        {
+            get { return Fields.AcnPhaseNo[this]; }
+            set { Fields.AcnPhaseNo[this] = value; }
+        }
+
+        [DisplayName("Acn Location"), Expression("jAcn.[location]")]
+        public String AcnLocation
+        {
+            get { return Fields.AcnLocation[this]; }
+            set { Fields.AcnLocation[this] = value; }
+        }
+
+        [DisplayName("Acn Fromdate"), Expression("jAcn.[Fromdate]")]
+        public String AcnFromdate
+        {
+            get { return Fields.AcnFromdate[this]; }
+            set { Fields.AcnFromdate[this] = value; }
+        }
+
+        [DisplayName("Acn Todate"), Expression("jAcn.[Todate]")]
+        public String AcnTodate
+        {
+            get { return Fields.AcnTodate[this]; }
+            set { Fields.AcnTodate[this] = value; }
+        }
+
+        [DisplayName("Acn Periodfrom"), Expression("jAcn.[Periodfrom]")]
+        public String AcnPeriodfrom
+        {
+            get { return Fields.AcnPeriodfrom[this]; }
+            set { Fields.AcnPeriodfrom[this] = value; }
+        }
+
+        [DisplayName("Acn Periodto"), Expression("jAcn.[Periodto]")]
+        public String AcnPeriodto
+        {
+            get { return Fields.AcnPeriodto[this]; }
+            set { Fields.AcnPeriodto[this] = value; }
+        }
+
+        [DisplayName("Acn Creationdate"), Expression("jAcn.[creationdate]")]
+        public String AcnCreationdate
+        {
+            get { return Fields.AcnCreationdate[this]; }
+            set { Fields.AcnCreationdate[this] = value; }
+        }
+
+        [DisplayName("Acn Userid"), Expression("jAcn.[userid]")]
+        public Int32? AcnUserid
+        {
+            get { return Fields.AcnUserid[this]; }
+            set { Fields.AcnUserid[this] = value; }
+        }
+
+        IIdField IIdRow.IdField
+        {
+            get { return Fields.KeyfactsId; }
+        }
+
+        StringField INameRow.NameField
+        {
+            get { return Fields.Particulars; }
+        }
+
+        public static readonly RowFields Fields = new RowFields().Init();
+
+        public KeyfactsRow()
+            : base(Fields)
+        {
+        }
+
+        public class RowFields : RowFieldsBase
+        {
+            public Int32Field KeyfactsId;
+            public Int32Field AcnId;
+            public Int32Field ReportId;
+            public StringField Particulars;
+            public StringField Value;
+            
+            public StringField AcnAcnTilte;
+            public Int32Field AcnPhaseNo;
+            public StringField AcnLocation;
+            public StringField AcnFromdate;
+            public StringField AcnTodate;
+            public StringField AcnPeriodfrom;
+            public StringField AcnPeriodto;
+            public StringField AcnCreationdate;
+            public Int32Field AcnUserid;
+
+            public RowFields()
+                : base("[dbo].[Keyfacts]")
+            {
+                LocalTextPrefix = "ACN.Keyfacts";
+            }
+        }
+    }
+}

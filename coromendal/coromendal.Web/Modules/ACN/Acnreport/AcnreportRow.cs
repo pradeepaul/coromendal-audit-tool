@@ -15,6 +15,7 @@ namespace coromendal.ACN.Entities
     [ConnectionKey("Default"), DisplayName("Acn Report"), InstanceName("Acnreport"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [LookupScript("AcnreportRow")]
     public sealed class AcnreportRow : Row, IIdRow, INameRow
     {
         [DisplayName("Report Id"), Column("reportId"), Identity]
@@ -39,13 +40,25 @@ namespace coromendal.ACN.Entities
             set { Fields.Acnid[this] = value; }
         }
 
-       
-
         [DisplayName("Download"), Column("download")]
         public Int32? Download
         {
             get { return Fields.Download[this]; }
             set { Fields.Download[this] = value; }
+        }
+
+        [DisplayName("Audit Status"), Column("status"), Size(100), QuickSearch]
+        public String status
+        {
+            get { return Fields.status[this]; }
+            set { Fields.status[this] = value; }
+        }
+
+        [DisplayName("Created User"), Column("userid")]
+        public Int32? userid
+        {
+            get { return Fields.userid[this]; }
+            set { Fields.userid[this] = value; }
         }
 
         [DisplayName("Acn Tilte"), Expression("jAcnid.[AcnTilte]")]
@@ -104,53 +117,59 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidCreationdate[this] = value; }
         }
 
-        [DisplayName("Meetingid Acnid"), Expression("jMeetingid.[acnid]")]
-        public Int32? MeetingidAcnid
-        {
-            get { return Fields.MeetingidAcnid[this]; }
-            set { Fields.MeetingidAcnid[this] = value; }
-        }
+        /* [DisplayName("Meetingid Acnid")]
+         public Int32? MeetingidAcnid
+         {
+             get { return Fields.MeetingidAcnid[this]; }
+             set { Fields.MeetingidAcnid[this] = value; }
+         }
 
-        [DisplayName("Meeting Title"), Expression("jMeetingid.[title]")]
-        public String MeetingidTitle
-        {
-            get { return Fields.MeetingidTitle[this]; }
-            set { Fields.MeetingidTitle[this] = value; }
-        }
-        [DisplayName("Feedbackid Feedback Question Id"), Expression("jFeedbackid.[FeedbackQuestionId]")]
-        public Int32? FeedbackidFeedbackQuestionId
-        {
-            get { return Fields.FeedbackidFeedbackQuestionId[this]; }
-            set { Fields.FeedbackidFeedbackQuestionId[this] = value; }
-        }
+          [DisplayName("Meeting Title"), Expression("jMeetingid.[title]")]
+          public String MeetingidTitle
+          {
+              get { return Fields.MeetingidTitle[this]; }
+              set { Fields.MeetingidTitle[this] = value; }
+          }
+          [DisplayName("Feedbackid Feedback Question Id"), Expression("jFeedbackid.[FeedbackQuestionId]")]
+          public Int32? FeedbackidFeedbackQuestionId
+          {
+              get { return Fields.FeedbackidFeedbackQuestionId[this]; }
+              set { Fields.FeedbackidFeedbackQuestionId[this] = value; }
+          }
 
-        [DisplayName("Feedbackid Feedback Meeting Id"), Expression("jFeedbackid.[FeedbackMeetingId]")]
-        public Int32? FeedbackidFeedbackMeetingId
-        {
-            get { return Fields.FeedbackidFeedbackMeetingId[this]; }
-            set { Fields.FeedbackidFeedbackMeetingId[this] = value; }
-        }
+          [DisplayName("Feedbackid Feedback Meeting Id"), Expression("jFeedbackid.[FeedbackMeetingId]")]
+          public Int32? FeedbackidFeedbackMeetingId
+          {
+              get { return Fields.FeedbackidFeedbackMeetingId[this]; }
+              set { Fields.FeedbackidFeedbackMeetingId[this] = value; }
+          }
 
-        [DisplayName("Feedbackid Feedback Rating"), Expression("jFeedbackid.[FeedbackRating]")]
-        public Int32? FeedbackidFeedbackRating
-        {
-            get { return Fields.FeedbackidFeedbackRating[this]; }
-            set { Fields.FeedbackidFeedbackRating[this] = value; }
-        }
+          [DisplayName("Feedbackid Feedback Rating"), Expression("jFeedbackid.[FeedbackRating]")]
+          public Int32? FeedbackidFeedbackRating
+          {
+              get { return Fields.FeedbackidFeedbackRating[this]; }
+              set { Fields.FeedbackidFeedbackRating[this] = value; }
+          }
 
-        [DisplayName("Feedbackid Feedback Remarks"), Expression("jFeedbackid.[FeedbackRemarks]")]
-        public String FeedbackidFeedbackRemarks
-        {
-            get { return Fields.FeedbackidFeedbackRemarks[this]; }
-            set { Fields.FeedbackidFeedbackRemarks[this] = value; }
-        }
-        [DisplayName("Suggestion case"), ClientSide]
+          [DisplayName("Feedbackid Feedback Remarks"), Expression("jFeedbackid.[FeedbackRemarks]")]
+          public String FeedbackidFeedbackRemarks
+          {
+              get { return Fields.FeedbackidFeedbackRemarks[this]; }
+              set { Fields.FeedbackidFeedbackRemarks[this] = value; }
+          }*/
+        [DisplayName("Observation"), ClientSide]
         public List<AuditobservationRow> Auditobservation
         {
             get { return Fields.Auditobservation[this]; }
             set { Fields.Auditobservation[this] = value; }
         }
-
+        [DisplayName("Key Facts"), ClientSide]
+        public List<KeyfactsRow> Keyfacts
+        {
+            get { return Fields.Keyfacts[this]; }
+            set { Fields.Keyfacts[this] = value; }
+        }
+        
         IIdField IIdRow.IdField
         {
             get { return Fields.ReportId; }
@@ -174,6 +193,8 @@ namespace coromendal.ACN.Entities
             public StringField Title;
             public Int32Field Acnid;
             public Int32Field Download;
+            public Int32Field userid;
+            public StringField status;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;
@@ -184,15 +205,8 @@ namespace coromendal.ACN.Entities
             public StringField AcnidPeriodto;
             public StringField AcnidCreationdate;
 
-            public Int32Field MeetingidAcnid;
-            public StringField MeetingidTitle;
-           
-
-            public Int32Field FeedbackidFeedbackQuestionId;
-            public Int32Field FeedbackidFeedbackMeetingId;
-            public Int32Field FeedbackidFeedbackRating;
-            public StringField FeedbackidFeedbackRemarks;
-
+          
+            public RowListField<KeyfactsRow> Keyfacts;
             public RowListField<AuditobservationRow> Auditobservation;
 
             public RowFields()

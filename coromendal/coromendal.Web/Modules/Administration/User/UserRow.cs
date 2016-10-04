@@ -12,6 +12,7 @@ namespace coromendal.Administration.Entities
     [ConnectionKey("Default"), DisplayName("Users"), InstanceName("User"), TwoLevelCached]
     [ReadPermission(Administration.PermissionKeys.Security)]
     [ModifyPermission(Administration.PermissionKeys.Security)]
+    [LookupScript("UserRow")]
     public sealed class UserRow : LoggingRow, IIdRow, INameRow, IIsActiveRow
     {
         [DisplayName("User Id"), Identity]

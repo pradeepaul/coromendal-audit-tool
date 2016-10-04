@@ -2905,6 +2905,55 @@ var coromendal;
 (function (coromendal) {
     var ACN;
     (function (ACN) {
+        var KeyfactsForm = (function (_super) {
+            __extends(KeyfactsForm, _super);
+            function KeyfactsForm() {
+                _super.apply(this, arguments);
+            }
+            KeyfactsForm.formKey = 'ACN.Keyfacts';
+            return KeyfactsForm;
+        }(Serenity.PrefixedContext));
+        ACN.KeyfactsForm = KeyfactsForm;
+        [['KeyfactsId', function () { return Serenity.IntegerEditor; }], ['AcnId', function () { return Serenity.IntegerEditor; }], ['Particulars', function () { return Serenity.StringEditor; }], ['Value', function () { return Serenity.StringEditor; }], ['Reportid', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(KeyfactsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var KeyfactsRow;
+        (function (KeyfactsRow) {
+            KeyfactsRow.idProperty = 'KeyfactsId';
+            KeyfactsRow.nameProperty = 'Particulars';
+            KeyfactsRow.localTextPrefix = 'ACN.Keyfacts';
+            var Fields;
+            (function (Fields) {
+            })(Fields = KeyfactsRow.Fields || (KeyfactsRow.Fields = {}));
+            ['KeyfactsId', 'AcnId', 'Particulars', 'Value', 'Reportid', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'AcnUserid', 'ReportidTitle', 'ReportidAcnid', 'ReportidDownload', 'ReportidUserid', 'ReportidStatus'].forEach(function (x) { return Fields[x] = x; });
+        })(KeyfactsRow = ACN.KeyfactsRow || (ACN.KeyfactsRow = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var KeyfactsService;
+        (function (KeyfactsService) {
+            KeyfactsService.baseUrl = 'ACN/Keyfacts';
+            var Methods;
+            (function (Methods) {
+            })(Methods = KeyfactsService.Methods || (KeyfactsService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                KeyfactsService[x] = function (r, s, o) { return Q.serviceRequest(KeyfactsService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = KeyfactsService.baseUrl + '/' + x;
+            });
+        })(KeyfactsService = ACN.KeyfactsService || (ACN.KeyfactsService = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
         var MeetingAbsentForm = (function (_super) {
             __extends(MeetingAbsentForm, _super);
             function MeetingAbsentForm() {
@@ -8367,6 +8416,96 @@ var coromendal;
 (function (coromendal) {
     var ACN;
     (function (ACN) {
+        var KeyfactsDialog = (function (_super) {
+            __extends(KeyfactsDialog, _super);
+            function KeyfactsDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.KeyfactsForm(this.idPrefix);
+            }
+            KeyfactsDialog.prototype.getFormKey = function () { return ACN.KeyfactsForm.formKey; };
+            KeyfactsDialog.prototype.getIdProperty = function () { return ACN.KeyfactsRow.idProperty; };
+            KeyfactsDialog.prototype.getLocalTextPrefix = function () { return ACN.KeyfactsRow.localTextPrefix; };
+            KeyfactsDialog.prototype.getNameProperty = function () { return ACN.KeyfactsRow.nameProperty; };
+            KeyfactsDialog.prototype.getService = function () { return ACN.KeyfactsService.baseUrl; };
+            KeyfactsDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], KeyfactsDialog);
+            return KeyfactsDialog;
+        }(Serenity.EntityDialog));
+        ACN.KeyfactsDialog = KeyfactsDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var KeyfactsEditor = (function (_super) {
+            __extends(KeyfactsEditor, _super);
+            function KeyfactsEditor(container) {
+                _super.call(this, container);
+            }
+            KeyfactsEditor.prototype.getColumnsKey = function () { return 'ACN.Keyfacts'; };
+            KeyfactsEditor.prototype.getDialogType = function () { return ACN.KeyfactsEditorDialog; };
+            KeyfactsEditor.prototype.getLocalTextPrefix = function () { return ACN.KeyfactsRow.localTextPrefix; };
+            KeyfactsEditor = __decorate([
+                Serenity.Decorators.registerClass()
+            ], KeyfactsEditor);
+            return KeyfactsEditor;
+        }(coromendal.Common.GridEditorBase));
+        ACN.KeyfactsEditor = KeyfactsEditor;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var KeyfactsEditorDialog = (function (_super) {
+            __extends(KeyfactsEditorDialog, _super);
+            function KeyfactsEditorDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.KeyfactsForm(this.idPrefix);
+            }
+            KeyfactsEditorDialog.prototype.getFormKey = function () { return ACN.KeyfactsForm.formKey; };
+            KeyfactsEditorDialog.prototype.getLocalTextPrefix = function () { return ACN.KeyfactsRow.localTextPrefix; };
+            KeyfactsEditorDialog.prototype.getNameProperty = function () { return ACN.KeyfactsRow.nameProperty; };
+            KeyfactsEditorDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], KeyfactsEditorDialog);
+            return KeyfactsEditorDialog;
+        }(coromendal.Common.GridEditorDialog));
+        ACN.KeyfactsEditorDialog = KeyfactsEditorDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var KeyfactsGrid = (function (_super) {
+            __extends(KeyfactsGrid, _super);
+            function KeyfactsGrid(container) {
+                _super.call(this, container);
+            }
+            KeyfactsGrid.prototype.getColumnsKey = function () { return 'ACN.Keyfacts'; };
+            KeyfactsGrid.prototype.getDialogType = function () { return ACN.KeyfactsDialog; };
+            KeyfactsGrid.prototype.getIdProperty = function () { return ACN.KeyfactsRow.idProperty; };
+            KeyfactsGrid.prototype.getLocalTextPrefix = function () { return ACN.KeyfactsRow.localTextPrefix; };
+            KeyfactsGrid.prototype.getService = function () { return ACN.KeyfactsService.baseUrl; };
+            KeyfactsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], KeyfactsGrid);
+            return KeyfactsGrid;
+        }(Serenity.EntityGrid));
+        ACN.KeyfactsGrid = KeyfactsGrid;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
         var FeedbackvalueDialog = (function (_super) {
             __extends(FeedbackvalueDialog, _super);
             function FeedbackvalueDialog() {
@@ -8903,17 +9042,20 @@ var coromendal;
                 return columns;
             };
             AcnreportGrid.prototype.onClick = function (e, row, cell) {
-                _super.prototype.onClick.call(this, e, row, cell);
-                if (e.isDefaultPrevented()) {
-                    return;
-                }
-                var item = this.itemAt(row);
-                var target = $(e.target);
-                if (target.hasClass("customer-link")) {
-                    e.preventDefault();
-                    var request = Q.deepClone(this.getView().params);
-                    Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });
-                    console.log(item.Meetingid);
+                var c = confirm("Are you sure you want to Generate report,once done Audit will clomplete?");
+                if (c == true) {
+                    _super.prototype.onClick.call(this, e, row, cell);
+                    if (e.isDefaultPrevented()) {
+                        return;
+                    }
+                    var item = this.itemAt(row);
+                    var target = $(e.target);
+                    if (target.hasClass("customer-link")) {
+                        e.preventDefault();
+                        var request = Q.deepClone(this.getView().params);
+                        Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });
+                        console.log(item.Meetingid);
+                    }
                 }
             };
             AcnreportGrid = __decorate([
