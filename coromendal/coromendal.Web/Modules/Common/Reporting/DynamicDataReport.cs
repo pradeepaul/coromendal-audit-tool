@@ -15,7 +15,7 @@ namespace Serenity.Reporting
         public IEnumerable<string> ColumnList { get; set; }
         public Type ColumnsType { get; private set; }
 
-        public DynamicDataReport(IEnumerable data, IEnumerable<string> columnList, Type columnsType)
+        public DynamicDataReport(IEnumerable data, IEnumerable<string> columnList, Type columnsType,int a)
         {
             if (data == null)
                 throw new ArgumentNullException("data");

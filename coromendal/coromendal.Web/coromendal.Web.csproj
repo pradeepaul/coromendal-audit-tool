@@ -2014,6 +2014,7 @@
     <Compile Include="Modules\ACN\Acn\AcnAuditeeListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\AcnListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\ScopeEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Auditobservation\AuditobservationPage.cs" />
     <Compile Include="Modules\ACN\Auditobservation\RootcauseEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Auditobservation\SuggestionEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Category\CategoryPage.cs" />
@@ -2117,8 +2118,10 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_061014_AlterAuditobservation.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_094814_Auditobservation.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_092816_Suggestion.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_061004_Minutesofmeetingalter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_125504_KeyFacts.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_173404_Acnuseridalter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104605_ReportAlter.cs" />

@@ -32,7 +32,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Title[this] = value; }
         }
 
-        [DisplayName("Acn Name"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [DisplayName("Acn Name"), Width(100), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
@@ -157,19 +157,14 @@ namespace coromendal.ACN.Entities
               get { return Fields.FeedbackidFeedbackRemarks[this]; }
               set { Fields.FeedbackidFeedbackRemarks[this] = value; }
           }*/
-        [DisplayName("Observation"), ClientSide]
-        public List<AuditobservationRow> Auditobservation
-        {
-            get { return Fields.Auditobservation[this]; }
-            set { Fields.Auditobservation[this] = value; }
-        }
-        [DisplayName("Key Facts"), ClientSide]
+       
+        [DisplayName("Key Facts"), ClientSide, MasterDetailRelation(foreignKey: "reportid")]
         public List<KeyfactsRow> Keyfacts
         {
             get { return Fields.Keyfacts[this]; }
             set { Fields.Keyfacts[this] = value; }
         }
-        
+
         IIdField IIdRow.IdField
         {
             get { return Fields.ReportId; }
@@ -205,9 +200,7 @@ namespace coromendal.ACN.Entities
             public StringField AcnidPeriodto;
             public StringField AcnidCreationdate;
 
-          
-            public RowListField<KeyfactsRow> Keyfacts;
-            public RowListField<AuditobservationRow> Auditobservation;
+           public RowListField<KeyfactsRow> Keyfacts;
 
             public RowFields()
                 : base("[dbo].[Acnreport]")

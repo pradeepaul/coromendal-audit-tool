@@ -8179,9 +8179,8 @@ var dialog = $.widget( "ui.dialog", {
 			parent: this.element.parent(),
 			index: this.element.parent().children().index( this.element )
 		};
-		this.originalTitle = this.element.attr( "title" );
+		this.originalTitle = this.element.attr("title");
 		this.options.title = this.options.title || this.originalTitle;
-
 		this._createWrapper();
 
 		this.element
@@ -8234,7 +8233,6 @@ var dialog = $.widget( "ui.dialog", {
 			.detach();
 
 		this.uiDialog.stop( true, true ).remove();
-
 		if ( this.originalTitle ) {
 			this.element.attr( "title", this.originalTitle );
 		}
@@ -8499,8 +8497,7 @@ var dialog = $.widget( "ui.dialog", {
 			.uniqueId()
 			.addClass( "ui-dialog-title" )
 			.prependTo( this.uiDialogTitlebar );
-		this._title( uiDialogTitle );
-
+		this._title(uiDialogTitle);
 		this.uiDialog.attr({
 			"aria-labelledby": uiDialogTitle.attr( "id" )
 		});
@@ -8510,7 +8507,8 @@ var dialog = $.widget( "ui.dialog", {
 		if ( !this.options.title ) {
 			title.html( "&#160;" );
 		}
-		title.text( this.options.title );
+		title.text(this.options.title);
+		console.log("******************"+this.options.title);
 	},
 
 	_createButtonPane: function() {

@@ -72,7 +72,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName("Agree this Observation"), Column("agreeobservation"), Size(10)]
         [LookupEditor(typeof(ConformationRow))]
-        public String Agreeobservation
+        public Int32? Agreeobservation
         {
             get { return Fields.Agreeobservation[this]; }
             set { Fields.Agreeobservation[this] = value; }
@@ -80,14 +80,14 @@ namespace coromendal.ACN.Entities
 
         [DisplayName("Justification"), Column("justification")]
        
-        public Int32? Justification
+        public String Justification
         {
             get { return Fields.Justification[this]; }
             set { Fields.Justification[this] = value; }
         }
         [LookupEditor(typeof(ConformationRow))]
         [DisplayName("Agree this Suggestion"), Column("suggestion"), Size(10)]
-        public String Suggestion
+        public Int32? Suggestion
         {
             get { return Fields.Suggestion[this]; }
             set { Fields.Suggestion[this] = value; }
@@ -120,6 +120,8 @@ namespace coromendal.ACN.Entities
             get { return Fields.Targetdate[this]; }
             set { Fields.Targetdate[this] = value; }
         }
+
+
 
         [DisplayName("Acn Acn Tilte"), Expression("jAcn.[AcnTilte]")]
         public String AcnAcnTilte
@@ -176,13 +178,13 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnCreationdate[this]; }
             set { Fields.AcnCreationdate[this] = value; }
         }
-        [DisplayName("Root case"), ClientSide]
+        [DisplayName("Root case"), ClientSide, MasterDetailRelation(foreignKey: "auditobservationID")]
         public List<RootcauseRow> rootList
         {
             get { return Fields.rootList[this]; }
             set { Fields.rootList[this] = value; }
         }
-        [DisplayName("Suggestion case"), ClientSide]
+        [DisplayName("Suggestion case"), ClientSide, MasterDetailRelation(foreignKey: "auditobservationID")]
         public List<SuggestionRow> SuggestionList
         {
             get { return Fields.SuggestionList[this]; }
@@ -215,9 +217,9 @@ namespace coromendal.ACN.Entities
             public StringField Detailedobservation;
             public Int32Field Category;
             public Int32Field RiskRating;
-            public StringField Agreeobservation;
-            public Int32Field Justification;
-            public StringField Suggestion;
+            public Int32Field Agreeobservation;
+            public StringField Justification;
+            public Int32Field Suggestion;
             public StringField Alternateplan;
             public StringField Name;
             public StringField Email;

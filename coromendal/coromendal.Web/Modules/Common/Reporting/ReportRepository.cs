@@ -6,7 +6,7 @@
 
     public class ReportRepository
     {
-        public byte[] Render(IDataOnlyReport report)
+        public byte[] Render(IDataOnlyReport report,int a)
         {
             var columns = report.GetColumnList();
 
@@ -17,7 +17,7 @@
                 data.Add(item);
 
             //return ExcelReportGenerator.GeneratePackageBytes(columns, data);
-            return WordReportGenerator.GeneratePackageBytes(columns, data);
+            return WordReportGenerator.GeneratePackageBytes(columns, data, a);
         }
     }
 }

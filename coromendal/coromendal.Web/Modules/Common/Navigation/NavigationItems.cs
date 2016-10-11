@@ -100,6 +100,7 @@ using coromendal;
 [assembly: NavigationLink(10001, "ACN/AOD", typeof(coromendal.ACN.Pages.MeetingIssueController), icon: "icon-people")]
 //[assembly: NavigationLink(10001, "ACN/Questions", typeof(coromendal.ACN.Pages.QuestionsController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Feedback", typeof(coromendal.ACN.Pages.AcnFeedbackController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Audit Observation", typeof(coromendal.ACN.Pages.AuditobservationController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Report", typeof(coromendal.ACN.Pages.AcnreportController), icon: "icon-people")]
 //[assembly: NavigationLink(10001, "ACN/Auditee", typeof(coromendal.ACN.Pages.AcnAuditeeController), icon: "icon-people")]
 //[assembly: NavigationLink(10001, "ACN/Auditor", typeof(coromendal.ACN.Pages.AcnAuditorController), icon: "icon-people")]

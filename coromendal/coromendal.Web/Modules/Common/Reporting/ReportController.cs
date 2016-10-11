@@ -50,7 +50,7 @@ namespace coromendal
             if (report is IDataOnlyReport)
             {
                 ext = "docx";
-                renderedBytes = new ReportRepository().Render((IDataOnlyReport)report);
+                renderedBytes = new ReportRepository().Render((IDataOnlyReport)report,0);
             }
             else
             {

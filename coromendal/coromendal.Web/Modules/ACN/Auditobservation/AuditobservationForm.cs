@@ -25,10 +25,10 @@ namespace coromendal.ACN.Forms
         public List<SuggestionRow> SuggestionList { get; set; }
         public Int32 Category { get; set; }
         public Int32 RiskRating { get; set; }
-        public String Agreeobservation { get; set; }
+        public Int32 Agreeobservation { get; set; }
         [TextAreaEditor(Rows = 8)]
-        public Int32 Justification { get; set; }
-        public String Suggestion { get; set; }
+        public String Justification { get; set; }
+        public Int32 Suggestion { get; set; }
         [TextAreaEditor(Rows = 8)]
         public String Alternateplan { get; set; }
         public String Name { get; set; }

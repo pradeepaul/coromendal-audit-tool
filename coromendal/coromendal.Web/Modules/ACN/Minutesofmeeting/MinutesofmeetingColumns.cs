@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.MinutesofmeetingRow))]
     public class MinutesofmeetingColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId")]
         public Int32 Meetingid { get; set; }
         public String Title { get; set; }
         [EditLink]

@@ -18,8 +18,7 @@ namespace coromendal.ACN.Forms
         public Int32 Acnid { get; set; }
         public String userid { get; set; }
         public String status { get; set; }
-        [AuditobservationEditor]
-        public List<AuditobservationRow> Auditobservation { get; set; }
+       
         [KeyfactsEditor]
         public List<KeyfactsRow> Keyfacts { get; set; }
     }

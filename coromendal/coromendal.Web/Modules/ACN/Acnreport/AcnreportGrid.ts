@@ -31,7 +31,7 @@ namespace coromendal.ACN {
                 if (target.hasClass("customer-link")) {
                     e.preventDefault();
                     var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
-                    Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });
+                    Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });                    
                     console.log(item.Meetingid);
                 }
             }

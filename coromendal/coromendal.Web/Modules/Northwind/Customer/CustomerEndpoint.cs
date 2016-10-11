@@ -51,8 +51,8 @@ namespace coromendal.Northwind.Endpoints
         public FileContentResult ListExcel(IDbConnection connection, ListRequest request)
         {
             var data = List(connection, request).Entities;
-            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.CustomerColumns));
-            var bytes = new ReportRepository().Render(report);
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.CustomerColumns),0);
+            var bytes = new ReportRepository().Render(report,0);
             return ExcelContentResult.Create(bytes, "CustomerList_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
         }

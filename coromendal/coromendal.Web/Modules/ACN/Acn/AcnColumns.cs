@@ -13,16 +13,17 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.AcnRow))]
     public class AcnColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId")]
         public Int32 AcnId { get; set; }
 
         public Int32 UserId { get; set; }
+        [Width(100), AcnListFormatter]
         public Int32 PhaseNo { get; set; }
         [EditLink]
         public String AcnTilte { get; set; }
-        [Width(250), AcnListFormatter]
+        [Width(150), AcnListFormatter]
         public String Auditor { get; set; }
-        [Width(250), AcnAuditeeListFormatter]
+        [Width(150), AcnAuditeeListFormatter]
         public String Auditee { get; set; }
 
         public String Fromdate { get; set; }

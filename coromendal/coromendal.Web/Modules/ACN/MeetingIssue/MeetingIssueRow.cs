@@ -11,7 +11,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Meeting Issue"), InstanceName("MeetingIssue"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Meeting Issue"), InstanceName("Issue"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.MeetingIssue.View)]
     [ModifyPermission(ACN.PermissionKeys.MeetingIssue.Modify)]
     [DeletePermission(ACN.PermissionKeys.MeetingIssue.Delete)]

@@ -17,7 +17,7 @@ namespace coromendal.ACN.Entities
     [LookupScript("ACN.RootcauseRow")]
     public sealed class RootcauseRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Rootcause Id"), Column("rootcauseID"), PrimaryKey]
+        [DisplayName("Rootcause Id"), Column("rootcauseID"), Identity]
         public Int32? RootcauseId
         {
             get { return Fields.RootcauseId[this]; }
@@ -31,14 +31,14 @@ namespace coromendal.ACN.Entities
             get { return Fields.AuditobservationId[this]; }
             set { Fields.AuditobservationId[this] = value; }
         }
-
+        [SetFieldFlags(FieldFlags.Trim)]
         [DisplayName("Rootcause"), Column("rootcause"), Size(300), QuickSearch]
         public String Rootcause
         {
             get { return Fields.Rootcause[this]; }
             set { Fields.Rootcause[this] = value; }
         }
-
+        [SetFieldFlags(FieldFlags.Trim)]
         [DisplayName("Impact"), Column("impact"), Size(300)]
         public String Impact
         {

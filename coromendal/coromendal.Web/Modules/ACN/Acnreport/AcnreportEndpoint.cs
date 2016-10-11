@@ -50,16 +50,16 @@ namespace coromendal.ACN.Endpoints
             var fld = Entities.MinutesofmeetingRow.Fields;
             var fld1 = Entities.AcnRow.Fields;
             var fld2 = Entities.MeetingIssueRow.Fields;
-
+            int a = 4;
             var query = new SqlQuery()
              .From(fld)
              .Select(fld.Acnid);
 
             Console.WriteLine(query);
-            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.AcnreportColumns));
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.AcnreportColumns),a);
             var shippers = connection.List<MyRow>(q => q.SelectTableFields().OrderBy(MyRow.Fields.Acnid));
 
-            var bytes = new ReportRepository().Render(report);
+            var bytes = new ReportRepository().Render(report,a);
             var user = (UserDefinition)Authorization.UserDefinition;
             return ExcelContentResult.Create(bytes, "REPORT_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".docx");

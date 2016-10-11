@@ -87,7 +87,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Auditee[this]; }
             set { Fields.Auditee[this] = value; }
         }
-        [DisplayName("Report Number"), Expression("jAcnid.[PhaseNo]")]
+        [DisplayName("Report Number"), Width(180), Expression("jAcnid.[PhaseNo]")]
         public Int32? PhaseNo
         {
             get { return Fields.PhaseNo[this]; }
