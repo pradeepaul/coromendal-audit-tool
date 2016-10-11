@@ -16,7 +16,7 @@ namespace coromendal.ACN {
             var columns = super.getColumns();
             var fld = ACN.MinutesofmeetingRow.Fields;
             Q.first(columns, x => x.field == fld.Download).format =
-                ctx => `<a href="javascript:;" class="customer-link">Click</a>`;
+                ctx => `<a href="javascript:;" class="customer-link">click</a>`;
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {

@@ -2,6 +2,7 @@
 
 namespace coromendal.ACN.Entities
 {
+    using Administration.Entities;
     using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
@@ -33,7 +34,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Absent User"), QuickSearch]
-        [LookupEditor(typeof(AcnAuditeeRow))]
+        [LookupEditor(typeof(UserRow))]
         public Int32? AbsentUser
         {
             get { return Fields.AbsentUser[this]; }

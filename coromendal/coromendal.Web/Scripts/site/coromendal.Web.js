@@ -9038,7 +9038,7 @@ var coromendal;
                 var columns = _super.prototype.getColumns.call(this);
                 var fld = ACN.MinutesofmeetingRow.Fields;
                 Q.first(columns, function (x) { return x.field == fld.Download; }).format =
-                    function (ctx) { return "<a href=\"javascript:;\" class=\"customer-link\">Click</a>"; };
+                    function (ctx) { return "<a href=\"javascript:;\" class=\"customer-link\">click</a>"; };
                 return columns;
             };
             AcnreportGrid.prototype.onClick = function (e, row, cell) {

@@ -2,6 +2,7 @@
 
 namespace coromendal.ACN.Entities
 {
+    using Administration.Entities;
     using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
@@ -33,7 +34,13 @@ namespace coromendal.ACN.Entities
             get { return Fields.Acnid[this]; }
             set { Fields.Acnid[this] = value; }
         }
-        
+        [DisplayName("Created By"), Column("userid"), ForeignKey("[dbo].[Users]", "UserId"), LeftJoin("jUser")]
+        [LookupEditor(typeof(UserRow))]
+        public Int32? UserId
+        {
+            get { return Fields.UserId[this]; }
+            set { Fields.UserId[this] = value; }
+        }
         [DisplayName("Meeting Title"), Column("title"), Size(200), QuickSearch]
         public String Title
         {
@@ -165,6 +172,7 @@ namespace coromendal.ACN.Entities
         {
             public Int32Field Meetingid;
             public Int32Field Acnid;
+            public Int32Field UserId;
             public StringField Title;
             public StringField Auditscope;
             public StringField Period;
