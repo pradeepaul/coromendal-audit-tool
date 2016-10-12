@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Rootcause"), InstanceName("Rootcause"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.Rootcause.View)]
+    [ModifyPermission(ACN.PermissionKeys.Rootcause.Modify)]
+    [DeletePermission(ACN.PermissionKeys.Rootcause.Delete)]
     [LookupScript("ACN.RootcauseRow")]
     public sealed class RootcauseRow : Row, IIdRow, INameRow
     {

@@ -12,9 +12,7 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Feedback"), InstanceName("Feedback"), TwoLevelCached]
-    [ReadPermission(ACN.PermissionKeys.Feedback.View)]
-    [ModifyPermission(ACN.PermissionKeys.Feedback.Modify)]
-    [DeletePermission(ACN.PermissionKeys.Feedback.Delete)]
+   
     [LookupScript("FeedbackRow")]
     public sealed class FeedbackRow : Row, IIdRow, INameRow
     {

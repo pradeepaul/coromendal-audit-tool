@@ -19,8 +19,10 @@ namespace coromendal.ACN.Columns
         public String Title { get; set; }
         public Int32 Acnid { get; set; }
         public String AcnidAcnTilte { get; set; }
+        public String status { get; set; }
         [Width(100), AcnListFormatter]
         public Int32 Download { get; set; }
+
 
     }
 }

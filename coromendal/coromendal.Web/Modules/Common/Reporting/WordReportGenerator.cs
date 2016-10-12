@@ -167,9 +167,27 @@ namespace Serenity.Reporting
                 newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Particulars));
                 newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString(item.Value));
             }
-          
-            //Meeting issue
+            //Meeting details based on acn 
+
             var issue = coromendal.ACN.Entities.MeetingIssueRow.Fields;
+            var meeting = coromendal.ACN.Entities.MinutesofmeetingRow.Fields;
+            
+            List<dynamic> meetingResultSet;
+            var meetingidquery = new SqlQuery()
+                    .From(meeting)
+                    .Select(meeting.Meetingid)
+                    .Where(
+                    meeting.Acnid == acnid);
+            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MinutesofmeetingRow>())
+                meetingResultSet = connection.Query(meetingidquery).ToList();
+            var mt = 0;
+            int[] numbers = new int[meetingResultSet.Count];
+            foreach (var item in meetingResultSet)
+            {
+                numbers[mt] = (int)item.Meetingid;
+                mt++;
+            }
+            //Meeting issue
 
             List<dynamic> issueResultSet;
             var issuesqlquery = new SqlQuery()
@@ -178,19 +196,19 @@ namespace Serenity.Reporting
                     .Select(issue.Issue)
                     .Select(issue.Status)
                     .Select(issue.ExpectedDate)
-                    .Select(issue.AreaCovered)
-                    .Select(issue.AreaNotCovered)
-                    .Select(issue.CommandCreationDate)
+                    .Select(issue.Areacovered)
+                    .Select(issue.Areanotcovered)
+                    .Select(issue.Commandcreationdate)
                     .Select(issue.Comments)
                     .Where(
-                    issue.MeetingId.In(5, 1005));
+                    issue.MeetingId.In (numbers));
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingIssueRow>())
                 issueResultSet = connection.Query(issuesqlquery).ToList();
             Table issuetable = document.Tables.First(t => t.TableCaption == "ISSUE_TABLE");
             foreach (var item in issueResultSet)
             {
                 Novacode.Row newOrderRow = issuetable.InsertRow();
-                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.AreaNotCovered));
+                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.Areanotcovered));
 
             }
             //ISSUE PENDING
@@ -204,7 +222,7 @@ namespace Serenity.Reporting
                 newOrderRow.Cells[1].Paragraphs.First().Append(item.AreaNotCovered);
                 newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString("high"));
                 newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Comments));
-                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.CommandCreationDate));
+                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.Commandcreationdate));
                 k++;
             }
             //STATUS
@@ -228,7 +246,7 @@ namespace Serenity.Reporting
             {
                 Novacode.Row newOrderRow = issueCoveredtable.InsertRow();
                 newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(m + 1));
-                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.AreaCovered));
+                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Areacovered));
                 newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString(item.Issue));
                 newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Status));
                 newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.ExpectedDate));
@@ -351,17 +369,7 @@ namespace Serenity.Reporting
                 suggestiontable.Rows[sugg].Cells[0].Paragraphs.First().Append(Convert.ToString(item.Suggestion));
                 sugg++;
             }
-
-
-           /* foreach (var paragraph in document.Paragraphs)
-            {
-                paragraph.FindAll("#% Suggestion%").ForEach(index => paragraph.InsertTableAfterSelf((suggestiontable)));
-
-            }
-            document.ReplaceText("#% Suggestion%", "");*/
-
-         
-            //Exceutive summary
+            
 
          
             var summary = coromendal.ACN.Entities.AuditobservationRow.Fields;
@@ -379,7 +387,6 @@ namespace Serenity.Reporting
                 summaryResultSet = connection.Query(summarysqlquery).ToList();
 
             Table exceutiveSummarytable = document.Tables.First(t => t.TableCaption == "EXECUTIVE_SUMMARY");
-           // var summarytable = document.AddTable(summaryResultSet.Count, 8);
             var E = 0;
             foreach (var item in summaryResultSet)
             {
@@ -418,11 +425,6 @@ namespace Serenity.Reporting
                 newOrderRow.Cells[7].Paragraphs.First().Append("TR");
                 E++;
             }
-           // foreach (var paragraph in document.Paragraphs)
-           // {
-               // paragraph.FindAll("#%SUMMARY%").ForEach(index => paragraph.InsertTableAfterSelf((summarytable)));
-           // }
-           // document.ReplaceText("#%SUMMARY%", "");
            
 
             //Observation
@@ -475,7 +477,7 @@ namespace Serenity.Reporting
             document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
             document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));
 
-
+           
 
             //Issue discrepancies 
 

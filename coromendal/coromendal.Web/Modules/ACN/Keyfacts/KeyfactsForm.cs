@@ -13,9 +13,9 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.KeyfactsRow))]
     public class KeyfactsForm
     {
-        public Int32 AcnId { get; set; }
+       // public Int32 AcnId { get; set; }
         public String Particulars { get; set; }
         public String Value { get; set; }
-        public Int32 Reportid { get; set; }
+       // public Int32 Reportid { get; set; }
     }
 }

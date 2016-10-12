@@ -13,7 +13,8 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.MeetingPointsRow))]
     public class MeetingPointsForm
     {
-        public Int32 MeetingId { get; set; }
+        //public Int32 MeetingId { get; set; }
+        [TextAreaEditor(Rows = 8)]
         public String Points { get; set; }
     }
 }

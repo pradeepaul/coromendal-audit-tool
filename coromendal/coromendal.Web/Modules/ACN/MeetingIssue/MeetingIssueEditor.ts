@@ -6,7 +6,7 @@ namespace coromendal.ACN {
     @Serenity.Decorators.registerClass()
     export class MeetingIssueEditor extends Common.GridEditorBase<MeetingIssueRow> {
         protected getColumnsKey() { return 'ACN.MeetingIssue'; }
-        protected getDialogType() { return MeetingIssueDialog; }
+        protected getDialogType() { return MeetingIssueEditorDialog; }
                 protected getLocalTextPrefix() { return MeetingIssueRow.localTextPrefix; }
 
         constructor(container: JQuery) {

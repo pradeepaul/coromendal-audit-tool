@@ -13,7 +13,7 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.RootcauseRow))]
     public class RootcauseForm
     {
-        public Int32 AuditobservationId { get; set; }
+       // public Int32 AuditobservationId { get; set; }
         public String Rootcause { get; set; }
         public String Impact { get; set; }
     }

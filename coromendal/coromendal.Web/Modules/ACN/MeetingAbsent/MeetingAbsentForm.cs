@@ -13,7 +13,7 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.MeetingAbsentRow))]
     public class MeetingAbsentForm
     {
-        public Int32 MeetingId { get; set; }
+       // public Int32 MeetingId { get; set; }
         public Int32 AbsentUser { get; set; }
         public String Reason { get; set; }
     }

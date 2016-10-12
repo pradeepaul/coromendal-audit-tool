@@ -11,10 +11,9 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Meeting Points"), InstanceName("MeetingPoints"), TwoLevelCached]
-    [ReadPermission(ACN.PermissionKeys.MeetingPoints.View)]
-    [ModifyPermission(ACN.PermissionKeys.MeetingPoints.Modify)]
-    [DeletePermission(ACN.PermissionKeys.MeetingPoints.Delete)]
+    [ConnectionKey("Default"), DisplayName("MeetingPoints"), InstanceName("MeetingPoints"), TwoLevelCached]
+    [ReadPermission("Administration")]
+    [ModifyPermission("Administration")]
     public sealed class MeetingPointsRow : Row, IIdRow, INameRow
     {
         [DisplayName("Meeting Points Id"), Column("MeetingPointsID"), Identity]
@@ -25,7 +24,6 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Meeting"), Column("MeetingID"), ForeignKey("[dbo].[minutesofmeeting]", "meetingid"), LeftJoin("jMeeting"), TextualField("MeetingTitle")]
-        [LookupEditor(typeof(MinutesofmeetingRow))]
         public Int32? MeetingId
         {
             get { return Fields.MeetingId[this]; }
@@ -95,6 +93,20 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingAuditee[this] = value; }
         }
 
+        [DisplayName("Meeting Download"), Expression("jMeeting.[download]")]
+        public Int32? MeetingDownload
+        {
+            get { return Fields.MeetingDownload[this]; }
+            set { Fields.MeetingDownload[this] = value; }
+        }
+
+        [DisplayName("Meeting Userid"), Expression("jMeeting.[userid]")]
+        public Int32? MeetingUserid
+        {
+            get { return Fields.MeetingUserid[this]; }
+            set { Fields.MeetingUserid[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.MeetingPointsId; }
@@ -126,6 +138,8 @@ namespace coromendal.ACN.Entities
             public StringField MeetingVenue;
             public Int32Field MeetingAuditor;
             public Int32Field MeetingAuditee;
+            public Int32Field MeetingDownload;
+            public Int32Field MeetingUserid;
 
             public RowFields()
                 : base("[dbo].[MeetingPoints]")

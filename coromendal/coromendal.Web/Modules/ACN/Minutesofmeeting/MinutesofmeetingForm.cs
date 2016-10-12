@@ -16,16 +16,7 @@ namespace coromendal.ACN.Forms
     {
         public Int32 Acnid { get; set; }
         public String Title { get; set; }
-         public Int32 UserId { get; set; }
-        /* public String Title { get; set; }
-         public String Auditscope { get; set; }
-         public DateTime Period { get; set; }
-         public Int32 Time { get; set; }
-         public String Venue { get; set; }
-
-         public Int32 Auditor { get; set; }
-
-         public Int32 Auditee { get; set; }*/
+        public Int32 Userid { get; set; }
         [Category("Absent Details")]
         [MeetingAbsentEditor]
         public List<MeetingAbsentRow> AbsentList { get; set; }
@@ -34,10 +25,11 @@ namespace coromendal.ACN.Forms
 
         [Category("Issue Details")]
         [MeetingIssueEditor]
-        public List<MeetingIssueRow> DetailList { get; set; }        
+        public List<MeetingIssueRow> DetailList { get; set; }
 
         [Category("Points Suggested")]
         [MeetingPointsEditor]
         public List<MeetingPointsRow> PointsList { get; set; }
+       
     }
 }

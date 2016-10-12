@@ -11,10 +11,9 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Meeting Issue"), InstanceName("Issue"), TwoLevelCached]
-    [ReadPermission(ACN.PermissionKeys.MeetingIssue.View)]
-    [ModifyPermission(ACN.PermissionKeys.MeetingIssue.Modify)]
-    [DeletePermission(ACN.PermissionKeys.MeetingIssue.Delete)]
+    [ConnectionKey("Default"), DisplayName("MeetingIssue"), InstanceName("MeetingIssue"), TwoLevelCached]
+    [ReadPermission("Administration")]
+    [ModifyPermission("Administration")]
     public sealed class MeetingIssueRow : Row, IIdRow, INameRow
     {
         [DisplayName("Meeting Issue Id"), Column("MeetingIssueID"), Identity]
@@ -25,14 +24,13 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Meeting"), Column("MeetingID"), ForeignKey("[dbo].[minutesofmeeting]", "meetingid"), LeftJoin("jMeeting"), TextualField("MeetingTitle")]
-        [LookupEditor(typeof(MinutesofmeetingRow))]
         public Int32? MeetingId
         {
             get { return Fields.MeetingId[this]; }
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Area of Operation"), Size(200), QuickSearch]
+        [DisplayName("Areaof Operation"), Size(200), QuickSearch]
         public String AreaofOperation
         {
             get { return Fields.AreaofOperation[this]; }
@@ -59,29 +57,40 @@ namespace coromendal.ACN.Entities
             get { return Fields.ExpectedDate[this]; }
             set { Fields.ExpectedDate[this] = value; }
         }
-        [DisplayName("Comments"), Size(200)]
+
+        [DisplayName("Comments"), Column("comments"), Size(200)]
         public String Comments
         {
             get { return Fields.Comments[this]; }
             set { Fields.Comments[this] = value; }
         }
-        [DisplayName("Area Covered"), Size(200)]
-        public String AreaCovered
+
+        [DisplayName("Areacovered"), Size(100)]
+        public String Areacovered
         {
-            get { return Fields.AreaCovered[this]; }
-            set { Fields.AreaCovered[this] = value; }
+            get { return Fields.Areacovered[this]; }
+            set { Fields.Areacovered[this] = value; }
         }
-        [DisplayName("Area Not Covered"), Size(200)]
-        public String AreaNotCovered
+
+        [DisplayName("Areanotcovered"), Size(100)]
+        public String Areanotcovered
         {
-            get { return Fields.AreaNotCovered[this]; }
-            set { Fields.AreaNotCovered[this] = value; }
+            get { return Fields.Areanotcovered[this]; }
+            set { Fields.Areanotcovered[this] = value; }
         }
-        [DisplayName("Command Creation Date"), Size(200)]
-        public String CommandCreationDate
+
+        [DisplayName("Commandcreationdate"), Column("commandcreationdate"), Size(100)]
+        public String Commandcreationdate
         {
-            get { return Fields.CommandCreationDate[this]; }
-            set { Fields.CommandCreationDate[this] = value; }
+            get { return Fields.Commandcreationdate[this]; }
+            set { Fields.Commandcreationdate[this] = value; }
+        }
+
+        [DisplayName("Improvement"), Column("improvement"), Size(100)]
+        public String Improvement
+        {
+            get { return Fields.Improvement[this]; }
+            set { Fields.Improvement[this] = value; }
         }
 
         [DisplayName("Meeting Acnid"), Expression("jMeeting.[acnid]")]
@@ -140,6 +149,20 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingAuditee[this] = value; }
         }
 
+        [DisplayName("Meeting Download"), Expression("jMeeting.[download]")]
+        public Int32? MeetingDownload
+        {
+            get { return Fields.MeetingDownload[this]; }
+            set { Fields.MeetingDownload[this] = value; }
+        }
+
+        [DisplayName("Meeting Userid"), Expression("jMeeting.[userid]")]
+        public Int32? MeetingUserid
+        {
+            get { return Fields.MeetingUserid[this]; }
+            set { Fields.MeetingUserid[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.MeetingIssueId; }
@@ -166,9 +189,10 @@ namespace coromendal.ACN.Entities
             public StringField Status;
             public StringField ExpectedDate;
             public StringField Comments;
-            public StringField AreaCovered;
-            public StringField AreaNotCovered;
-            public StringField CommandCreationDate;
+            public StringField Areacovered;
+            public StringField Areanotcovered;
+            public StringField Commandcreationdate;
+            public StringField Improvement;
 
             public Int32Field MeetingAcnid;
             public StringField MeetingTitle;
@@ -178,6 +202,8 @@ namespace coromendal.ACN.Entities
             public StringField MeetingVenue;
             public Int32Field MeetingAuditor;
             public Int32Field MeetingAuditee;
+            public Int32Field MeetingDownload;
+            public Int32Field MeetingUserid;
 
             public RowFields()
                 : base("[dbo].[MeetingIssue]")

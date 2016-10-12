@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Suggestion"), InstanceName("Suggestion"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.Suggestion.View)]
+    [ModifyPermission(ACN.PermissionKeys.Suggestion.Modify)]
+    [DeletePermission(ACN.PermissionKeys.Suggestion.Delete)]
     [LookupScript("ACN.SuggestionRow")]
     public sealed class SuggestionRow : Row, IIdRow, INameRow
     {

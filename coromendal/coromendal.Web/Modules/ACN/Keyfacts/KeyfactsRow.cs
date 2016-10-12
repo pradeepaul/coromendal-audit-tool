@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Keyfacts"), InstanceName("Keyfacts"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.Keyfacts.View)]
+    [ModifyPermission(ACN.PermissionKeys.Keyfacts.Modify)]
+    [DeletePermission(ACN.PermissionKeys.Keyfacts.Delete)]
     public sealed class KeyfactsRow : Row, IIdRow, INameRow
     {
         [DisplayName("Keyfacts Id"), Column("keyfactsId"), Identity]

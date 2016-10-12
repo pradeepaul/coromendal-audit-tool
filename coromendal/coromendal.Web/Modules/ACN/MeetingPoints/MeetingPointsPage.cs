@@ -1,5 +1,7 @@
 ﻿
 
+//[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/MeetingPoints", typeof(coromendal.ACN.Pages.MeetingPointsController))]
+
 namespace coromendal.ACN.Pages
 {
     using Serenity;
@@ -9,7 +11,7 @@ namespace coromendal.ACN.Pages
     [RoutePrefix("ACN/MeetingPoints"), Route("{action=index}")]
     public class MeetingPointsController : Controller
     {
-        [PageAuthorize("ACNAdministration")]
+        [PageAuthorize("Administration")]
         public ActionResult Index()
         {
             return View("~/Modules/ACN/MeetingPoints/MeetingPointsIndex.cshtml");

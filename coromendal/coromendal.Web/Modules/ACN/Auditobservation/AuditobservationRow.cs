@@ -13,8 +13,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Auditobservation"), InstanceName("Auditobservation"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.Auditobservation.View)]
+    [ModifyPermission(ACN.PermissionKeys.Auditobservation.Modify)]
+    [DeletePermission(ACN.PermissionKeys.Auditobservation.Delete)]
     [LookupScript("ACN.AuditobservationRow")]
     public sealed class AuditobservationRow : Row, IIdRow, INameRow
     {

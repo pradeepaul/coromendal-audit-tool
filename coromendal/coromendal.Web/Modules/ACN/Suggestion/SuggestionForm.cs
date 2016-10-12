@@ -13,7 +13,7 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.SuggestionRow))]
     public class SuggestionForm
     {
-        public Int32 AuditobservationId { get; set; }
+       // public Int32 AuditobservationId { get; set; }
         public String Suggestion { get; set; }
     }
 }

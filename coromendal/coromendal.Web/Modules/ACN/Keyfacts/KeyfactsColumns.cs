@@ -15,10 +15,10 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 KeyfactsId { get; set; }
-        public Int32 AcnId { get; set; }
+      //  public Int32 AcnId { get; set; }
         [EditLink]
         public String Particulars { get; set; }
         public String Value { get; set; }
-        public Int32 Reportid { get; set; }
+       // public Int32 Reportid { get; set; }
     }
 }

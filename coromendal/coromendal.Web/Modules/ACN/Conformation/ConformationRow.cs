@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("conformation"), InstanceName("conformation"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.conformation.View)]
+    [ModifyPermission(ACN.PermissionKeys.conformation.Modify)]
+    [DeletePermission(ACN.PermissionKeys.conformation.Delete)]
     [LookupScript("ACN.ConformationRow")]
     public sealed class ConformationRow : Row, IIdRow, INameRow
     {

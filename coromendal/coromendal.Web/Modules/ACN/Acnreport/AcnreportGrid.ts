@@ -14,7 +14,7 @@ namespace coromendal.ACN {
         }
         protected getColumns(): Slick.Column[] {
             var columns = super.getColumns();
-            var fld = ACN.MinutesofmeetingRow.Fields;
+            var fld = ACN.AcnreportRow.Fields;
             Q.first(columns, x => x.field == fld.Download).format =
                 ctx => `<a href="javascript:;" class="customer-link">click</a>`;
             return columns;

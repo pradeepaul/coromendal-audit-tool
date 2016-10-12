@@ -14,6 +14,6 @@ namespace coromendal.ACN.Forms
     public class ScopeForm
     {
         public String Title { get; set; }
-        public Int32 AcnId { get; set; }
+        //public Int32 AcnId { get; set; }
     }
 }

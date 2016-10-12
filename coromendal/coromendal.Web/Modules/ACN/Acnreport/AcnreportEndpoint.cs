@@ -9,6 +9,7 @@ namespace coromendal.ACN.Endpoints
     using Serenity.Web;
     using System;
     using System.Data;
+    using System.Data.SqlClient;
     using System.Web.Mvc;
     using MyRepository = Repositories.AcnreportRepository;
     using MyRow = Entities.AcnreportRow;
@@ -47,20 +48,32 @@ namespace coromendal.ACN.Endpoints
         public FileContentResult DownloadWord(IDbConnection connection, ListRequest request)
         {
             var data = List(connection, request).Entities;
-            var fld = Entities.MinutesofmeetingRow.Fields;
-            var fld1 = Entities.AcnRow.Fields;
-            var fld2 = Entities.MeetingIssueRow.Fields;
             int a = 4;
-            var query = new SqlQuery()
-             .From(fld)
-             .Select(fld.Acnid);
+            var fld1 = coromendal.ACN.Entities.AcnreportRow.Fields;
+           
+            using (SqlConnection connection1 = new SqlConnection(connection.ConnectionString))
+            using (SqlCommand command = connection1.CreateCommand())
+            {
+                try {
+                    command.CommandText = "UPDATE Acnreport SET status = @Completed Where reportId = @fn";
+                    command.Parameters.AddWithValue("@Completed", "completed");
+                    command.Parameters.AddWithValue("@fn", 1);
+                    connection1.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw ex; //TODO: Please log it or remove the catch
+                }
+              finally
+                {
+                    connection1.Close();
+                }
 
-            Console.WriteLine(query);
+                //connection.Close();
+            }
             var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.AcnreportColumns),a);
-            var shippers = connection.List<MyRow>(q => q.SelectTableFields().OrderBy(MyRow.Fields.Acnid));
-
             var bytes = new ReportRepository().Render(report,a);
-            var user = (UserDefinition)Authorization.UserDefinition;
             return ExcelContentResult.Create(bytes, "REPORT_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".docx");
         }

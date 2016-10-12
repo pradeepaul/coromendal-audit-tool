@@ -28,32 +28,11 @@ namespace coromendal.ACN
             public const string View = "Acn:View";
         }
 
-        public class NewAcn
-        {
-            public const string Delete = "NewAcn:Delete";
-            public const string Modify = "NewAcn:Modify";
-            public const string View = "NewAcn:View";
-        }
-
         public class AcnAuditee
         {
             public const string Delete = "AcnAuditee:Delete";
             public const string Modify = "AcnAuditee:Modify";
             public const string View = "AcnAuditee:View";
-        }
-
-        public class AcnAuditeeRef
-        {
-            public const string Delete = "AcnAuditeeRef:Delete";
-            public const string Modify = "AcnAuditeeRef:Modify";
-            public const string View = "AcnAuditeeRef:View";
-        }
-
-        public class AcnAuditorRef
-        {
-            public const string Delete = "AcnAuditorRef:Delete";
-            public const string Modify = "AcnAuditorRef:Modify";
-            public const string View = "AcnAuditorRef:View";
         }
 
         public class AcnAuditor
@@ -63,11 +42,53 @@ namespace coromendal.ACN
             public const string View = "AcnAuditor:View";
         }
 
-        public class Feedback
+        public class AcnFeedback
         {
-            public const string Delete = "Feedback:Delete";
-            public const string Modify = "Feedback:Modify";
-            public const string View = "Feedback:View";
+            public const string Delete = "AcnFeedback:Delete";
+            public const string Modify = "AcnFeedback:Modify";
+            public const string View = "AcnFeedback:View";
+        }
+
+        public class Acnreport
+        {
+            public const string Delete = "Acnreport:Delete";
+            public const string Modify = "Acnreport:Modify";
+            public const string View = "Acnreport:View";
+        }
+
+        public class Auditobservation
+        {
+            public const string Delete = "Auditobservation:Delete";
+            public const string Modify = "Auditobservation:Modify";
+            public const string View = "Auditobservation:View";
+        }
+
+        public class conformation
+        {
+            public const string Delete = "conformation:Delete";
+            public const string Modify = "conformation:Modify";
+            public const string View = "conformation:View";
+        }
+
+
+        public class Keyfacts
+        {
+            public const string Delete = "Keyfacts:Delete";
+            public const string Modify = "Keyfacts:Modify";
+            public const string View = "Keyfacts:View";
+        }
+
+        public class riskrating
+        {
+            public const string Delete = "riskrating:Delete";
+            public const string Modify = "riskrating:Modify";
+            public const string View = "riskrating:View";
+        }
+        public class Rootcause
+        {
+            public const string Delete = "Rootcause:Delete";
+            public const string Modify = "Rootcause:Modify";
+            public const string View = "Rootcause:View";
         }
 
         public class MeetingAbsent
@@ -104,6 +125,21 @@ namespace coromendal.ACN
             public const string Modify = "Notes:Modify";
             public const string View = "Notes:View";
         }
+
+        public class scope
+        {
+            public const string Delete = "scope:Delete";
+            public const string Modify = "scope:Modify";
+            public const string View = "scope:View";
+        }
+
+        public class Suggestion
+        {
+            public const string Delete = "Suggestion:Delete";
+            public const string Modify = "Suggestion:Modify";
+            public const string View = "Suggestion:View";
+        }
+
 
         public class Questions
         {

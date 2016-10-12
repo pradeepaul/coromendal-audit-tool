@@ -8,25 +8,24 @@ namespace coromendal.ACN.Forms
     using System.ComponentModel;
     using System.Collections.Generic;
     using System.IO;
-    using Entities;
 
     [FormScript("ACN.MeetingIssue")]
     [BasedOnRow(typeof(Entities.MeetingIssueRow))]
     public class MeetingIssueForm
     {
-        public Int32 MeetingId { get; set; }
-        public DateTime CommandCreationDate { get; set; }
+        //public Int32 MeetingId { get; set; }
         public String AreaofOperation { get; set; }
         public String Issue { get; set; }
         public String Status { get; set; }
         public DateTime ExpectedDate { get; set; }
         [TextAreaEditor(Rows = 8)]
-        public String AreaCovered { get; set; }
-        [TextAreaEditor(Rows = 8)]
-        public String AreaNotCovered { get; set; }
-        
-        [TextAreaEditor(Rows = 8)]
         public String Comments { get; set; }
-        
+        [TextAreaEditor(Rows = 8)]
+        public String Areacovered { get; set; }
+        [TextAreaEditor(Rows = 8)]
+        public String Areanotcovered { get; set; }
+        [TextAreaEditor(Rows = 8)]
+        public String Improvement { get; set; }
+        public DateTime Commandcreationdate { get; set; }
     }
 }

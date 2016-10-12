@@ -1,4 +1,7 @@
 ﻿
+
+//[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/MeetingIssue", typeof(coromendal.ACN.Pages.MeetingIssueController))]
+
 namespace coromendal.ACN.Pages
 {
     using Serenity;

@@ -1,21 +1,16 @@
 ﻿
 namespace coromendal.ACN.Endpoints
 {
-    using Entities;
     using Serenity;
     using Serenity.Data;
-    using Serenity.Reporting;
     using Serenity.Services;
-    using Serenity.Web;
-    using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Web.Mvc;
     using MyRepository = Repositories.MinutesofmeetingRepository;
     using MyRow = Entities.MinutesofmeetingRow;
 
     [RoutePrefix("Services/ACN/Minutesofmeeting"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("ACNAdministration")]
+    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
     public class MinutesofmeetingController : ServiceEndpoint
     {
         [HttpPost]
@@ -45,5 +40,5 @@ namespace coromendal.ACN.Endpoints
         {
             return new MyRepository().List(connection, request);
         }
-      }
+    }
 }

@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Scope"), InstanceName("scope"), TwoLevelCached]
-    [ReadPermission("ADMINISTRATION")]
-    [ModifyPermission("ADMINISTRATION")]
+    [ReadPermission(ACN.PermissionKeys.scope.View)]
+    [ModifyPermission(ACN.PermissionKeys.scope.Modify)]
+    [DeletePermission(ACN.PermissionKeys.scope.Delete)]
     public sealed class ScopeRow : Row, IIdRow, INameRow
     {
         [DisplayName("Scope Id"), Column("scopeId"), Identity]

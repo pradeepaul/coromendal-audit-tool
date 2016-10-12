@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("riskrating"), InstanceName("riskrating"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.riskrating.View)]
+    [ModifyPermission(ACN.PermissionKeys.riskrating.Modify)]
+    [DeletePermission(ACN.PermissionKeys.riskrating.Delete)]
     [LookupScript("RiskratingRow")]
     public sealed class RiskratingRow : Row, IIdRow, INameRow
     {

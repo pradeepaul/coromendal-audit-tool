@@ -2963,7 +2963,7 @@ var coromendal;
             return MeetingAbsentForm;
         }(Serenity.PrefixedContext));
         ACN.MeetingAbsentForm = MeetingAbsentForm;
-        [['MeetingAbsentId', function () { return Serenity.IntegerEditor; }], ['MeetingId', function () { return Serenity.IntegerEditor; }], ['AbsentUser', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(MeetingAbsentForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        [['MeetingAbsentId', function () { return Serenity.IntegerEditor; }], ['MeetingId', function () { return Serenity.IntegerEditor; }], ['AbsentUser', function () { return Serenity.IntegerEditor; }], ['Reason', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(MeetingAbsentForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -2973,12 +2973,12 @@ var coromendal;
         var MeetingAbsentRow;
         (function (MeetingAbsentRow) {
             MeetingAbsentRow.idProperty = 'MeetingAbsentId';
-            MeetingAbsentRow.nameProperty = 'AbsentUser';
+            MeetingAbsentRow.nameProperty = 'Reason';
             MeetingAbsentRow.localTextPrefix = 'ACN.MeetingAbsent';
             var Fields;
             (function (Fields) {
             })(Fields = MeetingAbsentRow.Fields || (MeetingAbsentRow.Fields = {}));
-            ['MeetingAbsentId', 'MeetingId', 'AbsentUser', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee'].forEach(function (x) { return Fields[x] = x; });
+            ['MeetingAbsentId', 'MeetingId', 'AbsentUser', 'Reason', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee', 'MeetingDownload', 'MeetingUserid'].forEach(function (x) { return Fields[x] = x; });
         })(MeetingAbsentRow = ACN.MeetingAbsentRow || (ACN.MeetingAbsentRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
@@ -3012,7 +3012,7 @@ var coromendal;
             return MeetingIssueForm;
         }(Serenity.PrefixedContext));
         ACN.MeetingIssueForm = MeetingIssueForm;
-        [['MeetingIssueId', function () { return Serenity.IntegerEditor; }], ['MeetingId', function () { return Serenity.IntegerEditor; }], ['AreaofOperation', function () { return Serenity.StringEditor; }], ['Issue', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.StringEditor; }], ['ExpectedDate', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(MeetingIssueForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        [['MeetingIssueId', function () { return Serenity.IntegerEditor; }], ['MeetingId', function () { return Serenity.IntegerEditor; }], ['AreaofOperation', function () { return Serenity.StringEditor; }], ['Issue', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.StringEditor; }], ['ExpectedDate', function () { return Serenity.StringEditor; }], ['Comments', function () { return Serenity.StringEditor; }], ['Areacovered', function () { return Serenity.StringEditor; }], ['Areanotcovered', function () { return Serenity.StringEditor; }], ['Commandcreationdate', function () { return Serenity.StringEditor; }], ['Improvement', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(MeetingIssueForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -3027,7 +3027,7 @@ var coromendal;
             var Fields;
             (function (Fields) {
             })(Fields = MeetingIssueRow.Fields || (MeetingIssueRow.Fields = {}));
-            ['MeetingIssueId', 'MeetingId', 'AreaofOperation', 'Issue', 'Status', 'ExpectedDate', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee'].forEach(function (x) { return Fields[x] = x; });
+            ['MeetingIssueId', 'MeetingId', 'AreaofOperation', 'Issue', 'Status', 'ExpectedDate', 'Comments', 'Areacovered', 'Areanotcovered', 'Commandcreationdate', 'Improvement', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee', 'MeetingDownload', 'MeetingUserid'].forEach(function (x) { return Fields[x] = x; });
         })(MeetingIssueRow = ACN.MeetingIssueRow || (ACN.MeetingIssueRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
@@ -3076,7 +3076,7 @@ var coromendal;
             var Fields;
             (function (Fields) {
             })(Fields = MeetingPointsRow.Fields || (MeetingPointsRow.Fields = {}));
-            ['MeetingPointsId', 'MeetingId', 'Points', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee'].forEach(function (x) { return Fields[x] = x; });
+            ['MeetingPointsId', 'MeetingId', 'Points', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee', 'MeetingDownload', 'MeetingUserid'].forEach(function (x) { return Fields[x] = x; });
         })(MeetingPointsRow = ACN.MeetingPointsRow || (ACN.MeetingPointsRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
@@ -3110,7 +3110,7 @@ var coromendal;
             return MinutesofmeetingForm;
         }(Serenity.PrefixedContext));
         ACN.MinutesofmeetingForm = MinutesofmeetingForm;
-        [['Meetingid', function () { return Serenity.IntegerEditor; }], ['Acnid', function () { return Serenity.IntegerEditor; }], ['Title', function () { return Serenity.StringEditor; }], ['Auditscope', function () { return Serenity.StringEditor; }], ['Period', function () { return Serenity.StringEditor; }], ['Time', function () { return Serenity.IntegerEditor; }], ['Venue', function () { return Serenity.StringEditor; }], ['Auditor', function () { return Serenity.IntegerEditor; }], ['Auditee', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(MinutesofmeetingForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        [['Meetingid', function () { return Serenity.IntegerEditor; }], ['Acnid', function () { return Serenity.IntegerEditor; }], ['Title', function () { return Serenity.StringEditor; }], ['Auditscope', function () { return Serenity.StringEditor; }], ['Period', function () { return Serenity.StringEditor; }], ['Time', function () { return Serenity.IntegerEditor; }], ['Venue', function () { return Serenity.StringEditor; }], ['Auditor', function () { return Serenity.IntegerEditor; }], ['Auditee', function () { return Serenity.IntegerEditor; }], ['Download', function () { return Serenity.IntegerEditor; }], ['Userid', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(MinutesofmeetingForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -3125,7 +3125,7 @@ var coromendal;
             var Fields;
             (function (Fields) {
             })(Fields = MinutesofmeetingRow.Fields || (MinutesofmeetingRow.Fields = {}));
-            ['Meetingid', 'Acnid', 'Title', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'AcnidAcnTilte'].forEach(function (x) { return Fields[x] = x; });
+            ['Meetingid', 'Acnid', 'Title', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'Userid', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'UseridUsername', 'UseridDisplayName', 'UseridEmail', 'UseridSource', 'UseridPasswordHash', 'UseridPasswordSalt', 'UseridInsertDate', 'UseridInsertUserId', 'UseridUpdateDate', 'UseridUpdateUserId', 'UseridIsActive', 'UseridLastDirectoryUpdate'].forEach(function (x) { return Fields[x] = x; });
         })(MinutesofmeetingRow = ACN.MinutesofmeetingRow || (ACN.MinutesofmeetingRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
@@ -8222,7 +8222,7 @@ var coromendal;
                 _super.call(this, container);
             }
             MeetingPointsEditor.prototype.getColumnsKey = function () { return 'ACN.MeetingPoints'; };
-            MeetingPointsEditor.prototype.getDialogType = function () { return ACN.MeetingPointsDialog; };
+            MeetingPointsEditor.prototype.getDialogType = function () { return ACN.MeetingPointsEditorDialog; };
             MeetingPointsEditor.prototype.getLocalTextPrefix = function () { return ACN.MeetingPointsRow.localTextPrefix; };
             MeetingPointsEditor = __decorate([
                 Serenity.Decorators.registerClass()
@@ -8312,7 +8312,7 @@ var coromendal;
                 _super.call(this, container);
             }
             MeetingIssueEditor.prototype.getColumnsKey = function () { return 'ACN.MeetingIssue'; };
-            MeetingIssueEditor.prototype.getDialogType = function () { return ACN.MeetingIssueDialog; };
+            MeetingIssueEditor.prototype.getDialogType = function () { return ACN.MeetingIssueEditorDialog; };
             MeetingIssueEditor.prototype.getLocalTextPrefix = function () { return ACN.MeetingIssueRow.localTextPrefix; };
             MeetingIssueEditor = __decorate([
                 Serenity.Decorators.registerClass()
@@ -8402,7 +8402,7 @@ var coromendal;
                 _super.call(this, container);
             }
             MeetingAbsentEditor.prototype.getColumnsKey = function () { return 'ACN.MeetingAbsent'; };
-            MeetingAbsentEditor.prototype.getDialogType = function () { return ACN.MeetingAbsentDialog; };
+            MeetingAbsentEditor.prototype.getDialogType = function () { return ACN.MeetingAbsentEditorDialog; };
             MeetingAbsentEditor.prototype.getLocalTextPrefix = function () { return ACN.MeetingAbsentRow.localTextPrefix; };
             MeetingAbsentEditor = __decorate([
                 Serenity.Decorators.registerClass()
@@ -8410,6 +8410,51 @@ var coromendal;
             return MeetingAbsentEditor;
         }(coromendal.Common.GridEditorBase));
         ACN.MeetingAbsentEditor = MeetingAbsentEditor;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var MeetingAbsentEditorDialog = (function (_super) {
+            __extends(MeetingAbsentEditorDialog, _super);
+            function MeetingAbsentEditorDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.MeetingAbsentForm(this.idPrefix);
+            }
+            MeetingAbsentEditorDialog.prototype.getFormKey = function () { return ACN.MeetingAbsentForm.formKey; };
+            MeetingAbsentEditorDialog.prototype.getLocalTextPrefix = function () { return ACN.MeetingAbsentRow.localTextPrefix; };
+            MeetingAbsentEditorDialog.prototype.getNameProperty = function () { return ACN.MeetingAbsentRow.nameProperty; };
+            MeetingAbsentEditorDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], MeetingAbsentEditorDialog);
+            return MeetingAbsentEditorDialog;
+        }(coromendal.Common.GridEditorDialog));
+        ACN.MeetingAbsentEditorDialog = MeetingAbsentEditorDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var MeetingAbsentGrid = (function (_super) {
+            __extends(MeetingAbsentGrid, _super);
+            function MeetingAbsentGrid(container) {
+                _super.call(this, container);
+            }
+            MeetingAbsentGrid.prototype.getColumnsKey = function () { return 'ACN.MeetingAbsent'; };
+            MeetingAbsentGrid.prototype.getDialogType = function () { return ACN.MeetingAbsentDialog; };
+            MeetingAbsentGrid.prototype.getIdProperty = function () { return ACN.MeetingAbsentRow.idProperty; };
+            MeetingAbsentGrid.prototype.getLocalTextPrefix = function () { return ACN.MeetingAbsentRow.localTextPrefix; };
+            MeetingAbsentGrid.prototype.getService = function () { return ACN.MeetingAbsentService.baseUrl; };
+            MeetingAbsentGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MeetingAbsentGrid);
+            return MeetingAbsentGrid;
+        }(Serenity.EntityGrid));
+        ACN.MeetingAbsentGrid = MeetingAbsentGrid;
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -9036,7 +9081,7 @@ var coromendal;
             AcnreportGrid.prototype.getService = function () { return ACN.AcnreportService.baseUrl; };
             AcnreportGrid.prototype.getColumns = function () {
                 var columns = _super.prototype.getColumns.call(this);
-                var fld = ACN.MinutesofmeetingRow.Fields;
+                var fld = ACN.AcnreportRow.Fields;
                 Q.first(columns, function (x) { return x.field == fld.Download; }).format =
                     function (ctx) { return "<a href=\"javascript:;\" class=\"customer-link\">click</a>"; };
                 return columns;
