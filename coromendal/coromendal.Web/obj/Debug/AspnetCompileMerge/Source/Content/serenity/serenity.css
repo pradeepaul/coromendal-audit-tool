@@ -2558,3 +2558,14 @@ a.quick-search-field {
   background-position: -41px -2px;
   cursor: pointer;
 }
+.down-button{
+  left;display: block;
+  padding: 15px 8px 8px 20px;
+  background: url(images/doc.png);
+  background-repeat: no-repeat;
+  background-position: center left;
+  cursor: pointer;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
