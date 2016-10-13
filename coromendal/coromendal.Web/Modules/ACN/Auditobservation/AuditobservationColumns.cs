@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.AuditobservationRow))]
     public class AuditobservationColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId")]
         public Int32 AuditobservationId { get; set; }
         public Int32 AcnId { get; set; }
         [EditLink]

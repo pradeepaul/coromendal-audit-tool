@@ -14,28 +14,39 @@ namespace Serenity.Reporting
     public static class WordReportGenerator
     {
         public static byte[] GeneratePackageBytes(List<ReportColumn> columns, IList rows,
-            int acnid)
+            int reportid)
         {
-            var documentByteArray = GeneratePackage(columns, rows, acnid);
+            var documentByteArray = GeneratePackage(columns, rows, reportid);
             return documentByteArray;
         }
 
         public static byte[] GeneratePackage(List<ReportColumn> columns, IList rows,
-            int acnid)
+            int reportid)
         {
             var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
             var templateDocument = Path.Combine(projectBaseDir, "Report.docx");
             DocX document = DocX.Load(templateDocument);
-            PopulateDocument(document, columns, rows, acnid);
+            PopulateDocument(document, columns, rows, reportid);
             var finalDocument = Path.Combine(projectBaseDir, "finalDocument.docx");
             return File.ReadAllBytes(finalDocument);
         }
         public static void PopulateDocument(DocX document, List<ReportColumn> columns, IList rows,
-            int acnid)
+            int reportid)
         {
+
+            //Geting ACN id based on report id
+            var fld = coromendal.ACN.Entities.AcnreportRow.Fields;
+            dynamic reportset;
+            var reportsqlquery = new SqlQuery()
+                    .From(fld)
+                    .Select(fld.Acnid)
+                    .Where(
+                    fld.ReportId == reportid);
+            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnreportRow>())
+                reportset = connection.Query(reportsqlquery).FirstOrDefault();
+            int acnid = reportset.Acnid;
             // Add a new Paragraph to the document.
             Paragraph p = document.InsertParagraph();
-            var fld = coromendal.ACN.Entities.AcnreportRow.Fields;
             var fld1 = coromendal.ACN.Entities.AcnRow.Fields;
             dynamic resultSet;
             var sqlquery = new SqlQuery()
@@ -219,7 +230,7 @@ namespace Serenity.Reporting
             {
                 Novacode.Row newOrderRow = issuePendingtable.InsertRow();
                 newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(k + 1));
-                newOrderRow.Cells[1].Paragraphs.First().Append(item.AreaNotCovered);
+                newOrderRow.Cells[1].Paragraphs.First().Append(item.Areanotcovered);
                 newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString("high"));
                 newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Comments));
                 newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.Commandcreationdate));
@@ -332,7 +343,6 @@ namespace Serenity.Reporting
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.RootcauseRow>())
                 rootcausesResultSet = connection.Query(rootcausesqlquery).ToList();
             var rootcausetable = document.AddTable(rootcausesResultSet.Count, 2);
-            rootcausetable.Alignment = Alignment.center;
             var rootc = 0;
 
             foreach (var item in rootcausesResultSet)
@@ -361,7 +371,6 @@ namespace Serenity.Reporting
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.SuggestionRow>())
                 suggestionResultSet = connection.Query(suggestionsqlquery).ToList();
             var suggestiontable = document.AddTable(suggestionResultSet.Count, 1);
-            rootcausetable.Alignment = Alignment.center;
             var sugg = 0;
 
             foreach (var item in suggestionResultSet)
@@ -369,9 +378,14 @@ namespace Serenity.Reporting
                 suggestiontable.Rows[sugg].Cells[0].Paragraphs.First().Append(Convert.ToString(item.Suggestion));
                 sugg++;
             }
-            
+            foreach (var paragraph in document.Paragraphs)
+            {
+                paragraph.FindAll("#% Suggestion%").ForEach(index => paragraph.InsertTableAfterSelf((suggestiontable)));
 
-         
+            }
+            document.ReplaceText("#% Suggestion%", "");
+
+
             var summary = coromendal.ACN.Entities.AuditobservationRow.Fields;
             List<dynamic> summaryResultSet;
             var summarysqlquery = new SqlQuery()
@@ -474,6 +488,7 @@ namespace Serenity.Reporting
             document.ReplaceText("%# Justification#", Convert.ToString(obervationResultSet.Justification));
             document.ReplaceText("%#TDATE%", Convert.ToString(obervationResultSet.Targetdate));
             document.ReplaceText("%#RISKRATING#", PopulateRiskIndexPage(obervationResultSet.RiskRating));
+            document.ReplaceText("CATEGORY###", PopulatecategoryIndexPage(obervationResultSet.Category));
             document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
             document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));
 

@@ -48,7 +48,7 @@ namespace coromendal.ACN.Endpoints
         public FileContentResult DownloadWord(IDbConnection connection, ListRequest request)
         {
             var data = List(connection, request).Entities;
-            int a = 4;
+            int reportid = int.Parse(request.ContainsField);
             var fld1 = coromendal.ACN.Entities.AcnreportRow.Fields;
            
             using (SqlConnection connection1 = new SqlConnection(connection.ConnectionString))
@@ -57,7 +57,7 @@ namespace coromendal.ACN.Endpoints
                 try {
                     command.CommandText = "UPDATE Acnreport SET status = @Completed Where reportId = @fn";
                     command.Parameters.AddWithValue("@Completed", "completed");
-                    command.Parameters.AddWithValue("@fn", 1);
+                    command.Parameters.AddWithValue("@fn", reportid);
                     connection1.Open();
                     command.ExecuteNonQuery();
                 }
@@ -72,8 +72,8 @@ namespace coromendal.ACN.Endpoints
 
                 //connection.Close();
             }
-            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.AcnreportColumns),a);
-            var bytes = new ReportRepository().Render(report,a);
+            var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.AcnreportColumns), reportid);
+            var bytes = new ReportRepository().Render(report, reportid);
             return ExcelContentResult.Create(bytes, "REPORT_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".docx");
         }

@@ -9083,7 +9083,7 @@ var coromendal;
                 var columns = _super.prototype.getColumns.call(this);
                 var fld = ACN.AcnreportRow.Fields;
                 Q.first(columns, function (x) { return x.field == fld.Download; }).format =
-                    function (ctx) { return "<a href=\"javascript:;\" class=\"customer-link\">click</a>"; };
+                    function (ctx) { return "<div class=\"down-button\"></div>"; };
                 return columns;
             };
             AcnreportGrid.prototype.onClick = function (e, row, cell) {
@@ -9095,9 +9095,10 @@ var coromendal;
                     }
                     var item = this.itemAt(row);
                     var target = $(e.target);
-                    if (target.hasClass("customer-link")) {
+                    if (target.hasClass("down-button")) {
                         e.preventDefault();
                         var request = Q.deepClone(this.getView().params);
+                        request.ContainsField = String(item.ReportId);
                         Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });
                         console.log(item.Meetingid);
                     }

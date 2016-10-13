@@ -20,7 +20,7 @@ namespace coromendal.ACN.Columns
         public Int32 Acnid { get; set; }
         public String AcnidAcnTilte { get; set; }
         public String status { get; set; }
-        [Width(100), AcnListFormatter]
+        [EditLink, Width(100), AlignCenter]
         public Int32 Download { get; set; }
 
 

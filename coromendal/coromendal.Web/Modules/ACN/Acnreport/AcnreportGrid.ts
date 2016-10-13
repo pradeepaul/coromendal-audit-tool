@@ -16,7 +16,7 @@ namespace coromendal.ACN {
             var columns = super.getColumns();
             var fld = ACN.AcnreportRow.Fields;
             Q.first(columns, x => x.field == fld.Download).format =
-                ctx => `<a href="javascript:;" class="customer-link">click</a>`;
+                ctx => `<div class="down-button"></div>`;
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {
@@ -28,9 +28,10 @@ namespace coromendal.ACN {
                 }
                 var item = this.itemAt(row);
                 var target = $(e.target);
-                if (target.hasClass("customer-link")) {
+                if (target.hasClass("down-button")) {
                     e.preventDefault();
                     var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
+                    request.ContainsField = String(item.ReportId);
                     Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });                    
                     console.log(item.Meetingid);
                 }
