@@ -79,9 +79,56 @@ namespace Serenity.Reporting
             document.ReplaceText("#%FINALDATE%", Convert.ToString(dt.AddDays(12)));
             document.ReplaceText("#%PERIODFROM%", Convert.ToString(resultSet.Periodfrom));
             document.ReplaceText("#%PERIODTO%", Convert.ToString(resultSet.Periodto));
-            //
-
             //Auditor list
+            populateAuditor(acnid, document);
+            //Auditee List
+            populateAuditee(acnid, document);
+            // AUDIT SCOPE lIST
+            populateScope(acnid, document);
+            //key facts
+            populateKeyfacts(acnid, document);
+            //Meeting details based on acn 
+
+             var issue = coromendal.ACN.Entities.MeetingIssueRow.Fields;
+            var meeting = coromendal.ACN.Entities.MinutesofmeetingRow.Fields;
+
+            List<dynamic> meetingResultSet;
+            var meetingidquery = new SqlQuery()
+                    .From(meeting)
+                    .Select(meeting.Meetingid)
+                    .Where(
+                    meeting.Acnid == acnid);
+            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MinutesofmeetingRow>())
+                meetingResultSet = connection.Query(meetingidquery).ToList();
+            var mt = 0;
+            int[] numbers = new int[meetingResultSet.Count];
+            foreach (var item in meetingResultSet)
+            {
+                numbers[mt] = (int)item.Meetingid;
+                mt++;
+            }
+
+            //Meeting issue
+            populateIssuemeeting(document,numbers);
+            //ISSUE PENDING
+            populateIssuemeeting(document, numbers);
+            //FEEDBACK DETAILS
+            populateFeedback(acnid, document);
+            //ob id
+            populateOb(acnid, document);
+            //Summary
+            populateSummary(acnid, document);
+            //Observation
+            populateObervation(acnid, document);
+            //Issue discrepancies 
+
+            var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
+            var finalSaveAsFileName = Path.Combine(projectBaseDir, "finalDocument.docx");
+            document.SaveAs(finalSaveAsFileName);
+        }
+
+        public static void populateAuditor(int acnid, DocX document)
+        {
             var auditor = coromendal.ACN.Entities.AcnAuditorRefRow.Fields;
             List<dynamic> auditorResultSet;
             var auditorsqlquery = new SqlQuery()
@@ -91,28 +138,24 @@ namespace Serenity.Reporting
                     auditor.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditorRefRow>())
                 auditorResultSet = connection.Query(auditorsqlquery).ToList();
-            var table = document.AddTable(auditorResultSet.Count, 1);
+            Table AuditorTable = document.Tables.First(t => t.TableCaption == "AUDITOR");
             var audit = 0;
 
             foreach (var item in auditorResultSet)
             {
                 if (item.AcnAuditorId != 0)
                 {
+                    Novacode.Row newOrderRow = AuditorTable.InsertRow();
                     var name = PopulateUser(item.AcnAuditorId);
-                    table.Rows[audit].Cells[0].Paragraphs.First().Append(name);
-                    table.Rows[audit].Cells[0].Paragraphs.First().Append("\n");
+                    newOrderRow.Cells[0].Paragraphs.First().Append(name);
                     audit++;
                 }
 
             }
+        }
 
-           foreach (var paragraph in document.Paragraphs)
-            {
-                paragraph.FindAll("#TABLE#").ForEach(index => paragraph.InsertTableAfterSelf((table)));
-            }
-            document.ReplaceText("#TABLE#", "");
-
-            //Auditee List
+        public static void populateAuditee(int acnid, DocX document)
+        {
             var auditee = coromendal.ACN.Entities.AcnAuditeeRefRow.Fields;
             List<dynamic> auditeeResultSet;
             var auditeesqlquery = new SqlQuery()
@@ -122,26 +165,22 @@ namespace Serenity.Reporting
                     auditee.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditeeRefRow>())
                 auditeeResultSet = connection.Query(auditeesqlquery).ToList();
-            var auditeetable = document.AddTable(auditeeResultSet.Count, 1);
-            var audite = 0;
+            Table auditeetable = document.Tables.First(t => t.TableCaption == "AUDITEE");
             foreach (var item in auditeeResultSet)
             {
                 if (item.AcnAuditeeId != 0)
                 {
+                    Novacode.Row newOrderRow = auditeetable.InsertRow();
                     var name = PopulateUser(item.AcnAuditeeId);
-                    auditeetable.Rows[audite].Cells[0].Paragraphs.First().Append(name);
-                    table.Rows[audite].Cells[0].Paragraphs.First().Append("\n");
-                    audite++;
+                    newOrderRow.Cells[0].Paragraphs.First().Append(name);
+
                 }
             }
-            foreach (var paragraph in document.Paragraphs)
-            {
-                paragraph.FindAll("#AUDITEETABLE#").ForEach(index => paragraph.InsertTableAfterSelf((auditeetable)));
-            }
-            document.ReplaceText("#AUDITEETABLE#", "");
 
+        }
 
-            // AUDIT SCOPE lIST
+        public static void populateScope(int acnid, DocX document)
+        {
             var scope = coromendal.ACN.Entities.ScopeRow.Fields;
             List<dynamic> scopeResultSet;
             var scopesqlquery = new SqlQuery()
@@ -157,9 +196,12 @@ namespace Serenity.Reporting
                 Novacode.Row newOrderRow = scopeTable.InsertRow();
                 newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.Title));
             }
+        }
 
-            //key facts
+        public static void populateKeyfacts(int acnid, DocX document)
+        {
             var keyfacts = coromendal.ACN.Entities.KeyfactsRow.Fields;
+            var scope = coromendal.ACN.Entities.ScopeRow.Fields;
             List<dynamic> keyfactsResultSet;
             var keyfactsqlquery = new SqlQuery()
                     .From(keyfacts)
@@ -178,94 +220,10 @@ namespace Serenity.Reporting
                 newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Particulars));
                 newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString(item.Value));
             }
-            //Meeting details based on acn 
+        }
 
-            var issue = coromendal.ACN.Entities.MeetingIssueRow.Fields;
-            var meeting = coromendal.ACN.Entities.MinutesofmeetingRow.Fields;
-            
-            List<dynamic> meetingResultSet;
-            var meetingidquery = new SqlQuery()
-                    .From(meeting)
-                    .Select(meeting.Meetingid)
-                    .Where(
-                    meeting.Acnid == acnid);
-            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MinutesofmeetingRow>())
-                meetingResultSet = connection.Query(meetingidquery).ToList();
-            var mt = 0;
-            int[] numbers = new int[meetingResultSet.Count];
-            foreach (var item in meetingResultSet)
-            {
-                numbers[mt] = (int)item.Meetingid;
-                mt++;
-            }
-            //Meeting issue
-
-            List<dynamic> issueResultSet;
-            var issuesqlquery = new SqlQuery()
-                    .From(issue)
-                    .Select(issue.AreaofOperation)
-                    .Select(issue.Issue)
-                    .Select(issue.Status)
-                    .Select(issue.ExpectedDate)
-                    .Select(issue.Areacovered)
-                    .Select(issue.Areanotcovered)
-                    .Select(issue.Commandcreationdate)
-                    .Select(issue.Comments)
-                    .Where(
-                    issue.MeetingId.In (numbers));
-            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingIssueRow>())
-                issueResultSet = connection.Query(issuesqlquery).ToList();
-            Table issuetable = document.Tables.First(t => t.TableCaption == "ISSUE_TABLE");
-            foreach (var item in issueResultSet)
-            {
-                Novacode.Row newOrderRow = issuetable.InsertRow();
-                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.Areanotcovered));
-
-            }
-            //ISSUE PENDING
-            Table issuePendingtable = document.Tables.First(t => t.TableCaption == "ISSUE_PENDING_TABLE");
-            var k = 0;
-
-            foreach (var item in issueResultSet)
-            {
-                Novacode.Row newOrderRow = issuePendingtable.InsertRow();
-                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(k + 1));
-                newOrderRow.Cells[1].Paragraphs.First().Append(item.Areanotcovered);
-                newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString("high"));
-                newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Comments));
-                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.Commandcreationdate));
-                k++;
-            }
-            //STATUS
-            Table issueStatustable = document.Tables.First(t => t.TableCaption == "ISSUE_IDENTIFIED_TABLE");
-            var l = 0;
-            foreach (var item in issueResultSet)
-            {
-                Novacode.Row newOrderRow = issueStatustable.InsertRow();
-                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(l + 1));
-                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.AreaofOperation));
-                newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString(item.Issue));
-                newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Status));
-                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.ExpectedDate));
-                l++;
-            }
-
-            //Area Covered
-            Table issueCoveredtable = document.Tables.First(t => t.TableCaption == "ISSUE_COVERED_TABLE");
-            var m = 0;
-            foreach (var item in issueResultSet)
-            {
-                Novacode.Row newOrderRow = issueCoveredtable.InsertRow();
-                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(m + 1));
-                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Areacovered));
-                newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString(item.Issue));
-                newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Status));
-                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.ExpectedDate));
-                m++;
-            }
-
-
-            //FEEDBACK DETAILS
+        public static void populateFeedback(int acnid, DocX document)
+        {
             var feedback = coromendal.ACN.Entities.AcnFeedbackRow.Fields;
             dynamic feedbackResultSet;
             var feedbacksqlquery = new SqlQuery()
@@ -319,7 +277,10 @@ namespace Serenity.Reporting
             var imp = feedbackResultSet.Ques11 + feedbackResultSet.Ques12;
             document.ReplaceText("#%improvements%", Convert.ToString(imp / 2));
 
-            //ob id
+        }
+
+        public static void populateOb(int acnid,DocX document)
+        {
             var obid = coromendal.ACN.Entities.AuditobservationRow.Fields;
             dynamic auditobid;
             var obidsqlquery = new SqlQuery()
@@ -331,7 +292,13 @@ namespace Serenity.Reporting
                 auditobid = connection.Query(obidsqlquery).FirstOrDefault();
             var ob = 0;
             ob = auditobid.AuditobservationId;
-            //Root cause/impact
+            populateRootcause(document, ob);
+            //Suggestion
+            populateSuggestion(document, ob);
+        }
+
+        public static void populateRootcause(DocX document,int ob)
+        {
             var rootcause = coromendal.ACN.Entities.RootcauseRow.Fields;
             List<dynamic> rootcausesResultSet;
             var rootcausesqlquery = new SqlQuery()
@@ -342,25 +309,22 @@ namespace Serenity.Reporting
                     rootcause.AuditobservationId == ob);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.RootcauseRow>())
                 rootcausesResultSet = connection.Query(rootcausesqlquery).ToList();
-            var rootcausetable = document.AddTable(rootcausesResultSet.Count, 2);
+            //var rootcausetable = document.AddTable(rootcausesResultSet.Count, 2);
+            Table rootcausetable = document.Tables.First(t => t.TableCaption == "ROOTCAUSE");
             var rootc = 0;
 
             foreach (var item in rootcausesResultSet)
             {
-                rootcausetable.Rows[rootc].Cells[0].Paragraphs.First().Append(Convert.ToString(item.Rootcause));
-                rootcausetable.Rows[rootc].Cells[1].Paragraphs.First().Append(Convert.ToString(item.Impact));
+                Novacode.Row newOrderRow = rootcausetable.InsertRow();
+                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.Rootcause));
+                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Impact));
                 rootc++;
             }
 
+        }
 
-            foreach (var paragraph in document.Paragraphs)
-            {
-                paragraph.FindAll("#%ROOTCAUSE%").ForEach(index => paragraph.InsertTableAfterSelf((rootcausetable)));
-
-            }
-            document.ReplaceText("#%ROOTCAUSE%", "");
-
-            //Suggestion
+        public static void populateSuggestion(DocX document,int ob)
+        {
             var suggestion = coromendal.ACN.Entities.SuggestionRow.Fields;
             List<dynamic> suggestionResultSet;
             var suggestionsqlquery = new SqlQuery()
@@ -370,21 +334,20 @@ namespace Serenity.Reporting
                     suggestion.AuditobservationId == ob);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.SuggestionRow>())
                 suggestionResultSet = connection.Query(suggestionsqlquery).ToList();
-            var suggestiontable = document.AddTable(suggestionResultSet.Count, 1);
+            //var suggestiontable = document.AddTable(suggestionResultSet.Count, 1);
+            Table suggestiontable = document.Tables.First(t => t.TableCaption == "SUGGESTION");
             var sugg = 0;
 
             foreach (var item in suggestionResultSet)
             {
-                suggestiontable.Rows[sugg].Cells[0].Paragraphs.First().Append(Convert.ToString(item.Suggestion));
+                Novacode.Row newOrderRow = suggestiontable.InsertRow();
+                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.Suggestion));
                 sugg++;
             }
-            foreach (var paragraph in document.Paragraphs)
-            {
-                paragraph.FindAll("#% Suggestion%").ForEach(index => paragraph.InsertTableAfterSelf((suggestiontable)));
+        }
 
-            }
-            document.ReplaceText("#% Suggestion%", "");
-
+        public static void populateSummary(int acnid, DocX document)
+            { 
 
             var summary = coromendal.ACN.Entities.AuditobservationRow.Fields;
             List<dynamic> summaryResultSet;
@@ -439,11 +402,13 @@ namespace Serenity.Reporting
                 newOrderRow.Cells[7].Paragraphs.First().Append("TR");
                 E++;
             }
-           
 
-            //Observation
+        }
 
+        public static void populateObervation(int acnid, DocX document)
+        {
             var obervation = coromendal.ACN.Entities.AuditobservationRow.Fields;
+            var summary = coromendal.ACN.Entities.AuditobservationRow.Fields;
             dynamic obervationResultSet;
             var obervationsqlquery = new SqlQuery()
                     .From(obervation)
@@ -491,16 +456,74 @@ namespace Serenity.Reporting
             document.ReplaceText("CATEGORY###", PopulatecategoryIndexPage(obervationResultSet.Category));
             document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
             document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));
-
-           
-
-            //Issue discrepancies 
-
-            var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
-            var finalSaveAsFileName = Path.Combine(projectBaseDir, "finalDocument.docx");
-            document.SaveAs(finalSaveAsFileName);
         }
 
+        public static void populateIssuemeeting(DocX document,int[] numbers)
+        {
+            var issue = coromendal.ACN.Entities.MeetingIssueRow.Fields;
+            List<dynamic> issueResultSet;
+            var issuesqlquery = new SqlQuery()
+                    .From(issue)
+                    .Select(issue.AreaofOperation)
+                    .Select(issue.Issue)
+                    .Select(issue.Status)
+                    .Select(issue.ExpectedDate)
+                    .Select(issue.Areacovered)
+                    .Select(issue.Areanotcovered)
+                    .Select(issue.Commandcreationdate)
+                    .Select(issue.Comments)
+                    .Where(
+                    issue.MeetingId.In(numbers));
+            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingIssueRow>())
+                issueResultSet = connection.Query(issuesqlquery).ToList();
+            Table issuetable = document.Tables.First(t => t.TableCaption == "ISSUE_TABLE");
+            foreach (var item in issueResultSet)
+            {
+                Novacode.Row newOrderRow = issuetable.InsertRow();
+                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.Areanotcovered));
+
+            }
+            Table issuePendingtable = document.Tables.First(t => t.TableCaption == "ISSUE_PENDING_TABLE");
+            var k = 0;
+
+            foreach (var item in issueResultSet)
+            {
+                Novacode.Row newOrderRow = issuePendingtable.InsertRow();
+                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(k + 1));
+                newOrderRow.Cells[1].Paragraphs.First().Append(item.Areanotcovered);
+                newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString("high"));
+                newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Comments));
+                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.Commandcreationdate));
+                k++;
+            }
+            //STATUS
+            Table issueStatustable = document.Tables.First(t => t.TableCaption == "ISSUE_IDENTIFIED_TABLE");
+            var l = 0;
+            foreach (var item in issueResultSet)
+            {
+                Novacode.Row newOrderRow = issueStatustable.InsertRow();
+                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(l + 1));
+                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.AreaofOperation));
+                newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString(item.Issue));
+                newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Status));
+                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.ExpectedDate));
+                l++;
+            }
+
+            //Area Covered
+            Table issueCoveredtable = document.Tables.First(t => t.TableCaption == "ISSUE_COVERED_TABLE");
+            var m = 0;
+            foreach (var item in issueResultSet)
+            {
+                Novacode.Row newOrderRow = issueCoveredtable.InsertRow();
+                newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(m + 1));
+                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Areacovered));
+                newOrderRow.Cells[2].Paragraphs.First().Append(Convert.ToString(item.Issue));
+                newOrderRow.Cells[3].Paragraphs.First().Append(Convert.ToString(item.Status));
+                newOrderRow.Cells[4].Paragraphs.First().Append(Convert.ToString(item.ExpectedDate));
+                m++;
+            }
+        }
         public static string PopulatecategoryIndexPage(int id)
         {
 
