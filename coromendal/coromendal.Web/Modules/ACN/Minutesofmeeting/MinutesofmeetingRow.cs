@@ -13,12 +13,12 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("minutesofmeeting"), InstanceName("minutesofmeeting"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Minutes Of Meeting"), InstanceName("minutesofmeeting"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.minutesofmeeting.View)]
     [ModifyPermission(ACN.PermissionKeys.minutesofmeeting.Modify)]
     [DeletePermission(ACN.PermissionKeys.minutesofmeeting.Delete)]
     [LookupScript("MinutesofmeetingRow")]
-    public sealed class MinutesofmeetingRow : Row, IIdRow, INameRow
+    public sealed class MinutesofmeetingRow : Row, IIdRow
     {
         [DisplayName("Meetingid"), Column("meetingid"), Identity]
         public Int32? Meetingid
@@ -27,7 +27,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Meetingid[this] = value; }
         }
 
-        [DisplayName("Acnid"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [DisplayName("Acn"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
@@ -35,14 +35,8 @@ namespace coromendal.ACN.Entities
             set { Fields.Acnid[this] = value; }
         }
 
-        [DisplayName("Title"), Column("title"), Size(200), QuickSearch]
-        public String Title
-        {
-            get { return Fields.Title[this]; }
-            set { Fields.Title[this] = value; }
-        }
 
-        [DisplayName("Auditscope"), Column("auditscope"), Size(200)]
+        [DisplayName("Audit Scope"), Column("auditscope"), Size(200)]
         public String Auditscope
         {
             get { return Fields.Auditscope[this]; }
@@ -83,6 +77,27 @@ namespace coromendal.ACN.Entities
             get { return Fields.Auditee[this]; }
             set { Fields.Auditee[this] = value; }
         }
+        [DisplayName("MOM Circulation Date"), Column("momdate")]
+
+        public String momdate
+        {
+            get { return Fields.momdate[this]; }
+            set { Fields.momdate[this] = value; }
+        }
+
+        [DisplayName("Planed Closing Date"), Column("planedcloseddate")]
+        public String planeddate
+        {
+            get { return Fields.planeddate[this]; }
+            set { Fields.planeddate[this] = value; }
+        }
+
+        [DisplayName("Audit Opening Meeting Date"), Column("auditopeningmeetingdate")]
+        public String auditopeneddate
+        {
+            get { return Fields.auditopeneddate[this]; }
+            set { Fields.auditopeneddate[this] = value; }
+        }
 
         [DisplayName("Download"), Column("download")]
         public Int32? Download
@@ -99,49 +114,49 @@ namespace coromendal.ACN.Entities
             set { Fields.Userid[this] = value; }
         }
 
-        [DisplayName("Acnid Acn Tilte"), Expression("jAcnid.[AcnTilte]")]
+        [DisplayName("Acn Tilte"), Expression("jAcnid.[AcnTilte]")]
         public String AcnidAcnTilte
         {
             get { return Fields.AcnidAcnTilte[this]; }
             set { Fields.AcnidAcnTilte[this] = value; }
         }
 
-        [DisplayName("Acnid Phase No"), Expression("jAcnid.[PhaseNo]")]
+        [DisplayName("Phase No"), Expression("jAcnid.[PhaseNo]")]
         public Int32? AcnidPhaseNo
         {
             get { return Fields.AcnidPhaseNo[this]; }
             set { Fields.AcnidPhaseNo[this] = value; }
         }
 
-        [DisplayName("Acnid Location"), Expression("jAcnid.[location]")]
+        [DisplayName("Location"), Expression("jAcnid.[location]")]
         public String AcnidLocation
         {
             get { return Fields.AcnidLocation[this]; }
             set { Fields.AcnidLocation[this] = value; }
         }
 
-        [DisplayName("Acnid Fromdate"), Expression("jAcnid.[Fromdate]")]
+        [DisplayName("Audit Execution From Date"), Expression("jAcnid.[Fromdate]")]
         public String AcnidFromdate
         {
             get { return Fields.AcnidFromdate[this]; }
             set { Fields.AcnidFromdate[this] = value; }
         }
 
-        [DisplayName("Acnid Todate"), Expression("jAcnid.[Todate]")]
+        [DisplayName("Audit Execution To Date"), Expression("jAcnid.[Todate]")]
         public String AcnidTodate
         {
             get { return Fields.AcnidTodate[this]; }
             set { Fields.AcnidTodate[this] = value; }
         }
 
-        [DisplayName("Acnid Periodfrom"), Expression("jAcnid.[Periodfrom]")]
+        [DisplayName("Period of Coverage From"), Expression("jAcnid.[Periodfrom]")]
         public String AcnidPeriodfrom
         {
             get { return Fields.AcnidPeriodfrom[this]; }
             set { Fields.AcnidPeriodfrom[this] = value; }
         }
 
-        [DisplayName("Acnid Periodto"), Expression("jAcnid.[Periodto]")]
+        [DisplayName("Period of Coverage To"), Expression("jAcnid.[Periodto]")]
         public String AcnidPeriodto
         {
             get { return Fields.AcnidPeriodto[this]; }
@@ -269,6 +284,25 @@ namespace coromendal.ACN.Entities
             get { return Fields.PointsList[this]; }
             set { Fields.PointsList[this] = value; }
         }
+        [DisplayName("Previous Observation Audit"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        public List<ObservationpreviousauditRow> PreviousObservationaudit
+        {
+            get { return Fields.PreviousObservationaudit[this]; }
+            set { Fields.PreviousObservationaudit[this] = value; }
+        }
+        [DisplayName("New Changes"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        public List<NewchangesRow> Newchanges
+        {
+            get { return Fields.Newchanges[this]; }
+            set { Fields.Newchanges[this] = value; }
+
+        }
+        [DisplayName("New Improvements"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        public List<NewiprovementsRow> Newimprovements
+        {
+            get { return Fields.Newimprovements[this]; }
+            set { Fields.Newimprovements[this] = value; }
+        }
 
 
         IIdField IIdRow.IdField
@@ -276,10 +310,6 @@ namespace coromendal.ACN.Entities
             get { return Fields.Meetingid; }
         }
 
-        StringField INameRow.NameField
-        {
-            get { return Fields.Title; }
-        }
 
         public static readonly RowFields Fields = new RowFields().Init();
 
@@ -292,7 +322,6 @@ namespace coromendal.ACN.Entities
         {
             public Int32Field Meetingid;
             public Int32Field Acnid;
-            public StringField Title;
             public StringField Auditscope;
             public StringField Period;
             public Int32Field Time;
@@ -300,13 +329,18 @@ namespace coromendal.ACN.Entities
             public Int32Field Auditor;
             public Int32Field Auditee;
             public Int32Field Download;
-            public Int32Field Userid;
-
+            public Int32Field Userid; 
+            public StringField momdate;
+            public StringField planeddate;
+            public StringField auditopeneddate;
 
             public RowListField<NoteRow> NoteList;
             public RowListField<MeetingIssueRow> DetailList;
             public RowListField<MeetingAbsentRow> AbsentList;
             public RowListField<MeetingPointsRow> PointsList;
+            public RowListField<ObservationpreviousauditRow> PreviousObservationaudit;
+            public RowListField<NewchangesRow> Newchanges;
+            public RowListField<NewiprovementsRow> Newimprovements;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;

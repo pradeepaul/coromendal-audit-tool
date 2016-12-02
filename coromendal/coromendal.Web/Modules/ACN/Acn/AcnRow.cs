@@ -22,19 +22,12 @@ namespace coromendal.ACN.Entities
     [LookupScript("ACN.Acn")]
     public sealed class AcnRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Acn Id"), Column("acnID"), Identity]
+        [DisplayName("Assignment"), Column("acnID"), Identity]
         
         public Int32? AcnId
         {
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
-        }
-        [DisplayName("UserId"), Column("userid"), ForeignKey("[dbo].[Users]", "UserId"), LeftJoin("jUser")]
-        [LookupEditor(typeof(UserRow))]
-        public Int32? UserId
-        {
-            get { return Fields.UserId[this]; }
-            set { Fields.UserId[this] = value; }
         }
         [DisplayName("Phase No"), Size(40), QuickSearch]
         public Int32? PhaseNo
@@ -43,23 +36,25 @@ namespace coromendal.ACN.Entities
             set { Fields.PhaseNo[this] = value; }
         }
 
-        [DisplayName("Title"), Size(40), QuickSearch]
+        [DisplayName("Assignment Title"), Size(40), QuickSearch]
         public String AcnTilte
         {
             get { return Fields.AcnTilte[this]; }
             set { Fields.AcnTilte[this] = value; }
         }
-        [LookupEditor(typeof(UserLookup), Multiple = true), ClientSide]
+        [LookupEditor(typeof(UserRow), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnAuditorRefRow), "acnID", "AcnAuditorID")]
         [MinSelectLevel(SelectLevel.Details)]
+        [DisplayName("Auditor"), Size(40), QuickSearch]
         public List<Int32> Auditor
         {
             get { return Fields.Auditor[this]; }
             set { Fields.Auditor[this] = value; }
         }
-        [LookupEditor(typeof(AuditeeUserLookup), Multiple = true), ClientSide]
+        [LookupEditor(typeof(UserRow), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnAuditeeRefRow), "acnID", "AcnAuditeeID")]
         [MinSelectLevel(SelectLevel.Details)]
+        [DisplayName("Auditee"), Size(40), QuickSearch]
         public List<Int32> Auditee
         {
             get { return Fields.Auditee[this]; }
@@ -67,25 +62,25 @@ namespace coromendal.ACN.Entities
         }
        
         
-       [DisplayName("Period From"), Size(40), QuickSearch]
+       [DisplayName("Period of Coverage From"), Size(40), QuickSearch]
         public String Periodfrom
         {
             get { return Fields.Periodfrom[this]; }
             set { Fields.Periodfrom[this] = value; }
         }
-        [DisplayName("Period To"), Size(40), QuickSearch]
+        [DisplayName("Period of Coverage To"), Size(40), QuickSearch]
         public String Periodto
         {
             get { return Fields.Periodto[this]; }
             set { Fields.Periodto[this] = value; }
         }
-        [DisplayName("From Date"), Size(40), QuickSearch]
+        [DisplayName("Audit Execution From Date"), Size(40), QuickSearch]
         public String Fromdate
         {
             get { return Fields.Fromdate[this]; }
             set { Fields.Fromdate[this] = value; }
         }
-        [DisplayName("To Date"), Size(40), QuickSearch]
+        [DisplayName("Audit Execution To Date"), Size(40), QuickSearch]
         public String Todate
         {
             get { return Fields.Todate[this]; }
@@ -97,13 +92,13 @@ namespace coromendal.ACN.Entities
             get { return Fields.location[this]; }
             set { Fields.location[this] = value; }
         }
-        [DisplayName("Creation Date"), Size(40), QuickSearch]
+        [DisplayName("Assignment Creation Date"), Size(40), QuickSearch]
         public String creationdate
         {
             get { return Fields.creationdate[this]; }
             set { Fields.creationdate[this] = value; }
         }
-        [DisplayName("Scope List"), MasterDetailRelation(foreignKey: "acnId"), ClientSide]
+        [DisplayName("Audit Scope List"), MasterDetailRelation(foreignKey: "acnId"), ClientSide]
         public List<ScopeRow> ScopeList
         {
             get { return Fields.ScopeList[this]; }
@@ -129,7 +124,6 @@ namespace coromendal.ACN.Entities
         public class RowFields : RowFieldsBase
         {
             public Int32Field AcnId;
-            public Int32Field UserId;
             public StringField AcnTilte;
             public ListField<Int32> Auditor;
             public ListField<Int32> Auditee;

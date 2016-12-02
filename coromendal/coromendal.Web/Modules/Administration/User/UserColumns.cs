@@ -16,9 +16,8 @@ namespace coromendal.Administration.Forms
         public String DisplayName { get; set; }
         [Width(250)]
         public String Email { get; set; }
-        [Width(100)]
-        public String Source { get; set; }
-        [Width(150)]
-        public String Role { get; set; }
+        public Int32 RoleId { get; set; }
+
+
     }
 }

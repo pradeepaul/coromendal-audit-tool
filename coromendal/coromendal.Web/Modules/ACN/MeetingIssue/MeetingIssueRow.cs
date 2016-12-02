@@ -30,28 +30,28 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Areaof Operation"), Size(200), QuickSearch]
+        [DisplayName("Area of Operation"), Size(200), QuickSearch]
         public String AreaofOperation
         {
             get { return Fields.AreaofOperation[this]; }
             set { Fields.AreaofOperation[this] = value; }
         }
 
-        [DisplayName("Issue"), Size(200), NotNull]
+        [DisplayName("Issue Identified"), Size(200), NotNull]
         public String Issue
         {
             get { return Fields.Issue[this]; }
             set { Fields.Issue[this] = value; }
         }
 
-        [DisplayName("Status"), Size(200), NotNull]
+        [DisplayName("Status of Action "), Size(200), NotNull]
         public String Status
         {
             get { return Fields.Status[this]; }
             set { Fields.Status[this] = value; }
         }
 
-        [DisplayName("Expected Date"), Size(50), NotNull]
+        [DisplayName("Expected Date of Completion"), Size(50), NotNull]
         public String ExpectedDate
         {
             get { return Fields.ExpectedDate[this]; }
@@ -63,34 +63,6 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.Comments[this]; }
             set { Fields.Comments[this] = value; }
-        }
-
-        [DisplayName("Areacovered"), Size(100)]
-        public String Areacovered
-        {
-            get { return Fields.Areacovered[this]; }
-            set { Fields.Areacovered[this] = value; }
-        }
-
-        [DisplayName("Areanotcovered"), Size(100)]
-        public String Areanotcovered
-        {
-            get { return Fields.Areanotcovered[this]; }
-            set { Fields.Areanotcovered[this] = value; }
-        }
-
-        [DisplayName("Commandcreationdate"), Column("commandcreationdate"), Size(100)]
-        public String Commandcreationdate
-        {
-            get { return Fields.Commandcreationdate[this]; }
-            set { Fields.Commandcreationdate[this] = value; }
-        }
-
-        [DisplayName("Improvement"), Column("improvement"), Size(100)]
-        public String Improvement
-        {
-            get { return Fields.Improvement[this]; }
-            set { Fields.Improvement[this] = value; }
         }
 
         [DisplayName("Meeting Acnid"), Expression("jMeeting.[acnid]")]
@@ -189,10 +161,6 @@ namespace coromendal.ACN.Entities
             public StringField Status;
             public StringField ExpectedDate;
             public StringField Comments;
-            public StringField Areacovered;
-            public StringField Areanotcovered;
-            public StringField Commandcreationdate;
-            public StringField Improvement;
 
             public Int32Field MeetingAcnid;
             public StringField MeetingTitle;

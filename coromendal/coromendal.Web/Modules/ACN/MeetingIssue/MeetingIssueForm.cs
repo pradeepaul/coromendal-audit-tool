@@ -20,12 +20,5 @@ namespace coromendal.ACN.Forms
         public DateTime ExpectedDate { get; set; }
         [TextAreaEditor(Rows = 8)]
         public String Comments { get; set; }
-        [TextAreaEditor(Rows = 8)]
-        public String Areacovered { get; set; }
-        [TextAreaEditor(Rows = 8)]
-        public String Areanotcovered { get; set; }
-        [TextAreaEditor(Rows = 8)]
-        public String Improvement { get; set; }
-        public DateTime Commandcreationdate { get; set; }
     }
 }

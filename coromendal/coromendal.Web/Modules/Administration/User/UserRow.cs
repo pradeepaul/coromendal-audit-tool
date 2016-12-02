@@ -70,6 +70,14 @@ namespace coromendal.Administration.Entities
             get { return Fields.Password[this]; }
             set { Fields.Password[this] = value; }
         }
+        [DisplayName("Role")]
+        [LookupEditor(typeof(RoleRow))]
+        public Int32? RoleId
+        {
+            get { return Fields.RoleId[this]; }
+            set { Fields.RoleId[this] = value; }
+        }
+
 
         [NotNull, Insertable(false), Updatable(true)]
         public Int16? IsActive
@@ -91,6 +99,7 @@ namespace coromendal.Administration.Entities
             get { return Fields.LastDirectoryUpdate[this]; }
             set { Fields.LastDirectoryUpdate[this] = value; }
         }
+        
 
         IIdField IIdRow.IdField
         {
@@ -125,9 +134,9 @@ namespace coromendal.Administration.Entities
             public StringField Email;
             public DateTimeField LastDirectoryUpdate;
             public Int16Field IsActive;
-
             public StringField Password;
             public StringField PasswordConfirm;
+            public Int32Field RoleId;
 
             public RowFields()
                 : base("Users")

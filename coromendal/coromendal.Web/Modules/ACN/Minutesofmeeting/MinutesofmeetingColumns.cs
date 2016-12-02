@@ -15,12 +15,13 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Meetingid { get; set; }
-        public string UseridDisplayName { get; set; }
-        public String Title { get; set; }
-        [EditLink]
+      //  public string UseridDisplayName { get; set; }
         public String AcnidAcnTilte { get; set; }
         public Int32 AcnidPhaseNo { get; set; }
         public String AcnidFromdate { get; set; }
         public String AcnidTodate { get; set; }
+        public String momdate { get; set; }
+        public String planeddate { get; set; }
+        public String auditopeneddate { get; set; }
     }
 }

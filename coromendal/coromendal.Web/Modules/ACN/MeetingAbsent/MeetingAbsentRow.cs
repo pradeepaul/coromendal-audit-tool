@@ -31,7 +31,7 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Absent User")]
+        [DisplayName("Absent User Name")]
         [LookupEditor(typeof(UserRow))]
         public Int32? AbsentUser
         {
@@ -39,14 +39,14 @@ namespace coromendal.ACN.Entities
             set { Fields.AbsentUser[this] = value; }
         }
 
-        [DisplayName("Reason"), Column("reason"), Size(200), QuickSearch]
+        [DisplayName(" Absent Reason"), Column("reason"), Size(200), QuickSearch]
         public String Reason
         {
             get { return Fields.Reason[this]; }
             set { Fields.Reason[this] = value; }
         }
 
-        [DisplayName("Meeting Acnid"), Expression("jMeeting.[acnid]")]
+        [DisplayName("MeetingAcnid"), Expression("jMeeting.[acnid]")]
         public Int32? MeetingAcnid
         {
             get { return Fields.MeetingAcnid[this]; }

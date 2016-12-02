@@ -22,6 +22,10 @@
         export const isActiveProperty = 'IsActive';
         export const nameProperty = 'Username';
         export const localTextPrefix = 'Administration.User';
+        export function getLookup(): Q.Lookup<UserRow> {
+            return Q.getLookup<UserRow>('UserRow');
+        }
+
 
         export namespace Fields {
             export declare const UserId: string;

@@ -15,7 +15,6 @@ namespace coromendal.ACN.Forms
     public class AcnForm
     {
         public String AcnTilte { get; set; }
-        public Int32 UserId { get; set; }
         public Int32 PhaseNo { get; set; }
         public List<Int32> Auditor { get; set; }
         public List<Int32> Auditee { get; set; }
@@ -26,7 +25,7 @@ namespace coromendal.ACN.Forms
         public DateTime Periodto { get; set; }
         public String location { get; set; }
         public DateTime creationdate { get; set; }
-        [Category("Issue Details")]
+        [Category("Audit Scope Details")]
         [ScopeEditor]
         public List<ScopeRow> ScopeList { get; set; }
     }

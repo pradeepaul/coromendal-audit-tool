@@ -125,6 +125,7 @@ namespace Serenity.Reporting
             var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
             var finalSaveAsFileName = Path.Combine(projectBaseDir, "finalDocument.docx");
             document.SaveAs(finalSaveAsFileName);
+            
         }
 
         public static void populateAuditor(int acnid, DocX document)
@@ -468,9 +469,9 @@ namespace Serenity.Reporting
                     .Select(issue.Issue)
                     .Select(issue.Status)
                     .Select(issue.ExpectedDate)
-                    .Select(issue.Areacovered)
-                    .Select(issue.Areanotcovered)
-                    .Select(issue.Commandcreationdate)
+                    //.Select(issue.Areacovered)
+                    //.Select(issue.Areanotcovered)
+                    //.Select(issue.Commandcreationdate)
                     .Select(issue.Comments)
                     .Where(
                     issue.MeetingId.In(numbers));

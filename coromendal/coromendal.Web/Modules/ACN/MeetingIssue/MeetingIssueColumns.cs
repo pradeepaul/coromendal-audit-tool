@@ -22,9 +22,5 @@ namespace coromendal.ACN.Columns
         public String Status { get; set; }
         public String ExpectedDate { get; set; }
         public String Comments { get; set; }
-        public String Areacovered { get; set; }
-        public String Areanotcovered { get; set; }
-        public String Commandcreationdate { get; set; }
-        public String Improvement { get; set; }
     }
 }

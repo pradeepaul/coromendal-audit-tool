@@ -23,7 +23,7 @@ namespace coromendal.Administration.Scripts
             var sa = query.Distinct(true)
                 .Select(fl.UserId)
                 .Where(
-                   (fl.RoleId == 1 ));
+                   (fl.UserId == 2 ));
             System.Console.WriteLine(sa);
 
         }

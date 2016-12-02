@@ -7,7 +7,7 @@ namespace coromendal.Administration.Scripts
     using System;
 
     [LookupScript("ACN.UserLookup1")]
-    public class UserLookup1 : RowLookupScript<Entities.UserRoleRow>
+    public class UserLookup1 : RowLookupScript<Entities.UserRow>
     {
         public UserLookup1()
         {
@@ -19,11 +19,10 @@ namespace coromendal.Administration.Scripts
         {
 
             var fl1 = Entities.UserRow.Fields;
-            var fl = Entities.UserRoleRow.Fields;
             var sa = query.Distinct(true)
                 .Select(fl1.Username)
                 .Where(
-                   (fl1.UserId == 1 ));
+                   (fl1.UserId == 2 ));
             System.Console.WriteLine(sa);
 
         }

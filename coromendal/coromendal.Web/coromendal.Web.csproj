@@ -1112,11 +1112,11 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnAuditeeListFormatter.ts" />
-    <TypeScriptCompile Include="Modules\ACN\Acn\AcnListFormatter.ts" />
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\RolePermission\RolePermissionDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Role\AcnListRoleFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\Role\RoleDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Role\RoleGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\Translation\TranslationGrid.ts" />
@@ -1124,6 +1124,7 @@
     <TypeScriptCompile Include="Modules\Administration\UserPermission\UserPermissionDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\UserRole\UserRoleDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\UserRole\RoleCheckEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\User\AcnListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\Authentication\Authorization.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\UserGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\UserDialog.ts" />
@@ -1995,6 +1996,132 @@
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingEditorDialog.ts" />
+    <Content Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationpreviousauditRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationpreviousauditService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationpreviousauditForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditEditorDialog.ts" />
+    <Content Include="Modules\ACN\Newchanges\NewchangesIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NewchangesRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NewchangesService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NewchangesForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Newchanges\NewchangesGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Newchanges\NewchangesDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Newchanges\NewchangesEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Newchanges\NewchangesEditorDialog.ts" />
+    <Content Include="Modules\ACN\Newiprovements\NewiprovementsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NewiprovementsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NewiprovementsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NewiprovementsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Newiprovements\NewiprovementsGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Newiprovements\NewiprovementsDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Newiprovements\NewiprovementsEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Newiprovements\NewiprovementsEditorDialog.ts" />
+    <Content Include="Modules\ACN\Aod\AodIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AodRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AodService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AodForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Aod\AodGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Aod\AodDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Aod\AodEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Aod\AodEditorDialog.ts" />
+    <Content Include="Modules\ACN\Currentauditobservation\CurrentauditobservationIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.CurrentauditobservationRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.CurrentauditobservationService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.CurrentauditobservationForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationEditorDialog.ts" />
+    <Content Include="Modules\ACN\Observationpending\ObservationpendingIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationpendingRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationpendingService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationpendingForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Observationpending\ObservationpendingGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationpending\ObservationpendingDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationpending\ObservationpendingEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationpending\ObservationpendingEditorDialog.ts" />
+    <Content Include="Modules\ACN\Satisfactionrating\SatisfactionratingIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SatisfactionratingRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SatisfactionratingService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SatisfactionratingForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEditorDialog.ts" />
+    <Content Include="Modules\ACN\Inputfromauditee\InputfromauditeeIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.InputfromauditeeRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.InputfromauditeeService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.InputfromauditeeForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Inputfromauditee\InputfromauditeeGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Inputfromauditee\InputfromauditeeDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Inputfromauditee\InputfromauditeeEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Inputfromauditee\InputfromauditeeEditorDialog.ts" />
+    <Content Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnFeedbackRetailRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnFeedbackRetailService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnFeedbackRetailForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2016,6 +2143,10 @@
     <Compile Include="Modules\ACN\Acn\AcnAuditeeListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\AcnListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\ScopeEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Aod\CurrentauditobservationEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Aod\InputfromauditeeEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Aod\ObservationpendingEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Aod\SatisfactionratingEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Auditobservation\AuditobservationPage.cs" />
     <Compile Include="Modules\ACN\Auditobservation\RootcauseEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Auditobservation\SuggestionEditorAttribute.cs" />
@@ -2028,6 +2159,9 @@
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingAbsentEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingIssueEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingPointsEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\NewchangesEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\NewiprovementsEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\ObservationpreviousauditEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Notes\NotesBehavior.cs" />
     <Compile Include="Modules\ACN\Notes\NotesEditorAttribute.cs" />
     <Compile Include="Modules\ACN\PermissionKeys.cs" />
@@ -2046,6 +2180,7 @@
     <Compile Include="Modules\Administration\UserRole\UserRoleListRequest.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleEndpoint.cs" />
     <Content Include="Modules\AdminLTE\DashboardV2.cshtml" />
+    <Compile Include="Modules\Administration\User\AcnListRoleFormatterAttribute.cs" />
     <Compile Include="Modules\Administration\User\Authentication\DirectoryEntry.cs" />
     <Compile Include="Modules\Administration\User\Authentication\ActiveDirectoryService.cs" />
     <Compile Include="Modules\Administration\User\Authentication\LdapDirectoryService.cs" />
@@ -2123,7 +2258,19 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_094814_Auditobservation.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_092816_Suggestion.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_061004_Minutesofmeetingalter.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_105805_meetingAlter.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_180219_Observationpreviousaudit.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_180218_Newimprovements.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_180216_NewChanges.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_125504_KeyFacts.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_283484_Acnfeedbackalter.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_283483_currentauditobservation.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_283482_aod.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_283481_AcnFeedbackRetail.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_283480_inputfromauditee.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_283470_satisfactionrating.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_283460_observationpending.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_183455_userrolealter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_173404_Acnuseridalter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104605_ReportAlter.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160825_104445_MeetingIssuealter.cs" />
@@ -2445,6 +2592,60 @@
     <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingRepository.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingEndpoint.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MinutesofmeetingPage.cs" />
+    <Compile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditRow.cs" />
+    <Compile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditColumns.cs" />
+    <Compile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditForm.cs" />
+    <Compile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditRepository.cs" />
+    <Compile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditEndpoint.cs" />
+    <Compile Include="Modules\ACN\Observationpreviousaudit\ObservationpreviousauditPage.cs" />
+    <Compile Include="Modules\ACN\Newchanges\NewchangesRow.cs" />
+    <Compile Include="Modules\ACN\Newchanges\NewchangesColumns.cs" />
+    <Compile Include="Modules\ACN\Newchanges\NewchangesForm.cs" />
+    <Compile Include="Modules\ACN\Newchanges\NewchangesRepository.cs" />
+    <Compile Include="Modules\ACN\Newchanges\NewchangesEndpoint.cs" />
+    <Compile Include="Modules\ACN\Newchanges\NewchangesPage.cs" />
+    <Compile Include="Modules\ACN\Newiprovements\NewiprovementsRow.cs" />
+    <Compile Include="Modules\ACN\Newiprovements\NewiprovementsColumns.cs" />
+    <Compile Include="Modules\ACN\Newiprovements\NewiprovementsForm.cs" />
+    <Compile Include="Modules\ACN\Newiprovements\NewiprovementsRepository.cs" />
+    <Compile Include="Modules\ACN\Newiprovements\NewiprovementsEndpoint.cs" />
+    <Compile Include="Modules\ACN\Newiprovements\NewiprovementsPage.cs" />
+    <Compile Include="Modules\ACN\Aod\AodRow.cs" />
+    <Compile Include="Modules\ACN\Aod\AodColumns.cs" />
+    <Compile Include="Modules\ACN\Aod\AodForm.cs" />
+    <Compile Include="Modules\ACN\Aod\AodRepository.cs" />
+    <Compile Include="Modules\ACN\Aod\AodEndpoint.cs" />
+    <Compile Include="Modules\ACN\Aod\AodPage.cs" />
+    <Compile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationRow.cs" />
+    <Compile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationColumns.cs" />
+    <Compile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationForm.cs" />
+    <Compile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationRepository.cs" />
+    <Compile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationEndpoint.cs" />
+    <Compile Include="Modules\ACN\Currentauditobservation\CurrentauditobservationPage.cs" />
+    <Compile Include="Modules\ACN\Observationpending\ObservationpendingRow.cs" />
+    <Compile Include="Modules\ACN\Observationpending\ObservationpendingColumns.cs" />
+    <Compile Include="Modules\ACN\Observationpending\ObservationpendingForm.cs" />
+    <Compile Include="Modules\ACN\Observationpending\ObservationpendingRepository.cs" />
+    <Compile Include="Modules\ACN\Observationpending\ObservationpendingEndpoint.cs" />
+    <Compile Include="Modules\ACN\Observationpending\ObservationpendingPage.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingRow.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingColumns.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingForm.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingRepository.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEndpoint.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingPage.cs" />
+    <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeRow.cs" />
+    <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeColumns.cs" />
+    <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeForm.cs" />
+    <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeRepository.cs" />
+    <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeEndpoint.cs" />
+    <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeePage.cs" />
+    <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailRow.cs" />
+    <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailColumns.cs" />
+    <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailForm.cs" />
+    <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailRepository.cs" />
+    <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailEndpoint.cs" />
+    <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
