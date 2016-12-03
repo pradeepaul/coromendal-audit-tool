@@ -8,7 +8,7 @@ namespace coromendal.ACN {
         protected getIdProperty() { return MinutesofmeetingRow.idProperty; }
         protected getLocalTextPrefix() { return MinutesofmeetingRow.localTextPrefix; }
         protected getService() { return MinutesofmeetingService.baseUrl; }
-
+        
         constructor(container: JQuery) {
             super(container);
         }

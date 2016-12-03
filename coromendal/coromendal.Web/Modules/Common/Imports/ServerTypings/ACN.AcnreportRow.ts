@@ -1,12 +1,11 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface AcnreportRow {
         ReportId?: number;
         Title?: string;
         Acnid?: number;
-        Meetingid?: number;
-        Feedbackid?: number;
         Download?: number;
+        userid?: number;
+        status?: string;
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -15,33 +14,26 @@ namespace coromendal.ACN {
         AcnidPeriodfrom?: string;
         AcnidPeriodto?: string;
         AcnidCreationdate?: string;
-        MeetingidAcnid?: number;
-        MeetingidTitle?: string;
-        MeetingidAuditscope?: string;
-        MeetingidPeriod?: string;
-        MeetingidTime?: number;
-        MeetingidVenue?: string;
-        MeetingidAuditor?: number;
-        MeetingidAuditee?: number;
-        MeetingidDownload?: number;
-        FeedbackidFeedbackQuestionId?: number;
-        FeedbackidFeedbackMeetingId?: number;
-        FeedbackidFeedbackRating?: number;
-        FeedbackidFeedbackRemarks?: string;
+        Keyfacts?: KeyfactsRow[];
     }
 
     export namespace AcnreportRow {
         export const idProperty = 'ReportId';
         export const nameProperty = 'Title';
         export const localTextPrefix = 'ACN.Acnreport';
+        export const lookupKey = 'AcnreportRow';
+
+        export function getLookup(): Q.Lookup<AcnreportRow> {
+            return Q.getLookup<AcnreportRow>('AcnreportRow');
+        }
 
         export namespace Fields {
-            export declare const ReportId;
-            export declare const Title;
-            export declare const Acnid;
-            export declare const Meetingid;
-            export declare const Feedbackid;
-            export declare const Download;
+            export declare const ReportId: string;
+            export declare const Title: string;
+            export declare const Acnid: string;
+            export declare const Download: string;
+            export declare const userid: string;
+            export declare const status: string;
             export declare const AcnidAcnTilte: string;
             export declare const AcnidPhaseNo: string;
             export declare const AcnidLocation: string;
@@ -50,22 +42,10 @@ namespace coromendal.ACN {
             export declare const AcnidPeriodfrom: string;
             export declare const AcnidPeriodto: string;
             export declare const AcnidCreationdate: string;
-            export declare const MeetingidAcnid: string;
-            export declare const MeetingidTitle: string;
-            export declare const MeetingidAuditscope: string;
-            export declare const MeetingidPeriod: string;
-            export declare const MeetingidTime: string;
-            export declare const MeetingidVenue: string;
-            export declare const MeetingidAuditor: string;
-            export declare const MeetingidAuditee: string;
-            export declare const MeetingidDownload: string;
-            export declare const FeedbackidFeedbackQuestionId: string;
-            export declare const FeedbackidFeedbackMeetingId: string;
-            export declare const FeedbackidFeedbackRating: string;
-            export declare const FeedbackidFeedbackRemarks: string;
+            export declare const Keyfacts: string;
         }
 
-        ['ReportId', 'Title', 'Acnid', 'Meetingid', 'Feedbackid', 'Download', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'MeetingidAcnid', 'MeetingidTitle', 'MeetingidAuditscope', 'MeetingidPeriod', 'MeetingidTime', 'MeetingidVenue', 'MeetingidAuditor', 'MeetingidAuditee', 'MeetingidDownload', 'FeedbackidFeedbackQuestionId', 'FeedbackidFeedbackMeetingId', 'FeedbackidFeedbackRating', 'FeedbackidFeedbackRemarks'].forEach(x => (<any>Fields)[x] = x);
+        ['ReportId', 'Title', 'Acnid', 'Download', 'userid', 'status', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'Keyfacts'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

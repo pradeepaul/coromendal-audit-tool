@@ -1,8 +1,7 @@
-﻿
-
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export class AcnAuditeeRefForm extends Serenity.PrefixedContext {
         static formKey = 'ACN.AcnAuditeeRef';
+
     }
 
     export interface AcnAuditeeRefForm {
@@ -10,5 +9,6 @@ namespace coromendal.ACN {
         AcnId: Serenity.IntegerEditor;
     }
 
-    [['AcnAuditeeRefId', () => Serenity.IntegerEditor], ['AcnAuditeeId', () => Serenity.IntegerEditor], ['AcnId', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(AcnAuditeeRefForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['AcnAuditeeId', () => Serenity.IntegerEditor], ['AcnId', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(AcnAuditeeRefForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
+

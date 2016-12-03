@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface SuggestionRow {
         SuggestionId?: number;
         AuditobservationId?: number;
@@ -23,11 +22,16 @@ namespace coromendal.ACN {
         export const idProperty = 'SuggestionId';
         export const nameProperty = 'Suggestion';
         export const localTextPrefix = 'ACN.Suggestion';
+        export const lookupKey = 'ACN.SuggestionRow';
+
+        export function getLookup(): Q.Lookup<SuggestionRow> {
+            return Q.getLookup<SuggestionRow>('ACN.SuggestionRow');
+        }
 
         export namespace Fields {
-            export declare const SuggestionId;
-            export declare const AuditobservationId;
-            export declare const Suggestion;
+            export declare const SuggestionId: string;
+            export declare const AuditobservationId: string;
+            export declare const Suggestion: string;
             export declare const AuditobservationAcnId: string;
             export declare const AuditobservationObservationtitle: string;
             export declare const AuditobservationObservationsynopsis: string;

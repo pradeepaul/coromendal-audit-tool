@@ -11,6 +11,7 @@
         IsActive?: number;
         Password?: string;
         PasswordConfirm?: string;
+        RoleId?: number;
         InsertUserId?: number;
         InsertDate?: string;
         UpdateUserId?: number;
@@ -22,10 +23,11 @@
         export const isActiveProperty = 'IsActive';
         export const nameProperty = 'Username';
         export const localTextPrefix = 'Administration.User';
+        export const lookupKey = 'UserRow';
+
         export function getLookup(): Q.Lookup<UserRow> {
             return Q.getLookup<UserRow>('UserRow');
         }
-
 
         export namespace Fields {
             export declare const UserId: string;
@@ -39,13 +41,14 @@
             export declare const IsActive: string;
             export declare const Password: string;
             export declare const PasswordConfirm: string;
+            export declare const RoleId: string;
             export declare const InsertUserId: string;
             export declare const InsertDate: string;
             export declare const UpdateUserId: string;
             export declare const UpdateDate: string;
         }
 
-        ['UserId', 'Username', 'Source', 'PasswordHash', 'PasswordSalt', 'DisplayName', 'Email', 'LastDirectoryUpdate', 'IsActive', 'Password', 'PasswordConfirm', 'InsertUserId', 'InsertDate', 'UpdateUserId', 'UpdateDate'].forEach(x => (<any>Fields)[x] = x);
+        ['UserId', 'Username', 'Source', 'PasswordHash', 'PasswordSalt', 'DisplayName', 'Email', 'LastDirectoryUpdate', 'IsActive', 'Password', 'PasswordConfirm', 'RoleId', 'InsertUserId', 'InsertDate', 'UpdateUserId', 'UpdateDate'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

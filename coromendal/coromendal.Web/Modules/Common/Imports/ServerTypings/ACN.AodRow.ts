@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface AodRow {
         AodId?: number;
         Meetingid?: number;
@@ -34,6 +33,10 @@ namespace coromendal.ACN {
         AcnidPeriodto?: string;
         AcnidCreationdate?: string;
         AcnidUserid?: number;
+        inputfromauditee?: InputfromauditeeRow[];
+        Satisfactionrating?: SatisfactionratingRow[];
+        Observationpending?: ObservationpendingRow[];
+        Currentauditobservation?: CurrentauditobservationRow[];
     }
 
     export namespace AodRow {
@@ -42,17 +45,17 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.Aod';
 
         export namespace Fields {
-            export declare const AodId;
-            export declare const Meetingid;
-            export declare const Actualcomencementdate;
-            export declare const Actualcompltedate;
-            export declare const ProcessOwner;
-            export declare const Functionalhead;
-            export declare const Areaofscope;
-            export declare const Exclusions;
-            export declare const Reasons;
-            export declare const Sbu;
-            export declare const Acnid;
+            export declare const AodId: string;
+            export declare const Meetingid: string;
+            export declare const Actualcomencementdate: string;
+            export declare const Actualcompltedate: string;
+            export declare const ProcessOwner: string;
+            export declare const Functionalhead: string;
+            export declare const Areaofscope: string;
+            export declare const Exclusions: string;
+            export declare const Reasons: string;
+            export declare const Sbu: string;
+            export declare const Acnid: string;
             export declare const MeetingidAcnid: string;
             export declare const MeetingidTitle: string;
             export declare const MeetingidAuditscope: string;
@@ -75,9 +78,13 @@ namespace coromendal.ACN {
             export declare const AcnidPeriodto: string;
             export declare const AcnidCreationdate: string;
             export declare const AcnidUserid: string;
+            export declare const inputfromauditee: string;
+            export declare const Satisfactionrating: string;
+            export declare const Observationpending: string;
+            export declare const Currentauditobservation: string;
         }
 
-        ['AodId', 'Meetingid', 'Actualcomencementdate', 'Actualcompltedate', 'ProcessOwner', 'Functionalhead', 'Areaofscope', 'Exclusions', 'Reasons', 'Sbu', 'Acnid', 'MeetingidAcnid', 'MeetingidTitle', 'MeetingidAuditscope', 'MeetingidPeriod', 'MeetingidTime', 'MeetingidVenue', 'MeetingidAuditor', 'MeetingidAuditee', 'MeetingidDownload', 'MeetingidUserid', 'MeetingidMomdate', 'MeetingidPlanedcloseddate', 'MeetingidAuditopeningmeetingdate', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid'].forEach(x => (<any>Fields)[x] = x);
+        ['AodId', 'Meetingid', 'Actualcomencementdate', 'Actualcompltedate', 'ProcessOwner', 'Functionalhead', 'Areaofscope', 'Exclusions', 'Reasons', 'Sbu', 'Acnid', 'MeetingidAcnid', 'MeetingidTitle', 'MeetingidAuditscope', 'MeetingidPeriod', 'MeetingidTime', 'MeetingidVenue', 'MeetingidAuditor', 'MeetingidAuditee', 'MeetingidDownload', 'MeetingidUserid', 'MeetingidMomdate', 'MeetingidPlanedcloseddate', 'MeetingidAuditopeningmeetingdate', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'inputfromauditee', 'Satisfactionrating', 'Observationpending', 'Currentauditobservation'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

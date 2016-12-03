@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface MeetingPointsRow {
         MeetingPointsId?: number;
         MeetingId?: number;
@@ -22,9 +21,9 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.MeetingPoints';
 
         export namespace Fields {
-            export declare const MeetingPointsId;
-            export declare const MeetingId;
-            export declare const Points;
+            export declare const MeetingPointsId: string;
+            export declare const MeetingId: string;
+            export declare const Points: string;
             export declare const MeetingAcnid: string;
             export declare const MeetingTitle: string;
             export declare const MeetingAuditscope: string;

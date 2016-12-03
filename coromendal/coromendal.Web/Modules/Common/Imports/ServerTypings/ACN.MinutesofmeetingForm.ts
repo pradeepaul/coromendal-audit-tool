@@ -1,22 +1,28 @@
-﻿
-
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export class MinutesofmeetingForm extends Serenity.PrefixedContext {
         static formKey = 'ACN.Minutesofmeeting';
+
     }
 
     export interface MinutesofmeetingForm {
-        Acnid: Serenity.IntegerEditor;
-        Title: Serenity.StringEditor;
-        Auditscope: Serenity.StringEditor;
-        Period: Serenity.StringEditor;
-        Time: Serenity.IntegerEditor;
-        Venue: Serenity.StringEditor;
-        Auditor: Serenity.IntegerEditor;
-        Auditee: Serenity.IntegerEditor;
-        Download: Serenity.IntegerEditor;
-        Userid: Serenity.IntegerEditor;
+        Acnid: Serenity.LookupEditor;
+        AcnidPhaseNo: Serenity.IntegerEditor;
+        MeetingTitle: Serenity.StringEditor;
+        momdate: Serenity.DateEditor;
+        planeddate: Serenity.DateEditor;
+        auditopeneddate: Serenity.DateEditor;
+        AcnidScopeList: ScopeEditor;
+        AcnidPeriodfrom: Serenity.StringEditor;
+        AcnidPeriodto: Serenity.StringEditor;
+        AcnidFromdate: Serenity.StringEditor;
+        AcnidTodate: Serenity.StringEditor;
+        AbsentList: MeetingAbsentEditor;
+        PreviousObservationaudit: ObservationpreviousauditEditor;
+        PointsList: MeetingPointsEditor;
+        Newimprovements: NewiprovementsEditor;
+        Newchanges: NewchangesEditor;
     }
 
-    [['Meetingid', () => Serenity.IntegerEditor], ['Acnid', () => Serenity.IntegerEditor], ['Title', () => Serenity.StringEditor], ['Auditscope', () => Serenity.StringEditor], ['Period', () => Serenity.StringEditor], ['Time', () => Serenity.IntegerEditor], ['Venue', () => Serenity.StringEditor], ['Auditor', () => Serenity.IntegerEditor], ['Auditee', () => Serenity.IntegerEditor], ['Download', () => Serenity.IntegerEditor], ['Userid', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(MinutesofmeetingForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['Acnid', () => Serenity.LookupEditor], ['AcnidPhaseNo', () => Serenity.IntegerEditor], ['MeetingTitle', () => Serenity.StringEditor], ['momdate', () => Serenity.DateEditor], ['planeddate', () => Serenity.DateEditor], ['auditopeneddate', () => Serenity.DateEditor], ['AcnidScopeList', () => ScopeEditor], ['AcnidPeriodfrom', () => Serenity.StringEditor], ['AcnidPeriodto', () => Serenity.StringEditor], ['AcnidFromdate', () => Serenity.StringEditor], ['AcnidTodate', () => Serenity.StringEditor], ['AbsentList', () => MeetingAbsentEditor], ['PreviousObservationaudit', () => ObservationpreviousauditEditor], ['PointsList', () => MeetingPointsEditor],  ['Newimprovements', () => NewiprovementsEditor], ['Newchanges', () => NewchangesEditor]].forEach(x => Object.defineProperty(MinutesofmeetingForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
+

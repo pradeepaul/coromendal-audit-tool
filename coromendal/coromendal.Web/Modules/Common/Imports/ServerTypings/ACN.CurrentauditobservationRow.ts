@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface CurrentauditobservationRow {
         Id?: number;
         Observation?: string;
@@ -23,10 +22,10 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.Currentauditobservation';
 
         export namespace Fields {
-            export declare const Id;
-            export declare const Observation;
-            export declare const Comments;
-            export declare const Aodid;
+            export declare const Id: string;
+            export declare const Observation: string;
+            export declare const Comments: string;
+            export declare const Aodid: string;
             export declare const AodidMeetingid: string;
             export declare const AodidActualcomencementdate: string;
             export declare const AodidActualcompltedate: string;

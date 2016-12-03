@@ -7,22 +7,24 @@ namespace coromendal.Administration.Scripts
     using System;
 
     [LookupScript("ACN.AuditeeUserLookup")]
-    public class AuditeeUserLookup : RowLookupScript<Entities.UserRoleRow>
+    public class AuditeeUserLookup : RowLookupScript<Entities.UserRow>
     {
         public AuditeeUserLookup()
         {
-           IdField = TextField = "UserId";
+                IdField = "UserId";
+                TextField = "Username";
 
         }
 
         protected override void PrepareQuery(SqlQuery query)
         {
            
-            var fl = Entities.UserRoleRow.Fields;
+            var fl = Entities.UserRow.Fields;
             var sa = query.Distinct(true)
+                .Select(fl.Username)
                 .Select(fl.UserId)
                 .Where(
-                   (fl.RoleId == 3 ));
+                   (fl.RoleId == 1 ));
             System.Console.WriteLine(sa);
 
         }

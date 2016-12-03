@@ -25,7 +25,7 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnFeedbackId[this] = value; }
         }
 
-        [DisplayName("Acnid"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
@@ -264,7 +264,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Comments[this] = value; }
         }
 
-        [DisplayName("Acnid Acn Tilte"), Expression("jAcnid.[AcnTilte]")]
+        [DisplayName("Assignment"), Expression("jAcnid.[AcnTilte]")]
         public String AcnidAcnTilte
         {
             get { return Fields.AcnidAcnTilte[this]; }

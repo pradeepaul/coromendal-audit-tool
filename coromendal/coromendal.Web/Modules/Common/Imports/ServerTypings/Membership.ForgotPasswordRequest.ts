@@ -1,6 +1,6 @@
 ﻿namespace coromendal.Membership {
     export interface ForgotPasswordRequest extends Serenity.ServiceRequest {
-        Email?: string
+        Email?: string;
     }
 }
 

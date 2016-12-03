@@ -11,18 +11,20 @@ namespace coromendal.Administration.Scripts
     {
         public UserLookup1()
         {
-            IdField = TextField = "UserId";
+            IdField = "UserId";
+            TextField = "Username";
 
         }
 
         protected override void PrepareQuery(SqlQuery query)
         {
 
-            var fl1 = Entities.UserRow.Fields;
+            var fl = Entities.UserRow.Fields;
             var sa = query.Distinct(true)
-                .Select(fl1.Username)
+                .Select(fl.Username)
+                .Select(fl.UserId)
                 .Where(
-                   (fl1.UserId == 2 ));
+                   (fl.RoleId == 2));
             System.Console.WriteLine(sa);
 
         }

@@ -1,25 +1,24 @@
-﻿
-
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export class SatisfactionratingForm extends Serenity.PrefixedContext {
         static formKey = 'ACN.Satisfactionrating';
+
     }
 
     export interface SatisfactionratingForm {
-        Documentscore: Serenity.IntegerEditor;
+        Documentscore: Serenity.LookupEditor;
         Documentcomments: Serenity.StringEditor;
-        Compliancescore: Serenity.StringEditor;
+        Compliancescore: Serenity.LookupEditor;
         Compliancecomment: Serenity.StringEditor;
-        Processfincontrollscore: Serenity.StringEditor;
+        Processfincontrollscore: Serenity.LookupEditor;
         Processfincontrollscorecmnts: Serenity.StringEditor;
-        Responsescore: Serenity.StringEditor;
+        Responsescore: Serenity.LookupEditor;
         Responsecmnts: Serenity.StringEditor;
-        Preauditscore: Serenity.StringEditor;
+        Preauditscore: Serenity.LookupEditor;
         Preauditcmnts: Serenity.StringEditor;
-        Newinitiative: Serenity.StringEditor;
+        Newinitiative: Serenity.LookupEditor;
         Totalscore: Serenity.StringEditor;
-        Aodid: Serenity.IntegerEditor;
     }
 
-    [['SatisfactionratingId', () => Serenity.IntegerEditor], ['Documentscore', () => Serenity.IntegerEditor], ['Documentcomments', () => Serenity.StringEditor], ['Compliancescore', () => Serenity.StringEditor], ['Compliancecomment', () => Serenity.StringEditor], ['Processfincontrollscore', () => Serenity.StringEditor], ['Processfincontrollscorecmnts', () => Serenity.StringEditor], ['Responsescore', () => Serenity.StringEditor], ['Responsecmnts', () => Serenity.StringEditor], ['Preauditscore', () => Serenity.StringEditor], ['Preauditcmnts', () => Serenity.StringEditor], ['Newinitiative', () => Serenity.StringEditor], ['Totalscore', () => Serenity.StringEditor], ['Aodid', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(SatisfactionratingForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['Documentscore', () => Serenity.LookupEditor], ['Documentcomments', () => Serenity.StringEditor], ['Compliancescore', () => Serenity.LookupEditor], ['Compliancecomment', () => Serenity.StringEditor], ['Processfincontrollscore', () => Serenity.LookupEditor], ['Processfincontrollscorecmnts', () => Serenity.StringEditor], ['Responsescore', () => Serenity.LookupEditor], ['Responsecmnts', () => Serenity.StringEditor], ['Preauditscore', () => Serenity.LookupEditor], ['Preauditcmnts', () => Serenity.StringEditor], ['Newinitiative', () => Serenity.LookupEditor], ['Totalscore', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(SatisfactionratingForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
+

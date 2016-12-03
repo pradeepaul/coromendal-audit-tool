@@ -1,9 +1,8 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface MinutesofmeetingRow {
         Meetingid?: number;
         Acnid?: number;
-        Title?: string;
+        MeetingTitle?: string;
         Auditscope?: string;
         Period?: string;
         Time?: number;
@@ -12,6 +11,16 @@ namespace coromendal.ACN {
         Auditee?: number;
         Download?: number;
         Userid?: number;
+        momdate?: string;
+        planeddate?: string;
+        auditopeneddate?: string;
+        NoteList?: NoteRow[];
+        DetailList?: MeetingIssueRow[];
+        AbsentList?: MeetingAbsentRow[];
+        PointsList?: MeetingPointsRow[];
+        PreviousObservationaudit?: ObservationpreviousauditRow[];
+        Newchanges?: NewchangesRow[];
+        Newimprovements?: NewiprovementsRow[];
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -21,6 +30,7 @@ namespace coromendal.ACN {
         AcnidPeriodto?: string;
         AcnidCreationdate?: string;
         AcnidUserid?: number;
+        AcnidScopeList?: ScopeRow[];
         UseridUsername?: string;
         UseridDisplayName?: string;
         UseridEmail?: string;
@@ -37,21 +47,36 @@ namespace coromendal.ACN {
 
     export namespace MinutesofmeetingRow {
         export const idProperty = 'Meetingid';
-        export const nameProperty = 'Title';
+        export const nameProperty = 'MeetingTitle';
         export const localTextPrefix = 'ACN.Minutesofmeeting';
+        export const lookupKey = 'MinutesofmeetingRow';
+
+        export function getLookup(): Q.Lookup<MinutesofmeetingRow> {
+            return Q.getLookup<MinutesofmeetingRow>('MinutesofmeetingRow');
+        }
 
         export namespace Fields {
-            export declare const Meetingid;
-            export declare const Acnid;
-            export declare const Title;
-            export declare const Auditscope;
-            export declare const Period;
-            export declare const Time;
-            export declare const Venue;
-            export declare const Auditor;
-            export declare const Auditee;
-            export declare const Download;
-            export declare const Userid;
+            export declare const Meetingid: string;
+            export declare const Acnid: string;
+            export declare const MeetingTitle: string;
+            export declare const Auditscope: string;
+            export declare const Period: string;
+            export declare const Time: string;
+            export declare const Venue: string;
+            export declare const Auditor: string;
+            export declare const Auditee: string;
+            export declare const Download: string;
+            export declare const Userid: string;
+            export declare const momdate: string;
+            export declare const planeddate: string;
+            export declare const auditopeneddate: string;
+            export declare const NoteList: string;
+            export declare const DetailList: string;
+            export declare const AbsentList: string;
+            export declare const PointsList: string;
+            export declare const PreviousObservationaudit: string;
+            export declare const Newchanges: string;
+            export declare const Newimprovements: string;
             export declare const AcnidAcnTilte: string;
             export declare const AcnidPhaseNo: string;
             export declare const AcnidLocation: string;
@@ -61,6 +86,7 @@ namespace coromendal.ACN {
             export declare const AcnidPeriodto: string;
             export declare const AcnidCreationdate: string;
             export declare const AcnidUserid: string;
+            export declare const AcnidScopeList: string;
             export declare const UseridUsername: string;
             export declare const UseridDisplayName: string;
             export declare const UseridEmail: string;
@@ -75,7 +101,7 @@ namespace coromendal.ACN {
             export declare const UseridLastDirectoryUpdate: string;
         }
 
-        ['Meetingid', 'Acnid', 'Title', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'Userid', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'UseridUsername', 'UseridDisplayName', 'UseridEmail', 'UseridSource', 'UseridPasswordHash', 'UseridPasswordSalt', 'UseridInsertDate', 'UseridInsertUserId', 'UseridUpdateDate', 'UseridUpdateUserId', 'UseridIsActive', 'UseridLastDirectoryUpdate'].forEach(x => (<any>Fields)[x] = x);
+        ['Meetingid', 'Acnid', 'MeetingTitle', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'Userid', 'momdate', 'planeddate', 'auditopeneddate', 'NoteList', 'DetailList', 'AbsentList', 'PointsList', 'PreviousObservationaudit', 'Newchanges', 'Newimprovements', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'AcnidScopeList', 'UseridUsername', 'UseridDisplayName', 'UseridEmail', 'UseridSource', 'UseridPasswordHash', 'UseridPasswordSalt', 'UseridInsertDate', 'UseridInsertUserId', 'UseridUpdateDate', 'UseridUpdateUserId', 'UseridIsActive', 'UseridLastDirectoryUpdate'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

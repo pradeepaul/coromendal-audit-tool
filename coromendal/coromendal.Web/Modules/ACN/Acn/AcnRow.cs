@@ -42,7 +42,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnTilte[this]; }
             set { Fields.AcnTilte[this] = value; }
         }
-        [LookupEditor(typeof(UserRow), Multiple = true), ClientSide]
+        [LookupEditor(typeof(AuditeeUserLookup), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnAuditorRefRow), "acnID", "AcnAuditorID")]
         [MinSelectLevel(SelectLevel.Details)]
         [DisplayName("Auditor"), Size(40), QuickSearch]
@@ -51,7 +51,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Auditor[this]; }
             set { Fields.Auditor[this] = value; }
         }
-        [LookupEditor(typeof(UserRow), Multiple = true), ClientSide]
+        [LookupEditor(typeof(UserLookup1), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnAuditeeRefRow), "acnID", "AcnAuditeeID")]
         [MinSelectLevel(SelectLevel.Details)]
         [DisplayName("Auditee"), Size(40), QuickSearch]

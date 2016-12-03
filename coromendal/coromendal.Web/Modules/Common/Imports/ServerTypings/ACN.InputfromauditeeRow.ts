@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface InputfromauditeeRow {
         InputauditId?: number;
         Aodid?: number;
@@ -24,11 +23,11 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.Inputfromauditee';
 
         export namespace Fields {
-            export declare const InputauditId;
-            export declare const Aodid;
-            export declare const Additionalareacovered;
-            export declare const Issues;
-            export declare const Newimprovements;
+            export declare const InputauditId: string;
+            export declare const Aodid: string;
+            export declare const Additionalareacovered: string;
+            export declare const Issues: string;
+            export declare const Newimprovements: string;
             export declare const AodidMeetingid: string;
             export declare const AodidActualcomencementdate: string;
             export declare const AodidActualcompltedate: string;

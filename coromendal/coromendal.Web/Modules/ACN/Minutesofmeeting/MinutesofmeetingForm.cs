@@ -14,12 +14,16 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.MinutesofmeetingRow))]
     public class MinutesofmeetingForm
     {
-        [Category("Information from Audit Commencement Note")]
+        [Category("Information from Audit Commencement Note")]        
         public Int32 Acnid { get; set; }
-        public String AcnidPhaseNo { get; set; }
+        public Int32 AcnidPhaseNo { get; set; }
+        public String MeetingTitle { get; set; }       
         public DateTime momdate { get; set; }
         public DateTime planeddate { get; set; }
         public DateTime auditopeneddate { get; set; }
+        [Category("Audit Scope Details")]
+        [ScopeEditor]
+        public List<ScopeRow> AcnidScopeList { get; set; }
 
         [Category("Period Covered")]
 

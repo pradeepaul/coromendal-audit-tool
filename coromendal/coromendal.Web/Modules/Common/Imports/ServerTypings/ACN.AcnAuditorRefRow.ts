@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface AcnAuditorRefRow {
         AcnAuditorRefId?: number;
         AcnAuditorId?: number;
@@ -11,9 +10,9 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.AcnAuditorRef';
 
         export namespace Fields {
-            export declare const AcnAuditorRefId;
-            export declare const AcnAuditorId;
-            export declare const AcnId;
+            export declare const AcnAuditorRefId: string;
+            export declare const AcnAuditorId: string;
+            export declare const AcnId: string;
         }
 
         ['AcnAuditorRefId', 'AcnAuditorId', 'AcnId'].forEach(x => (<any>Fields)[x] = x);

@@ -15,7 +15,7 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 AcnFeedbackRetailId { get; set; }
-        public Int32 Acnid { get; set; }       
+        public Int32 AcnidAcnTilte { get; set; }       
         [EditLink]
         public String Name { get; set; }
         public String Dept { get; set; }

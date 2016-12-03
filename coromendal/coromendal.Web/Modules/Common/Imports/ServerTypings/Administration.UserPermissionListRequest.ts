@@ -1,8 +1,8 @@
 ﻿namespace coromendal.Administration {
     export interface UserPermissionListRequest extends Serenity.ServiceRequest {
-        UserID?: number
-        Module?: string
-        Submodule?: string
+        UserID?: number;
+        Module?: string;
+        Submodule?: string;
     }
 }
 

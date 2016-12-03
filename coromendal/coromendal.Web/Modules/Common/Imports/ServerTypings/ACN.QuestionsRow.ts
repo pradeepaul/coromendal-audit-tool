@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface QuestionsRow {
         QuestionId?: number;
         Questiontext?: string;
@@ -9,10 +8,15 @@ namespace coromendal.ACN {
         export const idProperty = 'QuestionId';
         export const nameProperty = 'Questiontext';
         export const localTextPrefix = 'ACN.Questions';
+        export const lookupKey = 'QuestionsRow';
+
+        export function getLookup(): Q.Lookup<QuestionsRow> {
+            return Q.getLookup<QuestionsRow>('QuestionsRow');
+        }
 
         export namespace Fields {
-            export declare const QuestionId;
-            export declare const Questiontext;
+            export declare const QuestionId: string;
+            export declare const Questiontext: string;
         }
 
         ['QuestionId', 'Questiontext'].forEach(x => (<any>Fields)[x] = x);

@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface RootcauseRow {
         RootcauseId?: number;
         AuditobservationId?: number;
@@ -24,12 +23,17 @@ namespace coromendal.ACN {
         export const idProperty = 'RootcauseId';
         export const nameProperty = 'Rootcause';
         export const localTextPrefix = 'ACN.Rootcause';
+        export const lookupKey = 'ACN.RootcauseRow';
+
+        export function getLookup(): Q.Lookup<RootcauseRow> {
+            return Q.getLookup<RootcauseRow>('ACN.RootcauseRow');
+        }
 
         export namespace Fields {
-            export declare const RootcauseId;
-            export declare const AuditobservationId;
-            export declare const Rootcause;
-            export declare const Impact;
+            export declare const RootcauseId: string;
+            export declare const AuditobservationId: string;
+            export declare const Rootcause: string;
+            export declare const Impact: string;
             export declare const AuditobservationAcnId: string;
             export declare const AuditobservationObservationtitle: string;
             export declare const AuditobservationObservationsynopsis: string;

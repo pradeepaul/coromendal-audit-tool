@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface ScopeRow {
         ScopeId?: number;
         Title?: string;
@@ -20,9 +19,9 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.Scope';
 
         export namespace Fields {
-            export declare const ScopeId;
-            export declare const Title;
-            export declare const AcnId;
+            export declare const ScopeId: string;
+            export declare const Title: string;
+            export declare const AcnId: string;
             export declare const AcnAcnTilte: string;
             export declare const AcnPhaseNo: string;
             export declare const AcnLocation: string;

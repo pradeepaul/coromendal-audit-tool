@@ -18,7 +18,7 @@ namespace coromendal.ACN.Entities
     [ModifyPermission(ACN.PermissionKeys.minutesofmeeting.Modify)]
     [DeletePermission(ACN.PermissionKeys.minutesofmeeting.Delete)]
     [LookupScript("MinutesofmeetingRow")]
-    public sealed class MinutesofmeetingRow : Row, IIdRow
+    public sealed class MinutesofmeetingRow : Row, IIdRow, INameRow
     {
         [DisplayName("Meetingid"), Column("meetingid"), Identity]
         public Int32? Meetingid
@@ -26,8 +26,15 @@ namespace coromendal.ACN.Entities
             get { return Fields.Meetingid[this]; }
             set { Fields.Meetingid[this] = value; }
         }
+        [DisplayName("Meeting Title"), Column("title"), Size(200)]
+        public String MeetingTitle
+        {
+            get { return Fields.MeetingTitle[this]; }
+            set { Fields.MeetingTitle[this] = value; }
+        }
+        
 
-        [DisplayName("Acn"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+       [DisplayName("Assignment"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
@@ -114,14 +121,14 @@ namespace coromendal.ACN.Entities
             set { Fields.Userid[this] = value; }
         }
 
-        [DisplayName("Acn Tilte"), Expression("jAcnid.[AcnTilte]")]
+        [DisplayName("Assignment"), Expression("jAcnid.[AcnTilte]")]
         public String AcnidAcnTilte
         {
             get { return Fields.AcnidAcnTilte[this]; }
             set { Fields.AcnidAcnTilte[this] = value; }
         }
 
-        [DisplayName("Phase No"), Expression("jAcnid.[PhaseNo]")]
+        [DisplayName("Phase No"), Expression("jAcnid.[PhaseNo]"), Updatable(false), ReadOnly(true)]
         public Int32? AcnidPhaseNo
         {
             get { return Fields.AcnidPhaseNo[this]; }
@@ -135,150 +142,145 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidLocation[this] = value; }
         }
 
-        [DisplayName("Audit Execution From Date"), Expression("jAcnid.[Fromdate]")]
+        [DisplayName("Audit Execution From Date"), Expression("jAcnid.[Fromdate]"), Updatable(false), ReadOnly(true)]
         public String AcnidFromdate
         {
             get { return Fields.AcnidFromdate[this]; }
             set { Fields.AcnidFromdate[this] = value; }
         }
 
-        [DisplayName("Audit Execution To Date"), Expression("jAcnid.[Todate]")]
+        [DisplayName("Audit Execution To Date"), Expression("jAcnid.[Todate]"), Updatable(false), ReadOnly(true)]
         public String AcnidTodate
         {
             get { return Fields.AcnidTodate[this]; }
             set { Fields.AcnidTodate[this] = value; }
         }
 
-        [DisplayName("Period of Coverage From"), Expression("jAcnid.[Periodfrom]")]
+        [DisplayName("Period of Coverage From"), Expression("jAcnid.[Periodfrom]"), Updatable(false), ReadOnly(true)]
         public String AcnidPeriodfrom
         {
             get { return Fields.AcnidPeriodfrom[this]; }
             set { Fields.AcnidPeriodfrom[this] = value; }
         }
 
-        [DisplayName("Period of Coverage To"), Expression("jAcnid.[Periodto]")]
+        [DisplayName("Period of Coverage To"), Expression("jAcnid.[Periodto]"), Updatable(false), ReadOnly(true)]
         public String AcnidPeriodto
         {
             get { return Fields.AcnidPeriodto[this]; }
             set { Fields.AcnidPeriodto[this] = value; }
         }
 
-        [DisplayName("Acnid Creationdate"), Expression("jAcnid.[creationdate]")]
+        [DisplayName("Acnid Creationdate"), Expression("jAcnid.[creationdate]"), Updatable(false), ReadOnly(true)]
         public String AcnidCreationdate
         {
             get { return Fields.AcnidCreationdate[this]; }
             set { Fields.AcnidCreationdate[this] = value; }
         }
 
-        [DisplayName("Acnid Userid"), Expression("jAcnid.[userid]")]
+        [DisplayName("Acnid Userid"), Expression("jAcnid.[userid]"), Updatable(false), ReadOnly(true)]
         public Int32? AcnidUserid
         {
             get { return Fields.AcnidUserid[this]; }
             set { Fields.AcnidUserid[this] = value; }
         }
 
-        [DisplayName("Userid Username"), Expression("jUserid.[Username]")]
+        [DisplayName("Userid Username"), Expression("jUserid.[Username]"), Updatable(false), ReadOnly(true)]
         public String UseridUsername
         {
             get { return Fields.UseridUsername[this]; }
             set { Fields.UseridUsername[this] = value; }
         }
 
-        [DisplayName("Display Name"), Expression("jUserid.[DisplayName]")]
+        [DisplayName("Display Name"), Expression("jUserid.[DisplayName]"), Updatable(false), ReadOnly(true)]
         public String UseridDisplayName
         {
             get { return Fields.UseridDisplayName[this]; }
             set { Fields.UseridDisplayName[this] = value; }
         }
 
-        [DisplayName("Userid Email"), Expression("jUserid.[Email]")]
+        [DisplayName("Userid Email"), Expression("jUserid.[Email]"), Updatable(false), ReadOnly(true)]
         public String UseridEmail
         {
             get { return Fields.UseridEmail[this]; }
             set { Fields.UseridEmail[this] = value; }
         }
 
-        [DisplayName("Userid Source"), Expression("jUserid.[Source]")]
+        [DisplayName("Userid Source"), Expression("jUserid.[Source]"), Updatable(false), ReadOnly(true)]
         public String UseridSource
         {
             get { return Fields.UseridSource[this]; }
             set { Fields.UseridSource[this] = value; }
         }
 
-        [DisplayName("Userid Password Hash"), Expression("jUserid.[PasswordHash]")]
+        [DisplayName("Userid Password Hash"), Expression("jUserid.[PasswordHash]"), Updatable(false), ReadOnly(true)]
         public String UseridPasswordHash
         {
             get { return Fields.UseridPasswordHash[this]; }
             set { Fields.UseridPasswordHash[this] = value; }
         }
 
-        [DisplayName("Userid Password Salt"), Expression("jUserid.[PasswordSalt]")]
+        [DisplayName("Userid Password Salt"), Expression("jUserid.[PasswordSalt]"), Updatable(false), ReadOnly(true)]
         public String UseridPasswordSalt
         {
             get { return Fields.UseridPasswordSalt[this]; }
             set { Fields.UseridPasswordSalt[this] = value; }
         }
 
-        [DisplayName("Userid Insert Date"), Expression("jUserid.[InsertDate]")]
+        [DisplayName("Userid Insert Date"), Expression("jUserid.[InsertDate]"), Updatable(false), ReadOnly(true)]
         public DateTime? UseridInsertDate
         {
             get { return Fields.UseridInsertDate[this]; }
             set { Fields.UseridInsertDate[this] = value; }
         }
 
-        [DisplayName("Userid Insert User Id"), Expression("jUserid.[InsertUserId]")]
+        [DisplayName("Userid Insert User Id"), Expression("jUserid.[InsertUserId]"), Updatable(false), ReadOnly(true)]
         public Int32? UseridInsertUserId
         {
             get { return Fields.UseridInsertUserId[this]; }
             set { Fields.UseridInsertUserId[this] = value; }
         }
 
-        [DisplayName("Userid Update Date"), Expression("jUserid.[UpdateDate]")]
+        [DisplayName("Userid Update Date"), Expression("jUserid.[UpdateDate]"), Updatable(false), ReadOnly(true)]
         public DateTime? UseridUpdateDate
         {
             get { return Fields.UseridUpdateDate[this]; }
             set { Fields.UseridUpdateDate[this] = value; }
         }
 
-        [DisplayName("Userid Update User Id"), Expression("jUserid.[UpdateUserId]")]
+        [DisplayName("Userid Update User Id"), Expression("jUserid.[UpdateUserId]"), Updatable(false), ReadOnly(true)]
         public Int32? UseridUpdateUserId
         {
             get { return Fields.UseridUpdateUserId[this]; }
             set { Fields.UseridUpdateUserId[this] = value; }
         }
 
-        [DisplayName("Userid Is Active"), Expression("jUserid.[IsActive]")]
+        [DisplayName("Userid Is Active"), Expression("jUserid.[IsActive]"), Updatable(false), ReadOnly(true)]
         public Int16? UseridIsActive
         {
             get { return Fields.UseridIsActive[this]; }
             set { Fields.UseridIsActive[this] = value; }
         }
 
-        [DisplayName("Userid Last Directory Update"), Expression("jUserid.[LastDirectoryUpdate]")]
+        [DisplayName("Userid Last Directory Update"), Expression("jUserid.[LastDirectoryUpdate]"), Updatable(false), ReadOnly(true)]
         public DateTime? UseridLastDirectoryUpdate
         {
             get { return Fields.UseridLastDirectoryUpdate[this]; }
             set { Fields.UseridLastDirectoryUpdate[this] = value; }
         }
-        [DisplayName("Notes"), NotesEditor, ClientSide]
-        public List<NoteRow> NoteList
-        {
-            get { return Fields.NoteList[this]; }
-            set { Fields.NoteList[this] = value; }
-        }
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
         public List<MeetingIssueRow> DetailList
         {
             get { return Fields.DetailList[this]; }
             set { Fields.DetailList[this] = value; }
         }
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
         public List<MeetingAbsentRow> AbsentList
         {
             get { return Fields.AbsentList[this]; }
             set { Fields.AbsentList[this] = value; }
         }
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
         public List<MeetingPointsRow> PointsList
         {
             get { return Fields.PointsList[this]; }
@@ -290,24 +292,34 @@ namespace coromendal.ACN.Entities
             get { return Fields.PreviousObservationaudit[this]; }
             set { Fields.PreviousObservationaudit[this] = value; }
         }
-        [DisplayName("New Changes"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        [DisplayName("New Changes"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
         public List<NewchangesRow> Newchanges
         {
             get { return Fields.Newchanges[this]; }
             set { Fields.Newchanges[this] = value; }
 
         }
-        [DisplayName("New Improvements"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
+        [DisplayName("New Improvements"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
         public List<NewiprovementsRow> Newimprovements
         {
             get { return Fields.Newimprovements[this]; }
             set { Fields.Newimprovements[this] = value; }
+        }
+        [DisplayName("Audit Scope List"), Expression("jAcnid.[ScopeList]"), ClientSide]
+        public List<ScopeRow> AcnidScopeList
+        {
+            get { return Fields.AcnidScopeList[this]; }
+            set { Fields.AcnidScopeList[this] = value; }
         }
 
 
         IIdField IIdRow.IdField
         {
             get { return Fields.Meetingid; }
+        }
+        StringField INameRow.NameField
+        {
+            get { return Fields.MeetingTitle; }
         }
 
 
@@ -322,6 +334,7 @@ namespace coromendal.ACN.Entities
         {
             public Int32Field Meetingid;
             public Int32Field Acnid;
+            public StringField MeetingTitle;
             public StringField Auditscope;
             public StringField Period;
             public Int32Field Time;
@@ -334,7 +347,7 @@ namespace coromendal.ACN.Entities
             public StringField planeddate;
             public StringField auditopeneddate;
 
-            public RowListField<NoteRow> NoteList;
+           
             public RowListField<MeetingIssueRow> DetailList;
             public RowListField<MeetingAbsentRow> AbsentList;
             public RowListField<MeetingPointsRow> PointsList;
@@ -351,6 +364,7 @@ namespace coromendal.ACN.Entities
             public StringField AcnidPeriodto;
             public StringField AcnidCreationdate;
             public Int32Field AcnidUserid;
+            public RowListField<ScopeRow> AcnidScopeList;
 
             public StringField UseridUsername;
             public StringField UseridDisplayName;

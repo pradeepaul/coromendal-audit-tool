@@ -17,7 +17,6 @@ namespace coromendal.ACN.Columns
         public Int32 ReportId { get; set; }
         [EditLink]
         public String Title { get; set; }
-        public Int32 Acnid { get; set; }
         public String AcnidAcnTilte { get; set; }
         public String status { get; set; }
         [EditLink, Width(100), AlignCenter]

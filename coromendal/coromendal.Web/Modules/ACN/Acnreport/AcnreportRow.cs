@@ -26,14 +26,14 @@ namespace coromendal.ACN.Entities
             set { Fields.ReportId[this] = value; }
         }
 
-        [DisplayName("Title"), Column("title"), Size(100), QuickSearch]
+        [DisplayName("Report Title"), Column("title"), Size(100), QuickSearch]
         public String Title
         {
             get { return Fields.Title[this]; }
             set { Fields.Title[this] = value; }
         }
 
-        [DisplayName("Acn Name"), Width(100), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [DisplayName("Assignment"), Width(100), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
@@ -62,7 +62,7 @@ namespace coromendal.ACN.Entities
             set { Fields.userid[this] = value; }
         }
 
-        [DisplayName("Acn Tilte"), Expression("jAcnid.[AcnTilte]")]
+        [DisplayName("Assignment"), Expression("jAcnid.[AcnTilte]")]
         public String AcnidAcnTilte
         {
             get { return Fields.AcnidAcnTilte[this]; }

@@ -10,6 +10,11 @@
     export namespace UserRoleRow {
         export const idProperty = 'UserRoleId';
         export const localTextPrefix = 'Administration.UserRole';
+        export const lookupKey = 'UserRoleRow';
+
+        export function getLookup(): Q.Lookup<UserRoleRow> {
+            return Q.getLookup<UserRoleRow>('UserRoleRow');
+        }
 
         export namespace Fields {
             export declare const UserRoleId: string;

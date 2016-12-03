@@ -15,7 +15,7 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId")]
         public Int32 AuditobservationId { get; set; }
-        public Int32 AcnId { get; set; }
+        public Int32 AcnAcnTilte { get; set; }
         [EditLink]
         public String Observationtitle { get; set; }
         public String Targetdate { get; set; }

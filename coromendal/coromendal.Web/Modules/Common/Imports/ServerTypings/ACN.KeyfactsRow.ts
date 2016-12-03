@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface KeyfactsRow {
         KeyfactsId?: number;
         AcnId?: number;
@@ -28,11 +27,11 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.Keyfacts';
 
         export namespace Fields {
-            export declare const KeyfactsId;
-            export declare const AcnId;
-            export declare const Particulars;
-            export declare const Value;
-            export declare const Reportid;
+            export declare const KeyfactsId: string;
+            export declare const AcnId: string;
+            export declare const Particulars: string;
+            export declare const Value: string;
+            export declare const Reportid: string;
             export declare const AcnAcnTilte: string;
             export declare const AcnPhaseNo: string;
             export declare const AcnLocation: string;

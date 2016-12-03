@@ -16,6 +16,7 @@ namespace coromendal.ACN.Forms
     {
         public Int32 AcnId { get; set; }
         public String Observationtitle { get; set; }
+        [TextAreaEditor(Rows = 8)]
         public String Observationsynopsis { get; set; }
         public String Detailedobservation { get; set; }
         [RootcauseEditor]

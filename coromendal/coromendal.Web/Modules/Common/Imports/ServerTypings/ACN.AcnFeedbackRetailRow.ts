@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface AcnFeedbackRetailRow {
         AcnFeedbackRetailId?: number;
         Acnid?: number;
@@ -25,6 +24,7 @@ namespace coromendal.ACN {
         Remark8?: string;
         Date?: string;
         Storeno?: string;
+        Comments?: string;
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -42,30 +42,31 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.AcnFeedbackRetail';
 
         export namespace Fields {
-            export declare const AcnFeedbackRetailId;
-            export declare const Acnid;
-            export declare const Ques1;
-            export declare const Ques2;
-            export declare const Ques3;
-            export declare const Ques4;
-            export declare const Ques5;
-            export declare const Ques6;
-            export declare const Ques7;
-            export declare const Ques8;
-            export declare const Name;
-            export declare const Dept;
-            export declare const Reviewname;
-            export declare const Location;
-            export declare const Remark1;
-            export declare const Remark2;
-            export declare const Remark3;
-            export declare const Remark4;
-            export declare const Remark5;
-            export declare const Remark6;
-            export declare const Remark7;
-            export declare const Remark8;
-            export declare const Date;
-            export declare const Storeno;
+            export declare const AcnFeedbackRetailId: string;
+            export declare const Acnid: string;
+            export declare const Ques1: string;
+            export declare const Ques2: string;
+            export declare const Ques3: string;
+            export declare const Ques4: string;
+            export declare const Ques5: string;
+            export declare const Ques6: string;
+            export declare const Ques7: string;
+            export declare const Ques8: string;
+            export declare const Name: string;
+            export declare const Dept: string;
+            export declare const Reviewname: string;
+            export declare const Location: string;
+            export declare const Remark1: string;
+            export declare const Remark2: string;
+            export declare const Remark3: string;
+            export declare const Remark4: string;
+            export declare const Remark5: string;
+            export declare const Remark6: string;
+            export declare const Remark7: string;
+            export declare const Remark8: string;
+            export declare const Date: string;
+            export declare const Storeno: string;
+            export declare const Comments: string;
             export declare const AcnidAcnTilte: string;
             export declare const AcnidPhaseNo: string;
             export declare const AcnidLocation: string;
@@ -77,7 +78,7 @@ namespace coromendal.ACN {
             export declare const AcnidUserid: string;
         }
 
-        ['AcnFeedbackRetailId', 'Acnid', 'Ques1', 'Ques2', 'Ques3', 'Ques4', 'Ques5', 'Ques6', 'Ques7', 'Ques8', 'Name', 'Dept', 'Reviewname', 'Location', 'Remark1', 'Remark2', 'Remark3', 'Remark4', 'Remark5', 'Remark6', 'Remark7', 'Remark8', 'Date', 'Storeno', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid'].forEach(x => (<any>Fields)[x] = x);
+        ['AcnFeedbackRetailId', 'Acnid', 'Ques1', 'Ques2', 'Ques3', 'Ques4', 'Ques5', 'Ques6', 'Ques7', 'Ques8', 'Name', 'Dept', 'Reviewname', 'Location', 'Remark1', 'Remark2', 'Remark3', 'Remark4', 'Remark5', 'Remark6', 'Remark7', 'Remark8', 'Date', 'Storeno', 'Comments', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface AuditobservationRow {
         AuditobservationId?: number;
         AcnId?: number;
@@ -8,9 +7,9 @@ namespace coromendal.ACN {
         Detailedobservation?: string;
         Category?: number;
         RiskRating?: number;
-        Agreeobservation?: string;
-        Justification?: number;
-        Suggestion?: string;
+        Agreeobservation?: number;
+        Justification?: string;
+        Suggestion?: number;
         Alternateplan?: string;
         Name?: string;
         Email?: string;
@@ -23,28 +22,35 @@ namespace coromendal.ACN {
         AcnPeriodfrom?: string;
         AcnPeriodto?: string;
         AcnCreationdate?: string;
+        rootList?: RootcauseRow[];
+        SuggestionList?: SuggestionRow[];
     }
 
     export namespace AuditobservationRow {
         export const idProperty = 'AuditobservationId';
         export const nameProperty = 'Observationtitle';
         export const localTextPrefix = 'ACN.Auditobservation';
+        export const lookupKey = 'ACN.AuditobservationRow';
+
+        export function getLookup(): Q.Lookup<AuditobservationRow> {
+            return Q.getLookup<AuditobservationRow>('ACN.AuditobservationRow');
+        }
 
         export namespace Fields {
-            export declare const AuditobservationId;
-            export declare const AcnId;
-            export declare const Observationtitle;
-            export declare const Observationsynopsis;
-            export declare const Detailedobservation;
-            export declare const Category;
-            export declare const RiskRating;
-            export declare const Agreeobservation;
-            export declare const Justification;
-            export declare const Suggestion;
-            export declare const Alternateplan;
-            export declare const Name;
-            export declare const Email;
-            export declare const Targetdate;
+            export declare const AuditobservationId: string;
+            export declare const AcnId: string;
+            export declare const Observationtitle: string;
+            export declare const Observationsynopsis: string;
+            export declare const Detailedobservation: string;
+            export declare const Category: string;
+            export declare const RiskRating: string;
+            export declare const Agreeobservation: string;
+            export declare const Justification: string;
+            export declare const Suggestion: string;
+            export declare const Alternateplan: string;
+            export declare const Name: string;
+            export declare const Email: string;
+            export declare const Targetdate: string;
             export declare const AcnAcnTilte: string;
             export declare const AcnPhaseNo: string;
             export declare const AcnLocation: string;
@@ -53,9 +59,11 @@ namespace coromendal.ACN {
             export declare const AcnPeriodfrom: string;
             export declare const AcnPeriodto: string;
             export declare const AcnCreationdate: string;
+            export declare const rootList: string;
+            export declare const SuggestionList: string;
         }
 
-        ['AuditobservationId', 'AcnId', 'Observationtitle', 'Observationsynopsis', 'Detailedobservation', 'Category', 'RiskRating', 'Agreeobservation', 'Justification', 'Suggestion', 'Alternateplan', 'Name', 'Email', 'Targetdate', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate'].forEach(x => (<any>Fields)[x] = x);
+        ['AuditobservationId', 'AcnId', 'Observationtitle', 'Observationsynopsis', 'Detailedobservation', 'Category', 'RiskRating', 'Agreeobservation', 'Justification', 'Suggestion', 'Alternateplan', 'Name', 'Email', 'Targetdate', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'rootList', 'SuggestionList'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface MeetingIssueRow {
         MeetingIssueId?: number;
         MeetingId?: number;
@@ -8,10 +7,6 @@ namespace coromendal.ACN {
         Status?: string;
         ExpectedDate?: string;
         Comments?: string;
-        Areacovered?: string;
-        Areanotcovered?: string;
-        Commandcreationdate?: string;
-        Improvement?: string;
         MeetingAcnid?: number;
         MeetingTitle?: string;
         MeetingAuditscope?: string;
@@ -30,17 +25,13 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.MeetingIssue';
 
         export namespace Fields {
-            export declare const MeetingIssueId;
-            export declare const MeetingId;
-            export declare const AreaofOperation;
-            export declare const Issue;
-            export declare const Status;
-            export declare const ExpectedDate;
-            export declare const Comments;
-            export declare const Areacovered;
-            export declare const Areanotcovered;
-            export declare const Commandcreationdate;
-            export declare const Improvement;
+            export declare const MeetingIssueId: string;
+            export declare const MeetingId: string;
+            export declare const AreaofOperation: string;
+            export declare const Issue: string;
+            export declare const Status: string;
+            export declare const ExpectedDate: string;
+            export declare const Comments: string;
             export declare const MeetingAcnid: string;
             export declare const MeetingTitle: string;
             export declare const MeetingAuditscope: string;
@@ -53,7 +44,7 @@ namespace coromendal.ACN {
             export declare const MeetingUserid: string;
         }
 
-        ['MeetingIssueId', 'MeetingId', 'AreaofOperation', 'Issue', 'Status', 'ExpectedDate', 'Comments', 'Areacovered', 'Areanotcovered', 'Commandcreationdate', 'Improvement', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee', 'MeetingDownload', 'MeetingUserid'].forEach(x => (<any>Fields)[x] = x);
+        ['MeetingIssueId', 'MeetingId', 'AreaofOperation', 'Issue', 'Status', 'ExpectedDate', 'Comments', 'MeetingAcnid', 'MeetingTitle', 'MeetingAuditscope', 'MeetingPeriod', 'MeetingTime', 'MeetingVenue', 'MeetingAuditor', 'MeetingAuditee', 'MeetingDownload', 'MeetingUserid'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

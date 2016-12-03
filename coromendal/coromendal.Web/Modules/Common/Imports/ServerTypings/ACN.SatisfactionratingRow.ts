@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface SatisfactionratingRow {
         SatisfactionratingId?: number;
         Documentscore?: number;
@@ -33,20 +32,20 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.Satisfactionrating';
 
         export namespace Fields {
-            export declare const SatisfactionratingId;
-            export declare const Documentscore;
-            export declare const Documentcomments;
-            export declare const Compliancescore;
-            export declare const Compliancecomment;
-            export declare const Processfincontrollscore;
-            export declare const Processfincontrollscorecmnts;
-            export declare const Responsescore;
-            export declare const Responsecmnts;
-            export declare const Preauditscore;
-            export declare const Preauditcmnts;
-            export declare const Newinitiative;
-            export declare const Totalscore;
-            export declare const Aodid;
+            export declare const SatisfactionratingId: string;
+            export declare const Documentscore: string;
+            export declare const Documentcomments: string;
+            export declare const Compliancescore: string;
+            export declare const Compliancecomment: string;
+            export declare const Processfincontrollscore: string;
+            export declare const Processfincontrollscorecmnts: string;
+            export declare const Responsescore: string;
+            export declare const Responsecmnts: string;
+            export declare const Preauditscore: string;
+            export declare const Preauditcmnts: string;
+            export declare const Newinitiative: string;
+            export declare const Totalscore: string;
+            export declare const Aodid: string;
             export declare const AodidMeetingid: string;
             export declare const AodidActualcomencementdate: string;
             export declare const AodidActualcompltedate: string;

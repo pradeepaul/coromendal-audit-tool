@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface MeetingAbsentRow {
         MeetingAbsentId?: number;
         MeetingId?: number;
@@ -23,10 +22,10 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.MeetingAbsent';
 
         export namespace Fields {
-            export declare const MeetingAbsentId;
-            export declare const MeetingId;
-            export declare const AbsentUser;
-            export declare const Reason;
+            export declare const MeetingAbsentId: string;
+            export declare const MeetingId: string;
+            export declare const AbsentUser: string;
+            export declare const Reason: string;
             export declare const MeetingAcnid: string;
             export declare const MeetingTitle: string;
             export declare const MeetingAuditscope: string;

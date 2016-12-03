@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface FeedbackRow {
         FeedbackId?: number;
         FeedbackQuestionId?: number;
@@ -21,13 +20,18 @@ namespace coromendal.ACN {
         export const idProperty = 'FeedbackId';
         export const nameProperty = 'FeedbackRemarks';
         export const localTextPrefix = 'ACN.Feedback';
+        export const lookupKey = 'FeedbackRow';
+
+        export function getLookup(): Q.Lookup<FeedbackRow> {
+            return Q.getLookup<FeedbackRow>('FeedbackRow');
+        }
 
         export namespace Fields {
-            export declare const FeedbackId;
-            export declare const FeedbackQuestionId;
-            export declare const FeedbackMeetingId;
-            export declare const FeedbackRating;
-            export declare const FeedbackRemarks;
+            export declare const FeedbackId: string;
+            export declare const FeedbackQuestionId: string;
+            export declare const FeedbackMeetingId: string;
+            export declare const FeedbackRating: string;
+            export declare const FeedbackRemarks: string;
             export declare const FeedbackQuestionQuestiontext: string;
             export declare const FeedbackMeetingAcnid: string;
             export declare const FeedbackMeetingTitle: string;

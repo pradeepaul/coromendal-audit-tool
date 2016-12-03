@@ -26,7 +26,7 @@ namespace coromendal.ACN.Entities
             set { Fields.AuditobservationId[this] = value; }
         }
 
-        [DisplayName("Acn"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte")]
+        [DisplayName("Assignment"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
         public Int32? AcnId
         {
@@ -41,7 +41,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Observationtitle[this] = value; }
         }
 
-        [DisplayName("synopsis"), Column("observationsynopsis"), Size(10)]
+        [DisplayName("Synopsis"), Column("observationsynopsis"), Size(10),NotNull]
         public String Observationsynopsis
         {
             get { return Fields.Observationsynopsis[this]; }
@@ -124,7 +124,7 @@ namespace coromendal.ACN.Entities
 
 
 
-        [DisplayName("Acn Acn Tilte"), Expression("jAcn.[AcnTilte]")]
+        [DisplayName("Assignment"), Expression("jAcn.[AcnTilte]")]
         public String AcnAcnTilte
         {
             get { return Fields.AcnAcnTilte[this]; }
@@ -179,7 +179,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnCreationdate[this]; }
             set { Fields.AcnCreationdate[this] = value; }
         }
-        [DisplayName("Root case"), ClientSide, MasterDetailRelation(foreignKey: "auditobservationID")]
+        [DisplayName("Root cast"), ClientSide, MasterDetailRelation(foreignKey: "auditobservationID")]
         public List<RootcauseRow> rootList
         {
             get { return Fields.rootList[this]; }

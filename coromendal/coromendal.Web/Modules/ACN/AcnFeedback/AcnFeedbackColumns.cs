@@ -15,21 +15,7 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId")]
         public Int32 AcnFeedbackId { get; set; }
-        public Int32 Acnid { get; set; }
-       /* public Int32 Ques1 { get; set; }
-        public Int32 Ques2 { get; set; }
-        public Int32 Ques3 { get; set; }
-        public Int32 Ques4 { get; set; }
-        public Int32 Ques5 { get; set; }
-        public Int32 Ques6 { get; set; }
-        public Int32 Ques7 { get; set; }
-        public Int32 Ques8 { get; set; }
-        public Int32 Ques9 { get; set; }
-        public Int32 Ques10 { get; set; }
-        public Int32 Ques11 { get; set; }
-        public Int32 Ques12 { get; set; }
-        public Int32 Ques13 { get; set; }
-        public Int32 Ques14 { get; set; }*/
+        public Int32 AcnidAcnTilte { get; set; }
         [EditLink]
         public String Name { get; set; }
         public String Dept { get; set; }

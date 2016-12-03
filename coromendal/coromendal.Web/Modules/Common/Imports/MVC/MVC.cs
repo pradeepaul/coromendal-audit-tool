@@ -4,6 +4,165 @@ namespace MVC
 {
     public static class Views
     {
+        public static class ACN
+        {
+            public static class Acn
+            {
+                public const string AcnIndex = "~/Modules/ACN/Acn/AcnIndex.cshtml";
+            }
+
+            public static class AcnAuditee
+            {
+                public const string AcnAuditeeIndex = "~/Modules/ACN/AcnAuditee/AcnAuditeeIndex.cshtml";
+            }
+
+            public static class AcnAuditeeRef
+            {
+                public const string AcnAuditeeRefIndex = "~/Modules/ACN/AcnAuditeeRef/AcnAuditeeRefIndex.cshtml";
+            }
+
+            public static class AcnAuditor
+            {
+                public const string AcnAuditorIndex = "~/Modules/ACN/AcnAuditor/AcnAuditorIndex.cshtml";
+            }
+
+            public static class AcnAuditorRef
+            {
+                public const string AcnAuditorRefIndex = "~/Modules/ACN/AcnAuditorRef/AcnAuditorRefIndex.cshtml";
+            }
+
+            public static class AcnFeedback
+            {
+                public const string AcnFeedbackIndex = "~/Modules/ACN/AcnFeedback/AcnFeedbackIndex.cshtml";
+            }
+
+            public static class AcnFeedbackRetail
+            {
+                public const string AcnFeedbackRetailIndex = "~/Modules/ACN/AcnFeedbackRetail/AcnFeedbackRetailIndex.cshtml";
+            }
+
+            public static class Acnreport
+            {
+                public const string AcnreportIndex = "~/Modules/ACN/Acnreport/AcnreportIndex.cshtml";
+            }
+
+            public static class Aod
+            {
+                public const string AodIndex = "~/Modules/ACN/Aod/AodIndex.cshtml";
+            }
+
+            public static class Auditobservation
+            {
+                public const string AuditobservationIndex = "~/Modules/ACN/Auditobservation/AuditobservationIndex.cshtml";
+            }
+
+            public static class Category
+            {
+                public const string CategoryIndex = "~/Modules/ACN/Category/CategoryIndex.cshtml";
+            }
+
+            public static class Conformation
+            {
+                public const string ConformationIndex = "~/Modules/ACN/Conformation/ConformationIndex.cshtml";
+            }
+
+            public static class Currentauditobservation
+            {
+                public const string CurrentauditobservationIndex = "~/Modules/ACN/Currentauditobservation/CurrentauditobservationIndex.cshtml";
+            }
+
+            public static class Feedback
+            {
+                public const string FeedbackIndex = "~/Modules/ACN/Feedback/FeedbackIndex.cshtml";
+            }
+
+            public static class Feedbackvalue
+            {
+                public const string FeedbackvalueIndex = "~/Modules/ACN/Feedbackvalue/FeedbackvalueIndex.cshtml";
+            }
+
+            public static class Inputfromauditee
+            {
+                public const string InputfromauditeeIndex = "~/Modules/ACN/Inputfromauditee/InputfromauditeeIndex.cshtml";
+            }
+
+            public static class Keyfacts
+            {
+                public const string KeyfactsIndex = "~/Modules/ACN/Keyfacts/KeyfactsIndex.cshtml";
+            }
+
+            public static class MeetingAbsent
+            {
+                public const string MeetingAbsentIndex = "~/Modules/ACN/MeetingAbsent/MeetingAbsentIndex.cshtml";
+            }
+
+            public static class MeetingIssue
+            {
+                public const string MeetingIssueIndex = "~/Modules/ACN/MeetingIssue/MeetingIssueIndex.cshtml";
+            }
+
+            public static class MeetingPoints
+            {
+                public const string MeetingPointsIndex = "~/Modules/ACN/MeetingPoints/MeetingPointsIndex.cshtml";
+            }
+
+            public static class Minutesofmeeting
+            {
+                public const string MinutesofmeetingIndex = "~/Modules/ACN/Minutesofmeeting/MinutesofmeetingIndex.cshtml";
+            }
+
+            public static class Newchanges
+            {
+                public const string NewchangesIndex = "~/Modules/ACN/Newchanges/NewchangesIndex.cshtml";
+            }
+
+            public static class Newiprovements
+            {
+                public const string NewiprovementsIndex = "~/Modules/ACN/Newiprovements/NewiprovementsIndex.cshtml";
+            }
+
+            public static class Observationpending
+            {
+                public const string ObservationpendingIndex = "~/Modules/ACN/Observationpending/ObservationpendingIndex.cshtml";
+            }
+
+            public static class Observationpreviousaudit
+            {
+                public const string ObservationpreviousauditIndex = "~/Modules/ACN/Observationpreviousaudit/ObservationpreviousauditIndex.cshtml";
+            }
+
+            public static class Questions
+            {
+                public const string QuestionsIndex = "~/Modules/ACN/Questions/QuestionsIndex.cshtml";
+            }
+
+            public static class Riskrating
+            {
+                public const string RiskratingIndex = "~/Modules/ACN/Riskrating/RiskratingIndex.cshtml";
+            }
+
+            public static class Rootcause
+            {
+                public const string RootcauseIndex = "~/Modules/ACN/Rootcause/RootcauseIndex.cshtml";
+            }
+
+            public static class Satisfactionrating
+            {
+                public const string SatisfactionratingIndex = "~/Modules/ACN/Satisfactionrating/SatisfactionratingIndex.cshtml";
+            }
+
+            public static class Scope
+            {
+                public const string ScopeIndex = "~/Modules/ACN/Scope/ScopeIndex.cshtml";
+            }
+
+            public static class Suggestion
+            {
+                public const string SuggestionIndex = "~/Modules/ACN/Suggestion/SuggestionIndex.cshtml";
+            }
+
+        }
+
         public static class Administration
         {
             public static class Language

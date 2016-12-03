@@ -1,8 +1,8 @@
 ﻿namespace coromendal.Common {
     export interface UserPreferenceUpdateRequest extends Serenity.ServiceRequest {
-        PreferenceType?: string
-        Name?: string
-        Value?: string
+        PreferenceType?: string;
+        Name?: string;
+        Value?: string;
     }
 }
 
