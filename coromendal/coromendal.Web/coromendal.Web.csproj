@@ -74,6 +74,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -1264,9 +1267,6 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NewiprovementsColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.NoteRow.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationpendingColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -2156,7 +2156,6 @@
     <TypeScriptCompile Include="Modules\ACN\Observationpending\ObservationpendingDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Observationpending\ObservationpendingEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Observationpending\ObservationpendingEditorDialog.ts" />
-    <Content Include="Modules\ACN\Satisfactionrating\SatisfactionratingIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SatisfactionratingRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -2166,10 +2165,6 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SatisfactionratingForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingGrid.ts" />
-    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingDialog.ts" />
-    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEditor.ts" />
-    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEditorDialog.ts" />
     <Content Include="Modules\ACN\Inputfromauditee\InputfromauditeeIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.InputfromauditeeRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
@@ -2198,6 +2193,27 @@
     <TypeScriptCompile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailEditorDialog.ts" />
+    <Content Include="Modules\ACN\Satisfactionrating\SatisfactionratingIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEditorDialog.ts" />
+    <Content Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.LikeliwoodvalueRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.LikeliwoodvalueService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.LikeliwoodvalueForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueEditorDialog.ts" />
+    <Content Include="Modules\ACN\Riskmatrix\RiskmatrixIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.RiskmatrixRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.RiskmatrixService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.RiskmatrixForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Riskmatrix\RiskmatrixGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Riskmatrix\RiskmatrixDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Riskmatrix\RiskmatrixEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Riskmatrix\RiskmatrixEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2361,9 +2377,6 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Modules\Common\Imports\ClientTypes\ACN.NewiprovementsEditorAttribute.cs">
-      <DependentUpon>ClientTypes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Common\Imports\ClientTypes\ACN.NotesEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Modules\Common\Imports\ClientTypes\ACN.ObservationpendingEditorAttribute.cs">
@@ -2808,12 +2821,6 @@
     <Compile Include="Modules\ACN\Observationpending\ObservationpendingRepository.cs" />
     <Compile Include="Modules\ACN\Observationpending\ObservationpendingEndpoint.cs" />
     <Compile Include="Modules\ACN\Observationpending\ObservationpendingPage.cs" />
-    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingRow.cs" />
-    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingColumns.cs" />
-    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingForm.cs" />
-    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingRepository.cs" />
-    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEndpoint.cs" />
-    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingPage.cs" />
     <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeRow.cs" />
     <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeColumns.cs" />
     <Compile Include="Modules\ACN\Inputfromauditee\InputfromauditeeForm.cs" />
@@ -2826,6 +2833,24 @@
     <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailRepository.cs" />
     <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailEndpoint.cs" />
     <Compile Include="Modules\ACN\AcnFeedbackRetail\AcnFeedbackRetailPage.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingRow.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingColumns.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingForm.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingRepository.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingEndpoint.cs" />
+    <Compile Include="Modules\ACN\Satisfactionrating\SatisfactionratingPage.cs" />
+    <Compile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueRow.cs" />
+    <Compile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueColumns.cs" />
+    <Compile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueForm.cs" />
+    <Compile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueRepository.cs" />
+    <Compile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvalueEndpoint.cs" />
+    <Compile Include="Modules\ACN\Likeliwoodvalue\LikeliwoodvaluePage.cs" />
+    <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixRow.cs" />
+    <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixColumns.cs" />
+    <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixForm.cs" />
+    <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixRepository.cs" />
+    <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixEndpoint.cs" />
+    <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,13 +14,13 @@
         momdate?: string;
         planeddate?: string;
         auditopeneddate?: string;
-        NoteList?: NoteRow[];
         DetailList?: MeetingIssueRow[];
         AbsentList?: MeetingAbsentRow[];
         PointsList?: MeetingPointsRow[];
         PreviousObservationaudit?: ObservationpreviousauditRow[];
         Newchanges?: NewchangesRow[];
         Newimprovements?: NewiprovementsRow[];
+        NoteList?: Northwind.NoteRow[];
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -70,13 +70,13 @@
             export declare const momdate: string;
             export declare const planeddate: string;
             export declare const auditopeneddate: string;
-            export declare const NoteList: string;
             export declare const DetailList: string;
             export declare const AbsentList: string;
             export declare const PointsList: string;
             export declare const PreviousObservationaudit: string;
             export declare const Newchanges: string;
             export declare const Newimprovements: string;
+            export declare const NoteList: string;
             export declare const AcnidAcnTilte: string;
             export declare const AcnidPhaseNo: string;
             export declare const AcnidLocation: string;
@@ -101,7 +101,7 @@
             export declare const UseridLastDirectoryUpdate: string;
         }
 
-        ['Meetingid', 'Acnid', 'MeetingTitle', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'Userid', 'momdate', 'planeddate', 'auditopeneddate', 'NoteList', 'DetailList', 'AbsentList', 'PointsList', 'PreviousObservationaudit', 'Newchanges', 'Newimprovements', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'AcnidScopeList', 'UseridUsername', 'UseridDisplayName', 'UseridEmail', 'UseridSource', 'UseridPasswordHash', 'UseridPasswordSalt', 'UseridInsertDate', 'UseridInsertUserId', 'UseridUpdateDate', 'UseridUpdateUserId', 'UseridIsActive', 'UseridLastDirectoryUpdate'].forEach(x => (<any>Fields)[x] = x);
+        ['Meetingid', 'Acnid', 'MeetingTitle', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'Userid', 'momdate', 'planeddate', 'auditopeneddate', 'DetailList', 'AbsentList', 'PointsList', 'PreviousObservationaudit', 'Newchanges', 'Newimprovements', 'NoteList', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'AcnidScopeList', 'UseridUsername', 'UseridDisplayName', 'UseridEmail', 'UseridSource', 'UseridPasswordHash', 'UseridPasswordSalt', 'UseridInsertDate', 'UseridInsertUserId', 'UseridUpdateDate', 'UseridUpdateUserId', 'UseridIsActive', 'UseridLastDirectoryUpdate'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -14,9 +14,11 @@ namespace coromendal.ACN.Forms
     public class ObservationpendingForm
     {
         public String Reportreference { get; set; }
+        [TextAreaEditor(Rows = 8)]
         public String Briefdescription { get; set; }
-        public String Originaltargetdate { get; set; }
-        public String Revisedtargetdate { get; set; }
+        public DateTime Originaltargetdate { get; set; }
+        public DateTime Revisedtargetdate { get; set; }
+
         public String Remarks { get; set; }
         //public Int32 Aodid { get; set; }
     }

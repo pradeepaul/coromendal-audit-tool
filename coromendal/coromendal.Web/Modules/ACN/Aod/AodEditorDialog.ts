@@ -10,5 +10,7 @@ namespace coromendal.ACN {
                 protected getLocalTextPrefix() { return AodRow.localTextPrefix; }
         protected getNameProperty() { return AodRow.nameProperty; }
         protected form = new AodForm(this.idPrefix);
+
+       
     }
 }

@@ -20,20 +20,23 @@ namespace coromendal.ACN {
                    this.setCustomerDetails({});
                     return;
                }
-               //var id = Q.first(ACN.AcnRow.getLookup().items, x => x.AcnId == AcnID).AcnId;
-              // ACN.AcnService.Retrieve({
-                 //  EntityId: id
-              // }, response => {
-               //    this.setCustomerDetails(response.Entity);
-              // });
+
+               var id = Q.first(ACN.AcnRow.getLookup().items, x => x.AcnId == parseInt(AcnID)).AcnId;
+               ACN.AcnService.Retrieve({
+                 EntityId: id
+               }, response => {
+                   this.setCustomerDetails(response.Entity);
+               });
                
             });
         }
         private setCustomerDetails(details: ACN.AcnRow) {
-           // this.form.AcnidFromdate = details.Fromdate;
-          //  this.form.AcnidTodate = details.Todate;
-           // this.form.AcnidPeriodfrom = details.Periodfrom;
-           // this.form.AcnidPeriodto = details.Periodto;
+            this.form.AcnidFromdate.value = details.Fromdate;
+            this.form.AcnidTodate.value = details.Todate;
+            this.form.AcnidPeriodfrom.value = details.Periodfrom;
+            this.form.AcnidPeriodto.value = details.Periodto;
+            this.form.AcnidScopeList.value = details.ScopeList;
+            this.form.AcnidPhaseNo.value = details.PhaseNo;
         }
 
 

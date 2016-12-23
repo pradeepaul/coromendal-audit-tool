@@ -1,0 +1,40 @@
+﻿
+
+namespace coromendal.ACN {
+    export class SatisfactionratingForm extends Serenity.PrefixedContext {
+        static formKey = 'ACN.Satisfactionrating';
+
+    }
+
+    export interface SatisfactionratingForm {
+        Documentscore: Serenity.IntegerEditor;
+        Documentcomments: Serenity.StringEditor;
+        Compliancescore: Serenity.StringEditor;
+        Compliancecomment: Serenity.StringEditor;
+        Processfincontrollscore: Serenity.StringEditor;
+        Processfincontrollscorecmnts: Serenity.StringEditor;
+        Responsescore: Serenity.StringEditor;
+        Responsecmnts: Serenity.StringEditor;
+        Preauditscore: Serenity.StringEditor;
+        Preauditcmnts: Serenity.StringEditor;
+        Newinitiativescore: Serenity.StringEditor;
+        Totalscore: Serenity.StringEditor;
+        Aodid: Serenity.IntegerEditor;
+        Documentrating: Serenity.StringEditor;
+        Documentweigtage: Serenity.StringEditor;
+        Complianceweightage: Serenity.StringEditor;
+        Compliancerating: Serenity.StringEditor;
+        Processfincontrollweightage: Serenity.StringEditor;
+        Processfincontrollrating: Serenity.StringEditor;
+        Responserating: Serenity.StringEditor;
+        Responseweightage: Serenity.StringEditor;
+        Preauditweightage: Serenity.StringEditor;
+        Preauditrating: Serenity.StringEditor;
+        Newinitiativecmnts: Serenity.StringEditor;
+        Newinitiativeweight: Serenity.StringEditor;
+        Newinitiativerating: Serenity.StringEditor;
+    }
+
+    [['SatisfactionratingId', () => Serenity.IntegerEditor], ['Documentscore', () => Serenity.IntegerEditor], ['Documentcomments', () => Serenity.StringEditor], ['Compliancescore', () => Serenity.StringEditor], ['Compliancecomment', () => Serenity.StringEditor], ['Processfincontrollscore', () => Serenity.StringEditor], ['Processfincontrollscorecmnts', () => Serenity.StringEditor], ['Responsescore', () => Serenity.StringEditor], ['Responsecmnts', () => Serenity.StringEditor], ['Preauditscore', () => Serenity.StringEditor], ['Preauditcmnts', () => Serenity.StringEditor], ['Newinitiativescore', () => Serenity.StringEditor], ['Totalscore', () => Serenity.StringEditor], ['Aodid', () => Serenity.IntegerEditor], ['Documentrating', () => Serenity.StringEditor], ['Documentweigtage', () => Serenity.StringEditor], ['Complianceweightage', () => Serenity.StringEditor], ['Compliancerating', () => Serenity.StringEditor], ['Processfincontrollweightage', () => Serenity.StringEditor], ['Processfincontrollrating', () => Serenity.StringEditor], ['Responserating', () => Serenity.StringEditor], ['Responseweightage', () => Serenity.StringEditor], ['Preauditweightage', () => Serenity.StringEditor], ['Preauditrating', () => Serenity.StringEditor], ['Newinitiativecmnts', () => Serenity.StringEditor], ['Newinitiativeweight', () => Serenity.StringEditor], ['Newinitiativerating', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(SatisfactionratingForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+}
+

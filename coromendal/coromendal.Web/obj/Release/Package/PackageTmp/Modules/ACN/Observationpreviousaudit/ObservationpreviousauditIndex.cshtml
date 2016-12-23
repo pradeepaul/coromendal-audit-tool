@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.ACN.Observationpreviousaudit.EntityPlural");
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new coromendal.ACN.ObservationpreviousauditGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

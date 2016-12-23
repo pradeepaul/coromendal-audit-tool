@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.ACN.AcnFeedbackRetail.EntityPlural");
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new coromendal.ACN.AcnFeedbackRetailGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

@@ -16,7 +16,7 @@ namespace coromendal.ACN.Entities
     [ModifyPermission("Administration")]
     public sealed class ObservationpendingRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Observationpending Id"), Column("observationpendingId"), PrimaryKey]
+        [DisplayName("Observationpending Id"), Column("observationpendingId"), Identity]
         public Int32? ObservationpendingId
         {
             get { return Fields.ObservationpendingId[this]; }
@@ -30,21 +30,21 @@ namespace coromendal.ACN.Entities
             set { Fields.Reportreference[this] = value; }
         }
 
-        [DisplayName("Observation Reference & Brief Description"), Column("briefdescription"), Size(100)]
+        [DisplayName("Observation Reference & Brief Description"), Column("briefdescription")]
         public String Briefdescription
         {
             get { return Fields.Briefdescription[this]; }
             set { Fields.Briefdescription[this] = value; }
         }
 
-        [DisplayName("Original Target date"), Column("originaltargetdate"), Size(100)]
+        [DisplayName("Original Target date"), Column("originaltargetdate")]
         public String Originaltargetdate
         {
             get { return Fields.Originaltargetdate[this]; }
             set { Fields.Originaltargetdate[this] = value; }
         }
 
-        [DisplayName("Revised Target date"), Column("revisedtargetdate"), Size(100)]
+        [DisplayName("Revised Target date"), Column("revisedtargetdate")]
         public String Revisedtargetdate
         {
             get { return Fields.Revisedtargetdate[this]; }

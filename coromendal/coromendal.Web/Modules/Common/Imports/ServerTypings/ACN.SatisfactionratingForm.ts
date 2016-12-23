@@ -5,20 +5,33 @@
     }
 
     export interface SatisfactionratingForm {
-        Documentscore: Serenity.LookupEditor;
+        Documentweigtage: Serenity.StringEditor;
+        Documentscore: Serenity.IntegerEditor;
+        Documentrating: Serenity.IntegerEditor;
         Documentcomments: Serenity.StringEditor;
-        Compliancescore: Serenity.LookupEditor;
+        Complianceweightage: Serenity.StringEditor;
+        Compliancescore: Serenity.StringEditor;
+        Compliancerating: Serenity.StringEditor;
         Compliancecomment: Serenity.StringEditor;
-        Processfincontrollscore: Serenity.LookupEditor;
+        Processfincontrollweightage: Serenity.StringEditor;
+        Processfincontrollscore: Serenity.StringEditor;
+        Processfincontrollrating: Serenity.StringEditor;
         Processfincontrollscorecmnts: Serenity.StringEditor;
-        Responsescore: Serenity.LookupEditor;
+        Responseweightage: Serenity.StringEditor;
+        Responsescore: Serenity.StringEditor;
+        Responserating: Serenity.StringEditor;
         Responsecmnts: Serenity.StringEditor;
-        Preauditscore: Serenity.LookupEditor;
+        Preauditweightage: Serenity.StringEditor;
+        Preauditscore: Serenity.StringEditor;
+        Preauditrating: Serenity.StringEditor;
         Preauditcmnts: Serenity.StringEditor;
-        Newinitiative: Serenity.LookupEditor;
+        Newinitiativeweight: Serenity.StringEditor;
+        Newinitiativescore: Serenity.StringEditor;
+        Newinitiativerating: Serenity.LookupEditor;
+        Newinitiativecmnts: Serenity.StringEditor;
         Totalscore: Serenity.StringEditor;
     }
 
-    [['Documentscore', () => Serenity.LookupEditor], ['Documentcomments', () => Serenity.StringEditor], ['Compliancescore', () => Serenity.LookupEditor], ['Compliancecomment', () => Serenity.StringEditor], ['Processfincontrollscore', () => Serenity.LookupEditor], ['Processfincontrollscorecmnts', () => Serenity.StringEditor], ['Responsescore', () => Serenity.LookupEditor], ['Responsecmnts', () => Serenity.StringEditor], ['Preauditscore', () => Serenity.LookupEditor], ['Preauditcmnts', () => Serenity.StringEditor], ['Newinitiative', () => Serenity.LookupEditor], ['Totalscore', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(SatisfactionratingForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['Documentweigtage', () => Serenity.StringEditor], ['Documentscore', () => Serenity.IntegerEditor], ['Documentrating', () => Serenity.IntegerEditor], ['Documentcomments', () => Serenity.StringEditor], ['Complianceweightage', () => Serenity.StringEditor], ['Compliancescore', () => Serenity.StringEditor], ['Compliancerating', () => Serenity.StringEditor], ['Compliancecomment', () => Serenity.StringEditor], ['Processfincontrollweightage', () => Serenity.StringEditor], ['Processfincontrollscore', () => Serenity.StringEditor], ['Processfincontrollrating', () => Serenity.StringEditor], ['Processfincontrollscorecmnts', () => Serenity.StringEditor], ['Responseweightage', () => Serenity.StringEditor], ['Responsescore', () => Serenity.StringEditor], ['Responserating', () => Serenity.StringEditor], ['Responsecmnts', () => Serenity.StringEditor], ['Preauditweightage', () => Serenity.StringEditor], ['Preauditscore', () => Serenity.StringEditor], ['Preauditrating', () => Serenity.StringEditor], ['Preauditcmnts', () => Serenity.StringEditor], ['Newinitiativeweight', () => Serenity.StringEditor], ['Newinitiativescore', () => Serenity.StringEditor], ['Newinitiativerating', () => Serenity.LookupEditor], ['Newinitiativecmnts', () => Serenity.StringEditor], ['Totalscore', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(SatisfactionratingForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
 

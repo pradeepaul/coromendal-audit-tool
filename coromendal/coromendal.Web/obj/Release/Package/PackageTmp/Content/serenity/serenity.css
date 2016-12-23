@@ -2131,6 +2131,8 @@ a.s-LinkDropDown input {
   border-radius: 0;
   border: 0;
   margin-bottom: 6px;
+  display: none;
+  /*visibility: hidden;*/
 }
 .quick-filters-bar {
   border: 1px solid #e7e7e7;
@@ -2555,4 +2557,15 @@ a.quick-search-field {
   background-image: url(images/32px.png);
   background-position: -41px -2px;
   cursor: pointer;
+}
+.down-button{
+  left;display: block;
+  padding: 15px 8px 8px 20px;
+  background: url(images/pdf.png);
+  background-repeat: no-repeat;
+  background-position: center left;
+  cursor: pointer;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  border-radius: 3px;
 }

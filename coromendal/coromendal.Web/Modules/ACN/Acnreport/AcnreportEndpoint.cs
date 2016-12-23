@@ -51,7 +51,7 @@ namespace coromendal.ACN.Endpoints
             int reportid = int.Parse(request.ContainsField);
             var fld1 = coromendal.ACN.Entities.AcnreportRow.Fields;
            
-            using (SqlConnection connection1 = new SqlConnection(connection.ConnectionString))
+            /*using (SqlConnection connection1 = new SqlConnection(connection.ConnectionString))
             using (SqlCommand command = connection1.CreateCommand())
             {
                 try {
@@ -71,7 +71,7 @@ namespace coromendal.ACN.Endpoints
                 }
 
                 //connection.Close();
-            }
+            }*/
             var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.AcnreportColumns), reportid);
             var bytes = new ReportRepository().Render(report, reportid);
             return ExcelContentResult.Create(bytes, "REPORT_" +

@@ -10,5 +10,7 @@ namespace coromendal.ACN {
                 protected getLocalTextPrefix() { return MinutesofmeetingRow.localTextPrefix; }
         protected getNameProperty() { return MinutesofmeetingRow.nameProperty; }
         protected form = new MinutesofmeetingForm(this.idPrefix);
+
+
     }
 }

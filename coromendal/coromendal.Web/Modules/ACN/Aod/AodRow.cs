@@ -17,7 +17,7 @@ namespace coromendal.ACN.Entities
     [ModifyPermission("Administration")]
     public sealed class AodRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Aod Id"), Column("aodId"), PrimaryKey]
+        [DisplayName("Aod Id"), Column("aodId"), Identity]
         public Int32? AodId
         {
             get { return Fields.AodId[this]; }
@@ -32,14 +32,14 @@ namespace coromendal.ACN.Entities
             set { Fields.Meetingid[this] = value; }
         }
 
-        [DisplayName("Actual Commencement Date"), Size(100), QuickSearch]
+        [DisplayName("Audit commencement  (Actual)"), Size(100), QuickSearch]
         public String Actualcomencementdate
         {
             get { return Fields.Actualcomencementdate[this]; }
             set { Fields.Actualcomencementdate[this] = value; }
         }
 
-        [DisplayName("Actual Completion Date"), Size(100)]
+        [DisplayName("Audit Completion  (Actual)"), Size(100)]
         public String Actualcompltedate
         {
             get { return Fields.Actualcompltedate[this]; }
@@ -88,8 +88,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Sbu[this] = value; }
         }
 
-        [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
-        [LookupEditor(typeof(AcnRow))]
+        [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]        
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }
@@ -208,14 +207,14 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidLocation[this] = value; }
         }
 
-        [DisplayName("Audit Execution From Date"), Expression("jAcnid.[Fromdate]"), Updatable(false), ReadOnly(true)]
+        [DisplayName("Execution From Date (as per ACN)"), Expression("jAcnid.[Fromdate]"), Updatable(false), ReadOnly(true)]
         public String AcnidFromdate
         {
             get { return Fields.AcnidFromdate[this]; }
             set { Fields.AcnidFromdate[this] = value; }
         }
 
-        [DisplayName("Audit Execution To Date"), Expression("jAcnid.[Todate]"), Updatable(false), ReadOnly(true)]
+        [DisplayName("Execution To Date (as per ACN):"), Expression("jAcnid.[Todate]"), Updatable(false), ReadOnly(true)]
         public String AcnidTodate
         {
             get { return Fields.AcnidTodate[this]; }
@@ -250,26 +249,26 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidUserid[this] = value; }
         }
 
-        [DisplayName("Inputs received from Auditee"), MasterDetailRelation(foreignKey: "aodid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("Inputs received from Auditee"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
         public List<InputfromauditeeRow> inputfromauditee
         {
             get { return Fields.inputfromauditee[this]; }
             set { Fields.inputfromauditee[this] = value; }
         }
-        [DisplayName("Satisfaction Rating for the processes audited"), MasterDetailRelation(foreignKey: "aodid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("Satisfaction Rating for the processes audited"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
         public List<SatisfactionratingRow> Satisfactionrating
         {
             get { return Fields.Satisfactionrating[this]; }
             set { Fields.Satisfactionrating[this] = value; }
         }
 
-        [DisplayName("Audit Observations pending from previous years"), MasterDetailRelation(foreignKey: "aodid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("Audit Observations pending from previous years"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
         public List<ObservationpendingRow> Observationpending
         {
             get { return Fields.Observationpending[this]; }
             set { Fields.Observationpending[this] = value; }
         }
-        [DisplayName("Observations from current audit"), MasterDetailRelation(foreignKey: "aodid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("Observations from current audit"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
         public List<CurrentauditobservationRow> Currentauditobservation
         {
             get { return Fields.Currentauditobservation[this]; }

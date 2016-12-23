@@ -1,20 +1,8 @@
 ﻿
 @{
-    ViewData["Title"] = "Transfuse Inc";//tab name
-
+    ViewData["Title"] = Serenity.LocalText.Get("Db.ACN.Minutesofmeeting.EntityPlural");
 }
-@Html.Script("~/Scripts/jquery.slimscroll.js")
-@Html.Script("~/Scripts/SlickGrid/slick.formatters.js")
-@Html.Script("~/Scripts/Site/MovieTutorial.Script.js")
-<form id="~_Form" action="">
-    <div class="s-Form">
-        <div class="fieldset ui-widget ui-widget-content ui-corner-all">
-            <div id="~_PropertyGrid"></div>
-            <div class="clear"></div>
-        </div>
-        
-    </div>
-</form>
+
 <div id="GridDiv"></div>
 
 <script type="text/javascript">

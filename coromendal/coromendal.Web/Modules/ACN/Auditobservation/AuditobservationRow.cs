@@ -34,21 +34,21 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnId[this] = value; }
         }
 
-        [DisplayName("Observation Title"), Column("observationtitle"), Size(10), QuickSearch]
+        [DisplayName("Observation Title"), Column("observationtitle"), QuickSearch]
         public String Observationtitle
         {
             get { return Fields.Observationtitle[this]; }
             set { Fields.Observationtitle[this] = value; }
         }
 
-        [DisplayName("Synopsis"), Column("observationsynopsis"), Size(10),NotNull]
+        [DisplayName("Synopsis"), Column("observationsynopsis"),NotNull]
         public String Observationsynopsis
         {
             get { return Fields.Observationsynopsis[this]; }
             set { Fields.Observationsynopsis[this] = value; }
         }
 
-        [DisplayName("Detailed Observation"), Column("detailedobservation"), Size(10)]
+        [DisplayName("Detailed Observation"), Column("detailedobservation"), ]
         public String Detailedobservation
         {
             get { return Fields.Detailedobservation[this]; }
@@ -62,16 +62,29 @@ namespace coromendal.ACN.Entities
             get { return Fields.Category[this]; }
             set { Fields.Category[this] = value; }
         }
-
-        [DisplayName("Risk Rating")]
+        
+        [DisplayName("Likelihood")]
+        [LookupEditor(typeof(LikeliwoodvalueRow))]
+        public Int32? Likelihood
+        {
+            get { return Fields.Likelihood[this]; }
+            set { Fields.Likelihood[this] = value; }
+        }
+        [DisplayName("Consequence")]
         [LookupEditor(typeof(RiskratingRow))]
-        public Int32? RiskRating
+        public Int32? Consequence
+        {
+            get { return Fields.Consequence[this]; }
+            set { Fields.Consequence[this] = value; }
+        }
+        [DisplayName("Risk Rating"),ReadOnly(true)]       
+        public String RiskRating
         {
             get { return Fields.RiskRating[this]; }
             set { Fields.RiskRating[this] = value; }
         }
 
-        [DisplayName("Agree this Observation"), Column("agreeobservation"), Size(10)]
+        [DisplayName("Agree this Observation"), Column("agreeobservation")]
         [LookupEditor(typeof(ConformationRow))]
         public Int32? Agreeobservation
         {
@@ -87,35 +100,35 @@ namespace coromendal.ACN.Entities
             set { Fields.Justification[this] = value; }
         }
         [LookupEditor(typeof(ConformationRow))]
-        [DisplayName("Agree this Suggestion"), Column("suggestion"), Size(10)]
+        [DisplayName("Agree this Suggestion"), Column("suggestion")]
         public Int32? Suggestion
         {
             get { return Fields.Suggestion[this]; }
             set { Fields.Suggestion[this] = value; }
         }
 
-        [DisplayName("Alternate Plan"), Column("alternateplan"), Size(10)]
+        [DisplayName("Alternate Plan"), Column("alternateplan")]
         public String Alternateplan
         {
             get { return Fields.Alternateplan[this]; }
             set { Fields.Alternateplan[this] = value; }
         }
 
-        [DisplayName("Name"), Column("name"), Size(10)]
+        [DisplayName("Name"), Column("name")]
         public String Name
         {
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Email"), Column("email"), Size(10)]
+        [DisplayName("Email"), Column("email")]
         public String Email
         {
             get { return Fields.Email[this]; }
             set { Fields.Email[this] = value; }
         }
 
-        [DisplayName("Target Date"), Column("targetdate"), Size(10)]
+        [DisplayName("Target Date"), Column("targetdate")]
         public String Targetdate
         {
             get { return Fields.Targetdate[this]; }
@@ -217,7 +230,7 @@ namespace coromendal.ACN.Entities
             public StringField Observationsynopsis;
             public StringField Detailedobservation;
             public Int32Field Category;
-            public Int32Field RiskRating;
+            public StringField RiskRating;
             public Int32Field Agreeobservation;
             public StringField Justification;
             public Int32Field Suggestion;
@@ -225,6 +238,8 @@ namespace coromendal.ACN.Entities
             public StringField Name;
             public StringField Email;
             public StringField Targetdate;
+            public Int32Field Consequence;
+            public Int32Field Likelihood;
 
             public StringField AcnAcnTilte;
             public Int32Field AcnPhaseNo;

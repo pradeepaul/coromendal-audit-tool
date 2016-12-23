@@ -18,6 +18,6 @@ namespace coromendal.ACN.Columns
         [EditLink]
         public String Observation { get; set; }
         public String Comments { get; set; }
-        public Int32 Aodid { get; set; }
+       // public Int32 Aodid { get; set; }
     }
 }

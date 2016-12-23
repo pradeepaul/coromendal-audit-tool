@@ -49,6 +49,14 @@ namespace coromendal.ACN
             public const string View = "AcnFeedback:View";
         }
 
+
+        public class AcnFeedbackRetail
+        {
+            public const string Delete = "AcnFeedbackRetail:Delete";
+            public const string Modify = "AcnFeedbackRetail:Modify";
+            public const string View = "AcnFeedbackRetail:View";
+        }
+
         public class Acnreport
         {
             public const string Delete = "Acnreport:Delete";

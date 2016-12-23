@@ -17,6 +17,6 @@ namespace coromendal.ACN.Columns
         public Int32 ScopeId { get; set; }
         [EditLink]
         public String Title { get; set; }
-        public Int32 AcnId { get; set; }
+       // public Int32 AcnId { get; set; }
     }
 }

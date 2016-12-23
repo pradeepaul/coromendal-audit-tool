@@ -13,9 +13,9 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.SuggestionRow))]
     public class SuggestionColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 SuggestionId { get; set; }
-        public Int32 AuditobservationId { get; set; }
+       // [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        //public Int32 SuggestionId { get; set; }
+       // public Int32 AuditobservationId { get; set; }
         [EditLink]
         public String Suggestion { get; set; }
     }

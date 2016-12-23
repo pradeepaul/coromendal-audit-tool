@@ -12,8 +12,10 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("AcnFeedbackRetail"), InstanceName("AcnFeedbackRetail"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.AcnFeedbackRetail.View)]
+    [ModifyPermission(ACN.PermissionKeys.AcnFeedbackRetail.Modify)]
+    [DeletePermission(ACN.PermissionKeys.AcnFeedbackRetail.Delete)]
+
     public sealed class AcnFeedbackRetailRow : Row, IIdRow, INameRow
     {
         [DisplayName("Acn Feedback Retail Id"), Identity]
@@ -94,104 +96,104 @@ namespace coromendal.ACN.Entities
             set { Fields.Ques8[this] = value; }
         }
 
-        [DisplayName("Name"), Column("name"), Size(10), QuickSearch]
+        [DisplayName("Name"), Column("name"), QuickSearch]
         public String Name
         {
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Dept"), Column("dept"), Size(10)]
+        [DisplayName("Dept"), Column("dept")]
         public String Dept
         {
             get { return Fields.Dept[this]; }
             set { Fields.Dept[this] = value; }
         }
 
-        [DisplayName("Reviewname"), Column("reviewname"), Size(10)]
+        [DisplayName("Reviewname"), Column("reviewname")]
         public String Reviewname
         {
             get { return Fields.Reviewname[this]; }
             set { Fields.Reviewname[this] = value; }
         }
 
-        [DisplayName("Location"), Column("location"), Size(10)]
+        [DisplayName("Location"), Column("location")]
         public String Location
         {
             get { return Fields.Location[this]; }
             set { Fields.Location[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark1"), Size(100)]
+        [DisplayName("Remark"), Column("remark1")]
         public String Remark1
         {
             get { return Fields.Remark1[this]; }
             set { Fields.Remark1[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark2"), Size(100)]
+        [DisplayName("Remark"), Column("remark2")]
         public String Remark2
         {
             get { return Fields.Remark2[this]; }
             set { Fields.Remark2[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark3"), Size(100)]
+        [DisplayName("Remark"), Column("remark3")]
         public String Remark3
         {
             get { return Fields.Remark3[this]; }
             set { Fields.Remark3[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark4"), Size(100)]
+        [DisplayName("Remark"), Column("remark4")]
         public String Remark4
         {
             get { return Fields.Remark4[this]; }
             set { Fields.Remark4[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark5"), Size(100)]
+        [DisplayName("Remark"), Column("remark5")]
         public String Remark5
         {
             get { return Fields.Remark5[this]; }
             set { Fields.Remark5[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark6"), Size(100)]
+        [DisplayName("Remark"), Column("remark6")]
         public String Remark6
         {
             get { return Fields.Remark6[this]; }
             set { Fields.Remark6[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark7"), Size(100)]
+        [DisplayName("Remark"), Column("remark7")]
         public String Remark7
         {
             get { return Fields.Remark7[this]; }
             set { Fields.Remark7[this] = value; }
         }
 
-        [DisplayName("Remark"), Column("remark8"), Size(100)]
+        [DisplayName("Remark"), Column("remark8")]
         public String Remark8
         {
             get { return Fields.Remark8[this]; }
             set { Fields.Remark8[this] = value; }
         }
 
-        [DisplayName("Date"), Column("date"), Size(100)]
+        [DisplayName("Date"), Column("date")]
         public String Date
         {
             get { return Fields.Date[this]; }
             set { Fields.Date[this] = value; }
         }
 
-        [DisplayName("Storeno"), Column("storeno"), Size(10)]
+        [DisplayName("Storeno"), Column("storeno")]
         public String Storeno
         {
             get { return Fields.Storeno[this]; }
             set { Fields.Storeno[this] = value; }
         }
-        [DisplayName("Comments/ Suggestion if any"), Column("comments"), Size(10)]
+        [DisplayName("Comments/ Suggestion if any"), Column("comments")]
         public String Comments
         {
             get { return Fields.Comments[this]; }

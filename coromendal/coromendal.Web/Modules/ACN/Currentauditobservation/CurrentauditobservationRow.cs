@@ -16,7 +16,7 @@ namespace coromendal.ACN.Entities
     [ModifyPermission("Administration")]
     public sealed class CurrentauditobservationRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id"), PrimaryKey]
+        [DisplayName("Id"), Identity]
         public Int32? Id
         {
             get { return Fields.Id[this]; }

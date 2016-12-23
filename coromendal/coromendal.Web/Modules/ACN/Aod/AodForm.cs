@@ -17,10 +17,11 @@ namespace coromendal.ACN.Forms
         
         
         [Category("Information from Audit Commencement Note")]
-        public Int32 Acnid { get; set; }
-        public String AcnidPhaseNo { get; set; }        
-        [Category("Information from Minutes of Meeting")]
         public Int32 Meetingid { get; set; }
+        public Int32 AcnidPhaseNo { get; set; }        
+        [Category("Information from Minutes of Meeting")]
+       
+        public Int32 Acnid { get; set; }
         public DateTime MeetingidMomdate { get; set; }
         public DateTime MeetingidPlanedcloseddate { get; set; }
         public DateTime MeetingidAuditopeningmeetingdate { get; set; }
@@ -33,7 +34,7 @@ namespace coromendal.ACN.Forms
 
         public String AcnidFromdate { get; set; }
         public String AcnidTodate { get; set; }
-        [Category("AOD Details")]
+        [Category("AOD discussion Details")]
         public String Sbu { get; set; }
         public String Actualcomencementdate { get; set; }
         public String Actualcompltedate { get; set; }

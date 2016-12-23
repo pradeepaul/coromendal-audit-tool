@@ -1,4 +1,4 @@
-﻿
+﻿//[assembly: Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/Riskrating", typeof(coromendal.ACN.Pages.RiskratingController))]
 
 namespace coromendal.ACN.Pages
 {

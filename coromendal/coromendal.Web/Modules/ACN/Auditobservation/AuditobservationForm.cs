@@ -25,7 +25,9 @@ namespace coromendal.ACN.Forms
         [SuggestionEditor]
         public List<SuggestionRow> SuggestionList { get; set; }
         public Int32 Category { get; set; }
-        public Int32 RiskRating { get; set; }
+        public Int32 Consequence { get; set; }
+        public Int32 Likelihood { get; set; }
+        public String RiskRating { get; set; }
         public Int32 Agreeobservation { get; set; }
         [TextAreaEditor(Rows = 8)]
         public String Justification { get; set; }

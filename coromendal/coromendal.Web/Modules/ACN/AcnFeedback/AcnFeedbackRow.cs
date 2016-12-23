@@ -41,7 +41,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques1[this]; }
             set { Fields.Ques1[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark1"), Size(10)]
+        [DisplayName("Remark"), Column("Remark1")]
         public String Remark1
         {
             get { return Fields.Remark1[this]; }
@@ -55,7 +55,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques2[this]; }
             set { Fields.Ques2[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark2"), Size(10)]
+        [DisplayName("Remark"), Column("Remark2")]
         public String Remark2
         {
             get { return Fields.Remark2[this]; }
@@ -69,7 +69,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques3[this]; }
             set { Fields.Ques3[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark3"), Size(10)]
+        [DisplayName("Remark"), Column("Remark3")]
         public String Remark3
         {
             get { return Fields.Remark3[this]; }
@@ -83,7 +83,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques4[this]; }
             set { Fields.Ques4[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark4"), Size(10)]
+        [DisplayName("Remark"), Column("Remark4")]
         public String Remark4
         {
             get { return Fields.Remark4[this]; }
@@ -97,7 +97,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques5[this]; }
             set { Fields.Ques5[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark5"), Size(10)]
+        [DisplayName("Remark"), Column("Remark5")]
         public String Remark5
         {
             get { return Fields.Remark5[this]; }
@@ -111,7 +111,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques6[this]; }
             set { Fields.Ques6[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark6"), Size(10)]
+        [DisplayName("Remark"), Column("Remark6")]
         public String Remark6
         {
             get { return Fields.Remark6[this]; }
@@ -125,7 +125,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques7[this]; }
             set { Fields.Ques7[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark7"), Size(10)]
+        [DisplayName("Remark"), Column("Remark7")]
         public String Remark7
         {
             get { return Fields.Remark7[this]; }
@@ -139,7 +139,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques8[this]; }
             set { Fields.Ques8[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark8"), Size(10)]
+        [DisplayName("Remark"), Column("Remark8")]
         public String Remark8
         {
             get { return Fields.Remark8[this]; }
@@ -153,7 +153,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques9[this]; }
             set { Fields.Ques9[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark9"), Size(10)]
+        [DisplayName("Remark"), Column("Remark9")]
         public String Remark9
         {
             get { return Fields.Remark9[this]; }
@@ -167,7 +167,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques10[this]; }
             set { Fields.Ques10[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark10"), Size(10)]
+        [DisplayName("Remark"), Column("Remark10")]
         public String Remark10
         {
             get { return Fields.Remark10[this]; }
@@ -181,7 +181,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques11[this]; }
             set { Fields.Ques11[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark11"), Size(10)]
+        [DisplayName("Remark"), Column("Remark11")]
         public String Remark11
         {
             get { return Fields.Remark11[this]; }
@@ -195,7 +195,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques12[this]; }
             set { Fields.Ques12[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark12"), Size(10)]
+        [DisplayName("Remark"), Column("Remark12")]
         public String Remark12
         {
             get { return Fields.Remark12[this]; }
@@ -209,7 +209,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques13[this]; }
             set { Fields.Ques13[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark13"), Size(10)]
+        [DisplayName("Remark"), Column("Remark13")]
         public String Remark13
         {
             get { return Fields.Remark13[this]; }
@@ -223,41 +223,41 @@ namespace coromendal.ACN.Entities
             get { return Fields.Ques14[this]; }
             set { Fields.Ques14[this] = value; }
         }
-        [DisplayName("Remark"), Column("Remark14"), Size(10)]
+        [DisplayName("Remark"), Column("Remark14")]
         public String Remark14
         {
             get { return Fields.Remark14[this]; }
             set { Fields.Remark14[this] = value; }
         }
 
-        [DisplayName("Your Name"), Column("name"), Size(10), QuickSearch]
+        [DisplayName("Your Name"), Column("name"), QuickSearch]
         public String Name
         {
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Department"), Column("dept"), Size(10)]
+        [DisplayName("Department"), Column("dept")]
         public String Dept
         {
             get { return Fields.Dept[this]; }
             set { Fields.Dept[this] = value; }
         }
 
-        [DisplayName("Name of the Review"), Column("reviewname"), Size(10)]
+        [DisplayName("Name of the Review"), Column("reviewname")]
         public String Reviewname
         {
             get { return Fields.Reviewname[this]; }
             set { Fields.Reviewname[this] = value; }
         }
 
-        [DisplayName("Location"), Column("location"), Size(10)]
+        [DisplayName("Location"), Column("location")]
         public String Location
         {
             get { return Fields.Location[this]; }
             set { Fields.Location[this] = value; }
         }
-        [DisplayName("Comments/ Suggestion if any"), Column("comments"), Size(10)]
+        [DisplayName("Comments/ Suggestion if any"), Column("comments")]
         public String Comments
         {
             get { return Fields.Comments[this]; }

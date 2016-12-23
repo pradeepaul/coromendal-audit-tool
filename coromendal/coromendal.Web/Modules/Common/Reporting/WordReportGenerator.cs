@@ -8,6 +8,9 @@ using System.Drawing;
 using Novacode;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Office.Interop.Word;
 
 namespace Serenity.Reporting
 {
@@ -27,8 +30,24 @@ namespace Serenity.Reporting
             var templateDocument = Path.Combine(projectBaseDir, "Report.docx");
             DocX document = DocX.Load(templateDocument);
             PopulateDocument(document, columns, rows, reportid);
-            var finalDocument = Path.Combine(projectBaseDir, "finalDocument.docx");
+           // Convert1(Path.Combine(projectBaseDir, "finalDocument.docx"), Path.Combine(projectBaseDir, "finalDocument.pdf"), WdSaveFormat.wdFormatPDF);
+            var finalDocument = Path.Combine(projectBaseDir, "finalDocument.docx");           
             return File.ReadAllBytes(finalDocument);
+        }
+        public static void Convert1(string input, string output, WdSaveFormat format)
+        {
+            Word._Application oWord = new Word.Application();
+            oWord.Visible = false;
+            object oMissing = System.Reflection.Missing.Value;
+            object isVisible = true;
+            object readOnly = false;
+            object oInput = input;
+            object oOutput = output;
+            object oFormat = format;
+            Word._Document oDoc = oWord.Documents.Open(ref oInput, ref oMissing, ref readOnly, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref isVisible, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+            oDoc.Activate();
+            oDoc.SaveAs(ref oOutput, ref oFormat, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+            oWord.Quit(ref oMissing, ref oMissing, ref oMissing);
         }
         public static void PopulateDocument(DocX document, List<ReportColumn> columns, IList rows,
             int reportid)
@@ -46,7 +65,7 @@ namespace Serenity.Reporting
                 reportset = connection.Query(reportsqlquery).FirstOrDefault();
             int acnid = reportset.Acnid;
             // Add a new Paragraph to the document.
-            Paragraph p = document.InsertParagraph();
+            Novacode.Paragraph p = document.InsertParagraph();
             var fld1 = coromendal.ACN.Entities.AcnRow.Fields;
             dynamic resultSet;
             var sqlquery = new SqlQuery()
@@ -139,7 +158,7 @@ namespace Serenity.Reporting
                     auditor.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditorRefRow>())
                 auditorResultSet = connection.Query(auditorsqlquery).ToList();
-            Table AuditorTable = document.Tables.First(t => t.TableCaption == "AUDITOR");
+            Novacode.Table AuditorTable = document.Tables.First(t => t.TableCaption == "AUDITOR");
             var audit = 0;
 
             foreach (var item in auditorResultSet)
@@ -166,7 +185,7 @@ namespace Serenity.Reporting
                     auditee.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditeeRefRow>())
                 auditeeResultSet = connection.Query(auditeesqlquery).ToList();
-            Table auditeetable = document.Tables.First(t => t.TableCaption == "AUDITEE");
+            Novacode.Table auditeetable = document.Tables.First(t => t.TableCaption == "AUDITEE");
             foreach (var item in auditeeResultSet)
             {
                 if (item.AcnAuditeeId != 0)
@@ -191,7 +210,7 @@ namespace Serenity.Reporting
                     scope.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.ScopeRow>())
                 scopeResultSet = connection.Query(scopesqlquery).ToList();
-            Table scopeTable = document.Tables.First(t => t.TableCaption == "SCOPE_TABLE");
+            Novacode.Table scopeTable = document.Tables.First(t => t.TableCaption == "SCOPE_TABLE");
             foreach (var item in scopeResultSet)
             {
                 Novacode.Row newOrderRow = scopeTable.InsertRow();
@@ -212,7 +231,7 @@ namespace Serenity.Reporting
                     scope.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.KeyfactsRow>())
                 keyfactsResultSet = connection.Query(keyfactsqlquery).ToList();
-            Table keyfactstable = document.Tables.First(t => t.TableCaption == "KEY_FACTS_FIGURES");
+            Novacode.Table keyfactstable = document.Tables.First(t => t.TableCaption == "KEY_FACTS_FIGURES");
             var key = 0;
             foreach (var item in keyfactsResultSet)
             {
@@ -311,7 +330,7 @@ namespace Serenity.Reporting
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.RootcauseRow>())
                 rootcausesResultSet = connection.Query(rootcausesqlquery).ToList();
             //var rootcausetable = document.AddTable(rootcausesResultSet.Count, 2);
-            Table rootcausetable = document.Tables.First(t => t.TableCaption == "ROOTCAUSE");
+            Novacode.Table rootcausetable = document.Tables.First(t => t.TableCaption == "ROOTCAUSE");
             var rootc = 0;
 
             foreach (var item in rootcausesResultSet)
@@ -336,7 +355,7 @@ namespace Serenity.Reporting
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.SuggestionRow>())
                 suggestionResultSet = connection.Query(suggestionsqlquery).ToList();
             //var suggestiontable = document.AddTable(suggestionResultSet.Count, 1);
-            Table suggestiontable = document.Tables.First(t => t.TableCaption == "SUGGESTION");
+            Novacode.Table suggestiontable = document.Tables.First(t => t.TableCaption == "SUGGESTION");
             var sugg = 0;
 
             foreach (var item in suggestionResultSet)
@@ -364,7 +383,7 @@ namespace Serenity.Reporting
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AuditobservationRow>())
                 summaryResultSet = connection.Query(summarysqlquery).ToList();
 
-            Table exceutiveSummarytable = document.Tables.First(t => t.TableCaption == "EXECUTIVE_SUMMARY");
+            Novacode.Table exceutiveSummarytable = document.Tables.First(t => t.TableCaption == "EXECUTIVE_SUMMARY");
             var E = 0;
             foreach (var item in summaryResultSet)
             {
@@ -477,14 +496,14 @@ namespace Serenity.Reporting
                     issue.MeetingId.In(numbers));
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingIssueRow>())
                 issueResultSet = connection.Query(issuesqlquery).ToList();
-            Table issuetable = document.Tables.First(t => t.TableCaption == "ISSUE_TABLE");
+            Novacode.Table issuetable = document.Tables.First(t => t.TableCaption == "ISSUE_TABLE");
             foreach (var item in issueResultSet)
             {
                 Novacode.Row newOrderRow = issuetable.InsertRow();
                 newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(item.Areanotcovered));
 
             }
-            Table issuePendingtable = document.Tables.First(t => t.TableCaption == "ISSUE_PENDING_TABLE");
+            Novacode.Table issuePendingtable = document.Tables.First(t => t.TableCaption == "ISSUE_PENDING_TABLE");
             var k = 0;
 
             foreach (var item in issueResultSet)
@@ -498,7 +517,7 @@ namespace Serenity.Reporting
                 k++;
             }
             //STATUS
-            Table issueStatustable = document.Tables.First(t => t.TableCaption == "ISSUE_IDENTIFIED_TABLE");
+            Novacode.Table issueStatustable = document.Tables.First(t => t.TableCaption == "ISSUE_IDENTIFIED_TABLE");
             var l = 0;
             foreach (var item in issueResultSet)
             {
@@ -512,7 +531,7 @@ namespace Serenity.Reporting
             }
 
             //Area Covered
-            Table issueCoveredtable = document.Tables.First(t => t.TableCaption == "ISSUE_COVERED_TABLE");
+            Novacode.Table issueCoveredtable = document.Tables.First(t => t.TableCaption == "ISSUE_COVERED_TABLE");
             var m = 0;
             foreach (var item in issueResultSet)
             {

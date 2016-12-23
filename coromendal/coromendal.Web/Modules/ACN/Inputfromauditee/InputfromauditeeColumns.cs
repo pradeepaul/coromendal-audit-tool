@@ -13,9 +13,9 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.InputfromauditeeRow))]
     public class InputfromauditeeColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 InputauditId { get; set; }
-        public Int32 Aodid { get; set; }
+      //  [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+       // public Int32 InputauditId { get; set; }
+       // public Int32 Aodid { get; set; }
         [EditLink]
         public String Additionalareacovered { get; set; }
         public String Issues { get; set; }

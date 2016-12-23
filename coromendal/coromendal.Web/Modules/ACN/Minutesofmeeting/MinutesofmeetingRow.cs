@@ -4,6 +4,8 @@ namespace coromendal.ACN.Entities
 {
     using Administration.Entities;
     using Newtonsoft.Json;
+    using Northwind;
+    using Northwind.Entities;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -154,6 +156,12 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.AcnidTodate[this]; }
             set { Fields.AcnidTodate[this] = value; }
+        }
+        [NotesEditor, ClientSide]
+        public List<NoteRow> NoteList
+        {
+            get { return Fields.NoteList[this]; }
+            set { Fields.NoteList[this] = value; }
         }
 
         [DisplayName("Period of Coverage From"), Expression("jAcnid.[Periodfrom]"), Updatable(false), ReadOnly(true)]
@@ -354,6 +362,7 @@ namespace coromendal.ACN.Entities
             public RowListField<ObservationpreviousauditRow> PreviousObservationaudit;
             public RowListField<NewchangesRow> Newchanges;
             public RowListField<NewiprovementsRow> Newimprovements;
+            public RowListField<NoteRow> NoteList;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;
