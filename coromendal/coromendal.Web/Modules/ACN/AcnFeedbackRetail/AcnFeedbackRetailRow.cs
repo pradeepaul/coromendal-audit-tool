@@ -26,6 +26,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }
@@ -199,6 +200,13 @@ namespace coromendal.ACN.Entities
             get { return Fields.Comments[this]; }
             set { Fields.Comments[this] = value; }
         }
+        [DisplayName("Send"), Column("preview")]
+        public String Preview
+        {
+            get { return Fields.Preview[this]; }
+            set { Fields.Preview[this] = value; }
+        }
+
 
         [DisplayName("Assignment"), Expression("jAcnid.[AcnTilte]")]
         public String AcnidAcnTilte
@@ -307,6 +315,7 @@ namespace coromendal.ACN.Entities
             public StringField Date;
             public StringField Storeno;
             public StringField Comments;
+            public StringField Preview;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;

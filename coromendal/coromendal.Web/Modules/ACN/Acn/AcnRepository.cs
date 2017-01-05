@@ -35,7 +35,21 @@ namespace coromendal.ACN.Repositories
 
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
+           // var user = Authorization.UserDefinition as UserDefinition;
             var ro = new MyListHandler().Process(connection, request);
+          //  ListResponse<MyRow> ro;
+          //  if(user.UserId == 1)
+          //  {
+          //     var  ro = new MyListHandler().Process(connection, request);
+          //      var num = ro.Entities[0].Auditor;
+          //  }
+          //  else
+          //  {
+           //     ro = new MyListHandler().Process(connection, request);
+           //     var num = ro.Entities[0].Auditor;
+           // }
+            
+           
             return ro;
         }
 

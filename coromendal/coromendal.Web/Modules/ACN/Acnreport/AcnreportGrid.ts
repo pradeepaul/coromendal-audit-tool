@@ -33,7 +33,7 @@ namespace coromendal.ACN {
                     var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
                     request.ContainsField = String(item.ReportId);
                     Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: request, target: '_blank' });                    
-                    console.log(item.Meetingid);
+                    //console.log(item.Meetingid);
                 }
             }
         }

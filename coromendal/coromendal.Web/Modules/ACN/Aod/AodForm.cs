@@ -36,8 +36,8 @@ namespace coromendal.ACN.Forms
         public String AcnidTodate { get; set; }
         [Category("AOD discussion Details")]
         public String Sbu { get; set; }
-        public String Actualcomencementdate { get; set; }
-        public String Actualcompltedate { get; set; }
+        public DateTime Actualcomencementdate { get; set; }
+        public DateTime Actualcompltedate { get; set; }
         public String ProcessOwner { get; set; }
         public String Functionalhead { get; set; }
         public String Areaofscope { get; set; }

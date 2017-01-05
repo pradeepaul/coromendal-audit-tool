@@ -42,6 +42,14 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnTilte[this]; }
             set { Fields.AcnTilte[this] = value; }
         }
+
+        [DisplayName("Send"), Column("preview"), Size(10)]
+        public String Preview
+        {
+            get { return Fields.Preview[this]; }
+            set { Fields.Preview[this] = value; }
+        }
+
         [LookupEditor(typeof(AuditeeUserLookup), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnAuditorRefRow), "acnID", "AcnAuditorID")]
         [MinSelectLevel(SelectLevel.Details)]
@@ -104,6 +112,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.ScopeList[this]; }
             set { Fields.ScopeList[this] = value; }
         }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.AcnId; }
@@ -136,8 +145,9 @@ namespace coromendal.ACN.Entities
             public StringField Periodto;
             public StringField creationdate;
             public RowListField<ScopeRow> ScopeList;
+            public StringField Preview;
 
-           
+
 
             public RowFields()
                 : base("[dbo].[Acn]")

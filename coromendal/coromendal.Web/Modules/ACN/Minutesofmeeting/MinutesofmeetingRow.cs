@@ -45,7 +45,7 @@ namespace coromendal.ACN.Entities
         }
 
 
-        [DisplayName("Audit Scope"), Column("auditscope"), Size(200)]
+        [DisplayName("Send"), Column("auditscope"), Size(200)]
         public String Auditscope
         {
             get { return Fields.Auditscope[this]; }

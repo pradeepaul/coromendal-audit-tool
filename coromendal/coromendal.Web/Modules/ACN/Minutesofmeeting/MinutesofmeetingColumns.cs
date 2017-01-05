@@ -13,8 +13,9 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.MinutesofmeetingRow))]
     public class MinutesofmeetingColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId")]
         public Int32 Meetingid { get; set; }
+        [EditLink]
         public string MeetingTitle { get; set; }
         public String AcnidAcnTilte { get; set; }
         public Int32 AcnidPhaseNo { get; set; }
@@ -23,5 +24,6 @@ namespace coromendal.ACN.Columns
         public String momdate { get; set; }
         public String planeddate { get; set; }
         public String auditopeneddate { get; set; }
+        public String Auditscope { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface RiskmatrixRow {
         Riskmatrixid?: number;
         Likelihood?: number;
@@ -13,10 +12,10 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.Riskmatrix';
 
         export namespace Fields {
-            export declare const Riskmatrixid;
-            export declare const Likelihood;
-            export declare const Consequence;
-            export declare const Value;
+            export declare const Riskmatrixid: string;
+            export declare const Likelihood: string;
+            export declare const Consequence: string;
+            export declare const Value: string;
         }
 
         ['Riskmatrixid', 'Likelihood', 'Consequence', 'Value'].forEach(x => (<any>Fields)[x] = x);

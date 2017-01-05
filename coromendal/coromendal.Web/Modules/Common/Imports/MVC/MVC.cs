@@ -91,6 +91,11 @@ namespace MVC
                 public const string KeyfactsIndex = "~/Modules/ACN/Keyfacts/KeyfactsIndex.cshtml";
             }
 
+            public static class Likeliwoodvalue
+            {
+                public const string LikeliwoodvalueIndex = "~/Modules/ACN/Likeliwoodvalue/LikeliwoodvalueIndex.cshtml";
+            }
+
             public static class MeetingAbsent
             {
                 public const string MeetingAbsentIndex = "~/Modules/ACN/MeetingAbsent/MeetingAbsentIndex.cshtml";
@@ -134,6 +139,11 @@ namespace MVC
             public static class Questions
             {
                 public const string QuestionsIndex = "~/Modules/ACN/Questions/QuestionsIndex.cshtml";
+            }
+
+            public static class Riskmatrix
+            {
+                public const string RiskmatrixIndex = "~/Modules/ACN/Riskmatrix/RiskmatrixIndex.cshtml";
             }
 
             public static class Riskrating

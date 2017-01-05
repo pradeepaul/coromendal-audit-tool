@@ -390,12 +390,8 @@ namespace Serenity.Reporting
                 Novacode.Row newOrderRow = exceutiveSummarytable.InsertRow();
                 newOrderRow.Cells[0].Paragraphs.First().Append(Convert.ToString(E + 1));
                 newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Observationtitle));
-                if (item.RiskRating != 0)
-                {
-                    var name = PopulateRiskIndexPage(item.RiskRating);
-                    newOrderRow.Cells[2].Paragraphs.First().Append(name);
-                }
-
+                newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.RiskRating));
+               
                 if (item.Category != 0)
                 {
                     var name = PopulatecategoryIndexPage(item.Category);
@@ -472,7 +468,7 @@ namespace Serenity.Reporting
             }
             document.ReplaceText("%# Justification#", Convert.ToString(obervationResultSet.Justification));
             document.ReplaceText("%#TDATE%", Convert.ToString(obervationResultSet.Targetdate));
-            document.ReplaceText("%#RISKRATING#", PopulateRiskIndexPage(obervationResultSet.RiskRating));
+            document.ReplaceText("%#RISKRATING#", Convert.ToString(obervationResultSet.RiskRating)); 
             document.ReplaceText("CATEGORY###", PopulatecategoryIndexPage(obervationResultSet.Category));
             document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
             document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));

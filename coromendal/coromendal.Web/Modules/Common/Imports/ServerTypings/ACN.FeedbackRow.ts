@@ -5,6 +5,7 @@
         FeedbackMeetingId?: number;
         FeedbackRating?: number;
         FeedbackRemarks?: string;
+        Preview?: string;
         FeedbackQuestionQuestiontext?: string;
         FeedbackMeetingAcnid?: number;
         FeedbackMeetingTitle?: string;
@@ -32,6 +33,7 @@
             export declare const FeedbackMeetingId: string;
             export declare const FeedbackRating: string;
             export declare const FeedbackRemarks: string;
+            export declare const Preview: string;
             export declare const FeedbackQuestionQuestiontext: string;
             export declare const FeedbackMeetingAcnid: string;
             export declare const FeedbackMeetingTitle: string;
@@ -43,7 +45,7 @@
             export declare const FeedbackMeetingAuditee: string;
         }
 
-        ['FeedbackId', 'FeedbackQuestionId', 'FeedbackMeetingId', 'FeedbackRating', 'FeedbackRemarks', 'FeedbackQuestionQuestiontext', 'FeedbackMeetingAcnid', 'FeedbackMeetingTitle', 'FeedbackMeetingAuditscope', 'FeedbackMeetingPeriod', 'FeedbackMeetingTime', 'FeedbackMeetingVenue', 'FeedbackMeetingAuditor', 'FeedbackMeetingAuditee'].forEach(x => (<any>Fields)[x] = x);
+        ['FeedbackId', 'FeedbackQuestionId', 'FeedbackMeetingId', 'FeedbackRating', 'FeedbackRemarks', 'Preview', 'FeedbackQuestionQuestiontext', 'FeedbackMeetingAcnid', 'FeedbackMeetingTitle', 'FeedbackMeetingAuditscope', 'FeedbackMeetingPeriod', 'FeedbackMeetingTime', 'FeedbackMeetingVenue', 'FeedbackMeetingAuditor', 'FeedbackMeetingAuditee'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

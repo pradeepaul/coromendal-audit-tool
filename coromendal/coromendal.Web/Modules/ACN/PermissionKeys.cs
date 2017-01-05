@@ -156,6 +156,12 @@ namespace coromendal.ACN
             public const string View = "Questions:View";
         }
 
+        public class AOD
+        {
+            public const string Delete = "AOD:Delete";
+            public const string Modify = "AOD:Modify";
+            public const string View = "AOD:View";
+        }
 
         public const string General = "ACN:General";
     }

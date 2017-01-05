@@ -31,5 +31,7 @@ namespace coromendal.ACN.Columns
         public String Periodto { get; set; }
         public String location { get; set; }
         public String creationdate { get; set; }
+        [EditLink]
+        public String Preview { get; set; }
     }
 }

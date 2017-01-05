@@ -21,5 +21,7 @@ namespace coromendal.ACN.Columns
         public String Dept { get; set; }
         public String Reviewname { get; set; }
         public String Location { get; set; }
+        [EditLink]
+        public String Preview { get; set; }
     }
 }

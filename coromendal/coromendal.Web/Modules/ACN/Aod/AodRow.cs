@@ -13,8 +13,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("AOD"), InstanceName("AOD"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.AOD.View)]
+    [ModifyPermission(ACN.PermissionKeys.AOD.Modify)]
+    [DeletePermission(ACN.PermissionKeys.AOD.Delete)]
     public sealed class AodRow : Row, IIdRow, INameRow
     {
         [DisplayName("Aod Id"), Column("aodId"), Identity]
@@ -51,6 +52,13 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.ProcessOwner[this]; }
             set { Fields.ProcessOwner[this] = value; }
+        }
+
+        [DisplayName("Send"), Column("preview"), Size(10)]
+        public String Preview
+        {
+            get { return Fields.Preview[this]; }
+            set { Fields.Preview[this] = value; }
         }
 
         [DisplayName("Functional Heads"), Size(100)]
@@ -306,8 +314,9 @@ namespace coromendal.ACN.Entities
             public StringField Reasons;
             public StringField Sbu;
             public Int32Field Acnid;
+            public StringField Preview;
 
-            
+
             public Int32Field MeetingidAcnid;
             public StringField MeetingidTitle;
             public StringField MeetingidAuditscope;

@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.AodRow))]
     public class AodColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId")]
         public Int32 AodId { get; set; }
         [EditLink]
         public Int32 AcnidAcnTilte { get; set; }
@@ -22,7 +22,9 @@ namespace coromendal.ACN.Columns
         public Int32 MeetingidTitle { get; set; }      
         public String Actualcomencementdate { get; set; }
         public String Actualcompltedate { get; set; }
-        public String ProcessOwner { get; set; }    
-        
+        public String ProcessOwner { get; set; }
+        [EditLink]
+        public String Preview { get; set; }
+
     }
 }

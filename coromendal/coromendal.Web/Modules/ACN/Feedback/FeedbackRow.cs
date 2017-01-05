@@ -116,6 +116,13 @@ namespace coromendal.ACN.Entities
             set { Fields.FeedbackMeetingAuditee[this] = value; }
         }
 
+        [DisplayName("Send"), Column("preview"), Size(10)]
+        public String Preview
+        {
+            get { return Fields.Preview[this]; }
+            set { Fields.Preview[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.FeedbackId; }
@@ -140,6 +147,7 @@ namespace coromendal.ACN.Entities
             public Int32Field FeedbackMeetingId;
             public Int32Field FeedbackRating;
             public StringField FeedbackRemarks;
+            public StringField Preview;
 
             public StringField FeedbackQuestionQuestiontext;
 

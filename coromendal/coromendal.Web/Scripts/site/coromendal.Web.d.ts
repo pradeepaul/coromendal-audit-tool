@@ -858,6 +858,7 @@ declare namespace coromendal.ACN {
         AcnidPeriodto?: string;
         AcnidCreationdate?: string;
         AcnidUserid?: number;
+        Preview?: string;
     }
     namespace AcnFeedbackRetailRow {
         const idProperty: string;
@@ -898,6 +899,7 @@ declare namespace coromendal.ACN {
             const AcnidPeriodto: string;
             const AcnidCreationdate: string;
             const AcnidUserid: string;
+            const Preview: string;
         }
     }
 }
@@ -963,6 +965,7 @@ declare namespace coromendal.ACN {
         AcnidPeriodfrom?: string;
         AcnidPeriodto?: string;
         AcnidCreationdate?: string;
+        Preview?: string;
     }
     namespace AcnFeedbackRow {
         const idProperty: string;
@@ -1012,6 +1015,7 @@ declare namespace coromendal.ACN {
             const AcnidPeriodfrom: string;
             const AcnidPeriodto: string;
             const AcnidCreationdate: string;
+            const Preview: string;
         }
     }
 }
@@ -1138,6 +1142,7 @@ declare namespace coromendal.ACN {
         Periodto?: string;
         creationdate?: string;
         ScopeList?: ScopeRow[];
+        Preview?: string;
     }
     namespace AcnRow {
         const idProperty: string;
@@ -1158,6 +1163,7 @@ declare namespace coromendal.ACN {
             const Periodto: string;
             const creationdate: string;
             const ScopeList: string;
+            const Preview: string;
         }
     }
 }
@@ -1169,12 +1175,14 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Sendmail(request: Serenity.ListRequest, onSuccess?: (response: System.String) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
             const Delete: string;
             const Retrieve: string;
             const List: string;
+            const Sendmail: string;
         }
     }
 }
@@ -1222,6 +1230,7 @@ declare namespace coromendal.ACN {
         Reasons?: string;
         Sbu?: string;
         Acnid?: number;
+        Preview?: string;
         MeetingidAcnid?: number;
         MeetingidTitle?: string;
         MeetingidAuditscope?: string;
@@ -1265,6 +1274,7 @@ declare namespace coromendal.ACN {
             const Reasons: string;
             const Sbu: string;
             const Acnid: string;
+            const Preview: string;
             const MeetingidAcnid: string;
             const MeetingidTitle: string;
             const MeetingidAuditscope: string;
@@ -1594,6 +1604,7 @@ declare namespace coromendal.ACN {
         FeedbackMeetingId?: number;
         FeedbackRating?: number;
         FeedbackRemarks?: string;
+        Preview?: string;
         FeedbackQuestionQuestiontext?: string;
         FeedbackMeetingAcnid?: number;
         FeedbackMeetingTitle?: string;
@@ -1616,6 +1627,7 @@ declare namespace coromendal.ACN {
             const FeedbackMeetingId: string;
             const FeedbackRating: string;
             const FeedbackRemarks: string;
+            const Preview: string;
             const FeedbackQuestionQuestiontext: string;
             const FeedbackMeetingAcnid: string;
             const FeedbackMeetingTitle: string;
@@ -1837,6 +1849,8 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class LikeliwoodvalueForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
@@ -1853,20 +1867,22 @@ declare namespace coromendal.ACN {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<LikeliwoodvalueRow>;
         namespace Fields {
-            const Likeliwoodvalueid: any;
-            const Likeliwoodvaluename: any;
+            const Likeliwoodvalueid: string;
+            const Likeliwoodvaluename: string;
         }
     }
 }
 declare namespace coromendal.ACN {
     namespace LikeliwoodvalueService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<LikeliwoodvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<LikeliwoodvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<LikeliwoodvalueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<LikeliwoodvalueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<LikeliwoodvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<LikeliwoodvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<LikeliwoodvalueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<LikeliwoodvalueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2532,12 +2548,14 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class RiskmatrixForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface RiskmatrixForm {
-        Likelihood: Serenity.IntegerEditor;
-        Consequence: Serenity.IntegerEditor;
+        Likelihood: Serenity.LookupEditor;
+        Consequence: Serenity.LookupEditor;
         Value: Serenity.StringEditor;
     }
 }
@@ -2553,21 +2571,21 @@ declare namespace coromendal.ACN {
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const Riskmatrixid: any;
-            const Likelihood: any;
-            const Consequence: any;
-            const Value: any;
+            const Riskmatrixid: string;
+            const Likelihood: string;
+            const Consequence: string;
+            const Value: string;
         }
     }
 }
 declare namespace coromendal.ACN {
     namespace RiskmatrixService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<RiskmatrixRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<RiskmatrixRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RiskmatrixRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RiskmatrixRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<RiskmatrixRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RiskmatrixRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RiskmatrixRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RiskmatrixRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -5795,6 +5813,8 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -6266,6 +6286,8 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -6340,6 +6362,8 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -6376,6 +6400,8 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -6557,5 +6583,7 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
 }

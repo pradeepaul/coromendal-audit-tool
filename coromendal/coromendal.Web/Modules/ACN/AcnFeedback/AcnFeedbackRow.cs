@@ -320,6 +320,14 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidCreationdate[this] = value; }
         }
 
+
+        [DisplayName("Send"), Column("preview"), Size(10)]
+        public String Preview
+        {
+            get { return Fields.Preview[this]; }
+            set { Fields.Preview[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.AcnFeedbackId; }
@@ -374,6 +382,7 @@ namespace coromendal.ACN.Entities
             public StringField Reviewname;
             public StringField Location;
             public StringField Comments;
+            public StringField Preview;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;
