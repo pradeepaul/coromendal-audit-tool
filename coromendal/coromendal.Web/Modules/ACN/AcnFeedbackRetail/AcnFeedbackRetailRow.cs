@@ -200,12 +200,19 @@ namespace coromendal.ACN.Entities
             get { return Fields.Comments[this]; }
             set { Fields.Comments[this] = value; }
         }
-        [DisplayName("Send"), Column("preview")]
+        [DisplayName("Preview"), Column("preview")]
         public String Preview
         {
             get { return Fields.Preview[this]; }
             set { Fields.Preview[this] = value; }
         }
+        [DisplayName("Send"), Column("send")]
+        public String Send
+        {
+            get { return Fields.Send[this]; }
+            set { Fields.Send[this] = value; }
+        }
+
 
 
         [DisplayName("Assignment"), Expression("jAcnid.[AcnTilte]")]
@@ -316,6 +323,7 @@ namespace coromendal.ACN.Entities
             public StringField Storeno;
             public StringField Comments;
             public StringField Preview;
+            public StringField Send;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;

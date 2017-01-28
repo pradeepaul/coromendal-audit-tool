@@ -321,11 +321,17 @@ namespace coromendal.ACN.Entities
         }
 
 
-        [DisplayName("Send"), Column("preview"), Size(10)]
+        [DisplayName("Preview"), Column("preview"), Size(10)]
         public String Preview
         {
             get { return Fields.Preview[this]; }
             set { Fields.Preview[this] = value; }
+        }
+        [DisplayName("Send"), Column("send"), Size(10)]
+        public String Send
+        {
+            get { return Fields.Send[this]; }
+            set { Fields.Send[this] = value; }
         }
 
         IIdField IIdRow.IdField
@@ -383,6 +389,7 @@ namespace coromendal.ACN.Entities
             public StringField Location;
             public StringField Comments;
             public StringField Preview;
+            public StringField Send;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;

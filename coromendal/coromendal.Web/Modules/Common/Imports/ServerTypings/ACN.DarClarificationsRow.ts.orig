@@ -1,0 +1,22 @@
+﻿
+namespace coromendal.ACN {
+    export interface DarClarificationsRow {
+        DarClarificationsId?: number;
+        ReportId?: number;
+        AcnId?: number;
+    }
+
+    export namespace DarClarificationsRow {
+        export const idProperty = 'DarClarificationsId';
+        export const localTextPrefix = 'ACN.DarClarifications';
+
+        export namespace Fields {
+            export declare const DarClarificationsId;
+            export declare const ReportId;
+            export declare const AcnId;
+        }
+
+        ['DarClarificationsId', 'ReportId', 'AcnId'].forEach(x => (<any>Fields)[x] = x);
+    }
+}
+

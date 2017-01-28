@@ -1,0 +1,32 @@
+﻿.ui-dialog .ui-dialog-content {
+    height: 100% !important;
+}
+.s-AcnDialog {
+    width: 1600px !important;
+    height: 800px !important;
+}
+.AcnTilte {
+    max-width: 20%;
+ }
+.PhaseNo {
+    max-width: 25%;
+ }
+.caption {
+    width: auto !important;
+}
+.Fromdate, .Todate,
+.Periodto, .location {
+    max-width: 15%;
+}
+.Periodfrom {
+   max-width: 20%;
+}
+.Periodfrom input{
+   flex: 1 1 45% !important;
+}
+.creationdate {
+    max-width: 20%;
+}
+.Auditor, .Auditee {
+    max-width: 25%;
+}

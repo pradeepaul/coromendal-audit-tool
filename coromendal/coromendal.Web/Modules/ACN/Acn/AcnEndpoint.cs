@@ -146,7 +146,7 @@ namespace coromendal.ACN.Endpoints
             {
                 message.To.Add(new MailAddress(item.Email));
             }
-            message.From = new MailAddress("pradeepmstech@gmail.com", "New Assignment Note");
+            message.From = new MailAddress("at.admihoopla.1@gmail.com", "New Assignment Note");
             message.Subject = "New Assignment";
             var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
             string HTMLTemplatePath = Path.Combine(projectBaseDir, "ACNtemplate.html");      
@@ -185,21 +185,30 @@ namespace coromendal.ACN.Endpoints
             HTMLBody = HTMLBody.Replace("{auditor}", team1);
             HTMLBody = HTMLBody.Replace("{auditee}", team);
             message.Body = HTMLBody;
+            string msg = "";
             message.IsBodyHtml = true;
+            if(request.ContainsText == "mail")
+            { 
             using (var smtp = new SmtpClient())
             {
                 var credential = new NetworkCredential
                 {
-                    UserName = "pradeepmstech@gmail.com",  
-                    Password = "Pradeep@1891"  
+                    UserName = "at.admihoopla.1@gmail.com",  
+                    Password = "qwerty2017"  
                 };
                 smtp.Credentials = credential;
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
-                //smtp.Send(message);
-            }           
-            return "Sent Successfully";
+                smtp.Send(message);
+                    msg = "Sent Successfully";
+            }
+            }
+            else if(request.ContainsText == "preview")
+            {
+                msg = HTMLBody;
+            }
+            return msg;
 
         }
    

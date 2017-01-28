@@ -32,6 +32,9 @@ namespace coromendal.ACN.Columns
         public String location { get; set; }
         public String creationdate { get; set; }
         [EditLink]
+        public String send { get; set; }
+        [EditLink]
         public String Preview { get; set; }
+        
     }
 }

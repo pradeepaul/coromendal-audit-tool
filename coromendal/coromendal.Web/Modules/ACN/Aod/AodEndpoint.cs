@@ -237,7 +237,7 @@ namespace coromendal.ACN.Endpoints
             {
                 message.To.Add(new MailAddress(item.Email));
             }
-            message.From = new MailAddress("pradeepmstech@gmail.com", "New Audit Observations for Discussion");
+            message.From = new MailAddress("at.admihoopla.1@gmail.com", "New Audit Observations for Discussion");
             message.Subject = "Audit Observations for Discussion";
             var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
             string HTMLTemplatePath = Path.Combine(projectBaseDir, "AOD.html");
@@ -262,6 +262,7 @@ namespace coromendal.ACN.Endpoints
             HTMLBody = HTMLBody.Replace("{Durationfrom}", Convert.ToString(acnresultSet.Periodfrom));
             HTMLBody = HTMLBody.Replace("{Periodto}", Convert.ToString(acnresultSet.Periodto));
             HTMLBody = HTMLBody.Replace("{Durationto}", Convert.ToString(acnresultSet.creationdate));
+            HTMLBody = HTMLBody.Replace("{Acndate}", Convert.ToString(acnresultSet.creationdate));
             string scopedata = "";
             string team = "";
             string team1 = "";
@@ -454,20 +455,28 @@ namespace coromendal.ACN.Endpoints
             HTMLBody = HTMLBody.Replace("{satisfaction3}", satisfaction3);
             message.Body = HTMLBody;
             message.IsBodyHtml = true;
-            using (var smtp = new SmtpClient())
+            string msg = "";
+            if (request.ContainsText == "mail")
+            {
+                using (var smtp = new SmtpClient())
             {
                 var credential = new NetworkCredential
                 {
-                    UserName = "pradeepmstech@gmail.com",
-                    Password = "Pradeep@1891"
+                    UserName = "at.admihoopla.1@gmail.com",
+                    Password = "qwerty2017"
                 };
                 smtp.Credentials = credential;
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
-                //smtp.Send(message);
+                    msg = "Sent Successfully";
+                }
             }
-            return "Sent Successfully";
+            else if (request.ContainsText == "preview")
+            {
+                msg = HTMLBody;
+            }
+            return msg;
 
         }
     }

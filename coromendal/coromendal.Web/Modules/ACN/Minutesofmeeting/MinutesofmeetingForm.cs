@@ -14,13 +14,16 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.MinutesofmeetingRow))]
     public class MinutesofmeetingForm
     {
-        [Category("Information from Audit Commencement Note")]        
-        public Int32 Acnid { get; set; }
+        [Category("Minutes of Audit Opening Meeting")]
         public Int32 AcnidPhaseNo { get; set; }
-        public String MeetingTitle { get; set; }       
-        public DateTime momdate { get; set; }
+        public DateTime AcnidCreationdate { get; set; }
         public DateTime planeddate { get; set; }
         public DateTime auditopeneddate { get; set; }
+        
+        public DateTime momdate { get; set; }
+        [Category("Information from Audit Commencement Note")]
+        public Int32 Acnid { get; set; }
+        public String MeetingTitle { get; set; }  
         [Category("Audit Scope Details")]
         [ScopeEditor]
         public List<ScopeRow> AcnidScopeList { get; set; }
@@ -36,9 +39,13 @@ namespace coromendal.ACN.Forms
         public String AcnidTodate { get; set; }
 
         
-        [Category("Meeting Absent")]
+        [Category("Auditor Meeting Absent")]
         [MeetingAbsentEditor]
-        public List<MeetingAbsentRow> AbsentList { get; set; }
+        public List<MeetingAbsentauditorRow> AbsentList { get; set; }
+
+        [Category("Auditee Meeting Absent")]
+        [MeetingAbsentAuditeeEditor]
+        public List<MeetingAbsentauditeeRow> AuditeeAbsent { get; set; }
 
         [Category("Observation From Previous Audit Report & Status")]
         [ObservationpreviousauditEditor]

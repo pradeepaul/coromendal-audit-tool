@@ -113,7 +113,7 @@ namespace coromendal.ACN.Endpoints
                     .From(auditor)
                     .Select(auditor.AcnAuditorId)
                     .Where(
-                    audit.AcnId == acnid);
+                    auditor.AcnId == acnid);
             using (var connection3 = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditorRefRow>())
                 auditorresultSet = connection3.Query(auditorsqlquery).ToList();
             int[] numbers1 = new int[auditorresultSet.Count];
@@ -133,6 +133,60 @@ namespace coromendal.ACN.Endpoints
                     auditoruser.UserId.In(numbers1));
             using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
                 auditoruserresultSet = connection5.Query(auditorusersqlquery).ToList();
+            //auditor  Absent display
+            var auditorAbsent = coromendal.ACN.Entities.MeetingAbsentauditorRow.Fields;
+            List<dynamic> auditorAbsentresultSet;
+            var auditorAbsentsqlquery = new SqlQuery()
+                    .From(auditorAbsent)
+                    .Select(auditorAbsent.AbsentUser)
+                    .Where(
+                    auditorAbsent.MeetingId == request.ContainsField);
+            using (var connection3 = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingAbsentauditorRow>())
+                auditorAbsentresultSet = connection3.Query(auditorAbsentsqlquery).ToList();
+            int[] numbers3 = new int[auditorAbsentresultSet.Count];
+            var mt3 = 0;
+            foreach (var item in auditorAbsentresultSet)
+            {
+                numbers3[mt3] = (int)item.AbsentUser;
+                mt++;
+            }
+            var auditorabsentuser = coromendal.Administration.Entities.UserRow.Fields;
+            List<dynamic> auditorabsentuserresultSet;
+            var auditorabsentusersqlquery = new SqlQuery()
+                    .From(auditorabsentuser)
+                    .Select(auditorabsentuser.DisplayName)
+                    .Select(auditorabsentuser.Email)
+                    .Where(
+                    auditorabsentuser.UserId.In(numbers3));
+            using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
+                auditorabsentuserresultSet = connection5.Query(auditorabsentusersqlquery).ToList();
+            //auditee  Absent display
+            var auditeeAbsent = coromendal.ACN.Entities.MeetingAbsentauditeeRow.Fields;
+            List<dynamic> auditeeAbsentresultSet;
+            var auditeeAbsentsqlquery = new SqlQuery()
+                    .From(auditeeAbsent)
+                    .Select(auditeeAbsent.AbsentUser)
+                    .Where(
+                    auditeeAbsent.MeetingId == request.ContainsField);
+            using (var connection3 = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingAbsentauditeeRow>())
+                auditeeAbsentresultSet = connection3.Query(auditeeAbsentsqlquery).ToList();
+            int[] numbers4 = new int[auditeeAbsentresultSet.Count];
+            var mt4 = 0;
+            foreach (var item in auditeeAbsentresultSet)
+            {
+                numbers4[mt4] = (int)item.AbsentUser;
+                mt++;
+            }
+            var auditeeabsentuser = coromendal.Administration.Entities.UserRow.Fields;
+            List<dynamic> auditeeabsentuserresultSet;
+            var auditeeabsentusersqlquery = new SqlQuery()
+                    .From(auditeeabsentuser)
+                    .Select(auditeeabsentuser.DisplayName)
+                    .Select(auditeeabsentuser.Email)
+                    .Where(
+                   auditeeabsentuser.UserId.In(numbers4));
+            using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
+                auditeeabsentuserresultSet = connection5.Query(auditeeabsentusersqlquery).ToList();
             //scope display
             var scope = coromendal.ACN.Entities.ScopeRow.Fields;
             List<dynamic> scoperesultSet;
@@ -219,7 +273,7 @@ namespace coromendal.ACN.Endpoints
             {
                 message.To.Add(new MailAddress(item.Email));
             }
-            message.From = new MailAddress("pradeepmstech@gmail.com", " New Minutes of Meeting");
+            message.From = new MailAddress("at.admihoopla.1@gmail.com", " New Minutes of Meeting");
             message.Subject = "New Minutes of Meeting";
             var projectBaseDir = System.AppDomain.CurrentDomain.BaseDirectory;
             string HTMLTemplatePath = Path.Combine(projectBaseDir, "mom.html");
@@ -257,6 +311,20 @@ namespace coromendal.ACN.Endpoints
                 team1 = string.Concat(team1, "-");
                 team1 = string.Concat(team1, item.DisplayName);
                 team1 = string.Concat(team1, "<br/>");
+            }
+            string absentauditor = "";
+            string absentauditee = "";
+            foreach (var item in auditorabsentuserresultSet)
+            {
+                absentauditor = string.Concat(absentauditor, "-");
+                absentauditor = string.Concat(absentauditor, item.DisplayName);
+                absentauditor = string.Concat(absentauditor, "<br/>");
+            }
+            foreach (var item in auditeeabsentuserresultSet)
+            {
+                absentauditee = string.Concat(absentauditee, "-");
+                absentauditee = string.Concat(absentauditee, item.DisplayName);
+                absentauditee = string.Concat(absentauditee, "<br/>");
             }
             string Observation = "";
             foreach (var item in obfrompreviousauditresultSet)
@@ -319,6 +387,8 @@ namespace coromendal.ACN.Endpoints
             HTMLBody = HTMLBody.Replace("{scope}", scopedata);
             HTMLBody = HTMLBody.Replace("{auditee}", team);
             HTMLBody = HTMLBody.Replace("{auditor}", team1);
+            HTMLBody = HTMLBody.Replace("{auditorabsent}", absentauditor);
+            HTMLBody = HTMLBody.Replace("{auditeeabsent}", absentauditee);
             HTMLBody = HTMLBody.Replace("{Observation}", Observation);
             HTMLBody = HTMLBody.Replace("{Points}", Points);
             HTMLBody = HTMLBody.Replace("{notes}", note);
@@ -326,21 +396,31 @@ namespace coromendal.ACN.Endpoints
             HTMLBody = HTMLBody.Replace("{Initiatives}", Initiative);
             HTMLBody = HTMLBody.Replace("{Changes}", Change);
             message.Body = HTMLBody;
-            message.IsBodyHtml = true;
-            using (var smtp = new SmtpClient())
+            string msg = "";
+            if (request.ContainsText == "mail")
             {
-                var credential = new NetworkCredential
+                message.IsBodyHtml = true;
+                using (var smtp = new SmtpClient())
                 {
-                    UserName = "pradeepmstech@gmail.com",
-                    Password = "Pradeep@1891"
-                };
-                smtp.Credentials = credential;
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
-                //smtp.Send(message);
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "at.admihoopla.1@gmail.com",
+                        Password = "qwerty2017"
+                    };
+                    smtp.Credentials = credential;
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
+                    smtp.Send(message);
+                    msg = "Sent Successfully";
+                }
             }
-            return "Sent Successfully";
+            else if (request.ContainsText == "preview")
+            {
+                msg = HTMLBody;
+            }
+            return msg;
+
 
         }
     }

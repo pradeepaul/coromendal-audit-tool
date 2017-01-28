@@ -23,6 +23,7 @@
                     DisplayName = user.DisplayName,
                     IsActive = user.IsActive.Value,
                     Source = user.Source,
+                    RoleId = user.RoleId.Value,
                     PasswordHash = user.PasswordHash,
                     PasswordSalt = user.PasswordSalt,
                     UpdateDate = user.UpdateDate,

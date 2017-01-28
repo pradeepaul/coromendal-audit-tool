@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
+    <Content Include="Content\Acn\acn.css" />
     <Content Include="Content\adminlte\img\avatar.png" />
     <Content Include="Content\adminlte\img\avatar04.png" />
     <Content Include="Content\adminlte\img\avatar2.png" />
@@ -176,6 +177,7 @@
     <Content Include="Content\adminlte\img\icons.png" />
     <Content Include="Content\adminlte\img\photo1.jpg" />
     <Content Include="Content\adminlte\img\photo2.jpg" />
+    <Content Include="Content\AOD\aod.css" />
     <Content Include="Content\aristo\aristo.css" />
     <Content Include="Content\aristo\images\icon_sprite.png" />
     <Content Include="Content\aristo\images\progress_bar.gif" />
@@ -195,6 +197,7 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.png" />
     <Content Include="Content\css\select2x2.png" />
+    <Content Include="Content\feedback\feedback.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\font-open-sans.css" />
@@ -322,8 +325,10 @@
     <Content Include="Content\ionicons.css" />
     <Content Include="Content\ionicons.min.css" />
     <Content Include="Content\jquery.fileupload.css" />
+    <Content Include="Content\MOM\mom.css" />
     <Content Include="Content\pace.css" />
     <Content Include="Content\pace.min.css" />
+    <Content Include="Content\retailfeedback\retailfeedback.css" />
     <Content Include="Content\serenity\images\32px.png" />
     <Content Include="Content\serenity\images\accessright.png" />
     <Content Include="Content\serenity\images\accordion-down.png" />
@@ -787,6 +792,7 @@
     <Content Include="fonts\ionicons.svg" />
     <Content Include="fonts\Simple-Line-Icons.dev.svg" />
     <Content Include="fonts\Simple-Line-Icons.svg" />
+    <Content Include="Modules\ACN\Acn\Acn.AcnDialog.Template.html" />
     <Content Include="Modules\Common\Imports\MultipleOutputHelper.ttinclude" />
     <Content Include="Content\site\site.administration.less" />
     <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_Postgres.sql" />
@@ -2068,11 +2074,11 @@
     <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingIssue\MeetingIssueEditorDialog.ts" />
-    <Content Include="Modules\ACN\MeetingAbsent\MeetingAbsentIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsent\MeetingAbsentGrid.ts" />
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsent\MeetingAbsentDialog.ts" />
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsent\MeetingAbsentEditor.ts" />
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsent\MeetingAbsentEditorDialog.ts" />
+    <Content Include="Modules\ACN\MeetingAbsen\MeetingAbsentIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsen\MeetingAbsentGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsen\MeetingAbsentDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsen\MeetingAbsentEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsen\MeetingAbsentEditorDialog.ts" />
     <Content Include="Modules\ACN\MeetingPoints\MeetingPointsIndex.cshtml" />
     <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsGrid.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingPoints\MeetingPointsDialog.ts" />
@@ -2237,6 +2243,99 @@
     <TypeScriptCompile Include="Modules\ACN\Riskmatrix\RiskmatrixDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Riskmatrix\RiskmatrixEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Riskmatrix\RiskmatrixEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\AcnReview.AcnReviewRefRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\AcnReview.AcnReviewRefService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\AcnReview.AcnReviewRefForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.DarClarificationsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.DarClarificationsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.DarClarificationsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\ACN\DaRrelease\DaRreleaseIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.DaRreleaseRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.DaRreleaseService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.DaRreleaseForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\DaRrelease\DaRreleaseGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\DaRrelease\DaRreleaseDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\DaRrelease\DaRreleaseEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\DaRrelease\DaRreleaseEditorDialog.ts" />
+    <Content Include="Modules\ACN\DarClarifications\DarClarificationsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\ACN\DarClarifications\DarClarificationsGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\DarClarifications\DarClarificationsDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\DarClarifications\DarClarificationsEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\DarClarifications\DarClarificationsEditorDialog.ts" />
+    <Content Include="Modules\ACN\AcnReviewRef\AcnReviewRefIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnReviewRefRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnReviewRefService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnReviewRefForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\AcnReviewRef\AcnReviewRefGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnReviewRef\AcnReviewRefDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnReviewRef\AcnReviewRefEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnReviewRef\AcnReviewRefEditorDialog.ts" />
+    <Content Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalstatusvalueRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalstatusvalueService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalstatusvalueForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueEditorDialog.ts" />
+    <Content Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditeeRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditeeService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditeeForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeEditorDialog.ts" />
+    <Content Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditorRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditorService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditorForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2271,6 +2370,7 @@
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditeeLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorLookup.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MeetingAbsentAuditeeEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingAbsentEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingIssueEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingPointsEditorAttribute.cs" />
@@ -2796,12 +2896,12 @@
     <Compile Include="Modules\ACN\MeetingIssue\MeetingIssueRepository.cs" />
     <Compile Include="Modules\ACN\MeetingIssue\MeetingIssueEndpoint.cs" />
     <Compile Include="Modules\ACN\MeetingIssue\MeetingIssuePage.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentRow.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentColumns.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentForm.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentRepository.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentEndpoint.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsent\MeetingAbsentPage.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsen\MeetingAbsentRow.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsen\MeetingAbsentColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsen\MeetingAbsentForm.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsen\MeetingAbsentRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsen\MeetingAbsentEndpoint.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsen\MeetingAbsentPage.cs" />
     <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsRow.cs" />
     <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsColumns.cs" />
     <Compile Include="Modules\ACN\MeetingPoints\MeetingPointsForm.cs" />
@@ -2880,6 +2980,42 @@
     <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixRepository.cs" />
     <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixEndpoint.cs" />
     <Compile Include="Modules\ACN\Riskmatrix\RiskmatrixPage.cs" />
+    <Compile Include="Modules\ACN\DaRrelease\DaRreleaseRow.cs" />
+    <Compile Include="Modules\ACN\DaRrelease\DaRreleaseColumns.cs" />
+    <Compile Include="Modules\ACN\DaRrelease\DaRreleaseForm.cs" />
+    <Compile Include="Modules\ACN\DaRrelease\DaRreleaseRepository.cs" />
+    <Compile Include="Modules\ACN\DaRrelease\DaRreleaseEndpoint.cs" />
+    <Compile Include="Modules\ACN\DaRrelease\DaRreleasePage.cs" />
+    <Compile Include="Modules\ACN\DarClarifications\DarClarificationsRow.cs" />
+    <Compile Include="Modules\ACN\DarClarifications\DarClarificationsColumns.cs" />
+    <Compile Include="Modules\ACN\DarClarifications\DarClarificationsForm.cs" />
+    <Compile Include="Modules\ACN\DarClarifications\DarClarificationsRepository.cs" />
+    <Compile Include="Modules\ACN\DarClarifications\DarClarificationsEndpoint.cs" />
+    <Compile Include="Modules\ACN\DarClarifications\DarClarificationsPage.cs" />
+    <Compile Include="Modules\ACN\AcnReviewRef\AcnReviewRefRow.cs" />
+    <Compile Include="Modules\ACN\AcnReviewRef\AcnReviewRefColumns.cs" />
+    <Compile Include="Modules\ACN\AcnReviewRef\AcnReviewRefForm.cs" />
+    <Compile Include="Modules\ACN\AcnReviewRef\AcnReviewRefRepository.cs" />
+    <Compile Include="Modules\ACN\AcnReviewRef\AcnReviewRefEndpoint.cs" />
+    <Compile Include="Modules\ACN\AcnReviewRef\AcnReviewRefPage.cs" />
+    <Compile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueRow.cs" />
+    <Compile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueColumns.cs" />
+    <Compile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueForm.cs" />
+    <Compile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueRepository.cs" />
+    <Compile Include="Modules\ACN\Finalstatusvalue\FinalstatusvalueEndpoint.cs" />
+    <Compile Include="Modules\ACN\Finalstatusvalue\FinalstatusvaluePage.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeRow.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeForm.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeEndpoint.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeePage.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorRow.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorForm.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEndpoint.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

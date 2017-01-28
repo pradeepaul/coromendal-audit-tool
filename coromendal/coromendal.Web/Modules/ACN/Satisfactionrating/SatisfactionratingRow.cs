@@ -23,91 +23,97 @@ namespace coromendal.ACN.Entities
             set { Fields.SatisfactionratingId[this] = value; }
         }
 
-        [DisplayName("Score(1-5)"), Column("documentscore")]
+        [DisplayName(""), Column("documentscore")]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public Int32? Documentscore
         {
             get { return Fields.Documentscore[this]; }
             set { Fields.Documentscore[this] = value; }
         }
 
-        [DisplayName("Reason"), Column("documentcomments"), Size(100), QuickSearch]        
+        [DisplayName(""), Column("documentcomments"), Size(100), QuickSearch]        
         public String Documentcomments
         {
             get { return Fields.Documentcomments[this]; }
             set { Fields.Documentcomments[this] = value; }
         }
-        [DisplayName("Rating(1-5)"), Column("documentrating"), Size(100)]
-        
+        [DisplayName(""), Column("documentrating"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Documentrating
         {
             get { return Fields.Documentrating[this]; }
             set { Fields.Documentrating[this] = value; }
         }
 
-        [DisplayName("Weightage( In %)"), Column("documentweigtage"), Size(100)]
+        [DisplayName(""), Column("documentweigtage"), Size(100)]
         public String Documentweigtage
         {
             get { return Fields.Documentweigtage[this]; }
             set { Fields.Documentweigtage[this] = value; }
         }
 
-        [DisplayName("Score(1-5)"), Column("compliancescore"), Size(100)]
+        [DisplayName(""), Column("compliancescore"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Compliancescore
         {
             get { return Fields.Compliancescore[this]; }
             set { Fields.Compliancescore[this] = value; }
         }
 
-        [DisplayName("Reason"), Column("compliancecomment"), Size(100)]
+        [DisplayName(""), Column("compliancecomment"), Size(100)]
         public String Compliancecomment
         {
             get { return Fields.Compliancecomment[this]; }
             set { Fields.Compliancecomment[this] = value; }
         }
 
-        [DisplayName("Score(1-5)"), Column("processfincontrollscore"), Size(100)]
+        [DisplayName(""), Column("processfincontrollscore"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Processfincontrollscore
         {
             get { return Fields.Processfincontrollscore[this]; }
             set { Fields.Processfincontrollscore[this] = value; }
         }
 
-        [DisplayName("Reason"), Column("processfincontrollscorecmnts"), Size(100)]
+        [DisplayName(""), Column("processfincontrollscorecmnts"), Size(100)]
         public String Processfincontrollscorecmnts
         {
             get { return Fields.Processfincontrollscorecmnts[this]; }
             set { Fields.Processfincontrollscorecmnts[this] = value; }
         }
 
-        [DisplayName("Score(1-5)"), Column("responsescore"), Size(100)]
+        [DisplayName(""), Column("responsescore"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Responsescore
         {
             get { return Fields.Responsescore[this]; }
             set { Fields.Responsescore[this] = value; }
         }
 
-        [DisplayName("Reason"), Column("responsecmnts"), Size(100)]
+        [DisplayName(""), Column("responsecmnts"), Size(100)]
         public String Responsecmnts
         {
             get { return Fields.Responsecmnts[this]; }
             set { Fields.Responsecmnts[this] = value; }
         }
 
-        [DisplayName("Score(1-5)"), Column("preauditscore"), Size(100)]
+        [DisplayName(""), Column("preauditscore"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Preauditscore
         {
             get { return Fields.Preauditscore[this]; }
             set { Fields.Preauditscore[this] = value; }
         }
 
-        [DisplayName("Reason"), Column("preauditcmnts"), Size(100)]
+        [DisplayName(""), Column("preauditcmnts"), Size(100)]
         public String Preauditcmnts
         {
             get { return Fields.Preauditcmnts[this]; }
             set { Fields.Preauditcmnts[this] = value; }
         }
 
-        [DisplayName("Score(1-5)"), Column("newinitiativescore"), Size(100)]
+        [DisplayName(""), Column("newinitiativescore"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Newinitiativescore
         {
             get { return Fields.Newinitiativescore[this]; }
@@ -130,81 +136,82 @@ namespace coromendal.ACN.Entities
 
         
 
-        [DisplayName("Weightage( In %)"), Column("complianceweightage"), Size(100)]
+        [DisplayName(""), Column("complianceweightage"), Size(100)]
         public String Complianceweightage
         {
             get { return Fields.Complianceweightage[this]; }
             set { Fields.Complianceweightage[this] = value; }
         }
 
-        [DisplayName("Rating(1-5)"), Column("compliancerating"), Size(100)]
-        
+        [DisplayName(""), Column("compliancerating"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Compliancerating
         {
             get { return Fields.Compliancerating[this]; }
             set { Fields.Compliancerating[this] = value; }
         }
 
-        [DisplayName("Weightage( In %)"), Column("processfincontrollweightage"), Size(100)]
+        [DisplayName(""), Column("processfincontrollweightage"), Size(100)]
         public String Processfincontrollweightage
         {
             get { return Fields.Processfincontrollweightage[this]; }
             set { Fields.Processfincontrollweightage[this] = value; }
         }
 
-        [DisplayName("Rating(1-5)"), Column("processfincontrollrating"), Size(100)]
-       
+        [DisplayName(""), Column("processfincontrollrating"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Processfincontrollrating
         {
             get { return Fields.Processfincontrollrating[this]; }
             set { Fields.Processfincontrollrating[this] = value; }
         }
 
-        [DisplayName("Rating(1-5)"), Column("responserating"), Size(100)]
-        
+        [DisplayName(""), Column("responserating"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
         public String Responserating
         {
             get { return Fields.Responserating[this]; }
             set { Fields.Responserating[this] = value; }
         }
 
-        [DisplayName("Weightage( In %)"), Column("responseweightage"), Size(100)]
+        [DisplayName(""), Column("responseweightage"), Size(100)]
         public String Responseweightage
         {
             get { return Fields.Responseweightage[this]; }
             set { Fields.Responseweightage[this] = value; }
         }
 
-        [DisplayName("Weightage( In %)"), Column("preauditweightage"), Size(100)]
+        [DisplayName(""), Column("preauditweightage"), Size(100)]
         public String Preauditweightage
         {
             get { return Fields.Preauditweightage[this]; }
             set { Fields.Preauditweightage[this] = value; }
         }
 
-        [DisplayName("Rating(1-5)"), Column("preauditrating"), Size(100)]
-        
+        [DisplayName(""), Column("preauditrating"), Size(100)]
+        [LookupEditor(typeof(FeedbackvalueRow))]
+
         public String Preauditrating
         {
             get { return Fields.Preauditrating[this]; }
             set { Fields.Preauditrating[this] = value; }
         }
 
-        [DisplayName("Reason"), Column("newinitiativecmnts"), Size(100)]
+        [DisplayName(""), Column("newinitiativecmnts"), Size(100)]
         public String Newinitiativecmnts
         {
             get { return Fields.Newinitiativecmnts[this]; }
             set { Fields.Newinitiativecmnts[this] = value; }
         }
 
-        [DisplayName("Weightage( In %)"), Column("newinitiativeweight"), Size(100)]
+        [DisplayName(""), Column("newinitiativeweight"), Size(100)]
         public String Newinitiativeweight
         {
             get { return Fields.Newinitiativeweight[this]; }
             set { Fields.Newinitiativeweight[this] = value; }
         }
 
-        [DisplayName("Rating"), Column("newinitiativerating"), Size(100)]
+        [DisplayName(""), Column("newinitiativerating"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
         public String Newinitiativerating
         {
@@ -281,6 +288,49 @@ namespace coromendal.ACN.Entities
             get { return Fields.AodidAcnid[this]; }
             set { Fields.AodidAcnid[this] = value; }
         }
+        [DisplayName("Score assigned by auditor(1 - 5)"), ReadOnly(true)]
+        public String scorelabel
+        {
+            get { return Fields.scorelabel[this]; }
+            set { Fields.scorelabel[this] = value; }
+        }
+        [DisplayName("Reasons for score below 3"), ReadOnly(true)]
+        public String comeentslabel
+        {
+            get { return Fields.comeentslabel[this]; }
+            set { Fields.comeentslabel[this] = value; }
+        }
+        [DisplayName("Rating"), ReadOnly(true)]
+        public String ratinglabel
+        {
+            get { return Fields.ratinglabel[this]; }
+            set { Fields.ratinglabel[this] = value; }
+        }
+        [DisplayName("Weightage"), ReadOnly(true)]
+        public String weightlabel
+        {
+            get { return Fields.AodidSbu[this]; }
+            set { Fields.AodidSbu[this] = value; }
+        }
+        [DisplayName("totalscore3")]
+        public String totalscore3
+        {
+            get { return Fields.AodidSbu[this]; }
+            set { Fields.AodidSbu[this] = value; }
+        }
+        [DisplayName("totalscore1")]
+        public String totalscore1
+        {
+            get { return Fields.AodidSbu[this]; }
+            set { Fields.AodidSbu[this] = value; }
+        }
+        [DisplayName("totalscore2")]
+        public String totalscore2
+        {
+            get { return Fields.AodidSbu[this]; }
+            set { Fields.AodidSbu[this] = value; }
+        }
+
 
         IIdField IIdRow.IdField
         {
@@ -328,6 +378,14 @@ namespace coromendal.ACN.Entities
             public StringField Newinitiativecmnts;
             public StringField Newinitiativeweight;
             public StringField Newinitiativerating;
+
+            public StringField scorelabel;
+            public StringField comeentslabel;
+            public StringField ratinglabel;
+            public StringField weightlabel;
+            public StringField totalscore1;
+            public StringField totalscore2;
+            public StringField totalscore3;
 
             public Int32Field AodidMeetingid;
             public StringField AodidActualcomencementdate;

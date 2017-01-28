@@ -18,7 +18,8 @@ namespace coromendal.ACN.Forms
         public Int32 Acnid { get; set; }
         public String userid { get; set; }
         public String status { get; set; }
-       
+        public List<Int32> Qc { get; set; }
+
         [KeyfactsEditor]
         public List<KeyfactsRow> Keyfacts { get; set; }
     }

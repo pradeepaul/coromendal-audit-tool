@@ -14,9 +14,11 @@ namespace coromendal.ACN {
         }
         protected getColumns(): Slick.Column[] {
             var columns = super.getColumns();
-            var fld = ACN.MinutesofmeetingRow.Fields;
+            var fld = ACN.MinutesofmeetingRow.Fields;            
             Q.first(columns, x => x.field == fld.Auditscope).format =
-                ctx => `<a href="" class="send">Send</a>`;
+                ctx => `<a href="" class="send previewbtn"></a>`;
+            Q.first(columns, x => x.field == fld.Venue).format =
+                ctx => `<a href="" class="send sendbtn"></a>`;
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {
@@ -26,12 +28,26 @@ namespace coromendal.ACN {
             }
             var item = this.itemAt(row);
             var target = $(e.target);
-            if (target.hasClass("send")) {
+            if (target.hasClass("previewbtn")) {
                 e.preventDefault();
                 var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
                 request.ContainsField = String(item.Meetingid);
+                request.ContainsText = "preview";
+                Q.serviceCall({ service: 'ACN/Minutesofmeeting/Sendmail', request: request, onSuccess: this.preview });      
+            }
+            if (target.hasClass("sendbtn")) {
+                e.preventDefault();
+                var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
+                request.ContainsField = String(item.Meetingid);
+                request.ContainsText = "mail";
+                //Q.serviceCall({ service: 'ACN/Acn/Sendmail', request: request, onSuccess: this.preview });
                 Q.postToService({ service: 'ACN/Minutesofmeeting/Sendmail', request: request, target: '_blank' });
             }
+
+        }
+        protected preview(respose) {
+            Q.iframeDialog({ html: respose });
+            // console.log(respose);        
         }
     }
 }

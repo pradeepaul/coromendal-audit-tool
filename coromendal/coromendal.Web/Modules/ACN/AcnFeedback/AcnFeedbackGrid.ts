@@ -16,7 +16,9 @@ namespace coromendal.ACN {
             var columns = super.getColumns();
             var fld = ACN.AcnFeedbackRow.Fields;
             Q.first(columns, x => x.field == fld.Preview).format =
-                ctx => `<a href="" class="send">Send</a>`;
+                ctx => `<a href="" class="send previewbtn"></a>`;
+            Q.first(columns, x => x.field == fld.Send).format =
+                ctx => `<a href="" class="send sendbtn"></a>`;
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {
@@ -26,12 +28,25 @@ namespace coromendal.ACN {
             }
             var item = this.itemAt(row);
             var target = $(e.target);
-            if (target.hasClass("send")) {
+            if (target.hasClass("previewbtn")) {
                 e.preventDefault();
                 var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
                 request.ContainsField = String(item.AcnFeedbackId);
+                request.ContainsText = "preview";
+                Q.serviceCall({ service: 'ACN/AcnFeedback/Sendmail', request: request, onSuccess: this.preview }); 
+                //Q.postToService({ service: 'ACN/AcnFeedback/Sendmail', request: request, target: '_blank' });
+            }
+            if (target.hasClass("sendbtn")) {
+                e.preventDefault();
+                var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
+                request.ContainsField = String(item.AcnFeedbackId);
+                request.ContainsText = "mail";
                 Q.postToService({ service: 'ACN/AcnFeedback/Sendmail', request: request, target: '_blank' });
             }
+        }
+        protected preview(respose) {
+            Q.iframeDialog({ html: respose });
+            // console.log(respose);        
         }
     }
 }

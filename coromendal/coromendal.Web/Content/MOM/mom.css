@@ -1,0 +1,35 @@
+﻿.s-MinutesofmeetingDialog {
+    width: 1600px !important;
+}
+.category-anchor {
+    color: #000000 !important;
+}
+.category-title {
+    text-align: center !important;
+}
+.caption {
+    width: auto !important;
+    color: #000000 !important;
+}
+.AcnidPhaseNo {
+    max-width: 14%;
+}
+.AcnidCreationdate {
+    max-width: 21%;
+}
+.momdate, .planeddate {
+    max-width: 20%;
+    text-align: left;
+}
+.auditopeneddate {
+    max-width: 25%;
+    text-align: left;
+}
+.AcnidPeriodfrom, .AcnidPeriodto,
+.AcnidFromdate, .AcnidTodate {
+    max-width: 50%;
+}
+.category:nth-child(4), .category:nth-child(5) {
+    max-width: 50%;
+    display: inline-flex;
+}

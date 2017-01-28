@@ -24,5 +24,6 @@ namespace coromendal.ACN.Columns
         public String Date { get; set; }
         public String Storeno { get; set; }
         public String Preview { get; set; }
+        public String Send { get; set; }
     }
 }

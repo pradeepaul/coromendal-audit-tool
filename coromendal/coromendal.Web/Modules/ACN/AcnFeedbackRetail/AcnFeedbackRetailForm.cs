@@ -15,12 +15,11 @@ namespace coromendal.ACN.Forms
     {
 
         public Int32 Acnid { get; set; }
-        [Category("Personal Details")]
         public String Name { get; set; }
+        public String Date { get; set; }
         public String Dept { get; set; }
         public String Reviewname { get; set; }
         public String Location { get; set; }
-        public String Date { get; set; }
         public String Storeno { get; set; }
 
         [Category("The audit reporting process was adequately explained.")]

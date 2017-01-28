@@ -162,7 +162,30 @@ namespace coromendal.ACN
             public const string Modify = "AOD:Modify";
             public const string View = "AOD:View";
         }
-
+        public class DaRrelease
+        {
+            public const string Delete = "DaRrelease:Delete";
+            public const string Modify = "DaRrelease:Modify";
+            public const string View = "DaRrelease:View";
+        }
+        public class DarClarifications
+        {
+            public const string Delete = "DarClarifications:Delete";
+            public const string Modify = "DarClarifications:Modify";
+            public const string View = "DarClarifications:View";
+        }
+        public class MeetingAbsentauditee
+        {
+            public const string Delete = "MeetingAbsentauditee:Delete";
+            public const string Modify = "MeetingAbsentauditee:Modify";
+            public const string View = "MeetingAbsentauditee:View";
+        }
+        public class MeetingAbsentauditor
+        {
+            public const string Delete = "MeetingAbsentauditor:Delete";
+            public const string Modify = "MeetingAbsentauditor:Modify";
+            public const string View = "MeetingAbsentauditor:View";
+        }
         public const string General = "ACN:General";
     }
 }

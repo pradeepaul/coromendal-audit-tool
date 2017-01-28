@@ -54,11 +54,17 @@ namespace coromendal.ACN.Entities
             set { Fields.ProcessOwner[this] = value; }
         }
 
-        [DisplayName("Send"), Column("preview"), Size(10)]
+        [DisplayName("Preview"), Column("preview"), Size(10)]
         public String Preview
         {
             get { return Fields.Preview[this]; }
             set { Fields.Preview[this] = value; }
+        }
+        [DisplayName("Send"), Column("send"), Size(10)]
+        public String Send
+        {
+            get { return Fields.Send[this]; }
+            set { Fields.Send[this] = value; }
         }
 
         [DisplayName("Functional Heads"), Size(100)]
@@ -201,14 +207,14 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidAcnTilte[this] = value; }
         }
 
-        [DisplayName("Phase No"), Expression("jAcnid.[PhaseNo]"), Updatable(false), ReadOnly(true)]
+        [DisplayName(" "), Expression("jAcnid.[PhaseNo]"), Updatable(false), ReadOnly(true)]
         public Int32? AcnidPhaseNo
         {
             get { return Fields.AcnidPhaseNo[this]; }
             set { Fields.AcnidPhaseNo[this] = value; }
         }
 
-        [DisplayName("Acnid Location"), Expression("jAcnid.[location]"), Updatable(false), ReadOnly(true)]
+        [DisplayName("Location"), Expression("jAcnid.[location]"), Updatable(false), ReadOnly(true)]
         public String AcnidLocation
         {
             get { return Fields.AcnidLocation[this]; }
@@ -243,7 +249,7 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidPeriodto[this] = value; }
         }
 
-        [DisplayName("Acnid Creationdate"), Expression("jAcnid.[creationdate]"), Updatable(false), ReadOnly(true)]
+        [DisplayName(" "), Expression("jAcnid.[creationdate]"), Updatable(false), ReadOnly(true)]
         public String AcnidCreationdate
         {
             get { return Fields.AcnidCreationdate[this]; }
@@ -315,6 +321,7 @@ namespace coromendal.ACN.Entities
             public StringField Sbu;
             public Int32Field Acnid;
             public StringField Preview;
+            public StringField Send;
 
 
             public Int32Field MeetingidAcnid;

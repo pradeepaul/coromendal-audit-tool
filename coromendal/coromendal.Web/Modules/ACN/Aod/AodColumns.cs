@@ -25,6 +25,8 @@ namespace coromendal.ACN.Columns
         public String ProcessOwner { get; set; }
         [EditLink]
         public String Preview { get; set; }
+        [EditLink]
+        public String Send { get; set; }
 
     }
 }

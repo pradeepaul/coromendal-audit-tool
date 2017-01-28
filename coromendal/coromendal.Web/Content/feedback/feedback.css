@@ -1,0 +1,22 @@
+﻿.category-title {
+  max-width: 23%;
+  border-bottom: #fff !important;
+}
+.Ques1,.Ques2,.Ques3,.Ques4,.Ques5,.Ques6,.Ques7,.Ques8,.Ques9,.Ques10,.Ques11,.Ques12,.Ques13,.Ques14 {
+  max-width: 35% !important;
+  padding-top: 1% !important;
+}
+.Remark1,.Remark2,.Remark3,.Remark4,.Remark5,.Remark6,.Remark7,.Remark8,.Remark9,.Remark10,.Remark11,.Remark12,.Remark13,.Remark14 {
+  max-width: 40% !important;
+  padding-top: 1% !important;
+}
+
+.ui-dialog {
+    position: absolute;
+    padding: 0;
+    width: 1200px !important;
+    height: 800px !important;
+}
+.s-Form {
+  height: 700px !important;
+}

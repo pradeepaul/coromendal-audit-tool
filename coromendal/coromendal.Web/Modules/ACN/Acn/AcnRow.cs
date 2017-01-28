@@ -29,21 +29,27 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
-        [DisplayName("Phase No"), Size(40), QuickSearch]
+        [DisplayName("Management Audit will be taking up phase No."), Size(40), QuickSearch]
         public Int32? PhaseNo
         {
             get { return Fields.PhaseNo[this]; }
             set { Fields.PhaseNo[this] = value; }
         }
 
-        [DisplayName("Assignment Title"), Size(40), QuickSearch]
+        [DisplayName("audit of"), Size(40), QuickSearch]
         public String AcnTilte
         {
             get { return Fields.AcnTilte[this]; }
             set { Fields.AcnTilte[this] = value; }
         }
 
-        [DisplayName("Send"), Column("preview"), Size(10)]
+        [DisplayName("Preview"), Column("preview"), Size(10)]
+        public String Send
+        {
+            get { return Fields.send[this]; }
+            set { Fields.send[this] = value; }
+        }
+        [DisplayName("Send"), Column("send"), Size(10)]
         public String Preview
         {
             get { return Fields.Preview[this]; }
@@ -70,31 +76,31 @@ namespace coromendal.ACN.Entities
         }
        
         
-       [DisplayName("Period of Coverage From"), Size(40), QuickSearch]
+       [DisplayName("for the period"), Size(40), QuickSearch]
         public String Periodfrom
         {
             get { return Fields.Periodfrom[this]; }
             set { Fields.Periodfrom[this] = value; }
         }
-        [DisplayName("Period of Coverage To"), Size(40), QuickSearch]
+        [DisplayName("to"), Size(40), QuickSearch]
         public String Periodto
         {
             get { return Fields.Periodto[this]; }
             set { Fields.Periodto[this] = value; }
         }
-        [DisplayName("Audit Execution From Date"), Size(40), QuickSearch]
+        [DisplayName("from "), Size(40), QuickSearch]
         public String Fromdate
         {
             get { return Fields.Fromdate[this]; }
             set { Fields.Fromdate[this] = value; }
         }
-        [DisplayName("Audit Execution To Date"), Size(40), QuickSearch]
+        [DisplayName("to"), Size(40), QuickSearch]
         public String Todate
         {
             get { return Fields.Todate[this]; }
             set { Fields.Todate[this] = value; }
         }
-        [DisplayName("Location"), Size(40), QuickSearch]
+        [DisplayName("at"), Size(40), QuickSearch]
         public String location
         {
             get { return Fields.location[this]; }
@@ -146,6 +152,7 @@ namespace coromendal.ACN.Entities
             public StringField creationdate;
             public RowListField<ScopeRow> ScopeList;
             public StringField Preview;
+            public StringField send;
 
 
 

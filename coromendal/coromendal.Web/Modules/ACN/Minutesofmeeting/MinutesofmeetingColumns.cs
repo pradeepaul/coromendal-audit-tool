@@ -25,5 +25,6 @@ namespace coromendal.ACN.Columns
         public String planeddate { get; set; }
         public String auditopeneddate { get; set; }
         public String Auditscope { get; set; }
+        public String Venue { get; set; }
     }
 }

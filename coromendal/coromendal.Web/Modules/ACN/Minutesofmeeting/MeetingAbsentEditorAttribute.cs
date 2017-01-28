@@ -9,7 +9,7 @@ namespace coromendal.ACN.Forms
 {
     internal class MeetingAbsentEditorAttribute : CustomEditorAttribute
     {
-        public const string Key = "ACN.MeetingAbsentEditor";
+        public const string Key = "ACN.MeetingAbsentauditorEditor";
 
         public MeetingAbsentEditorAttribute()
             : base(Key)

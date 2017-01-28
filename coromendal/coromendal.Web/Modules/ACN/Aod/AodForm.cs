@@ -14,17 +14,25 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.AodRow))]
     public class AodForm
     {
-        
-        
-        [Category("Information from Audit Commencement Note")]
-        public Int32 Meetingid { get; set; }
-        public Int32 AcnidPhaseNo { get; set; }        
-        [Category("Information from Minutes of Meeting")]
-       
+        public String Sbu { get; set; }
+        public String AcnidLocation { get; set; }
         public Int32 Acnid { get; set; }
-        public DateTime MeetingidMomdate { get; set; }
+        public Int32 Meetingid { get; set; }
+        [Category("Report No")]
+        public Int32 AcnidPhaseNo { get; set; }
+        [Category("ACN Date")]
+        public String AcnidCreationdate { get; set; }
+        [Category("Commencement Date")]
         public DateTime MeetingidPlanedcloseddate { get; set; }
+        public DateTime Actualcomencementdate { get; set; }
+        [Category("Completion Date")]
         public DateTime MeetingidAuditopeningmeetingdate { get; set; }
+        public DateTime Actualcompltedate { get; set; }
+        [Category("AOD Discussion Date")]
+        public String ProcessOwner { get; set; }
+        public String Functionalhead { get; set; }
+
+        //public DateTime MeetingidMomdate { get; set; }
         [Category("Period Covered")]
 
         public String AcnidPeriodfrom { get; set; }
@@ -34,12 +42,7 @@ namespace coromendal.ACN.Forms
 
         public String AcnidFromdate { get; set; }
         public String AcnidTodate { get; set; }
-        [Category("AOD discussion Details")]
-        public String Sbu { get; set; }
-        public DateTime Actualcomencementdate { get; set; }
-        public DateTime Actualcompltedate { get; set; }
-        public String ProcessOwner { get; set; }
-        public String Functionalhead { get; set; }
+        [Category("")]
         public String Areaofscope { get; set; }
         public String Exclusions { get; set; }
         public String Reasons { get; set; }        

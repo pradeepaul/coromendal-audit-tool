@@ -9,6 +9,10 @@ namespace MVC
             public static class Acn
             {
                 public const string AcnIndex = "~/Modules/ACN/Acn/AcnIndex.cshtml";
+
+                internal class AcnDialog
+                {
+                }
             }
 
             public static class AcnAuditee

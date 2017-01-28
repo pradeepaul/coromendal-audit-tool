@@ -2,6 +2,7 @@
 
 namespace coromendal.ACN.Entities
 {
+    using Administration.Scripts;
     using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
@@ -46,6 +47,15 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.Download[this]; }
             set { Fields.Download[this] = value; }
+        }
+        [LookupEditor(typeof(UserLookup1), Multiple = true), ClientSide]
+        [LinkingSetRelation(typeof(AcnReviewRefRow), "reportId", "AcnReviewID")]
+        [MinSelectLevel(SelectLevel.Details)]
+        [DisplayName("Quality Control"), Size(40), QuickSearch]
+        public List<Int32> Qc
+        {
+            get { return Fields.Qc[this]; }
+            set { Fields.Qc[this] = value; }
         }
 
         [DisplayName("Audit Status"), Column("status"), Size(100), QuickSearch]
@@ -191,6 +201,7 @@ namespace coromendal.ACN.Entities
             public Int32Field Download;
             public Int32Field userid;
             public StringField status;
+            public ListField<Int32> Qc;
 
             public StringField AcnidAcnTilte;
             public Int32Field AcnidPhaseNo;

@@ -45,7 +45,7 @@ namespace coromendal.ACN.Entities
         }
 
 
-        [DisplayName("Send"), Column("auditscope"), Size(200)]
+        [DisplayName("Preview"), Column("auditscope"), Size(200)]
         public String Auditscope
         {
             get { return Fields.Auditscope[this]; }
@@ -66,7 +66,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Time[this] = value; }
         }
 
-        [DisplayName("Venue"), Column("venue"), Size(200)]
+        [DisplayName("Send"), Column("venue"), Size(200)]
         public String Venue
         {
             get { return Fields.Venue[this]; }
@@ -178,7 +178,7 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidPeriodto[this] = value; }
         }
 
-        [DisplayName("Acnid Creationdate"), Expression("jAcnid.[creationdate]"), Updatable(false), ReadOnly(true)]
+        [DisplayName("Audit commencement Date"), Expression("jAcnid.[creationdate]"), Updatable(false), ReadOnly(true)]
         public String AcnidCreationdate
         {
             get { return Fields.AcnidCreationdate[this]; }
@@ -282,11 +282,18 @@ namespace coromendal.ACN.Entities
             get { return Fields.DetailList[this]; }
             set { Fields.DetailList[this] = value; }
         }
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
-        public List<MeetingAbsentRow> AbsentList
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(true), ReadOnly(true)]
+        public List<MeetingAbsentauditorRow> AbsentList
         {
             get { return Fields.AbsentList[this]; }
             set { Fields.AbsentList[this] = value; }
+        }
+
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(true), ReadOnly(true)]
+        public List<MeetingAbsentauditeeRow> AuditeeAbsent
+        {
+            get { return Fields.AuditeeAbsent[this]; }
+            set { Fields.AuditeeAbsent[this] = value; }
         }
         [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
         public List<MeetingPointsRow> PointsList
@@ -357,7 +364,8 @@ namespace coromendal.ACN.Entities
 
            
             public RowListField<MeetingIssueRow> DetailList;
-            public RowListField<MeetingAbsentRow> AbsentList;
+            public RowListField<MeetingAbsentauditeeRow> AuditeeAbsent;
+            public RowListField<MeetingAbsentauditorRow> AbsentList;
             public RowListField<MeetingPointsRow> PointsList;
             public RowListField<ObservationpreviousauditRow> PreviousObservationaudit;
             public RowListField<NewchangesRow> Newchanges;

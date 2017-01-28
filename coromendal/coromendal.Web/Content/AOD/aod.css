@@ -1,0 +1,166 @@
+﻿.ui-dialog .ui-dialog-content {
+    height: 100% !important;
+}
+.s-AodDialog {
+    width: 1600px !important;
+    height: 650px !important;
+}
+.s-SatisfactionratingEditorDialog {
+    width: 1700px !important;
+    height: 400px !important;
+}
+.category-anchor {
+    color: #000000 !important;
+}
+.category-title {
+    text-align: center !important;
+}
+.caption {
+    width: auto !important;
+    color: #000000 !important;
+}
+.Sbu .caption,
+.Acnid .caption,
+.AcnidLocation .caption,
+.Meetingid .caption {
+    display: flex !important;
+}
+.Acnid, .Sbu {
+    max-width: 20%;
+}
+.Meetingid, .AcnidLocation {
+    max-width: 30%;
+}
+.AcnidPhaseNo, .AcnidCreationdate{
+    max-width: 100%;
+    margin-top: 20px !important;
+}
+.AcnidPhaseNo input, .AcnidCreationdate input {
+    max-width: 90%;
+}
+.MeetingidPlanedcloseddate {
+    max-width: 25%;
+}
+.MeetingidPlanedcloseddate input{
+    float: left !important;
+    max-width: 85%;
+    margin-bottom: 20px !important;
+}
+.Actualcomencementdate{
+    max-width: 75%;
+    margin-bottom: 20px !important;
+} 
+.MeetingidAuditopeningmeetingdate,
+.Actualcompltedate {
+    max-width: 50%;
+    margin-bottom: 20px !important;
+} 
+.Actualcomencementdate input,
+.MeetingidAuditopeningmeetingdate input,
+.Actualcompltedate input {
+    float: left !important;
+    max-width: 80%;
+} 
+.ProcessOwner, .Functionalhead {
+    max-width: 50%;
+    margin-bottom: 5px !important;
+}
+.category:nth-child(2){
+    max-width: 12%;
+    display: inline-flex;
+}
+.category:nth-child(3) {
+    max-width: 13%;
+    display: inline-flex;
+}
+.category:nth-child(4),
+.category:nth-child(5),
+.category:nth-child(6) {
+    max-width: 25%;
+    display: inline-flex;
+}
+.field {
+    height: 65px;
+}
+.AcnidPhaseNo,.AcnidCreationdate,
+.MeetingidPlanedcloseddate,
+.Actualcomencementdate,
+.MeetingidAuditopeningmeetingdate,
+.Actualcompltedate,.ProcessOwner,
+.Functionalhead {
+    display: inline-table !important;
+}
+.category:nth-child(7), .category:nth-child(8) {
+    max-width: 50%;
+    display: inline-flex;
+}
+
+.AcnidPeriodfrom, .AcnidPeriodto,
+.AcnidFromdate, .AcnidTodate {
+    max-width: 50%;
+}
+.Areaofscope, .Exclusions,
+.Reasons {
+    display: inline-flex !important;
+}
+.s-InputfromauditeeEditorDialog {
+    width: 570px !important;
+}
+.Additionalareacovered, .Issues,
+.Newimprovements {
+    display: inline-table !important;
+    max-width: 33%;
+}
+.Additionalareacovered label, .Issues label,
+.Newimprovements label {
+    display: flex !important;
+}
+.inputfromauditee, .Satisfactionrating,
+.Currentauditobservation {
+    width: 30%;
+}
+.Observationpending {
+   width: 80%;
+}
+.inputfromauditee, .Satisfactionrating,
+.Currentauditobservation, .Observationpending {
+    height: 200px;
+}
+.s-ObservationpendingEditorDialog {
+    width: 1500px !important;
+}
+.s-SatisfactionratingEditorDialog .first-category {
+    max-width: 15% !important;
+    display: inline-flex;
+}
+.s-SatisfactionratingEditorDialog .category {
+    max-width: 12%;
+    display: inline-flex;
+}
+.s-ObservationpendingEditorDialog .field {
+    max-width: 15%;
+}
+.Originaltargetdate input,
+.Revisedtargetdate input {
+    float: left !important;
+}
+.Reportreference .caption,
+.Remarks .caption {
+    display: flex !important;
+}
+.weightlabel input, .scorelabel input,
+.ratinglabel input, .comeentslabel input,
+.Totalscore .caption, .totalscore1 .caption,
+.totalscore2 .caption, .totalscore3 .caption {
+    display: none;
+}
+.Reportreference, .Originaltargetdate,
+.Revisedtargetdate, .Remarks {
+    max-width: 20% !important;
+}
+.Briefdescription {
+    max-width: 20% !important;
+}
+.Briefdescription .caption {
+    max-width: 30% !important;
+}

@@ -13,7 +13,7 @@
 
             new Serenity.Toolbar(this.byId('Toolbar'), {
                 buttons: [{
-                    title: 'Add Note',
+                    title: 'Add',
                     cssClass: 'add-button',
                     onClick: e => {
                         e.preventDefault();

@@ -13,6 +13,7 @@
         creationdate?: string;
         ScopeList?: ScopeRow[];
         Preview?: string;
+        send?: string;
     }
 
     export namespace AcnRow {
@@ -39,9 +40,10 @@
             export declare const creationdate: string;
             export declare const ScopeList: string;
             export declare const Preview: string;
+            export declare const send: string;
         }
 
-        ['AcnId', 'AcnTilte', 'Auditor', 'Auditee', 'PhaseNo', 'location', 'Fromdate', 'Todate', 'Periodfrom', 'Periodto', 'creationdate', 'ScopeList', 'Preview'].forEach(x => (<any>Fields)[x] = x);
+        ['AcnId', 'AcnTilte', 'Auditor', 'Auditee', 'PhaseNo', 'location', 'Fromdate', 'Todate', 'Periodfrom', 'Periodto', 'creationdate', 'ScopeList', 'Preview','send'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

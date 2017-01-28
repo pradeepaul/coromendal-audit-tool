@@ -13,6 +13,11 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.SatisfactionratingRow))]
     public class SatisfactionratingForm
     {
+        [Category("Particulars")]
+        public StringField weightlabel { get; set; }
+        public StringField scorelabel { get; set; }
+        public StringField ratinglabel { get; set; }
+        public StringField comeentslabel { get; set; }
         [Category("Documentation")]
         public String Documentweigtage { get; set; }
         public Int32 Documentscore { get; set; }
@@ -47,15 +52,12 @@ namespace coromendal.ACN.Forms
         public String Newinitiativescore { get; set; }
         public String Newinitiativerating { get; set; }
         public String Newinitiativecmnts { get; set; }
-       
-        
+
+        [Category("Total Score")]
         public String Totalscore { get; set; }
-      //  public Int32 Aodid { get; set; }
-       
-       
-       
-       
-        
-       
+        //  public Int32 Aodid { get; set; }
+        public StringField totalscore1 { get; set; }
+        public StringField totalscore2 { get; set; }
+        public StringField totalscore3 { get; set; }
     }
 }
