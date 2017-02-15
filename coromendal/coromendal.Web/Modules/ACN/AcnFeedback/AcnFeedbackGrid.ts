@@ -46,7 +46,7 @@ namespace coromendal.ACN {
         }
         protected preview(respose) {
             Q.iframeDialog({ html: respose });
-            // console.log(respose);        
+             console.log(respose);        
         }
     }
 }

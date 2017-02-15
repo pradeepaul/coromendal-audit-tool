@@ -46,6 +46,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName(""), Column("documentweigtage"), Size(100)]
+        [LookupEditor(typeof(PercentageRow))]
         public String Documentweigtage
         {
             get { return Fields.Documentweigtage[this]; }
@@ -137,6 +138,7 @@ namespace coromendal.ACN.Entities
         
 
         [DisplayName(""), Column("complianceweightage"), Size(100)]
+        [LookupEditor(typeof(PercentageRow))]
         public String Complianceweightage
         {
             get { return Fields.Complianceweightage[this]; }
@@ -152,6 +154,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName(""), Column("processfincontrollweightage"), Size(100)]
+        [LookupEditor(typeof(PercentageRow))]
         public String Processfincontrollweightage
         {
             get { return Fields.Processfincontrollweightage[this]; }
@@ -175,6 +178,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName(""), Column("responseweightage"), Size(100)]
+        [LookupEditor(typeof(PercentageRow))]
         public String Responseweightage
         {
             get { return Fields.Responseweightage[this]; }
@@ -182,6 +186,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName(""), Column("preauditweightage"), Size(100)]
+        [LookupEditor(typeof(PercentageRow))]
         public String Preauditweightage
         {
             get { return Fields.Preauditweightage[this]; }
@@ -205,6 +210,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName(""), Column("newinitiativeweight"), Size(100)]
+        [LookupEditor(typeof(PercentageRow))]
         public String Newinitiativeweight
         {
             get { return Fields.Newinitiativeweight[this]; }

@@ -14,6 +14,7 @@ namespace coromendal.ACN.Forms
     public class CurrentauditobservationForm
     {
         public String Observation { get; set; }
+        [TextAreaEditor(Rows = 4)]
         public String Comments { get; set; }
         //public Int32 Aodid { get; set; }
     }

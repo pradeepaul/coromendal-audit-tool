@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.MeetingAbsentauditorRow))]
     public class MeetingAbsentauditorColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 MeetingAbsentauditorId { get; set; }
         public Int32 MeetingId { get; set; }
        // [Width(150), AcnListFormatter]

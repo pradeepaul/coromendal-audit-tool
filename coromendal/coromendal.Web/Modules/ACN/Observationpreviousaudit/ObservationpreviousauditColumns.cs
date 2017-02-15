@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.ObservationpreviousauditRow))]
     public class ObservationpreviousauditColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 ObservationpreviousauditId { get; set; }
         public Int32 MeetingId { get; set; }
         [EditLink]

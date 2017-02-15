@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.KeyfactsRow))]
     public class KeyfactsColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 KeyfactsId { get; set; }
       //  public Int32 AcnId { get; set; }
         [EditLink]

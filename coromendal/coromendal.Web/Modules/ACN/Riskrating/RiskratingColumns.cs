@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.RiskratingRow))]
     public class RiskratingColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 Riskratingid { get; set; }
         [EditLink]
         public String Riskratingname { get; set; }

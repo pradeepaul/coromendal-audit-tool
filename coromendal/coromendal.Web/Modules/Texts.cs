@@ -83,7 +83,7 @@ namespace coromendal
         public static class Navigation
         {
             public static LocalText LogoutLink = "Logout";
-            public static LocalText SiteTitle = "coromandal";
+            public static LocalText SiteTitle = "Coromandel";
         }
 
         public static class Site

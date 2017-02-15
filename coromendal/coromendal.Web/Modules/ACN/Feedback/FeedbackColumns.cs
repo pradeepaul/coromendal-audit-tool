@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.FeedbackRow))]
     public class FeedbackColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 FeedbackId { get; set; }
         public Int32 FeedbackQuestionId { get; set; }
         public Int32 FeedbackMeetingId { get; set; }

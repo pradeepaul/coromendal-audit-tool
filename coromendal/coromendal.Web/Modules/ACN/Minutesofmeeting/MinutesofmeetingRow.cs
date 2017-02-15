@@ -28,7 +28,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.Meetingid[this]; }
             set { Fields.Meetingid[this] = value; }
         }
-        [DisplayName("Meeting Title"), Column("title"), Size(200)]
+        [DisplayName("Meeting Title"), Column("title")]
         public String MeetingTitle
         {
             get { return Fields.MeetingTitle[this]; }
@@ -45,7 +45,7 @@ namespace coromendal.ACN.Entities
         }
 
 
-        [DisplayName("Preview"), Column("auditscope"), Size(200)]
+        [DisplayName("Preview"), Column("auditscope"), Size(20)]
         public String Auditscope
         {
             get { return Fields.Auditscope[this]; }
@@ -66,7 +66,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Time[this] = value; }
         }
 
-        [DisplayName("Send"), Column("venue"), Size(200)]
+        [DisplayName("Send"), Column("venue"), Size(20)]
         public String Venue
         {
             get { return Fields.Venue[this]; }
@@ -276,26 +276,26 @@ namespace coromendal.ACN.Entities
             set { Fields.UseridLastDirectoryUpdate[this] = value; }
         }
         
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
         public List<MeetingIssueRow> DetailList
         {
             get { return Fields.DetailList[this]; }
             set { Fields.DetailList[this] = value; }
         }
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(true), ReadOnly(true)]
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
         public List<MeetingAbsentauditorRow> AbsentList
         {
             get { return Fields.AbsentList[this]; }
             set { Fields.AbsentList[this] = value; }
         }
 
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(true), ReadOnly(true)]
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
         public List<MeetingAbsentauditeeRow> AuditeeAbsent
         {
             get { return Fields.AuditeeAbsent[this]; }
             set { Fields.AuditeeAbsent[this] = value; }
         }
-        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
         public List<MeetingPointsRow> PointsList
         {
             get { return Fields.PointsList[this]; }
@@ -307,14 +307,14 @@ namespace coromendal.ACN.Entities
             get { return Fields.PreviousObservationaudit[this]; }
             set { Fields.PreviousObservationaudit[this] = value; }
         }
-        [DisplayName("New Changes"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("New Changes"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
         public List<NewchangesRow> Newchanges
         {
             get { return Fields.Newchanges[this]; }
             set { Fields.Newchanges[this] = value; }
 
         }
-        [DisplayName("New Improvements"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide, Updatable(false), ReadOnly(true)]
+        [DisplayName("New Improvements"), MasterDetailRelation(foreignKey: "meetingid"), ClientSide]
         public List<NewiprovementsRow> Newimprovements
         {
             get { return Fields.Newimprovements[this]; }

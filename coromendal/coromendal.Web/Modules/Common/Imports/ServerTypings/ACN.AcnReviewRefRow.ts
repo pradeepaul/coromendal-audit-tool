@@ -1,9 +1,8 @@
-﻿
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export interface AcnReviewRefRow {
         AcnReviewRefId?: number;
         AcnReviewId?: number;
-        AcnId?: number;
+        ReportId?: number;
     }
 
     export namespace AcnReviewRefRow {
@@ -11,12 +10,12 @@ namespace coromendal.ACN {
         export const localTextPrefix = 'ACN.AcnReviewRef';
 
         export namespace Fields {
-            export declare const AcnReviewRefId;
-            export declare const AcnReviewId;
-            export declare const AcnId;
+            export declare const AcnReviewRefId: string;
+            export declare const AcnReviewId: string;
+            export declare const ReportId: string;
         }
 
-        ['AcnReviewRefId', 'AcnReviewId', 'AcnId'].forEach(x => (<any>Fields)[x] = x);
+        ['AcnReviewRefId', 'AcnReviewId', 'ReportId'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

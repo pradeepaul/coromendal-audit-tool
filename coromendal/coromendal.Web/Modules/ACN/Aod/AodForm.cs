@@ -16,7 +16,7 @@ namespace coromendal.ACN.Forms
     {
         public String Sbu { get; set; }
         public String AcnidLocation { get; set; }
-        public Int32 Acnid { get; set; }
+       // public Int32 Acnid { get; set; }
         public Int32 Meetingid { get; set; }
         [Category("Report No")]
         public Int32 AcnidPhaseNo { get; set; }
@@ -29,8 +29,8 @@ namespace coromendal.ACN.Forms
         public DateTime MeetingidAuditopeningmeetingdate { get; set; }
         public DateTime Actualcompltedate { get; set; }
         [Category("AOD Discussion Date")]
-        public String ProcessOwner { get; set; }
-        public String Functionalhead { get; set; }
+        public DateTime ProcessOwner { get; set; }
+        public DateTime Functionalhead { get; set; }
 
         //public DateTime MeetingidMomdate { get; set; }
         [Category("Period Covered")]

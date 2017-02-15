@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.AcnreportRow))]
     public class AcnreportColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId")]
+        [EditLink, DisplayName("Db.Shared.RecordId"),Hidden]
         public Int32 ReportId { get; set; }
         [EditLink]
         public String Title { get; set; }

@@ -158,7 +158,7 @@ namespace Serenity.Reporting
                     auditor.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditorRefRow>())
                 auditorResultSet = connection.Query(auditorsqlquery).ToList();
-            Novacode.Table AuditorTable = document.Tables.First(t => t.TableCaption == "AUDITOR");
+            Novacode.Table AuditorTable = document.Tables.First(t => t.TableCaption == "AUDITEE");
             var audit = 0;
 
             foreach (var item in auditorResultSet)
@@ -185,7 +185,7 @@ namespace Serenity.Reporting
                     auditee.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnAuditeeRefRow>())
                 auditeeResultSet = connection.Query(auditeesqlquery).ToList();
-            Novacode.Table auditeetable = document.Tables.First(t => t.TableCaption == "AUDITEE");
+            Novacode.Table auditeetable = document.Tables.First(t => t.TableCaption == "AUDITOR");
             foreach (var item in auditeeResultSet)
             {
                 if (item.AcnAuditeeId != 0)

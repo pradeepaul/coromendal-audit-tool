@@ -27,6 +27,13 @@
         Newinitiativecmnts?: string;
         Newinitiativeweight?: string;
         Newinitiativerating?: string;
+        scorelabel?: string;
+        comeentslabel?: string;
+        ratinglabel?: string;
+        weightlabel?: string;
+        totalscore1?: string;
+        totalscore2?: string;
+        totalscore3?: string;
         AodidMeetingid?: number;
         AodidActualcomencementdate?: string;
         AodidActualcompltedate?: string;
@@ -72,6 +79,13 @@
             export declare const Newinitiativecmnts: string;
             export declare const Newinitiativeweight: string;
             export declare const Newinitiativerating: string;
+            export declare const scorelabel: string;
+            export declare const comeentslabel: string;
+            export declare const ratinglabel: string;
+            export declare const weightlabel: string;
+            export declare const totalscore1: string;
+            export declare const totalscore2: string;
+            export declare const totalscore3: string;
             export declare const AodidMeetingid: string;
             export declare const AodidActualcomencementdate: string;
             export declare const AodidActualcompltedate: string;
@@ -84,7 +98,7 @@
             export declare const AodidAcnid: string;
         }
 
-        ['SatisfactionratingId', 'Documentscore', 'Documentcomments', 'Compliancescore', 'Compliancecomment', 'Processfincontrollscore', 'Processfincontrollscorecmnts', 'Responsescore', 'Responsecmnts', 'Preauditscore', 'Preauditcmnts', 'Newinitiativescore', 'Totalscore', 'Aodid', 'Documentrating', 'Documentweigtage', 'Complianceweightage', 'Compliancerating', 'Processfincontrollweightage', 'Processfincontrollrating', 'Responserating', 'Responseweightage', 'Preauditweightage', 'Preauditrating', 'Newinitiativecmnts', 'Newinitiativeweight', 'Newinitiativerating', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid'].forEach(x => (<any>Fields)[x] = x);
+        ['SatisfactionratingId', 'Documentscore', 'Documentcomments', 'Compliancescore', 'Compliancecomment', 'Processfincontrollscore', 'Processfincontrollscorecmnts', 'Responsescore', 'Responsecmnts', 'Preauditscore', 'Preauditcmnts', 'Newinitiativescore', 'Totalscore', 'Aodid', 'Documentrating', 'Documentweigtage', 'Complianceweightage', 'Compliancerating', 'Processfincontrollweightage', 'Processfincontrollrating', 'Responserating', 'Responseweightage', 'Preauditweightage', 'Preauditrating', 'Newinitiativecmnts', 'Newinitiativeweight', 'Newinitiativerating', 'scorelabel', 'comeentslabel', 'ratinglabel', 'weightlabel', 'totalscore1', 'totalscore2', 'totalscore3', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

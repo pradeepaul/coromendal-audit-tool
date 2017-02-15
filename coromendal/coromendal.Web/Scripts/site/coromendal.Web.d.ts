@@ -796,12 +796,12 @@ declare namespace coromendal.ACN {
         static formKey: string;
     }
     interface AcnFeedbackRetailForm {
-        Acnid: Serenity.IntegerEditor;
+        Acnid: Serenity.LookupEditor;
         Name: Serenity.StringEditor;
+        Date: Serenity.StringEditor;
         Dept: Serenity.StringEditor;
         Reviewname: Serenity.StringEditor;
         Location: Serenity.StringEditor;
-        Date: Serenity.StringEditor;
         Storeno: Serenity.StringEditor;
         Ques1: Serenity.LookupEditor;
         Remark1: Serenity.StringEditor;
@@ -849,6 +849,8 @@ declare namespace coromendal.ACN {
         Date?: string;
         Storeno?: string;
         Comments?: string;
+        Preview?: string;
+        Send?: string;
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -858,8 +860,6 @@ declare namespace coromendal.ACN {
         AcnidPeriodto?: string;
         AcnidCreationdate?: string;
         AcnidUserid?: number;
-        Preview?: string;
-        Send?: string;
     }
     namespace AcnFeedbackRetailRow {
         const idProperty: string;
@@ -891,6 +891,8 @@ declare namespace coromendal.ACN {
             const Date: string;
             const Storeno: string;
             const Comments: string;
+            const Preview: string;
+            const Send: string;
             const AcnidAcnTilte: string;
             const AcnidPhaseNo: string;
             const AcnidLocation: string;
@@ -900,8 +902,6 @@ declare namespace coromendal.ACN {
             const AcnidPeriodto: string;
             const AcnidCreationdate: string;
             const AcnidUserid: string;
-            const Preview: string;
-            const Send: string;
         }
     }
 }
@@ -913,12 +913,14 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnFeedbackRetailRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnFeedbackRetailRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Sendmail(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnFeedbackRetailRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
             const Delete: string;
             const Retrieve: string;
             const List: string;
+            const Sendmail: string;
         }
     }
 }
@@ -959,6 +961,8 @@ declare namespace coromendal.ACN {
         Reviewname?: string;
         Location?: string;
         Comments?: string;
+        Preview?: string;
+        Send?: string;
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -967,8 +971,6 @@ declare namespace coromendal.ACN {
         AcnidPeriodfrom?: string;
         AcnidPeriodto?: string;
         AcnidCreationdate?: string;
-        Preview?: string;
-        Send?: string;
     }
     namespace AcnFeedbackRow {
         const idProperty: string;
@@ -1010,6 +1012,8 @@ declare namespace coromendal.ACN {
             const Reviewname: string;
             const Location: string;
             const Comments: string;
+            const Preview: string;
+            const Send: string;
             const AcnidAcnTilte: string;
             const AcnidPhaseNo: string;
             const AcnidLocation: string;
@@ -1018,8 +1022,6 @@ declare namespace coromendal.ACN {
             const AcnidPeriodfrom: string;
             const AcnidPeriodto: string;
             const AcnidCreationdate: string;
-            const Preview: string;
-            const Send: string;
         }
     }
 }
@@ -1031,12 +1033,14 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnFeedbackRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnFeedbackRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Sendmail(request: Serenity.ListRequest, onSuccess?: (response: System.String) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
             const Delete: string;
             const Retrieve: string;
             const List: string;
+            const Sendmail: string;
         }
     }
 }
@@ -1045,17 +1049,17 @@ declare namespace coromendal.ACN {
         static formKey: string;
     }
     interface AcnForm {
-        AcnTilte: Serenity.StringEditor;
         PhaseNo: Serenity.IntegerEditor;
-        Auditor: Serenity.LookupEditor;
-        Auditee: Serenity.LookupEditor;
+        AcnTilte: Serenity.StringEditor;
+        location: Serenity.StringEditor;
         Fromdate: Serenity.DateEditor;
         Todate: Serenity.DateEditor;
         Periodfrom: Serenity.DateEditor;
         Periodto: Serenity.DateEditor;
-        location: Serenity.StringEditor;
         creationdate: Serenity.DateEditor;
         ScopeList: ScopeEditor;
+        Auditor: Serenity.LookupEditor;
+        Auditee: Serenity.LookupEditor;
     }
 }
 declare namespace coromendal.ACN {
@@ -1069,6 +1073,7 @@ declare namespace coromendal.ACN {
         Acnid: Serenity.LookupEditor;
         userid: Serenity.StringEditor;
         status: Serenity.StringEditor;
+        Qc: Serenity.LookupEditor;
         Keyfacts: KeyfactsEditor;
     }
 }
@@ -1080,6 +1085,7 @@ declare namespace coromendal.ACN {
         Download?: number;
         userid?: number;
         status?: string;
+        Qc?: number[];
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -1103,6 +1109,7 @@ declare namespace coromendal.ACN {
             const Download: string;
             const userid: string;
             const status: string;
+            const Qc: string;
             const AcnidAcnTilte: string;
             const AcnidPhaseNo: string;
             const AcnidLocation: string;
@@ -1133,38 +1140,40 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class AcnReviewRefForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface AcnReviewRefForm {
         AcnReviewId: Serenity.IntegerEditor;
-        AcnId: Serenity.IntegerEditor;
+        ReportId: Serenity.IntegerEditor;
     }
 }
 declare namespace coromendal.ACN {
     interface AcnReviewRefRow {
         AcnReviewRefId?: number;
         AcnReviewId?: number;
-        AcnId?: number;
+        ReportId?: number;
     }
     namespace AcnReviewRefRow {
         const idProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const AcnReviewRefId: any;
-            const AcnReviewId: any;
-            const AcnId: any;
+            const AcnReviewRefId: string;
+            const AcnReviewId: string;
+            const ReportId: string;
         }
     }
 }
 declare namespace coromendal.ACN {
     namespace AcnReviewRefService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<AcnReviewRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<AcnReviewRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnReviewRefRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnReviewRefRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<AcnReviewRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AcnReviewRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnReviewRefRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnReviewRefRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1241,21 +1250,21 @@ declare namespace coromendal.ACN {
         static formKey: string;
     }
     interface AodForm {
+        Sbu: Serenity.StringEditor;
+        AcnidLocation: Serenity.StringEditor;
         Meetingid: Serenity.LookupEditor;
         AcnidPhaseNo: Serenity.IntegerEditor;
-        Acnid: Serenity.IntegerEditor;
-        MeetingidMomdate: Serenity.DateEditor;
+        AcnidCreationdate: Serenity.StringEditor;
         MeetingidPlanedcloseddate: Serenity.DateEditor;
+        Actualcomencementdate: Serenity.DateEditor;
         MeetingidAuditopeningmeetingdate: Serenity.DateEditor;
+        Actualcompltedate: Serenity.DateEditor;
+        ProcessOwner: Serenity.StringEditor;
+        Functionalhead: Serenity.StringEditor;
         AcnidPeriodfrom: Serenity.StringEditor;
         AcnidPeriodto: Serenity.StringEditor;
         AcnidFromdate: Serenity.StringEditor;
         AcnidTodate: Serenity.StringEditor;
-        Sbu: Serenity.StringEditor;
-        Actualcomencementdate: Serenity.StringEditor;
-        Actualcompltedate: Serenity.StringEditor;
-        ProcessOwner: Serenity.StringEditor;
-        Functionalhead: Serenity.StringEditor;
         Areaofscope: Serenity.StringEditor;
         Exclusions: Serenity.StringEditor;
         Reasons: Serenity.StringEditor;
@@ -1362,12 +1371,14 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AodRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AodRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Sendmail(request: Serenity.ListRequest, onSuccess?: (response: System.String) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
             const Delete: string;
             const Retrieve: string;
             const List: string;
+            const Sendmail: string;
         }
     }
 }
@@ -1381,7 +1392,7 @@ declare namespace coromendal.ACN {
         AcnId: Serenity.LookupEditor;
         Observationtitle: Serenity.StringEditor;
         Observationsynopsis: Serenity.TextAreaEditor;
-        Detailedobservation: Serenity.StringEditor;
+        Detailedobservation: Serenity.TextAreaEditor;
         rootList: RootcauseEditor;
         SuggestionList: SuggestionEditor;
         Category: Serenity.LookupEditor;
@@ -1575,7 +1586,7 @@ declare namespace coromendal.ACN {
     }
     interface CurrentauditobservationForm {
         Observation: Serenity.StringEditor;
-        Comments: Serenity.StringEditor;
+        Comments: Serenity.TextAreaEditor;
     }
 }
 declare namespace coromendal.ACN {
@@ -1635,12 +1646,16 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class DarClarificationsForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface DarClarificationsForm {
-        ReportId: Serenity.IntegerEditor;
-        AcnId: Serenity.IntegerEditor;
+        ReportId: Serenity.LookupEditor;
+        AcnId: Serenity.LookupEditor;
+        Status: Serenity.LookupEditor;
+        NoteList: Northwind.NotesEditor;
     }
 }
 declare namespace coromendal.ACN {
@@ -1648,35 +1663,39 @@ declare namespace coromendal.ACN {
         DarClarificationsId?: number;
         ReportId?: number;
         AcnId?: number;
+        Status?: number;
         ReportTitle?: string;
         ReportAcnid?: number;
         ReportDownload?: number;
         ReportUserid?: number;
         ReportStatus?: string;
+        NoteList?: Northwind.NoteRow[];
     }
     namespace DarClarificationsRow {
         const idProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const DarClarificationsId: any;
-            const ReportId: any;
-            const AcnId: any;
+            const DarClarificationsId: string;
+            const ReportId: string;
+            const AcnId: string;
+            const Status: string;
             const ReportTitle: string;
             const ReportAcnid: string;
             const ReportDownload: string;
             const ReportUserid: string;
             const ReportStatus: string;
+            const NoteList: string;
         }
     }
 }
 declare namespace coromendal.ACN {
     namespace DarClarificationsService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<DarClarificationsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<DarClarificationsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DarClarificationsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DarClarificationsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<DarClarificationsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<DarClarificationsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DarClarificationsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DarClarificationsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1687,12 +1706,16 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class DaRreleaseForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface DaRreleaseForm {
-        ReportId: Serenity.IntegerEditor;
-        AcnId: Serenity.IntegerEditor;
+        ReportId: Serenity.LookupEditor;
+        AcnId: Serenity.LookupEditor;
+        Status: Serenity.LookupEditor;
+        NoteList: Northwind.NotesEditor;
     }
 }
 declare namespace coromendal.ACN {
@@ -1700,6 +1723,8 @@ declare namespace coromendal.ACN {
         DaRreleaseId?: number;
         ReportId?: number;
         AcnId?: number;
+        Status?: number;
+        NoteList?: Northwind.NoteRow[];
         ReportTitle?: string;
         ReportAcnid?: number;
         ReportDownload?: number;
@@ -1710,9 +1735,11 @@ declare namespace coromendal.ACN {
         const idProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const DaRreleaseId: any;
-            const ReportId: any;
-            const AcnId: any;
+            const DaRreleaseId: string;
+            const ReportId: string;
+            const AcnId: string;
+            const Status: string;
+            const NoteList: string;
             const ReportTitle: string;
             const ReportAcnid: string;
             const ReportDownload: string;
@@ -1724,11 +1751,11 @@ declare namespace coromendal.ACN {
 declare namespace coromendal.ACN {
     namespace DaRreleaseService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<DaRreleaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<DaRreleaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DaRreleaseRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DaRreleaseRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<DaRreleaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<DaRreleaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DaRreleaseRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DaRreleaseRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1856,6 +1883,8 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class FinalstatusvalueForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
@@ -1872,20 +1901,22 @@ declare namespace coromendal.ACN {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<FinalstatusvalueRow>;
         namespace Fields {
-            const Finalstatusid: any;
-            const Value: any;
+            const Finalstatusid: string;
+            const Value: string;
         }
     }
 }
 declare namespace coromendal.ACN {
     namespace FinalstatusvalueService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<FinalstatusvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<FinalstatusvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FinalstatusvalueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FinalstatusvalueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<FinalstatusvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<FinalstatusvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FinalstatusvalueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FinalstatusvalueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2087,12 +2118,13 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class MeetingAbsentauditeeForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface MeetingAbsentauditeeForm {
-        MeetingId: Serenity.IntegerEditor;
-        AbsentUser: Serenity.IntegerEditor;
+        AbsentUser: Serenity.LookupEditor;
         Reason: Serenity.StringEditor;
     }
 }
@@ -2121,11 +2153,13 @@ declare namespace coromendal.ACN {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<MeetingAbsentauditeeRow>;
         namespace Fields {
-            const MeetingAbsentauditeeId: any;
-            const MeetingId: any;
-            const AbsentUser: any;
-            const Reason: any;
+            const MeetingAbsentauditeeId: string;
+            const MeetingId: string;
+            const AbsentUser: string;
+            const Reason: string;
             const MeetingAcnid: string;
             const MeetingTitle: string;
             const MeetingAuditscope: string;
@@ -2146,11 +2180,11 @@ declare namespace coromendal.ACN {
 declare namespace coromendal.ACN {
     namespace MeetingAbsentauditeeService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<MeetingAbsentauditeeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<MeetingAbsentauditeeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingAbsentauditeeRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingAbsentauditeeRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<MeetingAbsentauditeeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MeetingAbsentauditeeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingAbsentauditeeRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingAbsentauditeeRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2161,12 +2195,13 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+}
+declare namespace coromendal.ACN {
     class MeetingAbsentauditorForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface MeetingAbsentauditorForm {
-        MeetingId: Serenity.IntegerEditor;
-        AbsentUser: Serenity.IntegerEditor;
+        AbsentUser: Serenity.LookupEditor;
         Reason: Serenity.StringEditor;
     }
 }
@@ -2195,11 +2230,13 @@ declare namespace coromendal.ACN {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<MeetingAbsentauditorRow>;
         namespace Fields {
-            const MeetingAbsentauditorId: any;
-            const MeetingId: any;
-            const AbsentUser: any;
-            const Reason: any;
+            const MeetingAbsentauditorId: string;
+            const MeetingId: string;
+            const AbsentUser: string;
+            const Reason: string;
             const MeetingAcnid: string;
             const MeetingTitle: string;
             const MeetingAuditscope: string;
@@ -2220,11 +2257,11 @@ declare namespace coromendal.ACN {
 declare namespace coromendal.ACN {
     namespace MeetingAbsentauditorService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingAbsentauditorRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingAbsentauditorRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingAbsentauditorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingAbsentauditorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2448,18 +2485,20 @@ declare namespace coromendal.ACN {
         static formKey: string;
     }
     interface MinutesofmeetingForm {
-        Acnid: Serenity.LookupEditor;
         AcnidPhaseNo: Serenity.IntegerEditor;
-        MeetingTitle: Serenity.StringEditor;
-        momdate: Serenity.DateEditor;
+        AcnidCreationdate: Serenity.DateEditor;
         planeddate: Serenity.DateEditor;
         auditopeneddate: Serenity.DateEditor;
+        momdate: Serenity.DateEditor;
+        Acnid: Serenity.LookupEditor;
+        MeetingTitle: Serenity.StringEditor;
         AcnidScopeList: ScopeEditor;
         AcnidPeriodfrom: Serenity.StringEditor;
         AcnidPeriodto: Serenity.StringEditor;
         AcnidFromdate: Serenity.StringEditor;
         AcnidTodate: Serenity.StringEditor;
-        AbsentList: MeetingAbsentEditor;
+        AbsentList: MeetingAbsentauditorEditor;
+        AuditeeAbsent: MeetingAbsentauditeeEditor;
         PreviousObservationaudit: ObservationpreviousauditEditor;
         PointsList: MeetingPointsEditor;
         NoteList: Northwind.NotesEditor;
@@ -2484,7 +2523,8 @@ declare namespace coromendal.ACN {
         planeddate?: string;
         auditopeneddate?: string;
         DetailList?: MeetingIssueRow[];
-        AbsentList?: MeetingAbsentRow[];
+        AuditeeAbsent?: MeetingAbsentauditeeRow[];
+        AbsentList?: MeetingAbsentauditorRow[];
         PointsList?: MeetingPointsRow[];
         PreviousObservationaudit?: ObservationpreviousauditRow[];
         Newchanges?: NewchangesRow[];
@@ -2535,6 +2575,7 @@ declare namespace coromendal.ACN {
             const planeddate: string;
             const auditopeneddate: string;
             const DetailList: string;
+            const AuditeeAbsent: string;
             const AbsentList: string;
             const PointsList: string;
             const PreviousObservationaudit: string;
@@ -2574,12 +2615,14 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MinutesofmeetingRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MinutesofmeetingRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Sendmail(request: Serenity.ListRequest, onSuccess?: (response: System.String) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
             const Delete: string;
             const Retrieve: string;
             const List: string;
+            const Sendmail: string;
         }
     }
 }
@@ -2652,6 +2695,7 @@ declare namespace coromendal.ACN {
         static formKey: string;
     }
     interface NewiprovementsForm {
+        MeetingId: Serenity.IntegerEditor;
         Observation: Serenity.StringEditor;
     }
 }
@@ -2836,6 +2880,46 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ObservationpreviousauditRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ObservationpreviousauditRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    class PercentageForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface PercentageForm {
+        Percentagename: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface PercentageRow {
+        Percentageid?: number;
+        Percentagename?: string;
+    }
+    namespace PercentageRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Percentageid: any;
+            const Percentagename: any;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace PercentageService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<PercentageRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PercentageRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PercentageRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PercentageRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -3063,31 +3147,38 @@ declare namespace coromendal.ACN {
         static formKey: string;
     }
     interface SatisfactionratingForm {
+        weightlabel: Serenity.StringEditor;
+        scorelabel: Serenity.StringEditor;
+        ratinglabel: Serenity.StringEditor;
+        comeentslabel: Serenity.StringEditor;
         Documentweigtage: Serenity.StringEditor;
-        Documentscore: Serenity.IntegerEditor;
-        Documentrating: Serenity.IntegerEditor;
+        Documentscore: Serenity.LookupEditor;
+        Documentrating: Serenity.LookupEditor;
         Documentcomments: Serenity.StringEditor;
         Complianceweightage: Serenity.StringEditor;
-        Compliancescore: Serenity.StringEditor;
-        Compliancerating: Serenity.StringEditor;
+        Compliancescore: Serenity.LookupEditor;
+        Compliancerating: Serenity.LookupEditor;
         Compliancecomment: Serenity.StringEditor;
         Processfincontrollweightage: Serenity.StringEditor;
-        Processfincontrollscore: Serenity.StringEditor;
-        Processfincontrollrating: Serenity.StringEditor;
+        Processfincontrollscore: Serenity.LookupEditor;
+        Processfincontrollrating: Serenity.LookupEditor;
         Processfincontrollscorecmnts: Serenity.StringEditor;
         Responseweightage: Serenity.StringEditor;
-        Responsescore: Serenity.StringEditor;
-        Responserating: Serenity.StringEditor;
+        Responsescore: Serenity.LookupEditor;
+        Responserating: Serenity.LookupEditor;
         Responsecmnts: Serenity.StringEditor;
         Preauditweightage: Serenity.StringEditor;
-        Preauditscore: Serenity.StringEditor;
-        Preauditrating: Serenity.StringEditor;
+        Preauditscore: Serenity.LookupEditor;
+        Preauditrating: Serenity.LookupEditor;
         Preauditcmnts: Serenity.StringEditor;
         Newinitiativeweight: Serenity.StringEditor;
-        Newinitiativescore: Serenity.StringEditor;
+        Newinitiativescore: Serenity.LookupEditor;
         Newinitiativerating: Serenity.LookupEditor;
         Newinitiativecmnts: Serenity.StringEditor;
         Totalscore: Serenity.StringEditor;
+        totalscore1: Serenity.StringEditor;
+        totalscore2: Serenity.StringEditor;
+        totalscore3: Serenity.StringEditor;
     }
 }
 declare namespace coromendal.ACN {
@@ -3119,6 +3210,13 @@ declare namespace coromendal.ACN {
         Newinitiativecmnts?: string;
         Newinitiativeweight?: string;
         Newinitiativerating?: string;
+        scorelabel?: string;
+        comeentslabel?: string;
+        ratinglabel?: string;
+        weightlabel?: string;
+        totalscore1?: string;
+        totalscore2?: string;
+        totalscore3?: string;
         AodidMeetingid?: number;
         AodidActualcomencementdate?: string;
         AodidActualcompltedate?: string;
@@ -3162,6 +3260,13 @@ declare namespace coromendal.ACN {
             const Newinitiativecmnts: string;
             const Newinitiativeweight: string;
             const Newinitiativerating: string;
+            const scorelabel: string;
+            const comeentslabel: string;
+            const ratinglabel: string;
+            const weightlabel: string;
+            const totalscore1: string;
+            const totalscore2: string;
+            const totalscore3: string;
             const AodidMeetingid: string;
             const AodidActualcomencementdate: string;
             const AodidActualcompltedate: string;
@@ -3183,6 +3288,46 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SatisfactionratingRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SatisfactionratingRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    class SbuForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SbuForm {
+        Sbuname: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface SbuRow {
+        Sbuid?: number;
+        Sbuname?: string;
+    }
+    namespace SbuRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Sbuid: any;
+            const Sbuname: any;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace SbuService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<SbuRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SbuRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SbuRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SbuRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -3315,48 +3460,6 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SuggestionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SuggestionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace coromendal.AcnReview {
-    class AcnReviewRefForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface AcnReviewRefForm {
-        AcnReviewId: Serenity.IntegerEditor;
-        AcnId: Serenity.IntegerEditor;
-    }
-}
-declare namespace coromendal.AcnReview {
-    interface AcnReviewRefRow {
-        AcnReviewRefId?: number;
-        AcnReviewId?: number;
-        AcnId?: number;
-    }
-    namespace AcnReviewRefRow {
-        const idProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const AcnReviewRefId: any;
-            const AcnReviewId: any;
-            const AcnId: any;
-        }
-    }
-}
-declare namespace coromendal.AcnReview {
-    namespace AcnReviewRefService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<AcnReviewRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<AcnReviewRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnReviewRefRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnReviewRefRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -5833,6 +5936,42 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+    class SbuDialog extends Serenity.EntityDialog<SbuRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SbuForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class SbuEditor extends Common.GridEditorBase<SbuRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SbuEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class SbuEditorDialog extends Common.GridEditorDialog<SbuRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: SbuForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class SbuGrid extends Serenity.EntityGrid<SbuRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SbuDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
     class SatisfactionratingDialog extends Serenity.EntityDialog<SatisfactionratingRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -6006,6 +6145,42 @@ declare namespace coromendal.ACN {
     class QuestionsGrid extends Serenity.EntityGrid<QuestionsRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof QuestionsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class PercentageDialog extends Serenity.EntityDialog<PercentageRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: PercentageForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class PercentageEditor extends Common.GridEditorBase<PercentageRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PercentageEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class PercentageEditorDialog extends Common.GridEditorDialog<PercentageRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: PercentageForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class PercentageGrid extends Serenity.EntityGrid<PercentageRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PercentageDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;

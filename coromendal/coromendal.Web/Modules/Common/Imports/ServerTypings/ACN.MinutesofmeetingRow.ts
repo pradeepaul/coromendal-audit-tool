@@ -15,7 +15,8 @@
         planeddate?: string;
         auditopeneddate?: string;
         DetailList?: MeetingIssueRow[];
-        AbsentList?: MeetingAbsentRow[];
+        AuditeeAbsent?: MeetingAbsentauditeeRow[];
+        AbsentList?: MeetingAbsentauditorRow[];
         PointsList?: MeetingPointsRow[];
         PreviousObservationaudit?: ObservationpreviousauditRow[];
         Newchanges?: NewchangesRow[];
@@ -71,6 +72,7 @@
             export declare const planeddate: string;
             export declare const auditopeneddate: string;
             export declare const DetailList: string;
+            export declare const AuditeeAbsent: string;
             export declare const AbsentList: string;
             export declare const PointsList: string;
             export declare const PreviousObservationaudit: string;
@@ -101,7 +103,7 @@
             export declare const UseridLastDirectoryUpdate: string;
         }
 
-        ['Meetingid', 'Acnid', 'MeetingTitle', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'Userid', 'momdate', 'planeddate', 'auditopeneddate', 'DetailList', 'AbsentList', 'PointsList', 'PreviousObservationaudit', 'Newchanges', 'Newimprovements', 'NoteList', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'AcnidScopeList', 'UseridUsername', 'UseridDisplayName', 'UseridEmail', 'UseridSource', 'UseridPasswordHash', 'UseridPasswordSalt', 'UseridInsertDate', 'UseridInsertUserId', 'UseridUpdateDate', 'UseridUpdateUserId', 'UseridIsActive', 'UseridLastDirectoryUpdate'].forEach(x => (<any>Fields)[x] = x);
+        ['Meetingid', 'Acnid', 'MeetingTitle', 'Auditscope', 'Period', 'Time', 'Venue', 'Auditor', 'Auditee', 'Download', 'Userid', 'momdate', 'planeddate', 'auditopeneddate', 'DetailList', 'AuditeeAbsent', 'AbsentList', 'PointsList', 'PreviousObservationaudit', 'Newchanges', 'Newimprovements', 'NoteList', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'AcnidScopeList', 'UseridUsername', 'UseridDisplayName', 'UseridEmail', 'UseridSource', 'UseridPasswordHash', 'UseridPasswordSalt', 'UseridInsertDate', 'UseridInsertUserId', 'UseridUpdateDate', 'UseridUpdateUserId', 'UseridIsActive', 'UseridLastDirectoryUpdate'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

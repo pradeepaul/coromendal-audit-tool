@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.AcnFeedbackRetailRow))]
     public class AcnFeedbackRetailColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 AcnFeedbackRetailId { get; set; }
         public Int32 AcnidAcnTilte { get; set; }       
         [EditLink]

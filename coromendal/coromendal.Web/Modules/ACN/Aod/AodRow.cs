@@ -96,13 +96,15 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("SBU"), Size(100)]
+        [LookupEditor(typeof(SbuRow))]
         public String Sbu
         {
             get { return Fields.Sbu[this]; }
             set { Fields.Sbu[this] = value; }
         }
 
-        [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]        
+        [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }

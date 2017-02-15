@@ -2559,7 +2559,7 @@ a.quick-search-field {
   cursor: pointer;
 }
 .down-button{
-  left;display: block;
+  display: block;
   padding: 15px 8px 8px 20px;
   background: url(images/pdf.png);
   background-repeat: no-repeat;
@@ -2569,11 +2569,22 @@ a.quick-search-field {
   margin-bottom: 5px;
   border-radius: 3px;
 }
-
-.send {
-  left;display: block;
+.sendbtn {
+  display: block;
   padding: 10px 8px 8px 20px;
   background: url(../serenity/images/mail-open.png);
+  background-repeat: no-repeat;
+  background-position: center left;
+  cursor: pointer;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+.previewbtn {
+  display: block;
+  float: left;
+  padding: 8px;
+  background: url(../serenity/images/report.png);
   background-repeat: no-repeat;
   background-position: center left;
   cursor: pointer;

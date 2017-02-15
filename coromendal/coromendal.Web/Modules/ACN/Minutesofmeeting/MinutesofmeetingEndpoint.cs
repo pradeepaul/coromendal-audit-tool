@@ -254,14 +254,14 @@ namespace coromendal.ACN.Endpoints
             using (var connection3 = SqlConnections.NewFor<coromendal.ACN.Entities.NewiprovementsRow>())
                 InitiativesresultSet = connection3.Query(Initiativessqlquery).ToList();
             //changes details
-            var Changes = coromendal.ACN.Entities.NewiprovementsRow.Fields;
+            var Changes = coromendal.ACN.Entities.NewchangesRow.Fields;
             List<dynamic> ChangesresultSet;
             var Changessqlquery = new SqlQuery()
                     .From(Changes)
                     .Select(Changes.Observation)
                     .Where(
                     Changes.MeetingId == request.ContainsField);
-            using (var connection3 = SqlConnections.NewFor<coromendal.ACN.Entities.NewiprovementsRow>())
+            using (var connection3 = SqlConnections.NewFor<coromendal.ACN.Entities.NewchangesRow>())
                 ChangesresultSet = connection3.Query(Changessqlquery).ToList();
             //mail body
             MailMessage message = new MailMessage();

@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.ObservationpendingRow))]
     public class ObservationpendingColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 ObservationpendingId { get; set; }
         [EditLink]
         public String Reportreference { get; set; }

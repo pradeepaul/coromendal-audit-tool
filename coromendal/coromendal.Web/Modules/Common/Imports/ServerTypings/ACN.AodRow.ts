@@ -59,7 +59,7 @@
             export declare const Sbu: string;
             export declare const Acnid: string;
             export declare const Preview: string;
-            export declare const Send: string; 
+            export declare const Send: string;
             export declare const MeetingidAcnid: string;
             export declare const MeetingidTitle: string;
             export declare const MeetingidAuditscope: string;
@@ -88,7 +88,7 @@
             export declare const Currentauditobservation: string;
         }
 
-        ['AodId', 'Meetingid', 'Actualcomencementdate', 'Actualcompltedate', 'ProcessOwner', 'Functionalhead', 'Areaofscope', 'Exclusions', 'Reasons', 'Sbu', 'Acnid', 'Preview','Send', 'MeetingidAcnid', 'MeetingidTitle', 'MeetingidAuditscope', 'MeetingidPeriod', 'MeetingidTime', 'MeetingidVenue', 'MeetingidAuditor', 'MeetingidAuditee', 'MeetingidDownload', 'MeetingidUserid', 'MeetingidMomdate', 'MeetingidPlanedcloseddate', 'MeetingidAuditopeningmeetingdate', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'inputfromauditee', 'Satisfactionrating', 'Observationpending', 'Currentauditobservation'].forEach(x => (<any>Fields)[x] = x);
+        ['AodId', 'Meetingid', 'Actualcomencementdate', 'Actualcompltedate', 'ProcessOwner', 'Functionalhead', 'Areaofscope', 'Exclusions', 'Reasons', 'Sbu', 'Acnid', 'Preview', 'Send', 'MeetingidAcnid', 'MeetingidTitle', 'MeetingidAuditscope', 'MeetingidPeriod', 'MeetingidTime', 'MeetingidVenue', 'MeetingidAuditor', 'MeetingidAuditee', 'MeetingidDownload', 'MeetingidUserid', 'MeetingidMomdate', 'MeetingidPlanedcloseddate', 'MeetingidAuditopeningmeetingdate', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'AcnidUserid', 'inputfromauditee', 'Satisfactionrating', 'Observationpending', 'Currentauditobservation'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

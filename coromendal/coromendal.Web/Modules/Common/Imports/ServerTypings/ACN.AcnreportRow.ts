@@ -6,6 +6,7 @@
         Download?: number;
         userid?: number;
         status?: string;
+        Qc?: number[];
         AcnidAcnTilte?: string;
         AcnidPhaseNo?: number;
         AcnidLocation?: string;
@@ -34,6 +35,7 @@
             export declare const Download: string;
             export declare const userid: string;
             export declare const status: string;
+            export declare const Qc: string;
             export declare const AcnidAcnTilte: string;
             export declare const AcnidPhaseNo: string;
             export declare const AcnidLocation: string;
@@ -45,7 +47,7 @@
             export declare const Keyfacts: string;
         }
 
-        ['ReportId', 'Title', 'Acnid', 'Download', 'userid', 'status', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'Keyfacts'].forEach(x => (<any>Fields)[x] = x);
+        ['ReportId', 'Title', 'Acnid', 'Download', 'userid', 'status', 'Qc', 'AcnidAcnTilte', 'AcnidPhaseNo', 'AcnidLocation', 'AcnidFromdate', 'AcnidTodate', 'AcnidPeriodfrom', 'AcnidPeriodto', 'AcnidCreationdate', 'Keyfacts'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

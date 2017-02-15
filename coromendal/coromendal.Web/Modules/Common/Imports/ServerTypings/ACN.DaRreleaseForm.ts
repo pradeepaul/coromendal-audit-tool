@@ -1,14 +1,16 @@
-﻿
-
-namespace coromendal.ACN {
+﻿namespace coromendal.ACN {
     export class DaRreleaseForm extends Serenity.PrefixedContext {
         static formKey = 'ACN.DaRrelease';
+
     }
 
     export interface DaRreleaseForm {
-        ReportId: Serenity.IntegerEditor;
-        AcnId: Serenity.IntegerEditor;
+        ReportId: Serenity.LookupEditor;
+        AcnId: Serenity.LookupEditor;
+        Status: Serenity.LookupEditor;
+        NoteList: Northwind.NotesEditor;
     }
 
-    [['DaRreleaseId', () => Serenity.IntegerEditor], ['ReportId', () => Serenity.IntegerEditor], ['AcnId', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(DaRreleaseForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['ReportId', () => Serenity.LookupEditor], ['AcnId', () => Serenity.LookupEditor], ['Status', () => Serenity.LookupEditor], ['NoteList', () => Northwind.NotesEditor]].forEach(x => Object.defineProperty(DaRreleaseForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
+

@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.RiskmatrixRow))]
     public class RiskmatrixColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 Riskmatrixid { get; set; }
         public Int32 Likelihood { get; set; }
         public Int32 Consequence { get; set; }

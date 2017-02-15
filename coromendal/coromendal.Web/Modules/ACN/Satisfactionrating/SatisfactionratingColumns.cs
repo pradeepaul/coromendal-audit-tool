@@ -14,7 +14,8 @@ namespace coromendal.ACN.Columns
     public class SatisfactionratingColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 SatisfactionratingId { get; set; }               
+        public Int32 SatisfactionratingId { get; set; }
+        [EditLink]
         public Int32 Aodid { get; set; }
         public String Totalscore { get; set; }
     }

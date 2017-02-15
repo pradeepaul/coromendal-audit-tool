@@ -13,7 +13,7 @@ namespace coromendal.ACN.Forms
     [BasedOnRow(typeof(Entities.NewiprovementsRow))]
     public class NewiprovementsForm
     {
-        //public Int32 MeetingId { get; set; }
+        public Int32 MeetingId { get; set; }
         public String Observation { get; set; }
     }
 }

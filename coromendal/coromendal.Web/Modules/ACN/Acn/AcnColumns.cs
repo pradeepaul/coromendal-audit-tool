@@ -14,7 +14,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.AcnRow))]
     public class AcnColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId")]
+        [EditLink, DisplayName("Db.Shared.RecordId"),Hidden]
         public Int32 AcnId { get; set; }
 
         public Int32 PhaseNo { get; set; }
@@ -24,13 +24,17 @@ namespace coromendal.ACN.Columns
         public String Auditor { get; set; }
         [Width(150), AcnListFormatter]
         public String Auditee { get; set; }
-
-        public String Fromdate { get; set; }
-        public String Todate { get; set; }
-        public String Periodfrom { get; set; }
-        public String Periodto { get; set; }
+        [DisplayFormat("dd/MM/yyyy")]
+        public DateTime Fromdate { get; set; }
+        [DisplayFormat("dd/MM/yyyy")]
+        public DateTime Todate { get; set; }
+        [DisplayFormat("dd/MM/yyyy")]
+        public DateTime Periodfrom { get; set; }
+        [DisplayFormat("dd/MM/yyyy")]
+        public DateTime Periodto { get; set; }
         public String location { get; set; }
-        public String creationdate { get; set; }
+        [DisplayFormat("dd/MM/yyyy")]
+        public DateTime creationdate { get; set; }
         [EditLink]
         public String send { get; set; }
         [EditLink]

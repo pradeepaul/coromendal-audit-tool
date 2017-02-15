@@ -58,7 +58,7 @@ namespace coromendal.ACN.Entities
             set { Fields.ExpectedDate[this] = value; }
         }
 
-        [DisplayName("Comments"), Column("comments"), Size(200)]
+        [DisplayName("Responsibility"), Column("comments"), Size(200)]
         public String Comments
         {
             get { return Fields.Comments[this]; }

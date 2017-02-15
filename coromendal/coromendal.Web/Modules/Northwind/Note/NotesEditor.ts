@@ -39,7 +39,7 @@
 
                     $('<a/>').attr('href', '#').addClass('note-date')
                         .text(item.InsertUserDisplayName + ' - ' +
-                            Q.formatDate(Q.parseISODateTime(item.InsertDate), 'dd/MM/yyyy HH:mm'))
+                        Q.formatDate(Q.parseISODateTime(item.InsertDate), 'dd/MM/yyyy HH:mm'))
                         .data('index', index).appendTo(li).click((e) => this.editClick(e));
 
                     $('<a/>').attr('href', '#').addClass('note-delete')
@@ -65,7 +65,7 @@
                 Q.insert(this.items, 0, {
                     Text: text,
                     InsertUserDisplayName: Authorization.userDefinition.DisplayName,
-                    InsertDate: Q.formatISODateTimeUTC(new Date())
+                    InsertDate: Q.formatDate(new Date())
                 });
 
                 this.updateContent();

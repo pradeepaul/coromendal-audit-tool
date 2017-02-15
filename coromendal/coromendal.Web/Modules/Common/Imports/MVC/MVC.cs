@@ -9,10 +9,6 @@ namespace MVC
             public static class Acn
             {
                 public const string AcnIndex = "~/Modules/ACN/Acn/AcnIndex.cshtml";
-
-                internal class AcnDialog
-                {
-                }
             }
 
             public static class AcnAuditee
@@ -50,6 +46,11 @@ namespace MVC
                 public const string AcnreportIndex = "~/Modules/ACN/Acnreport/AcnreportIndex.cshtml";
             }
 
+            public static class AcnReviewRef
+            {
+                public const string AcnReviewRefIndex = "~/Modules/ACN/AcnReviewRef/AcnReviewRefIndex.cshtml";
+            }
+
             public static class Aod
             {
                 public const string AodIndex = "~/Modules/ACN/Aod/AodIndex.cshtml";
@@ -75,6 +76,16 @@ namespace MVC
                 public const string CurrentauditobservationIndex = "~/Modules/ACN/Currentauditobservation/CurrentauditobservationIndex.cshtml";
             }
 
+            public static class DarClarifications
+            {
+                public const string DarClarificationsIndex = "~/Modules/ACN/DarClarifications/DarClarificationsIndex.cshtml";
+            }
+
+            public static class DaRrelease
+            {
+                public const string DaRreleaseIndex = "~/Modules/ACN/DaRrelease/DaRreleaseIndex.cshtml";
+            }
+
             public static class Feedback
             {
                 public const string FeedbackIndex = "~/Modules/ACN/Feedback/FeedbackIndex.cshtml";
@@ -83,6 +94,11 @@ namespace MVC
             public static class Feedbackvalue
             {
                 public const string FeedbackvalueIndex = "~/Modules/ACN/Feedbackvalue/FeedbackvalueIndex.cshtml";
+            }
+
+            public static class Finalstatusvalue
+            {
+                public const string FinalstatusvalueIndex = "~/Modules/ACN/Finalstatusvalue/FinalstatusvalueIndex.cshtml";
             }
 
             public static class Inputfromauditee
@@ -100,9 +116,19 @@ namespace MVC
                 public const string LikeliwoodvalueIndex = "~/Modules/ACN/Likeliwoodvalue/LikeliwoodvalueIndex.cshtml";
             }
 
-            public static class MeetingAbsent
+            public static class MeetingAbsen
             {
-                public const string MeetingAbsentIndex = "~/Modules/ACN/MeetingAbsent/MeetingAbsentIndex.cshtml";
+                public const string MeetingAbsentIndex = "~/Modules/ACN/MeetingAbsen/MeetingAbsentIndex.cshtml";
+            }
+
+            public static class MeetingAbsentauditee
+            {
+                public const string MeetingAbsentauditeeIndex = "~/Modules/ACN/MeetingAbsentauditee/MeetingAbsentauditeeIndex.cshtml";
+            }
+
+            public static class MeetingAbsentauditor
+            {
+                public const string MeetingAbsentauditorIndex = "~/Modules/ACN/MeetingAbsentauditor/MeetingAbsentauditorIndex.cshtml";
             }
 
             public static class MeetingIssue

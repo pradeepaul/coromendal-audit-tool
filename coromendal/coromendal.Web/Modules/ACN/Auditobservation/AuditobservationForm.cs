@@ -18,6 +18,7 @@ namespace coromendal.ACN.Forms
         public String Observationtitle { get; set; }
         [TextAreaEditor(Rows = 8)]
         public String Observationsynopsis { get; set; }
+        [TextAreaEditor(Rows = 6)]
         public String Detailedobservation { get; set; }
         [RootcauseEditor]
         public List<RootcauseRow> rootList { get; set; }

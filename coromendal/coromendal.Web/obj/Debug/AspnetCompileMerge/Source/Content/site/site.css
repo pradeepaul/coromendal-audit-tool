@@ -8383,3 +8383,39 @@ section.content > .s-DataGrid {
 .s-ACN-FinalstatusvalueDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-MeetingAbsentauditeeDialog > .size {
+  width: 650px;
+}
+.s-ACN-MeetingAbsentauditeeDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-MeetingAbsentauditorDialog > .size {
+  width: 650px;
+}
+.s-ACN-MeetingAbsentauditorDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-PercentageDialog > .size {
+  width: 650px;
+}
+.s-ACN-PercentageDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-SbuDialog > .size {
+  width: 650px;
+}
+.s-ACN-SbuDialog .caption {
+  width: 150px;
+}

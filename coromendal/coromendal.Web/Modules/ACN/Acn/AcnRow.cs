@@ -29,14 +29,14 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
-        [DisplayName("Management Audit will be taking up phase No."), Size(40), QuickSearch]
+        [DisplayName("Phase No."), Size(30), QuickSearch]
         public Int32? PhaseNo
         {
             get { return Fields.PhaseNo[this]; }
             set { Fields.PhaseNo[this] = value; }
         }
 
-        [DisplayName("audit of"), Size(40), QuickSearch]
+        [DisplayName("audit of"), Size(100), QuickSearch]
         public String AcnTilte
         {
             get { return Fields.AcnTilte[this]; }
