@@ -33,14 +33,14 @@ namespace coromendal.ACN.Entities
             set { Fields.AuditobservationId[this] = value; }
         }
         [SetFieldFlags(FieldFlags.Trim)]
-        [DisplayName("Rootcause"), Column("rootcause"), Size(300), QuickSearch]
+        [DisplayName("Rootcause"), Column("rootcause"), Size(300), NotNull, QuickSearch]
         public String Rootcause
         {
             get { return Fields.Rootcause[this]; }
             set { Fields.Rootcause[this] = value; }
         }
         [SetFieldFlags(FieldFlags.Trim)]
-        [DisplayName("Impact"), Column("impact"), Size(300)]
+        [DisplayName("Impact"), Column("impact"), NotNull, Size(300)]
         public String Impact
         {
             get { return Fields.Impact[this]; }

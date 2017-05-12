@@ -24,12 +24,12 @@ namespace coromendal.ACN.Columns
         public DateTime AcnidFromdate { get; set; }
         [DisplayFormat("dd/MM/yyyy")]
         public DateTime AcnidTodate { get; set; }
-        [DisplayFormat("dd/MM/yyyy")]
-        public DateTime momdate { get; set; }
-        [DisplayFormat("dd/MM/yyyy")]
-        public DateTime planeddate { get; set; }
-        [DisplayFormat("dd/MM/yyyy")]
-        public DateTime auditopeneddate { get; set; }
+        //[DisplayFormat("dd/MM/yyyy")]
+        //public DateTime momdate { get; set; }
+        //[DisplayFormat("dd/MM/yyyy")]
+       // public DateTime planeddate { get; set; }
+        //[DisplayFormat("dd/MM/yyyy")]
+        //public DateTime auditopeneddate { get; set; }
         public String Auditscope { get; set; }
         public String Venue { get; set; }
     }

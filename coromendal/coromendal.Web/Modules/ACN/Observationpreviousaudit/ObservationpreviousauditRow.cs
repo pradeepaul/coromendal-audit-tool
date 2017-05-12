@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Observationpreviousaudit"), InstanceName("Observationpreviousaudit"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.Observationpreviousaudit.View)]
+    [ModifyPermission(ACN.PermissionKeys.Observationpreviousaudit.Modify)]
+    [DeletePermission(ACN.PermissionKeys.Observationpreviousaudit.Delete)]
     public sealed class ObservationpreviousauditRow : Row, IIdRow, INameRow
     {
         [DisplayName("Observationpreviousaudit Id"), Column("ObservationpreviousauditID"), Identity]
@@ -30,7 +31,7 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Observations from previous audit "), Size(200), QuickSearch]
+        [DisplayName("Observations from previous audit "), Size(200), QuickSearch, NotNull]
         public String Observation
         {
             get { return Fields.Observation[this]; }

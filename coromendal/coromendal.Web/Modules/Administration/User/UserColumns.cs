@@ -1,6 +1,7 @@
 ﻿
 namespace coromendal.Administration.Forms
 {
+    using ACN.Columns;
     using Administration.Columns;
     using Serenity.ComponentModel;
     using System;
@@ -18,7 +19,7 @@ namespace coromendal.Administration.Forms
         [Width(250)]
         public String Email { get; set; }
         [Width(150), RoleFormater]
-        public String RoleId { get; set; }
+        public Int32 RoleId { get; set; }
 
 
     }

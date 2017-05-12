@@ -1,4 +1,5 @@
-﻿namespace coromendal.ACN {
+﻿
+namespace coromendal.ACN {
     export interface MeetingAbsentauditorRow {
         MeetingAbsentauditorId?: number;
         MeetingId?: number;
@@ -24,11 +25,6 @@
         export const idProperty = 'MeetingAbsentauditorId';
         export const nameProperty = 'Reason';
         export const localTextPrefix = 'ACN.MeetingAbsentauditor';
-        export const lookupKey = 'ACN.MeetingAbsentauditor';
-
-        export function getLookup(): Q.Lookup<MeetingAbsentauditorRow> {
-            return Q.getLookup<MeetingAbsentauditorRow>('ACN.MeetingAbsentauditor');
-        }
 
         export namespace Fields {
             export declare const MeetingAbsentauditorId: string;

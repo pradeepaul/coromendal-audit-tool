@@ -12,6 +12,7 @@ namespace coromendal.ACN.Entities
     using System.IO;
     using Administration.Entities;
     using Administration.Scripts;
+    using System.Collections.Generic;
 
     [ConnectionKey("Default"), DisplayName("MeetingAbsentauditee"), InstanceName("MeetingAbsentauditee"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.MeetingAbsentauditee.View)]
@@ -34,8 +35,7 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Absent User")]
-       
+        [DisplayName("Absent User"), NotNull, Required(true), Size(200)]
         [LookupEditor(typeof(UserLookup1))]
         public Int32? AbsentUser
         {

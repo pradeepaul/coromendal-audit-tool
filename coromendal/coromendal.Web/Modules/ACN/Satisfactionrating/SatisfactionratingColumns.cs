@@ -13,7 +13,7 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.SatisfactionratingRow))]
     public class SatisfactionratingColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 SatisfactionratingId { get; set; }
         [EditLink]
         public Int32 Aodid { get; set; }

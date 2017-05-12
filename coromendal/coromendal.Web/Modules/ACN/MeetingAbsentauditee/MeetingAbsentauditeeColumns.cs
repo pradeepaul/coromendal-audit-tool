@@ -16,9 +16,10 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 MeetingAbsentauditeeId { get; set; }
+        [Hidden]
         public Int32 MeetingId { get; set; }
-        //[Width(150), AcnListFormatter]
-        public Int32 AbsentUser { get; set; }
+        [Width(150),EditLink,UserFormatter]
+        public String AbsentUser { get; set; }
         [EditLink]
         public String Reason { get; set; }
     }

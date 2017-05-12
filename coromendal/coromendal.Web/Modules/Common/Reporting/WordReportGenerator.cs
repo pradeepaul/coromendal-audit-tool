@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text;
 using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
+using System.Web;
 
 namespace Serenity.Reporting
 {
@@ -150,7 +151,7 @@ namespace Serenity.Reporting
         public static void populateAuditor(int acnid, DocX document)
         {
             var auditor = coromendal.ACN.Entities.AcnAuditorRefRow.Fields;
-            List<dynamic> auditorResultSet;
+            List<dynamic> auditorResultSet=null;
             var auditorsqlquery = new SqlQuery()
                     .From(auditor)
                     .Select(auditor.AcnAuditorId)
@@ -245,7 +246,7 @@ namespace Serenity.Reporting
         public static void populateFeedback(int acnid, DocX document)
         {
             var feedback = coromendal.ACN.Entities.AcnFeedbackRow.Fields;
-            dynamic feedbackResultSet;
+            dynamic feedbackResultSet = null;
             var feedbacksqlquery = new SqlQuery()
                     .From(feedback)
                     .Select(feedback.Ques1)
@@ -266,37 +267,51 @@ namespace Serenity.Reporting
                     feedback.Acnid == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnFeedbackRow>())
                 feedbackResultSet = connection.Query(feedbacksqlquery).FirstOrDefault();
-
-            document.ReplaceText("#%Q1%", Convert.ToString(feedbackResultSet.Ques1));
-            document.ReplaceText("#%Q2%", Convert.ToString(feedbackResultSet.Ques2));
-            var doc = feedbackResultSet.Ques1 + feedbackResultSet.Ques2;
-            document.ReplaceText("#%Documentation%", Convert.ToString(doc / 2));
-
-            document.ReplaceText("#%Q3%", Convert.ToString(feedbackResultSet.Ques3));
-            document.ReplaceText("#%Q4%", Convert.ToString(feedbackResultSet.Ques4));
-            var com = feedbackResultSet.Ques3 + feedbackResultSet.Ques4;
-            document.ReplaceText("#%Complianc%", Convert.ToString(com / 2));
-
-            document.ReplaceText("#%Q5%", Convert.ToString(feedbackResultSet.Ques5));
-            document.ReplaceText("#%Q6%", Convert.ToString(feedbackResultSet.Ques6));
-            var fin = feedbackResultSet.Ques5 + feedbackResultSet.Ques6;
-            document.ReplaceText("#%financial%", Convert.ToString(fin / 2));
-
-            document.ReplaceText("#%Q7%", Convert.ToString(feedbackResultSet.Ques7));
-            document.ReplaceText("#%Q8%", Convert.ToString(feedbackResultSet.Ques8));
-            var res = feedbackResultSet.Ques7 + feedbackResultSet.Ques8;
-            document.ReplaceText("#%Response%", Convert.ToString(res / 2));
-
-            document.ReplaceText("#%Q9%", Convert.ToString(feedbackResultSet.Ques9));
-            document.ReplaceText("#%Q10%", Convert.ToString(feedbackResultSet.Ques10));
-            var dis = feedbackResultSet.Ques9 + feedbackResultSet.Ques10;
-            document.ReplaceText("#%disclosure%", Convert.ToString(dis / 2));
-
-            document.ReplaceText("#%Q11%", Convert.ToString(feedbackResultSet.Ques11));
-            document.ReplaceText("#%Q12%", Convert.ToString(feedbackResultSet.Ques12));
-            var imp = feedbackResultSet.Ques11 + feedbackResultSet.Ques12;
-            document.ReplaceText("#%improvements%", Convert.ToString(imp / 2));
-
+            if (feedbackResultSet != null)
+            {
+                if (feedbackResultSet.Ques1 != null && feedbackResultSet.Ques2 != null)
+                {
+                    document.ReplaceText("#%Q1%", Convert.ToString(feedbackResultSet.Ques1));
+                    document.ReplaceText("#%Q2%", Convert.ToString(feedbackResultSet.Ques2));
+                    var doc = feedbackResultSet.Ques1 + feedbackResultSet.Ques2;
+                    document.ReplaceText("#%Documentation%", Convert.ToString(doc / 2));
+                }
+                if (feedbackResultSet.Ques3 != null && feedbackResultSet.Ques4 != null)
+                {
+                    document.ReplaceText("#%Q3%", Convert.ToString(feedbackResultSet.Ques3));
+                    document.ReplaceText("#%Q4%", Convert.ToString(feedbackResultSet.Ques4));
+                    var com = feedbackResultSet.Ques3 + feedbackResultSet.Ques4;
+                    document.ReplaceText("#%Complianc%", Convert.ToString(com / 2));
+                }
+                if (feedbackResultSet.Ques5 != null && feedbackResultSet.Ques6 != null)
+                {
+                    document.ReplaceText("#%Q5%", Convert.ToString(feedbackResultSet.Ques5));
+                    document.ReplaceText("#%Q6%", Convert.ToString(feedbackResultSet.Ques6));
+                    var fin = feedbackResultSet.Ques5 + feedbackResultSet.Ques6;
+                    document.ReplaceText("#%financial%", Convert.ToString(fin / 2));
+                }
+                if (feedbackResultSet.Ques7 != null && feedbackResultSet.Ques8 != null)
+                {
+                    document.ReplaceText("#%Q7%", Convert.ToString(feedbackResultSet.Ques7));
+                    document.ReplaceText("#%Q8%", Convert.ToString(feedbackResultSet.Ques8));
+                    var res = feedbackResultSet.Ques7 + feedbackResultSet.Ques8;
+                    document.ReplaceText("#%Response%", Convert.ToString(res / 2));
+                }
+                if (feedbackResultSet.Ques9 != null && feedbackResultSet.Ques10 != null)
+                {
+                    document.ReplaceText("#%Q9%", Convert.ToString(feedbackResultSet.Ques9));
+                    document.ReplaceText("#%Q10%", Convert.ToString(feedbackResultSet.Ques10));
+                    var dis = feedbackResultSet.Ques9 + feedbackResultSet.Ques10;
+                    document.ReplaceText("#%disclosure%", Convert.ToString(dis / 2));
+                }
+                if (feedbackResultSet.Ques11 != null && feedbackResultSet.Ques12 != null)
+                {
+                    document.ReplaceText("#%Q11%", Convert.ToString(feedbackResultSet.Ques11));
+                    document.ReplaceText("#%Q12%", Convert.ToString(feedbackResultSet.Ques12));
+                    var imp = feedbackResultSet.Ques11 + feedbackResultSet.Ques12;
+                    document.ReplaceText("#%improvements%", Convert.ToString(imp / 2));
+                }
+            }
         }
 
         public static void populateOb(int acnid,DocX document)
@@ -311,8 +326,11 @@ namespace Serenity.Reporting
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AuditobservationRow>())
                 auditobid = connection.Query(obidsqlquery).FirstOrDefault();
             var ob = 0;
-            ob = auditobid.AuditobservationId;
-            populateRootcause(document, ob);
+            if (ob != 0)
+            {
+                ob = auditobid.AuditobservationId;
+                populateRootcause(document, ob);
+            }
             //Suggestion
             populateSuggestion(document, ob);
         }
@@ -430,7 +448,7 @@ namespace Serenity.Reporting
                     .From(obervation)
                     .Select(obervation.Observationtitle)
                     .Select(obervation.Observationsynopsis)
-                    .Select(obervation.Detailedobservation)
+                    .Select(obervation.AuditobservationId)
                     .Select(obervation.Agreeobservation)
                     .Select(obervation.Alternateplan)
                     .Select(obervation.Suggestion)
@@ -444,36 +462,54 @@ namespace Serenity.Reporting
                     summary.AcnId == acnid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AuditobservationRow>())
                 obervationResultSet = connection.Query(obervationsqlquery).FirstOrDefault();
+            if (obervationResultSet != null)
+            {
+                document.ReplaceText("%#Observation Title%", obervationResultSet.Observationtitle);
+                document.ReplaceText("#%Synopsisofobservation%", obervationResultSet.Observationsynopsis);
+                populateauditObservationdetails(document, obervationResultSet.AuditobservationId);              
+                if (obervationResultSet.Agreeobservation != 0)
+                {
+                    document.ReplaceText("%#AGREE%", "YES");
+                }
+                else
+                {
+                    document.ReplaceText("%#AGREE%", "NO");
+                }
 
-            document.ReplaceText("%#Observation Title%", obervationResultSet.Observationtitle);
-            document.ReplaceText("#%Synopsisofobservation%", obervationResultSet.Observationsynopsis);
-            document.ReplaceText("#%Detailed Observation#", obervationResultSet.Detailedobservation);
-            if (obervationResultSet.Agreeobservation != 0)
-            {
-                document.ReplaceText("%#AGREE%", "YES");
+                document.ReplaceText("#% AlternateAction#", Convert.ToString(obervationResultSet.Alternateplan));
+                if (obervationResultSet.Agreeobservation != 0)
+                {
+                    document.ReplaceText("#%YES#", "YES");
+                }
+                else
+                {
+                    document.ReplaceText("#%YES#", "NO");
+                }
+                document.ReplaceText("%# Justification#", Convert.ToString(obervationResultSet.Justification));
+                document.ReplaceText("%#TDATE%", Convert.ToString(obervationResultSet.Targetdate));
+                document.ReplaceText("%#RISKRATING#", Convert.ToString(obervationResultSet.RiskRating));
+                document.ReplaceText("CATEGORY###", PopulatecategoryIndexPage(obervationResultSet.Category));
+                document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
+                document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));
             }
-            else
-            {
-                document.ReplaceText("%#AGREE%", "NO");
-            }
-
-            document.ReplaceText("#% AlternateAction#", Convert.ToString(obervationResultSet.Alternateplan));
-            if (obervationResultSet.Agreeobservation != 0)
-            {
-                document.ReplaceText("#%YES#", "YES");
-            }
-            else
-            {
-                document.ReplaceText("#%YES#", "NO");
-            }
-            document.ReplaceText("%# Justification#", Convert.ToString(obervationResultSet.Justification));
-            document.ReplaceText("%#TDATE%", Convert.ToString(obervationResultSet.Targetdate));
-            document.ReplaceText("%#RISKRATING#", Convert.ToString(obervationResultSet.RiskRating)); 
-            document.ReplaceText("CATEGORY###", PopulatecategoryIndexPage(obervationResultSet.Category));
-            document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
-            document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));
         }
+        public static void populateauditObservationdetails(DocX document, int ob)
+        {
+            var Note = coromendal.Northwind.Entities.NoteRow.Fields;
+            dynamic NoteResultSet;
+            var Notesqlquery = new SqlQuery()
+                    .From(Note)
+                    .Select(Note.Text)
+                    .Where(
+                    Note.EntityId == ob && Note.EntityType == "[dbo].[Auditobservation]");
+            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.SuggestionRow>())
+                NoteResultSet = connection.Query(Notesqlquery).FirstOrDefault();
 
+
+
+                 document.ReplaceText("#%Detailed Observation#", NoteResultSet.Text);
+                
+        }
         public static void populateIssuemeeting(DocX document,int[] numbers)
         {
             var issue = coromendal.ACN.Entities.MeetingIssueRow.Fields;

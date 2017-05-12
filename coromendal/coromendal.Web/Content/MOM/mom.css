@@ -3,6 +3,18 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.s-MeetingIssueEditorDialog {
+    height: 65% !important;
+}
+.s-NoteDialog {
+    height: 60% !important;
+}
+.s-NoteDialog .ui-dialog-titlebar {
+    top: 100px !important;
+}
+.s-NoteDialog .ui-dialog-content {
+    top: 100px !important;
+}
 .ui-dialog-content {
     height: 95% !important;
     overflow: hidden !important;
@@ -40,9 +52,8 @@
 .AcnidFromdate, .AcnidTodate {
     max-width: 50%;
 }
-.category:nth-child(4), .category:nth-child(5) {
-    max-width: 50%;
-    display: inline-flex;
+.category:nth-child(3), .category:nth-child(4) {
+    max-width: 100%;
 }
 .slick-header-columns {
     left: 0px !important;
@@ -54,63 +65,86 @@
 .AcnidScopeList .slick-header-columns div:nth-child(2) {
     min-width: 94% !important;
 }
-.AbsentList .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+.AbsentList .slick-header-columns div {
+    min-width: 49% !important;
 }
-.AbsentList .slick-header-columns div:nth-child(3) {
-    min-width: 29% !important;
+.AbsentList .slick-header-columns,
+.AuditeeAbsent .slick-header-columns {
+    width: auto !important;
 }
-.AbsentList .slick-header-columns div:nth-child(4) {
-    min-width: 45% !important;
+.AbsentList .ui-widget-content .slick-cell,
+.AuditeeAbsent .ui-widget-content .slick-cell {
+    width: 50% !important;
 }
-.AuditeeAbsent .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+.AbsentList .ui-widget-content div:nth-child(2),
+.AuditeeAbsent .ui-widget-content div:nth-child(2) {
+    left: 50% !important;
+    padding-left: 0 !important;
 }
-.AuditeeAbsent .slick-header-columns div:nth-child(3) {
-    min-width: 29% !important;
+.AbsentList .grid-canvas,
+.AuditeeAbsent .grid-canvas,
+.PreviousObservationaudit .grid-canvas,
+.PointsList .grid-canvas,
+.DetailList .grid-canvas,
+.Newimprovements .grid-canvas,
+.Newchanges .grid-canvas {
+    width: 100% !important;
 }
-.AuditeeAbsent .slick-header-columns div:nth-child(4) {
-    min-width: 45% !important;
+.AuditeeAbsent .slick-header-columns div {
+    min-width: 49% !important;
 }
-.PreviousObservationaudit .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+.PreviousObservationaudit .slick-header-columns div {
+    min-width: 100% !important;
 }
-.PreviousObservationaudit .slick-header-columns div:nth-child(3) {
-    min-width: 74% !important;
+.PointsList .slick-header-columns div {
+    min-width: 100% !important;
 }
-.PointsList .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+.DetailList .slick-header-columns {
+    width: 100% !important;
 }
-.PointsList .slick-header-columns div:nth-child(3) {
-    min-width: 74% !important;
+.DetailList .slick-header-columns div:nth-child(1) {
+    width: 10% !important;
 }
 .DetailList .slick-header-columns div:nth-child(2) {
-    min-width: 10% !important;
+    width: 23% !important;
 }
 .DetailList .slick-header-columns div:nth-child(3) {
-    min-width: 10% !important;
+    width: 24% !important;
 }
 .DetailList .slick-header-columns div:nth-child(4) {
-    min-width: 10% !important;
+    width: 24% !important;
 }
 .DetailList .slick-header-columns div:nth-child(5) {
-    min-width: 10% !important;
+    width: 16% !important;
 }
-.DetailList .slick-header-columns div:nth-child(6) {
-    min-width: 10% !important;
+.DetailList .ui-widget-content  .r0 {
+    width: 11% !important;
 }
-.DetailList .slick-header-columns div:nth-child(7) {
-    min-width: 35% !important;
+.DetailList .ui-widget-content  .r1 {
+    padding-left: 0px !important;
+    left: 11% !important;
+    width: 23% !important;
 }
-.Newimprovements .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+.DetailList .ui-widget-content  .r2 {
+    width: 25% !important;
+    left: 34% !important;
 }
-.Newimprovements .slick-header-columns div:nth-child(3) {
-    min-width: 74% !important;
+.DetailList .ui-widget-content  .r3 {
+    width: 24% !important;
+    padding-left: 0px !important;
+    left: 59% !important;
 }
-.Newchanges .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+.DetailList .ui-widget-content  .r4 {
+    width: 19% !important;
+    left: 83% !important;
 }
-.Newchanges .slick-header-columns div:nth-child(3) {
-    min-width: 74% !important;
+.Newimprovements .slick-header-columns div {
+    min-width: 100% !important;
+}
+.Newchanges .slick-header-columns div {
+    min-width: 100% !important;
+}
+.s-MessageDialog {
+    height: 20% !important;
+    padding-top: 5% !important;
 }

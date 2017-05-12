@@ -17,8 +17,10 @@ namespace coromendal.ACN {
             var fld = ACN.AodRow.Fields;
             Q.first(columns, x => x.field == fld.Preview).format =
                 ctx => `<a href="" class="send previewbtn"></a>`;
-            Q.first(columns, x => x.field == fld.Send).format =
-                ctx => `<a href="" class="send sendbtn"></a>`;
+            if ((Authorization.userDefinition.RoleId == 4) || (Authorization.userDefinition.RoleId == 1)) {  
+                Q.first(columns, x => x.field == fld.Send).format =
+                    ctx => `<a href="" class="send sendbtn"></a>`;
+            }
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {

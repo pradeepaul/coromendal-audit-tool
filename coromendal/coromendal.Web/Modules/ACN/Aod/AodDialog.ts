@@ -16,7 +16,7 @@ namespace coromendal.ACN {
            
             this.form.Meetingid.changeSelect2(e => {
                 var MeetingID = this.form.Meetingid.value;
-                console.log(this.form.Acnid.value);
+                console.log(this.form.Meetingid.value);
                 if (Q.isEmptyOrNull(MeetingID)) {
                     this.setMeetingDetails({});
                     return;
@@ -32,15 +32,20 @@ namespace coromendal.ACN {
             });
         }      
         private setMeetingDetails(meetingdetails: ACN.MinutesofmeetingRow) {
-            this.form.AcnidFromdate.value = meetingdetails.AcnidFromdate;
             this.form.Acnid.value = meetingdetails.Acnid;
-            this.form.AcnidTodate.value = meetingdetails.AcnidTodate;
-            this.form.AcnidPeriodfrom.value = meetingdetails.AcnidPeriodfrom;
-            this.form.AcnidPeriodto.value = meetingdetails.Period;
             this.form.AcnidPhaseNo.value = meetingdetails.AcnidPhaseNo;
-            this.form.MeetingidMomdate.value = meetingdetails.momdate;
+            this.form.AcnidCreationdate.value = meetingdetails.AcnidCreationdate;
             this.form.MeetingidPlanedcloseddate.value = meetingdetails.planeddate;
             this.form.MeetingidAuditopeningmeetingdate.value = meetingdetails.auditopeneddate;
+            this.form.AcnidFromdate.value = meetingdetails.AcnidFromdate;
+            this.form.AcnidTodate.value = meetingdetails.AcnidTodate;
+            this.form.AcnidPeriodfrom.value = meetingdetails.AcnidPeriodfrom;
+            this.form.AcnidPeriodto.value = meetingdetails.AcnidPeriodto;
+            this.form.AcnidLocation.value = meetingdetails.AcnidLocation;
+
+           
+            
+
         }
     }
 }

@@ -13,9 +13,11 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.DaRreleaseRow))]
     public class DaRreleaseColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 DaRreleaseId { get; set; }
-        public Int32 ReportId { get; set; }
-        public Int32 AcnId { get; set; }
+        [EditLink]
+        public String ReportTitle { get; set; }
+        [FinalTextFormat]
+        public String Status { get; set; }
     }
 }

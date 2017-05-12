@@ -8,7 +8,6 @@
                 return "";
 
             var byId = AcnAuditeeRow.getLookup().itemById;
-            console.log(byId);
             let z: AcnAuditeeRow;
             return idList.map(x => ((z = byId[x]) ? z.Name : x)).join(", ");
         }

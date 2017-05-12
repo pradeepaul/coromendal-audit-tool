@@ -31,14 +31,14 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnId[this] = value; }
         }
 
-        [DisplayName("Particulars"), Column("particulars"), Size(100), QuickSearch]
+        [DisplayName("Particulars"), Column("particulars"), Size(300), NotNull, QuickSearch]
         public String Particulars
         {
             get { return Fields.Particulars[this]; }
             set { Fields.Particulars[this] = value; }
         }
 
-        [DisplayName("Value"), Column("value"), Size(100)]
+        [DisplayName("Value"), Column("value"), NotNull, Size(300)]
         public String Value
         {
             get { return Fields.Value[this]; }

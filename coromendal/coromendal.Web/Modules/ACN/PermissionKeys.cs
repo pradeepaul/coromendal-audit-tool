@@ -186,6 +186,39 @@ namespace coromendal.ACN
             public const string Modify = "MeetingAbsentauditor:Modify";
             public const string View = "MeetingAbsentauditor:View";
         }
+
+        public class satisfactionrating
+        {
+            public const string Delete = "satisfactionrating:Delete";
+            public const string Modify = "satisfactionrating:Modify";
+            public const string View = "satisfactionrating:View";
+        }
+
+        public class Observationpreviousaudit
+        {
+            public const string Delete = "Observationpreviousaudit:Delete";
+            public const string Modify = "Observationpreviousaudit:Modify";
+            public const string View = "Observationpreviousaudit:View";
+        }
+
+        public class observationpending
+        {
+            public const string Delete = "observationpending:Delete";
+            public const string Modify = "observationpending:Modify";
+            public const string View = "observationpending:View";
+        }
+
+        public class currentauditobservation
+        {
+            public const string Delete = "currentauditobservation:Delete";
+            public const string Modify = "currentauditobservation:Modify";
+            public const string View = "currentauditobservation:View";
+        }
+
+
+
+
+
         public const string General = "ACN:General";
     }
 }

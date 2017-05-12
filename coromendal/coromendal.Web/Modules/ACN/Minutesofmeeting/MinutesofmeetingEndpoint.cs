@@ -97,15 +97,18 @@ namespace coromendal.ACN.Endpoints
                 mt++;
             }
             var audituser = coromendal.Administration.Entities.UserRow.Fields;
-            List<dynamic> audituserresultSet;
-            var auditusersqlquery = new SqlQuery()
+            List<dynamic> audituserresultSet=null;
+            if (numbers.Length != 0)
+            {
+                var auditusersqlquery = new SqlQuery()
                     .From(audituser)
                     .Select(audituser.DisplayName)
                     .Select(audituser.Email)
                     .Where(
                     audituser.UserId.In(numbers));
-            using (var connection4 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
-                audituserresultSet = connection4.Query(auditusersqlquery).ToList();
+                using (var connection4 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
+                    audituserresultSet = connection4.Query(auditusersqlquery).ToList();
+            }
             //auditor display
             var auditor = coromendal.ACN.Entities.AcnAuditorRefRow.Fields;
             List<dynamic> auditorresultSet;
@@ -124,7 +127,8 @@ namespace coromendal.ACN.Endpoints
                 mt++;
             }
             var auditoruser = coromendal.Administration.Entities.UserRow.Fields;
-            List<dynamic> auditoruserresultSet;
+            List<dynamic> auditoruserresultSet = null;
+            if (numbers1.Length != 0) {             
             var auditorusersqlquery = new SqlQuery()
                     .From(auditoruser)
                     .Select(auditoruser.DisplayName)
@@ -133,6 +137,7 @@ namespace coromendal.ACN.Endpoints
                     auditoruser.UserId.In(numbers1));
             using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
                 auditoruserresultSet = connection5.Query(auditorusersqlquery).ToList();
+            }           
             //auditor  Absent display
             var auditorAbsent = coromendal.ACN.Entities.MeetingAbsentauditorRow.Fields;
             List<dynamic> auditorAbsentresultSet;
@@ -148,18 +153,21 @@ namespace coromendal.ACN.Endpoints
             foreach (var item in auditorAbsentresultSet)
             {
                 numbers3[mt3] = (int)item.AbsentUser;
-                mt++;
+                mt3++;
             }
             var auditorabsentuser = coromendal.Administration.Entities.UserRow.Fields;
-            List<dynamic> auditorabsentuserresultSet;
-            var auditorabsentusersqlquery = new SqlQuery()
-                    .From(auditorabsentuser)
-                    .Select(auditorabsentuser.DisplayName)
-                    .Select(auditorabsentuser.Email)
-                    .Where(
-                    auditorabsentuser.UserId.In(numbers3));
-            using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
-                auditorabsentuserresultSet = connection5.Query(auditorabsentusersqlquery).ToList();
+            List<dynamic> auditorabsentuserresultSet = null;
+            if (numbers3.Length != 0)
+            {
+                var auditorabsentusersqlquery = new SqlQuery()
+                        .From(auditorabsentuser)
+                        .Select(auditorabsentuser.DisplayName)
+                        .Select(auditorabsentuser.Email)
+                        .Where(
+                        auditorabsentuser.UserId.In(numbers3));
+                using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
+                    auditorabsentuserresultSet = connection5.Query(auditorabsentusersqlquery).ToList();
+            }
             //auditee  Absent display
             var auditeeAbsent = coromendal.ACN.Entities.MeetingAbsentauditeeRow.Fields;
             List<dynamic> auditeeAbsentresultSet;
@@ -175,18 +183,21 @@ namespace coromendal.ACN.Endpoints
             foreach (var item in auditeeAbsentresultSet)
             {
                 numbers4[mt4] = (int)item.AbsentUser;
-                mt++;
+                mt4++;
             }
             var auditeeabsentuser = coromendal.Administration.Entities.UserRow.Fields;
-            List<dynamic> auditeeabsentuserresultSet;
-            var auditeeabsentusersqlquery = new SqlQuery()
+            List<dynamic> auditeeabsentuserresultSet=null;
+            if (numbers4.Length != 0)
+            {
+                var auditeeabsentusersqlquery = new SqlQuery()
                     .From(auditeeabsentuser)
                     .Select(auditeeabsentuser.DisplayName)
                     .Select(auditeeabsentuser.Email)
                     .Where(
                    auditeeabsentuser.UserId.In(numbers4));
-            using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
-                auditeeabsentuserresultSet = connection5.Query(auditeeabsentusersqlquery).ToList();
+                using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
+                    auditeeabsentuserresultSet = connection5.Query(auditeeabsentusersqlquery).ToList();
+            }
             //scope display
             var scope = coromendal.ACN.Entities.ScopeRow.Fields;
             List<dynamic> scoperesultSet;
@@ -294,95 +305,178 @@ namespace coromendal.ACN.Endpoints
             string scopedata = "";
             string team = "";
             string team1 = "";
-            foreach (var item in scoperesultSet)
+            if (scoperesultSet != null)
+            {
+                foreach (var item in scoperesultSet)
+                {
+                    scopedata = string.Concat(scopedata, "-");
+                    scopedata = string.Concat(scopedata, item.Title);
+                    scopedata = string.Concat(scopedata, "<br/>");
+                }
+            }
+            else
             {
                 scopedata = string.Concat(scopedata, "-");
-                scopedata = string.Concat(scopedata, item.Title);
-                scopedata = string.Concat(scopedata, "<br/>");
             }
-            foreach (var item in audituserresultSet)
+
+            if (audituserresultSet != null)
+            {
+                foreach (var item in audituserresultSet)
+                {
+                    team = string.Concat(team, "-");
+                    team = string.Concat(team, item.DisplayName);
+                    team = string.Concat(team, "<br/>");
+                }
+            }
+            else
             {
                 team = string.Concat(team, "-");
-                team = string.Concat(team, item.DisplayName);
-                team = string.Concat(team, "<br/>");
             }
-            foreach (var item in auditoruserresultSet)
+            if (auditoruserresultSet != null)
+            {
+                foreach (var item in auditoruserresultSet)
+                {
+                    team1 = string.Concat(team1, "-");
+                    team1 = string.Concat(team1, item.DisplayName);
+                    team1 = string.Concat(team1, "<br/>");
+                }
+            }
+            else
             {
                 team1 = string.Concat(team1, "-");
-                team1 = string.Concat(team1, item.DisplayName);
-                team1 = string.Concat(team1, "<br/>");
             }
+
             string absentauditor = "";
             string absentauditee = "";
-            foreach (var item in auditorabsentuserresultSet)
+            if (auditorabsentuserresultSet != null)
+            {
+                foreach (var item in auditorabsentuserresultSet)
+                {
+                    absentauditor = string.Concat(absentauditor, "-");
+                    absentauditor = string.Concat(absentauditor, item.DisplayName);
+                    absentauditor = string.Concat(absentauditor, "<br/>");
+                }
+            }
+            else
             {
                 absentauditor = string.Concat(absentauditor, "-");
-                absentauditor = string.Concat(absentauditor, item.DisplayName);
-                absentauditor = string.Concat(absentauditor, "<br/>");
             }
-            foreach (var item in auditeeabsentuserresultSet)
+            if (auditeeabsentuserresultSet != null)
+            {
+                foreach (var item in auditeeabsentuserresultSet)
+                {
+                    absentauditee = string.Concat(absentauditee, "-");
+                    absentauditee = string.Concat(absentauditee, item.DisplayName);
+                    absentauditee = string.Concat(absentauditee, "<br/>");
+                }
+            }
+            else
             {
                 absentauditee = string.Concat(absentauditee, "-");
-                absentauditee = string.Concat(absentauditee, item.DisplayName);
-                absentauditee = string.Concat(absentauditee, "<br/>");
             }
             string Observation = "";
-            foreach (var item in obfrompreviousauditresultSet)
+            if (obfrompreviousauditresultSet != null)
+            {
+                foreach (var item in obfrompreviousauditresultSet)
+                {
+                    Observation = string.Concat(Observation, "-");
+                    Observation = string.Concat(Observation, item.Observation);
+                    Observation = string.Concat(Observation, "<br/>");
+                }
+            }
+            else
             {
                 Observation = string.Concat(Observation, "-");
-                Observation = string.Concat(Observation, item.Observation);
-                Observation = string.Concat(Observation, "<br/>");
             }
+
             string Points ="";
-            foreach (var item in meetingpointsresultSet)
+            if (meetingpointsresultSet != null)
+            {
+                foreach (var item in meetingpointsresultSet)
+                {
+                    Points = string.Concat(Points, "-");
+                    Points = string.Concat(Points, item.Points);
+                    Points = string.Concat(Points, "<br/>");
+                }
+            }
+            else
             {
                 Points = string.Concat(Points, "-");
-                Points = string.Concat(Points, item.Points);
-                Points = string.Concat(Points, "<br/>");
             }
             string note = "";
-            foreach (var item in notesresultSet)
+            if (notesresultSet != null)
+            {
+                foreach (var item in notesresultSet)
+                {
+                    note = string.Concat(note, "-");
+                    note = string.Concat(note, item.Text);
+                    note = string.Concat(note, "<br/>");
+                }
+            }
+            else
             {
                 note = string.Concat(note, "-");
-                note = string.Concat(note, item.Text);
-                note = string.Concat(note, "<br/>");
             }
+
             string Preaudits = "";
-            foreach (var item in PreauditresultSet)
+            if (PreauditresultSet != null)
             {
-                Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                Preaudits = string.Concat(Preaudits, item.AreaofOperation);
-                Preaudits = string.Concat(Preaudits, "</td>");
+                foreach (var item in PreauditresultSet)
+                {
+                    Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    Preaudits = string.Concat(Preaudits, item.AreaofOperation);
+                    Preaudits = string.Concat(Preaudits, "</td>");
 
-                Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                Preaudits = string.Concat(Preaudits, item.Issue);
-                Preaudits = string.Concat(Preaudits, "</td>");
+                    Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    Preaudits = string.Concat(Preaudits, item.Issue);
+                    Preaudits = string.Concat(Preaudits, "</td>");
 
-                Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                Preaudits = string.Concat(Preaudits, item.Status);
-                Preaudits = string.Concat(Preaudits, "</td>");
+                    Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    Preaudits = string.Concat(Preaudits, item.Status);
+                    Preaudits = string.Concat(Preaudits, "</td>");
 
-                Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                Preaudits = string.Concat(Preaudits, item.ExpectedDate); 
-                Preaudits = string.Concat(Preaudits, "</td>");
+                    Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    Preaudits = string.Concat(Preaudits, item.ExpectedDate);
+                    Preaudits = string.Concat(Preaudits, "</td>");
 
-                Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                Preaudits = string.Concat(Preaudits, item.Comments); 
-                Preaudits = string.Concat(Preaudits, "</td>");
+                    Preaudits = string.Concat(Preaudits, "<td style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    Preaudits = string.Concat(Preaudits, item.Comments);
+                    Preaudits = string.Concat(Preaudits, "</td>");
+                }
             }
+            else
+            {
+                Preaudits = string.Concat(Preaudits, "-");
+            }
+
             string Initiative = "";
-            foreach (var item in InitiativesresultSet)
+            if (InitiativesresultSet != null)
+            {
+                foreach (var item in InitiativesresultSet)
+                {
+                    Initiative = string.Concat(Initiative, "-");
+                    Initiative = string.Concat(Initiative, item.Observation);
+                    Initiative = string.Concat(Initiative, "<br/>");
+                }
+            }
+            else
             {
                 Initiative = string.Concat(Initiative, "-");
-                Initiative = string.Concat(Initiative, item.Observation);
-                Initiative = string.Concat(Initiative, "<br/>");
             }
+
             string Change = "";
-            foreach (var item in ChangesresultSet)
+            if (ChangesresultSet != null)
+            {
+                foreach (var item in ChangesresultSet)
+                {
+                    Change = string.Concat(Change, "-");
+                    Change = string.Concat(Change, item.Observation);
+                    Change = string.Concat(Change, "<br/>");
+                }
+            }
+            else
             {
                 Change = string.Concat(Change, "-");
-                Change = string.Concat(Change, item.Observation);
-                Change = string.Concat(Change, "<br/>");
             }
             HTMLBody = HTMLBody.Replace("{scope}", scopedata);
             HTMLBody = HTMLBody.Replace("{auditee}", team);
@@ -423,5 +517,11 @@ namespace coromendal.ACN.Endpoints
 
 
         }
-    }
+        public int GetRoleId(IDbConnection connection, ListRequest request)
+        {
+            var user = (UserDefinition)Serenity.Authorization.UserDefinition;
+            var msg = user.RoleId;
+            return user.RoleId;
+        }
+        }
 }

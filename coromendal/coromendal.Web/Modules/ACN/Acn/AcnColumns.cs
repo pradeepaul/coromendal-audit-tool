@@ -35,10 +35,11 @@ namespace coromendal.ACN.Columns
         public String location { get; set; }
         [DisplayFormat("dd/MM/yyyy")]
         public DateTime creationdate { get; set; }
-        [EditLink]
-        public String send { get; set; }
+        
         [EditLink]
         public String Preview { get; set; }
-        
+        [EditLink]
+        public String send { get; set; }
+
     }
 }

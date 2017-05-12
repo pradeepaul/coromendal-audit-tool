@@ -41,6 +41,34 @@ namespace coromendal.ACN.Repositories
         private class MySaveHandler : SaveRequestHandler<MyRow> { }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
-        private class MyListHandler : ListRequestHandler<MyRow> { }
+        private class MyListHandler : ListRequestHandler<MyRow> {
+            protected override void ApplyFilters(SqlQuery query)
+            {
+                var user = (UserDefinition)Authorization.UserDefinition;
+                if (user.RoleId == 1)
+                {
+                    base.ApplyFilters(query);
+                    var acnAuditorRef = Entities.AcnAuditorRefRow.Fields.As("acnAuditorRef");
+                    query.Where(fld.AcnId.In(
+                           query.SubQuery()
+                               .From(acnAuditorRef)
+                               .Select(acnAuditorRef.AcnId)
+                               .Where(
+                                   acnAuditorRef.AcnAuditorId == user.UserId)));
+                }
+                if (user.RoleId == 2)
+                {
+                    base.ApplyFilters(query);
+                    var acnAuditeeRef = Entities.AcnAuditeeRefRow.Fields.As("acnAuditeeRef");
+                    query.Where(fld.AcnId.In(
+                          query.SubQuery()
+                              .From(acnAuditeeRef)
+                              .Select(acnAuditeeRef.AcnId)
+                              .Where(
+                                  acnAuditeeRef.AcnAuditeeId == user.UserId)));
+                }
+                
+            }
+        }
     }
 }

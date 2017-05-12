@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("observationpending"), InstanceName("observationpending"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.observationpending.View)]
+    [ModifyPermission(ACN.PermissionKeys.observationpending.Modify)]
+    [DeletePermission(ACN.PermissionKeys.observationpending.Delete)]
     public sealed class ObservationpendingRow : Row, IIdRow, INameRow
     {
         [DisplayName("Observationpending Id"), Column("observationpendingId"), Identity]
@@ -23,35 +24,35 @@ namespace coromendal.ACN.Entities
             set { Fields.ObservationpendingId[this] = value; }
         }
 
-        [DisplayName("Report Reference"), Column("reportreference"), Size(100), QuickSearch]
+        [DisplayName("Report Reference"), Column("reportreference"), Size(200), QuickSearch, NotNull]
         public String Reportreference
         {
             get { return Fields.Reportreference[this]; }
             set { Fields.Reportreference[this] = value; }
         }
 
-        [DisplayName("Observation Reference & Brief Description"), Column("briefdescription")]
+        [DisplayName("Observation Reference & Brief Description"), Column("briefdescription"), Size(300), NotNull]
         public String Briefdescription
         {
             get { return Fields.Briefdescription[this]; }
             set { Fields.Briefdescription[this] = value; }
         }
 
-        [DisplayName("Original Target date"), Column("originaltargetdate")]
+        [DisplayName("Original Target date"), Column("originaltargetdate"), NotNull]
         public String Originaltargetdate
         {
             get { return Fields.Originaltargetdate[this]; }
             set { Fields.Originaltargetdate[this] = value; }
         }
 
-        [DisplayName("Revised Target date"), Column("revisedtargetdate")]
+        [DisplayName("Revised Target date"), Column("revisedtargetdate"), NotNull]
         public String Revisedtargetdate
         {
             get { return Fields.Revisedtargetdate[this]; }
             set { Fields.Revisedtargetdate[this] = value; }
         }
 
-        [DisplayName("Remarks"), Column("remarks"), Size(100)]
+        [DisplayName("Remarks"), Column("remarks"), Size(200)]
         public String Remarks
         {
             get { return Fields.Remarks[this]; }

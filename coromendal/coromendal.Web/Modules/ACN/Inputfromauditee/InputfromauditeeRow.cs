@@ -30,21 +30,21 @@ namespace coromendal.ACN.Entities
             set { Fields.Aodid[this] = value; }
         }
 
-        [DisplayName("Additional Area Covered"), Column("additionalareacovered"), Size(100), QuickSearch]
+        [DisplayName("Additional Area Covered"), Column("additionalareacovered"), Size(200), NotNull, QuickSearch]
         public String Additionalareacovered
         {
             get { return Fields.Additionalareacovered[this]; }
             set { Fields.Additionalareacovered[this] = value; }
         }
 
-        [DisplayName("Issues"), Column("issues"), Size(100)]
+        [DisplayName("Issues"), Column("issues"), NotNull, Size(200)]
         public String Issues
         {
             get { return Fields.Issues[this]; }
             set { Fields.Issues[this] = value; }
         }
 
-        [DisplayName("New Improvements"), Column("newimprovements"), Size(100)]
+        [DisplayName("New Improvements"), Column("newimprovements"), NotNull, Size(200)]
         public String Newimprovements
         {
             get { return Fields.Newimprovements[this]; }

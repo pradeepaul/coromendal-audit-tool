@@ -3,6 +3,7 @@
 namespace coromendal.ACN.Entities
 {
     using Newtonsoft.Json;
+    using Scripts;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -26,7 +27,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
-        [LookupEditor(typeof(AcnRow))]
+        [LookupEditor(typeof(AcnLookup))]
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }
@@ -230,34 +231,34 @@ namespace coromendal.ACN.Entities
             set { Fields.Remark14[this] = value; }
         }
 
-        [DisplayName("Your Name"), Column("name"), QuickSearch]
+        [DisplayName("Auditee Name"), Column("name"), QuickSearch,NotNull]
         public String Name
         {
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Department"), Column("dept")]
+        [DisplayName("Department"), Column("dept"), NotNull]
         public String Dept
         {
             get { return Fields.Dept[this]; }
             set { Fields.Dept[this] = value; }
         }
 
-        [DisplayName("Name of the Review"), Column("reviewname")]
+        [DisplayName("Name of the Review"), Column("reviewname"), NotNull]
         public String Reviewname
         {
             get { return Fields.Reviewname[this]; }
             set { Fields.Reviewname[this] = value; }
         }
 
-        [DisplayName("Location"), Column("location")]
+        [DisplayName("Location"), Column("location"), NotNull]
         public String Location
         {
             get { return Fields.Location[this]; }
             set { Fields.Location[this] = value; }
         }
-        [DisplayName("Comments/ Suggestion if any"), Column("comments")]
+        [DisplayName("Comments/ Suggestion if any"), Column("comments"), Size(1000)]
         public String Comments
         {
             get { return Fields.Comments[this]; }

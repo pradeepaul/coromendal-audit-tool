@@ -3,6 +3,7 @@
 namespace coromendal.ACN.Entities
 {
     using Newtonsoft.Json;
+    using Scripts;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -25,29 +26,29 @@ namespace coromendal.ACN.Entities
             set { Fields.AodId[this] = value; }
         }
 
-        [DisplayName("Meeting"), ForeignKey("[dbo].[minutesofmeeting]", "meetingid"), LeftJoin("jMeetingid"), TextualField("MeetingidTitle")]
-        [LookupEditor(typeof(MinutesofmeetingRow))]
+        [DisplayName("Meeting"), ForeignKey("[dbo].[minutesofmeeting]", "meetingid"), LeftJoin("jMeetingid"), TextualField("MeetingidTitle"), Size(300)]
+        [LookupEditor(typeof(MeetingLookup))]
         public Int32? Meetingid
         {
             get { return Fields.Meetingid[this]; }
             set { Fields.Meetingid[this] = value; }
         }
 
-        [DisplayName("Audit commencement  (Actual)"), Size(100), QuickSearch]
+        [DisplayName("Audit commencement  (Actual)"), Size(100), QuickSearch, NotNull]
         public String Actualcomencementdate
         {
             get { return Fields.Actualcomencementdate[this]; }
             set { Fields.Actualcomencementdate[this] = value; }
         }
 
-        [DisplayName("Audit Completion  (Actual)"), Size(100)]
+        [DisplayName("Audit Completion  (Actual)"), Size(100), NotNull]
         public String Actualcompltedate
         {
             get { return Fields.Actualcompltedate[this]; }
             set { Fields.Actualcompltedate[this] = value; }
         }
 
-        [DisplayName("Process owners"), Column("Process owner"), Size(100)]
+        [DisplayName("Process owners"), Column("Process owner"), Size(100), NotNull]
         public String ProcessOwner
         {
             get { return Fields.ProcessOwner[this]; }
@@ -67,44 +68,44 @@ namespace coromendal.ACN.Entities
             set { Fields.Send[this] = value; }
         }
 
-        [DisplayName("Functional Heads"), Size(100)]
+        [DisplayName("Functional Heads"), Size(100), NotNull]
         public String Functionalhead
         {
             get { return Fields.Functionalhead[this]; }
             set { Fields.Functionalhead[this] = value; }
         }
 
-        [DisplayName("Areas of Scope"), Size(100)]
+        [DisplayName("Areas of Scope"), Size(200), NotNull]
         public String Areaofscope
         {
             get { return Fields.Areaofscope[this]; }
             set { Fields.Areaofscope[this] = value; }
         }
 
-        [DisplayName("Exclusions"), Size(100)]
+        [DisplayName("Exclusions"), Size(200), NotNull]
         public String Exclusions
         {
             get { return Fields.Exclusions[this]; }
             set { Fields.Exclusions[this] = value; }
         }
 
-        [DisplayName("Reasons"), Size(100)]
+        [DisplayName("Reasons"), Size(200), NotNull]
         public String Reasons
         {
             get { return Fields.Reasons[this]; }
             set { Fields.Reasons[this] = value; }
         }
 
-        [DisplayName("SBU"), Size(100)]
+        [DisplayName("SBU"), Size(200), NotNull]
         [LookupEditor(typeof(SbuRow))]
-        public String Sbu
+        public Int32? Sbu
         {
             get { return Fields.Sbu[this]; }
             set { Fields.Sbu[this] = value; }
         }
 
-        [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
-        [LookupEditor(typeof(AcnRow))]
+        [DisplayName("Assignment"), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte"), ReadOnly(true), Size(200)]
+        //[LookupEditor(typeof(AcnRow))]
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }
@@ -265,26 +266,26 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidUserid[this] = value; }
         }
 
-        [DisplayName("Inputs received from Auditee"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
+        [DisplayName("Inputs received from Auditee"), MasterDetailRelation(foreignKey: "aodid"), NotNull, ClientSide]
         public List<InputfromauditeeRow> inputfromauditee
         {
             get { return Fields.inputfromauditee[this]; }
             set { Fields.inputfromauditee[this] = value; }
         }
-        [DisplayName("Satisfaction Rating for the processes audited"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
+        [DisplayName("Satisfaction Rating for the processes audited"), MasterDetailRelation(foreignKey: "aodid"), NotNull, ClientSide]
         public List<SatisfactionratingRow> Satisfactionrating
         {
             get { return Fields.Satisfactionrating[this]; }
             set { Fields.Satisfactionrating[this] = value; }
         }
 
-        [DisplayName("Audit Observations pending from previous years"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
+        [DisplayName("Audit Observations pending from previous years"), MasterDetailRelation(foreignKey: "aodid"), NotNull, ClientSide]
         public List<ObservationpendingRow> Observationpending
         {
             get { return Fields.Observationpending[this]; }
             set { Fields.Observationpending[this] = value; }
         }
-        [DisplayName("Observations from current audit"), MasterDetailRelation(foreignKey: "aodid"), ClientSide]
+        [DisplayName("Observations from current audit"), MasterDetailRelation(foreignKey: "aodid"), NotNull, ClientSide]
         public List<CurrentauditobservationRow> Currentauditobservation
         {
             get { return Fields.Currentauditobservation[this]; }
@@ -320,7 +321,7 @@ namespace coromendal.ACN.Entities
             public StringField Areaofscope;
             public StringField Exclusions;
             public StringField Reasons;
-            public StringField Sbu;
+            public Int32Field Sbu;
             public Int32Field Acnid;
             public StringField Preview;
             public StringField Send;

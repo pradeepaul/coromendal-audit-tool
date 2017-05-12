@@ -3,14 +3,18 @@
     @Serenity.Decorators.registerFormatter()
     export class RoleFormater implements Slick.Formatter {
         format(ctx: Slick.FormatterContext) {
-            var idList = ctx.value as string[];
-            if (!idList || !idList.length)
+            var idList = ctx.value as number;
+            if (!idList)
                 return "";
+            var name = "";
+            var byId = Administration.RoleRow.getLookup().itemById;
+            for (var key in byId) {
 
-            var byId = RoleRow.getLookup().itemById;
-            console.log(byId);
-            let z: RoleRow;
-            return idList.map(x => ((z = byId[x]) ? z.RoleName : x)).join(", ");
+                if (idList == byId[key].RoleId) {
+                    name = byId[key].RoleName;
+                }
+            }
+            return name;
         }
     }
 }

@@ -485,6 +485,48 @@ declare namespace coromendal.Common {
     }
 }
 declare namespace coromendal.ACN {
+    class AcnAuditeeabsRefForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface AcnAuditeeabsRefForm {
+        AcnAuditeeId: Serenity.IntegerEditor;
+        MeetingAbsentauditeeId: Serenity.IntegerEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface AcnAuditeeabsRefRow {
+        AcnAuditeeabsRefId?: number;
+        AcnAuditeeId?: number;
+        MeetingAbsentauditeeId?: number;
+    }
+    namespace AcnAuditeeabsRefRow {
+        const idProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const AcnAuditeeabsRefId: any;
+            const AcnAuditeeId: any;
+            const MeetingAbsentauditeeId: any;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace AcnAuditeeabsRefService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<AcnAuditeeabsRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AcnAuditeeabsRefRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnAuditeeabsRefRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnAuditeeabsRefRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
 }
 declare namespace coromendal.ACN {
     class AcnAuditeeForm extends Serenity.PrefixedContext {
@@ -1272,6 +1314,7 @@ declare namespace coromendal.ACN {
         Satisfactionrating: SatisfactionratingEditor;
         Observationpending: ObservationpendingEditor;
         Currentauditobservation: CurrentauditobservationEditor;
+        Acnid: Serenity.IntegerEditor;
     }
 }
 declare namespace coromendal.ACN {
@@ -2197,10 +2240,88 @@ declare namespace coromendal.ACN {
 declare namespace coromendal.ACN {
 }
 declare namespace coromendal.ACN {
+    class MeetingAbsentauditordetailsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MeetingAbsentauditordetailsForm {
+        MeetingId: Serenity.IntegerEditor;
+        AbsentUser: Serenity.IntegerEditor;
+        Reason: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface MeetingAbsentauditordetailsRow {
+        MeetingAbsentauditorId?: number;
+        MeetingId?: number;
+        AbsentUser?: number;
+        Reason?: string;
+        Name?: string;
+        MeetingAcnid?: number;
+        MeetingTitle?: string;
+        MeetingAuditscope?: string;
+        MeetingPeriod?: string;
+        MeetingTime?: number;
+        MeetingVenue?: string;
+        MeetingAuditor?: number;
+        MeetingAuditee?: number;
+        MeetingDownload?: number;
+        MeetingUserid?: number;
+        MeetingMomdate?: string;
+        MeetingPlanedcloseddate?: string;
+        MeetingAuditopeningmeetingdate?: string;
+        MeetingSend?: number;
+    }
+    namespace MeetingAbsentauditordetailsRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const MeetingAbsentauditorId: any;
+            const MeetingId: any;
+            const AbsentUser: any;
+            const Reason: any;
+            const Name: any;
+            const MeetingAcnid: string;
+            const MeetingTitle: string;
+            const MeetingAuditscope: string;
+            const MeetingPeriod: string;
+            const MeetingTime: string;
+            const MeetingVenue: string;
+            const MeetingAuditor: string;
+            const MeetingAuditee: string;
+            const MeetingDownload: string;
+            const MeetingUserid: string;
+            const MeetingMomdate: string;
+            const MeetingPlanedcloseddate: string;
+            const MeetingAuditopeningmeetingdate: string;
+            const MeetingSend: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace MeetingAbsentauditordetailsService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<MeetingAbsentauditordetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MeetingAbsentauditordetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingAbsentauditordetailsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingAbsentauditordetailsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
     class MeetingAbsentauditorForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface MeetingAbsentauditorForm {
+        MeetingId: Serenity.IntegerEditor;
         AbsentUser: Serenity.LookupEditor;
         Reason: Serenity.StringEditor;
     }
@@ -2230,8 +2351,6 @@ declare namespace coromendal.ACN {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<MeetingAbsentauditorRow>;
         namespace Fields {
             const MeetingAbsentauditorId: string;
             const MeetingId: string;
@@ -2257,11 +2376,11 @@ declare namespace coromendal.ACN {
 declare namespace coromendal.ACN {
     namespace MeetingAbsentauditorService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingAbsentauditorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingAbsentauditorRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MeetingAbsentauditorRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MeetingAbsentauditorRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MeetingAbsentauditorRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -5148,6 +5267,9 @@ declare namespace coromendal {
     interface ScriptUserDefinition {
         Username?: string;
         DisplayName?: string;
+        UserId?: number;
+        RoleId?: number;
+        Email?: string;
         Permissions?: {
             [key: string]: boolean;
         };
@@ -5775,6 +5897,11 @@ declare namespace coromendal.Administration {
     }
 }
 declare namespace coromendal.Administration {
+    class UserFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace coromendal.Administration {
     class UserGrid extends Serenity.EntityGrid<UserRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof UserDialog;
@@ -6346,6 +6473,8 @@ declare namespace coromendal.ACN {
         protected form: MinutesofmeetingForm;
         constructor();
         private setCustomerDetails(details);
+        private setCustomerDetail(details);
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -6375,6 +6504,7 @@ declare namespace coromendal.ACN {
         protected getColumns(): Slick.Column[];
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
         protected preview(respose: any): void;
+        protected GetRoleId(respose: any): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -6443,6 +6573,44 @@ declare namespace coromendal.ACN {
     class MeetingIssueGrid extends Serenity.EntityGrid<MeetingIssueRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof MeetingIssueDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingAbsentauditordetailsDialog extends Serenity.EntityDialog<MeetingAbsentauditordetailsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MeetingAbsentauditordetailsForm;
+        constructor();
+        private setMeetingDetails(meetingdetails);
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingAbsentauditordetailsEditor extends Common.GridEditorBase<MeetingAbsentauditordetailsRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MeetingAbsentauditordetailsEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingAbsentauditordetailsEditorDialog extends Common.GridEditorDialog<MeetingAbsentauditordetailsRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: MeetingAbsentauditordetailsForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class MeetingAbsentauditordetailsGrid extends Serenity.EntityGrid<MeetingAbsentauditordetailsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MeetingAbsentauditordetailsDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
@@ -6699,6 +6867,11 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalTextFormat implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
     }
 }
 declare namespace coromendal.ACN {
@@ -7146,6 +7319,8 @@ declare namespace coromendal.ACN {
         protected getNameProperty(): string;
         protected getService(): string;
         protected form: AcnFeedbackForm;
+        constructor();
+        private setMeetingDetails(meetingdetails);
     }
 }
 declare namespace coromendal.ACN {
@@ -7282,6 +7457,40 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+    class AcnAuditeeabsRefDialog extends Serenity.EntityDialog<AcnAuditeeabsRefRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: AcnAuditeeabsRefForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditeeabsRefEditor extends Common.GridEditorBase<AcnAuditeeabsRefRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnAuditeeabsRefEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditeeabsRefEditorDialog extends Common.GridEditorDialog<AcnAuditeeabsRefRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: AcnAuditeeabsRefForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class AcnAuditeeabsRefGrid extends Serenity.EntityGrid<AcnAuditeeabsRefRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AcnAuditeeabsRefDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
     class AcnAuditeeDialog extends Serenity.EntityDialog<AcnAuditeeRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -7330,6 +7539,7 @@ declare namespace coromendal.ACN {
         protected getNameProperty(): string;
         protected getService(): string;
         protected form: AcnForm;
+        constructor();
     }
 }
 declare namespace coromendal.ACN {

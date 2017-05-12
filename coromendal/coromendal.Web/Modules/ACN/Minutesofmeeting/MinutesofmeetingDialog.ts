@@ -12,7 +12,7 @@ namespace coromendal.ACN {
 
         protected form = new MinutesofmeetingForm(this.idPrefix);
         constructor() {
-            super();
+            super();     
             this.form.Acnid.changeSelect2(e => {
                var AcnID = this.form.Acnid.value;
                console.log(this.form.Acnid.value);               
@@ -31,12 +31,34 @@ namespace coromendal.ACN {
             });
         }
         private setCustomerDetails(details: ACN.AcnRow) {
-            this.form.AcnidFromdate.value = details.Fromdate;
-            this.form.AcnidTodate.value = details.Todate;
+            this.form.AcnidPhaseNo.value = details.PhaseNo;
+            this.form.AcnidCreationdate.value = details.creationdate;
             this.form.AcnidPeriodfrom.value = details.Periodfrom;
             this.form.AcnidPeriodto.value = details.Periodto;
+            this.form.AcnidFromdate.value = details.Fromdate;
+            this.form.AcnidTodate.value = details.Todate;
             this.form.AcnidScopeList.value = details.ScopeList;
-            this.form.AcnidPhaseNo.value = details.PhaseNo;
+            this.form.MeetingTitle.value = details.AcnTilte;
+            
+
+        }
+        private setCustomerDetail(details: ACN.AcnRow) {
+            this.form.AcnidScopeList.value = details.ScopeList;
+        }
+
+        protected afterLoadEntity() {
+            if (Q.isEmptyOrNull(this.form.Acnid.value)) {
+                this.setCustomerDetail({});
+                return;
+            }
+
+            var id = Q.first(ACN.AcnRow.getLookup().items, x => x.AcnId == parseInt(this.form.Acnid.value)).AcnId;
+            ACN.AcnService.Retrieve({
+                EntityId: id
+            }, response => {
+                this.setCustomerDetail(response.Entity);
+            });
+
         }
 
 

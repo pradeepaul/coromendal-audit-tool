@@ -2,6 +2,7 @@
 
 namespace coromendal.ACN.Entities
 {
+    using Administration.Scripts;
     using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
@@ -9,15 +10,13 @@ namespace coromendal.ACN.Entities
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
+
+    using System.Collections.Generic;
     using System.IO;
-    using Administration.Entities;
-    using Administration.Scripts;
 
     [ConnectionKey("Default"), DisplayName("MeetingAbsentauditor"), InstanceName("MeetingAbsentauditor"), TwoLevelCached]
-    [ReadPermission(ACN.PermissionKeys.MeetingAbsentauditor.View)]
-    [ModifyPermission(ACN.PermissionKeys.MeetingAbsentauditor.Modify)]
-    [DeletePermission(ACN.PermissionKeys.MeetingAbsentauditor.Delete)]
-    [LookupScript("ACN.MeetingAbsentauditor")]
+    [ReadPermission("Administration")]
+    [ModifyPermission("Administration")]
     public sealed class MeetingAbsentauditorRow : Row, IIdRow, INameRow
     {
         [DisplayName("Meeting Absentauditor Id"), Column("MeetingAbsentauditorID"), Identity]
@@ -34,7 +33,8 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Absent User")]
+        [DisplayName("Absent User"), NotNull, Required(true), Size(200)]
+
         [LookupEditor(typeof(AuditeeUserLookup))]
         public Int32? AbsentUser
         {

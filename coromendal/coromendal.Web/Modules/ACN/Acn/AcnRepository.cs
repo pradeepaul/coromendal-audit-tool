@@ -68,14 +68,40 @@ namespace coromendal.ACN.Repositories
         private class MyListHandler : ListRequestHandler<MyRow> {
             protected override void ApplyFilters(SqlQuery query)
             {
-                base.ApplyFilters(query);
-
                 var user = (UserDefinition)Authorization.UserDefinition;
-                var fld1 = coromendal.ACN.Entities.AcnRow.Fields;
-                var fl = fld1.Auditor;
-                var id = 2;
-                var id1 = 2;
-               // query.Where(id.Equals(id1));
+                if (user.RoleId == 1)
+                {
+                    base.ApplyFilters(query);
+                    var acnAuditorRef = Entities.AcnAuditorRefRow.Fields.As("acnAuditorRef");
+                    query.Where(fld.AcnId.In(
+                           query.SubQuery()
+                               .From(acnAuditorRef)
+                               .Select("acnID")
+                               .Where(
+                                   acnAuditorRef.AcnAuditorId == user.UserId)));
+                }
+                if (user.RoleId == 2)
+                {
+                    base.ApplyFilters(query);
+                    var acnAuditeeRef = Entities.AcnAuditeeRefRow.Fields.As("acnAuditeeRef");
+                     query.Where(fld.AcnId.In(
+                           query.SubQuery()
+                               .From(acnAuditeeRef)
+                               .Select("acnID")
+                               .Where(
+                                   acnAuditeeRef.AcnAuditeeId == user.UserId)));
+                }
+                if (user.RoleId == 3)
+                {
+                    base.ApplyFilters(query);
+                    var acnReviewRef = Entities.AcnReviewRefRow.Fields.As("acnReviewRef");
+                    query.Where(fld.AcnId.In(
+                          query.SubQuery()
+                              .From(acnReviewRef)
+                              .Select("acnID")
+                              .Where(
+                                  acnReviewRef.AcnReviewId == user.UserId)));
+                }
             }
         }
        

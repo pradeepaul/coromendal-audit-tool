@@ -3,6 +3,9 @@
 namespace coromendal.ACN.Entities
 {
     using Newtonsoft.Json;
+    using Northwind;
+    using Northwind.Entities;
+    using Scripts;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -27,35 +30,42 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Assignment"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte")]
-        [LookupEditor(typeof(AcnRow))]
+        [LookupEditor(typeof(AcnLookup))]
         public Int32? AcnId
         {
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
 
-        [DisplayName("Observation Title"), Column("observationtitle"), QuickSearch]
+        [DisplayName("Observation Title"), Column("observationtitle"), QuickSearch, NotNull]
         public String Observationtitle
         {
             get { return Fields.Observationtitle[this]; }
             set { Fields.Observationtitle[this] = value; }
         }
 
-        [DisplayName("Synopsis"), Column("observationsynopsis"),NotNull]
+        [DisplayName("Synopsis"), Column("observationsynopsis"),NotNull, Size(1000)]
         public String Observationsynopsis
         {
             get { return Fields.Observationsynopsis[this]; }
             set { Fields.Observationsynopsis[this] = value; }
         }
-
-        [DisplayName("Detailed Observation"), Column("detailedobservation"), ]
+        [ Column("detailedobservation"), Size(5000)]
         public String Detailedobservation
         {
             get { return Fields.Detailedobservation[this]; }
             set { Fields.Detailedobservation[this] = value; }
         }
+        
+        [NotesEditor, ClientSide]
+        [DisplayName("Detailed Observation")]
+        public List<NoteRow> Detailedobservation1
+        {
+            get { return Fields.Detailedobservation1[this]; }
+            set { Fields.Detailedobservation1[this] = value; }
+        }
 
-        [DisplayName("Category"), Column("category")]
+        [DisplayName("Category"), Column("category"), NotNull]
         [LookupEditor(typeof(CategoryRow))]
         public Int32? Category
         {
@@ -63,14 +73,14 @@ namespace coromendal.ACN.Entities
             set { Fields.Category[this] = value; }
         }
         
-        [DisplayName("Likelihood")]
+        [DisplayName("Likelihood"), NotNull]
         [LookupEditor(typeof(LikeliwoodvalueRow))]
         public Int32? Likelihood
         {
             get { return Fields.Likelihood[this]; }
             set { Fields.Likelihood[this] = value; }
         }
-        [DisplayName("Consequence")]
+        [DisplayName("Consequence"), NotNull]
         [LookupEditor(typeof(RiskratingRow))]
         public Int32? Consequence
         {
@@ -92,7 +102,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Agreeobservation[this] = value; }
         }
 
-        [DisplayName("Justification"), Column("justification")]
+        [DisplayName("Justification"), Column("justification"), NotNull, Size(1000)]
        
         public String Justification
         {
@@ -100,35 +110,35 @@ namespace coromendal.ACN.Entities
             set { Fields.Justification[this] = value; }
         }
         [LookupEditor(typeof(ConformationRow))]
-        [DisplayName("Agree this Suggestion"), Column("suggestion")]
+        [DisplayName("Agree this Suggestion"), Column("suggestion"), NotNull]
         public Int32? Suggestion
         {
             get { return Fields.Suggestion[this]; }
             set { Fields.Suggestion[this] = value; }
         }
 
-        [DisplayName("Alternate Plan"), Column("alternateplan")]
+        [DisplayName("Alternate Plan"), Column("alternateplan"), Size(1000), NotNull]
         public String Alternateplan
         {
             get { return Fields.Alternateplan[this]; }
             set { Fields.Alternateplan[this] = value; }
         }
 
-        [DisplayName("Name"), Column("name")]
+        [DisplayName("Name"), Column("name"),ReadOnly(true)]
         public String Name
         {
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Email"), Column("email")]
+        [DisplayName("Email"), Column("email"),ReadOnly(true)]
         public String Email
         {
             get { return Fields.Email[this]; }
             set { Fields.Email[this] = value; }
         }
 
-        [DisplayName("Target Date"), Column("targetdate")]
+        [DisplayName("Target Date"), Column("targetdate"), NotNull]
         public String Targetdate
         {
             get { return Fields.Targetdate[this]; }
@@ -137,7 +147,7 @@ namespace coromendal.ACN.Entities
 
 
 
-        [DisplayName("Assignment"), Expression("jAcn.[AcnTilte]")]
+        [DisplayName("Assignment"), Expression("jAcn.[AcnTilte]"), Size(200)]
         public String AcnAcnTilte
         {
             get { return Fields.AcnAcnTilte[this]; }
@@ -192,7 +202,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnCreationdate[this]; }
             set { Fields.AcnCreationdate[this] = value; }
         }
-        [DisplayName("Root cast"), ClientSide, MasterDetailRelation(foreignKey: "auditobservationID")]
+        [DisplayName("Root cause"), ClientSide, MasterDetailRelation(foreignKey: "auditobservationID"), NotNull]
         public List<RootcauseRow> rootList
         {
             get { return Fields.rootList[this]; }
@@ -228,6 +238,7 @@ namespace coromendal.ACN.Entities
             public Int32Field AcnId;
             public StringField Observationtitle;
             public StringField Observationsynopsis;
+            public RowListField<NoteRow> Detailedobservation1;
             public StringField Detailedobservation;
             public Int32Field Category;
             public StringField RiskRating;

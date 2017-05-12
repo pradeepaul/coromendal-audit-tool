@@ -24,7 +24,7 @@ namespace coromendal.ACN.Entities
             set { Fields.ScopeId[this] = value; }
         }
 
-        [DisplayName("Scope"), Column("title"), Size(100), QuickSearch]
+        [DisplayName("Scope"), Column("title"), Size(300), QuickSearch]
         public String Title
         {
             get { return Fields.Title[this]; }

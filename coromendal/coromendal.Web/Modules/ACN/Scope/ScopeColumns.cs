@@ -15,8 +15,9 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 ScopeId { get; set; }
-        [EditLink]
+        [Width(1668), EditLink]
         public String Title { get; set; }
+      
        // public Int32 AcnId { get; set; }
     }
 }

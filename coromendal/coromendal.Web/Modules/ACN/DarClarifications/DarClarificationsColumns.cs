@@ -13,9 +13,11 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.DarClarificationsRow))]
     public class DarClarificationsColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 DarClarificationsId { get; set; }
-        public Int32 ReportId { get; set; }
-        public Int32 AcnId { get; set; }
+        [EditLink]
+        public string ReportTitle { get; set; }
+        [FinalTextFormat]
+        public string Status { get; set; }
     }
 }

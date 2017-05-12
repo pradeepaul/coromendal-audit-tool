@@ -102,7 +102,7 @@ classes should alter those!
 .slick-row.ui-widget-content, .slick-row.ui-state-active {
   position: absolute;
   border: 0px;
-  width: 100%;
+  width: 100% !important; 
 }
 
 .slick-cell, .slick-headerrow-column, .slick-footerrow-column {

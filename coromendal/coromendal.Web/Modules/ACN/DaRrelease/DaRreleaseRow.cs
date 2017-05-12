@@ -43,7 +43,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
-        [DisplayName("Status"), Column("status")]
+        [DisplayName("Status"), Column("status"), NotNull]
         [LookupEditor(typeof(FinalstatusvalueRow))]
         public Int32? Status
         {

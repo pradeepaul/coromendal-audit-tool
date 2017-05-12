@@ -195,7 +195,22 @@ namespace coromendal.ACN.Endpoints
             HTMLBody = HTMLBody.Replace("{Remarks13}", Convert.ToString(resultSet.Remark13));
             HTMLBody = HTMLBody.Replace("{Rating14}", Convert.ToString(resultSet.Ques14));
             HTMLBody = HTMLBody.Replace("{Remarks14}", Convert.ToString(resultSet.Remark14));
-
+            string team = "";
+            string team1 = "";
+            foreach (var item in audituserresultSet)
+            {
+                team = string.Concat(team, "-");
+                team = string.Concat(team, item.DisplayName);
+                team = string.Concat(team, "<br/>");
+            }
+            foreach (var item in auditoruserresultSet)
+            {
+                team1 = string.Concat(team1, "-");
+                team1 = string.Concat(team1, item.DisplayName);
+                team1 = string.Concat(team1, "<br/>");
+            }
+            HTMLBody = HTMLBody.Replace("{Auditorsname}", team1);
+            HTMLBody = HTMLBody.Replace("{Auditeesname}", team);
             HTMLBody = HTMLBody.Replace("{comments}", Convert.ToString(resultSet.Comments));            
             message.Body = HTMLBody;
             string msg = "";

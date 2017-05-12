@@ -75,6 +75,9 @@ namespace coromendal.Administration.Endpoints
 
             result.Username = user.Username;
             result.DisplayName = user.DisplayName;
+            result.Email = user.Email;
+            result.RoleId = user.RoleId;
+            result.UserId = user.UserId;
 
             result.Permissions = TwoLevelCache.GetLocalStoreOnly("ScriptUserPermissions:" + user.Id, TimeSpan.Zero,
                 UserPermissionRow.Fields.GenerationKey, () =>

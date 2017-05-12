@@ -184,6 +184,7 @@
     <Content Include="Content\aristo\images\slider_handles.png" />
     <Content Include="Content\aristo\images\ui-icons_222222_256x240.png" />
     <Content Include="Content\aristo\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Auditobservation\auditobservation.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -197,6 +198,7 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.png" />
     <Content Include="Content\css\select2x2.png" />
+    <Content Include="Content\DAR\dar.css" />
     <Content Include="Content\feedback\feedback.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -1126,6 +1128,7 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnAuditeeListFormatter.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalstatusvalue\FinalTextFormat.ts" />
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageGrid.ts" />
@@ -1138,6 +1141,7 @@
     <TypeScriptCompile Include="Modules\Administration\UserPermission\UserPermissionDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\UserRole\UserRoleDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\UserRole\RoleCheckEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\User\UserFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\AcnListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\Authentication\Authorization.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\UserGrid.ts" />
@@ -2331,7 +2335,6 @@
     <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeEditorDialog.ts" />
-    <Content Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditorRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -2341,26 +2344,67 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditorForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorGrid.ts" />
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorDialog.ts" />
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEditor.ts" />
-    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEditorDialog.ts" />
     <Content Include="Modules\ACN\Percentage\PercentageIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PercentageRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PercentageService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PercentageForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PercentageRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PercentageService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PercentageForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\ACN\Percentage\PercentageGrid.ts" />
     <TypeScriptCompile Include="Modules\ACN\Percentage\PercentageDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Percentage\PercentageEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Percentage\PercentageEditorDialog.ts" />
     <Content Include="Modules\ACN\Sbu\SbuIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SbuRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SbuService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SbuForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SbuRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SbuService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.SbuForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\ACN\Sbu\SbuGrid.ts" />
     <TypeScriptCompile Include="Modules\ACN\Sbu\SbuDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Sbu\SbuEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Sbu\SbuEditorDialog.ts" />
+    <Content Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditordetailsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditordetailsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.MeetingAbsentauditordetailsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsEditorDialog.ts" />
+    <Content Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEditorDialog.ts" />
+    <Content Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeabsRefRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeabsRefService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.AcnAuditeeabsRefForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2382,6 +2426,7 @@
     <Compile Include="Modules\ACN\Acn\AcnAuditeeListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\AcnListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\ScopeEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Acn\AcnLookup.cs" />
     <Compile Include="Modules\ACN\Aod\CurrentauditobservationEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Aod\InputfromauditeeEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Aod\ObservationpendingEditorAttribute.cs" />
@@ -2391,7 +2436,10 @@
     <Compile Include="Modules\ACN\Auditobservation\SuggestionEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Category\CategoryPage.cs" />
     <Compile Include="Modules\ACN\Conformation\ConformationPage.cs" />
+    <Compile Include="Modules\ACN\DarClarifications\FinalTextFormatAttribute.cs" />
     <Compile Include="Modules\ACN\Feedbackvalue\FeedbackvaluePage.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditee\UserFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Minutesofmeeting\MeetingLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditeeLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditorLookup.cs" />
@@ -2404,6 +2452,7 @@
     <Compile Include="Modules\ACN\Minutesofmeeting\ObservationpreviousauditEditorAttribute.cs" />
     <Compile Include="Modules\ACN\PermissionKeys.cs" />
     <Compile Include="Modules\ACN\Riskrating\RiskratingPage.cs" />
+    <Compile Include="Modules\ACN\Scope\GridColumnAttribute.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
@@ -3053,12 +3102,6 @@
     <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeRepository.cs" />
     <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeeEndpoint.cs" />
     <Compile Include="Modules\ACN\MeetingAbsentauditee\MeetingAbsentauditeePage.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorRow.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorColumns.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorForm.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorRepository.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEndpoint.cs" />
-    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorPage.cs" />
     <Compile Include="Modules\ACN\Percentage\PercentageRow.cs" />
     <Compile Include="Modules\ACN\Percentage\PercentageColumns.cs" />
     <Compile Include="Modules\ACN\Percentage\PercentageForm.cs" />
@@ -3071,9 +3114,28 @@
     <Compile Include="Modules\ACN\Sbu\SbuRepository.cs" />
     <Compile Include="Modules\ACN\Sbu\SbuEndpoint.cs" />
     <Compile Include="Modules\ACN\Sbu\SbuPage.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsRow.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsForm.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsEndpoint.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditordetails\MeetingAbsentauditordetailsPage.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorRow.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorColumns.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorForm.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorRepository.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorEndpoint.cs" />
+    <Compile Include="Modules\ACN\MeetingAbsentauditor\MeetingAbsentauditorPage.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefRow.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefColumns.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefForm.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefRepository.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefEndpoint.cs" />
+    <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="coromendal\ACN\" />
     <Folder Include="Scripts\typings\site\" />
   </ItemGroup>
   <ItemGroup>

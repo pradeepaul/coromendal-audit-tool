@@ -30,7 +30,7 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Points discussed"), Size(200), QuickSearch]
+        [DisplayName("Points discussed"), Size(200), QuickSearch, NotNull]
         public String Points
         {
             get { return Fields.Points[this]; }

@@ -97,28 +97,28 @@ namespace coromendal.ACN.Entities
             set { Fields.Ques8[this] = value; }
         }
 
-        [DisplayName("Name"), Column("name"), QuickSearch]
+        [DisplayName("Name"), Column("name"), QuickSearch, NotNull]
         public String Name
         {
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Dept"), Column("dept")]
+        [DisplayName("Dept"), Column("dept"), NotNull]
         public String Dept
         {
             get { return Fields.Dept[this]; }
             set { Fields.Dept[this] = value; }
         }
 
-        [DisplayName("Reviewname"), Column("reviewname")]
+        [DisplayName("Reviewname"), Column("reviewname"), NotNull]
         public String Reviewname
         {
             get { return Fields.Reviewname[this]; }
             set { Fields.Reviewname[this] = value; }
         }
 
-        [DisplayName("Location"), Column("location")]
+        [DisplayName("Location"), Column("location"), NotNull]
         public String Location
         {
             get { return Fields.Location[this]; }

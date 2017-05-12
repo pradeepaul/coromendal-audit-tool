@@ -53,6 +53,7 @@ namespace coromendal.ACN.Endpoints
         }
         public string Sendmail(IDbConnection connection, ListRequest request)
         {
+            System.Console.WriteLine("Sendmail");
             var fld1 = coromendal.ACN.Entities.AcnRow.Fields;
             dynamic resultSet;
             var sqlquery = new SqlQuery()
@@ -123,7 +124,7 @@ namespace coromendal.ACN.Endpoints
             foreach (var item in auditorresultSet)
             {
                 numbers1[mt1] = (int)item.AcnAuditorId;
-                mt++;
+                mt1++;
             }
             var auditoruser = coromendal.Administration.Entities.UserRow.Fields;
             List<dynamic> auditoruserresultSet;
@@ -183,7 +184,7 @@ namespace coromendal.ACN.Endpoints
             }
             HTMLBody = HTMLBody.Replace("{scope}", scopedata);
             HTMLBody = HTMLBody.Replace("{auditor}", team1);
-            HTMLBody = HTMLBody.Replace("{auditee}", team);
+           // HTMLBody = HTMLBody.Replace("{auditee}", team);
             message.Body = HTMLBody;
             string msg = "";
             message.IsBodyHtml = true;

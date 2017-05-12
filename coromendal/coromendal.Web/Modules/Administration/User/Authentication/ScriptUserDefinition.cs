@@ -13,6 +13,9 @@
     {
         public String Username { get; set; }
         public String DisplayName { get; set; }
+        public Int32 UserId { get; set; }
+        public Int32 RoleId { get; set; }
+        public String Email { get; set; }
         public Dictionary<string, bool> Permissions { get; set; }
     }
 }

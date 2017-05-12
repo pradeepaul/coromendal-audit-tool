@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("currentauditobservation"), InstanceName("currentauditobservation"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.currentauditobservation.View)]
+    [ModifyPermission(ACN.PermissionKeys.currentauditobservation.Modify)]
+    [DeletePermission(ACN.PermissionKeys.currentauditobservation.Delete)]
     public sealed class CurrentauditobservationRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
@@ -23,14 +24,14 @@ namespace coromendal.ACN.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Observations"), Column("observation"), Size(100), QuickSearch]
+        [DisplayName("Observations"), Column("observation"), Size(200), QuickSearch, NotNull]
         public String Observation
         {
             get { return Fields.Observation[this]; }
             set { Fields.Observation[this] = value; }
         }
 
-        [DisplayName("Comments If any"), Column("comments"), Size(100)]
+        [DisplayName("Comments If any"), Column("comments"), Size(1000)]
         public String Comments
         {
             get { return Fields.Comments[this]; }

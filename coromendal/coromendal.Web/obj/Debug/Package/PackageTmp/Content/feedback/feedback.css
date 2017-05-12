@@ -1,8 +1,12 @@
-﻿.ui-dialog  {
-    height: 700px !important;
+﻿body {
+    overflow:inherit !important;
+}
+.ui-dialog {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .ui-dialog-content {
-    height: 100% !important;
+    min-height :90% !important;
     overflow: hidden !important;
 }
 .category-title {

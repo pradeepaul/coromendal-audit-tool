@@ -71,6 +71,7 @@ namespace coromendal.ACN.Endpoints
 
             int acnid = aodresultSet.Acnid;
             int meetingid = aodresultSet.Meetingid;
+            int sbuid = Convert.ToInt32(aodresultSet.Sbu);
             var fld1 = coromendal.ACN.Entities.AcnRow.Fields;
             dynamic acnresultSet;
             var acnsqlquery = new SqlQuery()
@@ -145,30 +146,35 @@ namespace coromendal.ACN.Endpoints
             }
             var auditoruser = coromendal.Administration.Entities.UserRow.Fields;
             List<dynamic> auditoruserresultSet;
-            var auditorusersqlquery = new SqlQuery()
+                var auditorusersqlquery = new SqlQuery()
                     .From(auditoruser)
                     .Select(auditoruser.DisplayName)
                     .Select(auditoruser.Email)
                     .Where(
                     auditoruser.UserId.In(numbers1));
-            using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
-                auditoruserresultSet = connection5.Query(auditorusersqlquery).ToList();
+                using (var connection5 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
+                    auditoruserresultSet = connection5.Query(auditorusersqlquery).ToList();
             //input received from auitee           
             var inputs = coromendal.ACN.Entities.InputfromauditeeRow.Fields;
-            List<dynamic> inputsresultSet;
-            var inputssqlquery = new SqlQuery()
+            List<dynamic> inputsresultSet=null;
+            if (numbers1.Length != 0)
+            {
+                var inputssqlquery = new SqlQuery()
                     .From(inputs)
                     .Select(inputs.Additionalareacovered)
                     .Select(inputs.Issues)
                     .Select(inputs.Newimprovements)
                     .Where(
                     inputs.Aodid == request.ContainsField);
-            using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.InputfromauditeeRow>())
-                inputsresultSet = connection2.Query(inputssqlquery).ToList();
+                using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.InputfromauditeeRow>())
+                    inputsresultSet = connection2.Query(inputssqlquery).ToList();
+            }
             //satisfation rating           
             var satisfation = coromendal.ACN.Entities.SatisfactionratingRow.Fields;
-            List<dynamic> satisfationesultSet;
-            var satisfationsqlquery = new SqlQuery()
+            List<dynamic> satisfationesultSet=null;
+            if (numbers1.Length != 0)
+            {
+                var satisfationsqlquery = new SqlQuery()
                     .From(satisfation)
                     .Select(satisfation.Documentscore)
                     .Select(satisfation.Documentcomments)
@@ -198,12 +204,15 @@ namespace coromendal.ACN.Endpoints
                     .Select(satisfation.Totalscore)
                     .Where(
                     inputs.Aodid == request.ContainsField);
-            using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.SatisfactionratingRow>())
-                satisfationesultSet = connection2.Query(satisfationsqlquery).ToList();
+                using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.SatisfactionratingRow>())
+                    satisfationesultSet = connection2.Query(satisfationsqlquery).ToList();
+            }
             //ob pending auitee
             var obpening = coromendal.ACN.Entities.ObservationpendingRow.Fields;
-            List<dynamic> obpeningresultSet;
-            var obpeningsqlquery = new SqlQuery()
+            List<dynamic> obpeningresultSet=null;
+            if (numbers1.Length != 0)
+            {
+                var obpeningsqlquery = new SqlQuery()
                     .From(obpening)
                     .Select(obpening.Reportreference)
                     .Select(obpening.Briefdescription)
@@ -212,21 +221,34 @@ namespace coromendal.ACN.Endpoints
                     .Select(obpening.Remarks)
                     .Where(
                     obpening.Aodid == request.ContainsField);
-            using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.ObservationpendingRow>())
-                obpeningresultSet = connection2.Query(obpeningsqlquery).ToList();
-
+                using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.ObservationpendingRow>())
+                    obpeningresultSet = connection2.Query(obpeningsqlquery).ToList();
+            }
             //ob current auitee
-
             var currentob = coromendal.ACN.Entities.CurrentauditobservationRow.Fields;
-            List<dynamic> currentobresultSet;
-            var currentobsqlquery = new SqlQuery()
+            List<dynamic> currentobresultSet=null;
+            if (numbers1.Length != 0)
+            {
+                var currentobsqlquery = new SqlQuery()
                     .From(currentob)
                     .Select(currentob.Observation)
                     .Select(currentob.Comments)
                     .Where(
                     currentob.Aodid == request.ContainsField);
-            using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.CurrentauditobservationRow>())
-                currentobresultSet = connection2.Query(currentobsqlquery).ToList();
+                using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.CurrentauditobservationRow>())
+                    currentobresultSet = connection2.Query(currentobsqlquery).ToList();
+            }
+            //SBU name 
+            var sbuobj = coromendal.ACN.Entities.SbuRow.Fields;
+            dynamic sburesultSet;
+           
+            var sbusqlquery = new SqlQuery()
+                    .From(sbuobj)
+                    .Select(sbuobj.Sbuname)
+                    .Where(
+                    sbuobj.Sbuid == sbuid);
+            using (var connection5 = SqlConnections.NewFor<coromendal.ACN.Entities.SbuRow>())
+                sburesultSet = connection5.Query(sbusqlquery).FirstOrDefault(); ;
             //mail body
             MailMessage message = new MailMessage();
             foreach (var item in auditoruserresultSet)
@@ -244,7 +266,7 @@ namespace coromendal.ACN.Endpoints
             string HTMLBody = "";
             HTMLBody = System.IO.File.ReadAllText(HTMLTemplatePath);
             HTMLBody = HTMLBody.Replace("{Reportnumber}", Convert.ToString(acnresultSet.PhaseNo));
-            HTMLBody = HTMLBody.Replace("{Sbu}", Convert.ToString(aodresultSet.Sbu)); 
+            HTMLBody = HTMLBody.Replace("{Sbu}", Convert.ToString(sburesultSet.Sbuname)); 
             HTMLBody = HTMLBody.Replace("{Assignmenttitle}", Convert.ToString(acnresultSet.AcnTilte));
             HTMLBody = HTMLBody.Replace("{Auditlocation}", Convert.ToString(acnresultSet.location));
 
@@ -301,27 +323,34 @@ namespace coromendal.ACN.Endpoints
                 Initiatives = string.Concat(Initiatives, "</td></tr>");
             }
             string obpending = "";
-            foreach (var item in obpeningresultSet)
+            if (obpeningresultSet != null)
             {
-                obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                obpending = string.Concat(obpending, item.Reportreference);
-                obpending = string.Concat(obpending, "</td>");
+                foreach (var item in obpeningresultSet)
+                {
+                    obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    obpending = string.Concat(obpending, item.Reportreference);
+                    obpending = string.Concat(obpending, "</td>");
 
-                obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                obpending = string.Concat(obpending, item.Briefdescription);
-                obpending = string.Concat(obpending, "</td>");
+                    obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    obpending = string.Concat(obpending, item.Briefdescription);
+                    obpending = string.Concat(obpending, "</td>");
 
-                obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                obpending = string.Concat(obpending, item.Originaltargetdate);
-                obpending = string.Concat(obpending, "</td>");
+                    obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    obpending = string.Concat(obpending, item.Originaltargetdate);
+                    obpending = string.Concat(obpending, "</td>");
 
-                obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                obpending = string.Concat(obpending, item.Revisedtargetdate);
-                obpending = string.Concat(obpending, "</td>");
+                    obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    obpending = string.Concat(obpending, item.Revisedtargetdate);
+                    obpending = string.Concat(obpending, "</td>");
 
-                obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
-                obpending = string.Concat(obpending, item.Remarks);
-                obpending = string.Concat(obpending, "</td>");
+                    obpending = string.Concat(obpending, "<td colspan='1' style='border: solid 1px #000000;padding: 10px;text-align: center;'>");
+                    obpending = string.Concat(obpending, item.Remarks);
+                    obpending = string.Concat(obpending, "</td>");
+                }
+            }
+            else
+            {
+                obpending = string.Concat(obpending, "-");
             }
             string currentobj = "";
             foreach (var item in currentobresultSet)

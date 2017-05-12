@@ -4,6 +4,7 @@ namespace coromendal.ACN.Entities
 {
     using Administration.Scripts;
     using Newtonsoft.Json;
+    using Scripts;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -27,15 +28,15 @@ namespace coromendal.ACN.Entities
             set { Fields.ReportId[this] = value; }
         }
 
-        [DisplayName("Report Title"), Column("title"), Size(100), QuickSearch]
+        [DisplayName("Report Title"), Column("title"), Size(200), QuickSearch, NotNull]
         public String Title
         {
             get { return Fields.Title[this]; }
             set { Fields.Title[this] = value; }
         }
 
-        [DisplayName("Assignment"), Width(100), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
-        [LookupEditor(typeof(AcnRow))]
+        [DisplayName("Assignment"), Width(100), Column("acnid"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte"), Size(200), NotNull]
+        [LookupEditor(typeof(AcnLookup))]
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }
@@ -48,10 +49,10 @@ namespace coromendal.ACN.Entities
             get { return Fields.Download[this]; }
             set { Fields.Download[this] = value; }
         }
-        [LookupEditor(typeof(UserLookup1), Multiple = true), ClientSide]
+        [LookupEditor(typeof(UserLookup), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnReviewRefRow), "reportId", "AcnReviewID")]
         [MinSelectLevel(SelectLevel.Details)]
-        [DisplayName("Quality Control"), Size(40), QuickSearch]
+        [DisplayName("Quality Control"), Size(200), NotNull, QuickSearch]
         public List<Int32> Qc
         {
             get { return Fields.Qc[this]; }

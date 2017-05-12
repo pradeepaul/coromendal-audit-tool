@@ -33,7 +33,7 @@ namespace coromendal.ACN.Entities
             set { Fields.AuditobservationId[this] = value; }
         }
         [SetFieldFlags(FieldFlags.Trim)]
-        [DisplayName("Suggestion"), Column("suggestion"), Size(300), QuickSearch]
+        [DisplayName("Suggestion"), Column("suggestion"), Size(300), QuickSearch, NotNull]
         public String Suggestion
         {
             get { return Fields.Suggestion[this]; }

@@ -13,8 +13,9 @@ namespace coromendal.ACN.Columns
     [BasedOnRow(typeof(Entities.MeetingPointsRow))]
     public class MeetingPointsColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 MeetingPointsId { get; set; }
+        [Hidden]
         public Int32 MeetingId { get; set; }
         [EditLink]
         public String Points { get; set; }

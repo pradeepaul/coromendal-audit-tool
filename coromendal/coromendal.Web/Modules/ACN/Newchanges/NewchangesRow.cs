@@ -30,7 +30,7 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Changes / updates "), Size(200), QuickSearch]
+        [DisplayName("Changes / updates "), Size(200), QuickSearch, NotNull]
         public String Observation
         {
             get { return Fields.Observation[this]; }

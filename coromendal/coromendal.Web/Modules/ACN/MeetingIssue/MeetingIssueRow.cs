@@ -30,7 +30,7 @@ namespace coromendal.ACN.Entities
             set { Fields.MeetingId[this] = value; }
         }
 
-        [DisplayName("Area of Operation"), Size(200), QuickSearch]
+        [DisplayName("Area of Operation"), Size(200), QuickSearch, NotNull]
         public String AreaofOperation
         {
             get { return Fields.AreaofOperation[this]; }
@@ -58,7 +58,7 @@ namespace coromendal.ACN.Entities
             set { Fields.ExpectedDate[this] = value; }
         }
 
-        [DisplayName("Responsibility"), Column("comments"), Size(200)]
+        [DisplayName("Responsibility"), Column("comments"), Size(5000), NotNull]
         public String Comments
         {
             get { return Fields.Comments[this]; }

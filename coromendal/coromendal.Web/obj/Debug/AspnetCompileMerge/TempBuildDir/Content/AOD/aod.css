@@ -41,27 +41,30 @@
     max-width: 30%;
 }
 .AcnidPhaseNo, .AcnidCreationdate{
-    margin-top: 20px !important;
+    margin-top: 18px !important;
     text-align: center;
 }
 .AcnidPhaseNo input, .AcnidCreationdate input {
-    max-width: 70%;
+    width: 80%;
     margin: 0 auto;
 }
 .MeetingidPlanedcloseddate {
-    max-width: 30%;
+    max-width: 50%;
     text-align: center;
 }
 .MeetingidPlanedcloseddate input{
     float: left !important;
-    max-width: 85%;
+    width: 80%;
     margin-bottom: 20px !important;
 }
 .Actualcomencementdate{
-    max-width: 45%;
+    max-width: 50%;
     margin-bottom: 20px !important;
     text-align: center;
 } 
+.Actualcomencementdate .caption {
+    float: left !important;
+}
 .MeetingidAuditopeningmeetingdate,
 .Actualcompltedate {
     max-width: 45%;
@@ -74,7 +77,7 @@
 .MeetingidAuditopeningmeetingdate input,
 .Actualcompltedate input {
     float: left !important;
-    max-width: 70%;
+    width: 80%;
 } 
 .ProcessOwner, .Functionalhead {
     max-width: 50%;
@@ -82,6 +85,10 @@
 }
 .ProcessOwner {
     padding-left: 10px;
+}
+.ProcessOwner input, .Functionalhead input {
+    float: left !important;
+    width: 80%;
 }
 .category:nth-child(2){
     max-width: 11%;
@@ -189,30 +196,115 @@
     left: 0px !important;
     min-width: 100% !important;
 }
+.inputfromauditee .slick-header-columns,
+.Satisfactionrating .slick-header-columns,
+.Observationpending .slick-header-columns,
+.Currentauditobservation .slick-header-columns {
+    width: 100% !important;
+}
 .slick-header-column {
     left: 0 !important;
+}
+.inputfromauditee .grid-canvas,
+.Satisfactionrating .grid-canvas,
+.Observationpending .grid-canvas,
+.Currentauditobservation .grid-canvas{
+    width: 100% !important;
 }
 .inputfromauditee .slick-header-columns div:nth-child(1) {
     min-width: 30% !important;
 }
 .inputfromauditee .slick-header-columns div:nth-child(2) {
-    min-width: 30% !important;
+    min-width: 32% !important;
 }
 .inputfromauditee .slick-header-columns div:nth-child(3) {
-    min-width: 30% !important;
+    min-width: 36% !important;
+}
+.Satisfactionrating .slick-header-columns div:nth-child(1) {
+    min-width: 19% !important;
 }
 .Satisfactionrating .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+    min-width: 79% !important;
 }
-.Satisfactionrating .slick-header-columns div:nth-child(3) {
-    min-width: 74% !important;
+.Observationpending .slick-header-columns div:nth-child(1) {
+    width: 12% !important;
 }
-.Observationpending .slick-header-columns div:nth-child(7) {
-    min-width: 15% !important;
+.Observationpending .slick-header-columns div:nth-child(2) {
+    width: 28% !important;
 }
-.Currentauditobservation .slick-header-columns div:nth-child(2) {
-    min-width: 19% !important;
+.Observationpending .slick-header-columns div:nth-child(3) {
+    width: 15% !important;
 }
-.Currentauditobservation .slick-header-columns div:nth-child(3) {
-    min-width: 74% !important;
+.Observationpending .slick-header-columns div:nth-child(4) {
+    width: 15% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(5) {
+    width: 15% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(6) {
+    width: 11% !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(1) {
+    width: 13% !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(2) {
+    width: 29% !important;
+    left: 13% !important;
+    padding-left: 0px !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(3) {
+    width: 16% !important;
+    left: 42% !important;
+    padding-left: 0px !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(4) {
+    width: 16% !important;    
+    left: 57% !important;
+    padding-left: 0px;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(5) {
+    width: 15% !important;
+    left: 73% !important;
+    padding-left: 0px;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(6) {
+    width: 11% !important;
+    left: 88% !important;
+    padding-left: 0px;
+}
+.Currentauditobservation .slick-header-columns div {
+    width: 49% !important;
+}
+.Currentauditobservation .ui-widget-content .slick-cell:nth-child(2) {
+    width: 49.5% !important;
+    left: 50% !important;
+    padding-left: 0px;
+}
+.inputfromauditee .ui-widget-content .slick-cell:nth-child(1) {
+    width: 31% !important;
+}
+.inputfromauditee .ui-widget-content .slick-cell:nth-child(2) {
+    width: 33% !important;
+    left: 30.5% !important;
+}
+.inputfromauditee .ui-widget-content .slick-cell:nth-child(3) {
+    width: 31% !important;
+    left: 63% !important;
+}
+.Satisfactionrating .ui-widget-content .slick-cell:nth-child(1) {
+    width: 19% !important;
+}
+.Satisfactionrating .ui-widget-content .slick-cell:nth-child(2) {
+    width: 79% !important;
+    left: 19.5% !important;
+}
+.s-PropertyGrid .category-title {
+    margin: 5px;
+}
+.totalscore1, .totalscore2, .totalscore3 {
+    display: none !important;
+}
+.s-MessageDialog {
+    height: 20% !important;
+    padding-top: 5% !important;
 }

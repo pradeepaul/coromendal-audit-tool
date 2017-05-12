@@ -12,8 +12,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("satisfactionrating"), InstanceName("satisfactionrating"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.satisfactionrating.View)]
+    [ModifyPermission(ACN.PermissionKeys.satisfactionrating.Modify)]
+    [DeletePermission(ACN.PermissionKeys.satisfactionrating.Delete)]
     public sealed class SatisfactionratingRow : Row, IIdRow, INameRow
     {
         [DisplayName("Satisfactionrating Id"), Column("satisfactionratingId"), Identity]
@@ -39,7 +40,7 @@ namespace coromendal.ACN.Entities
         }
         [DisplayName(""), Column("documentrating"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Documentrating
+        public Int32? Documentrating
         {
             get { return Fields.Documentrating[this]; }
             set { Fields.Documentrating[this] = value; }
@@ -47,7 +48,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("documentweigtage"), Size(100)]
         [LookupEditor(typeof(PercentageRow))]
-        public String Documentweigtage
+        public Int32? Documentweigtage
         {
             get { return Fields.Documentweigtage[this]; }
             set { Fields.Documentweigtage[this] = value; }
@@ -55,7 +56,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("compliancescore"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Compliancescore
+        public Int32? Compliancescore
         {
             get { return Fields.Compliancescore[this]; }
             set { Fields.Compliancescore[this] = value; }
@@ -70,7 +71,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("processfincontrollscore"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Processfincontrollscore
+        public Int32? Processfincontrollscore
         {
             get { return Fields.Processfincontrollscore[this]; }
             set { Fields.Processfincontrollscore[this] = value; }
@@ -85,7 +86,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("responsescore"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Responsescore
+        public Int32? Responsescore
         {
             get { return Fields.Responsescore[this]; }
             set { Fields.Responsescore[this] = value; }
@@ -100,7 +101,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("preauditscore"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Preauditscore
+        public Int32? Preauditscore
         {
             get { return Fields.Preauditscore[this]; }
             set { Fields.Preauditscore[this] = value; }
@@ -115,7 +116,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("newinitiativescore"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Newinitiativescore
+        public Int32? Newinitiativescore
         {
             get { return Fields.Newinitiativescore[this]; }
             set { Fields.Newinitiativescore[this] = value; }
@@ -139,7 +140,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("complianceweightage"), Size(100)]
         [LookupEditor(typeof(PercentageRow))]
-        public String Complianceweightage
+        public Int32? Complianceweightage
         {
             get { return Fields.Complianceweightage[this]; }
             set { Fields.Complianceweightage[this] = value; }
@@ -147,7 +148,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("compliancerating"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Compliancerating
+        public Int32? Compliancerating
         {
             get { return Fields.Compliancerating[this]; }
             set { Fields.Compliancerating[this] = value; }
@@ -155,7 +156,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("processfincontrollweightage"), Size(100)]
         [LookupEditor(typeof(PercentageRow))]
-        public String Processfincontrollweightage
+        public Int32? Processfincontrollweightage
         {
             get { return Fields.Processfincontrollweightage[this]; }
             set { Fields.Processfincontrollweightage[this] = value; }
@@ -163,7 +164,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("processfincontrollrating"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Processfincontrollrating
+        public Int32? Processfincontrollrating
         {
             get { return Fields.Processfincontrollrating[this]; }
             set { Fields.Processfincontrollrating[this] = value; }
@@ -171,7 +172,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("responserating"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Responserating
+        public Int32? Responserating
         {
             get { return Fields.Responserating[this]; }
             set { Fields.Responserating[this] = value; }
@@ -179,7 +180,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("responseweightage"), Size(100)]
         [LookupEditor(typeof(PercentageRow))]
-        public String Responseweightage
+        public Int32? Responseweightage
         {
             get { return Fields.Responseweightage[this]; }
             set { Fields.Responseweightage[this] = value; }
@@ -187,7 +188,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("preauditweightage"), Size(100)]
         [LookupEditor(typeof(PercentageRow))]
-        public String Preauditweightage
+        public Int32? Preauditweightage
         {
             get { return Fields.Preauditweightage[this]; }
             set { Fields.Preauditweightage[this] = value; }
@@ -196,7 +197,7 @@ namespace coromendal.ACN.Entities
         [DisplayName(""), Column("preauditrating"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
 
-        public String Preauditrating
+        public Int32? Preauditrating
         {
             get { return Fields.Preauditrating[this]; }
             set { Fields.Preauditrating[this] = value; }
@@ -211,7 +212,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("newinitiativeweight"), Size(100)]
         [LookupEditor(typeof(PercentageRow))]
-        public String Newinitiativeweight
+        public Int32? Newinitiativeweight
         {
             get { return Fields.Newinitiativeweight[this]; }
             set { Fields.Newinitiativeweight[this] = value; }
@@ -219,7 +220,7 @@ namespace coromendal.ACN.Entities
 
         [DisplayName(""), Column("newinitiativerating"), Size(100)]
         [LookupEditor(typeof(FeedbackvalueRow))]
-        public String Newinitiativerating
+        public Int32? Newinitiativerating
         {
             get { return Fields.Newinitiativerating[this]; }
             set { Fields.Newinitiativerating[this] = value; }
@@ -282,7 +283,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Aodid Sbu"), Expression("jAodid.[Sbu]")]
-        public String AodidSbu
+        public Int32? AodidSbu
         {
             get { return Fields.AodidSbu[this]; }
             set { Fields.AodidSbu[this] = value; }
@@ -315,26 +316,26 @@ namespace coromendal.ACN.Entities
         [DisplayName("Weightage"), ReadOnly(true)]
         public String weightlabel
         {
-            get { return Fields.AodidSbu[this]; }
-            set { Fields.AodidSbu[this] = value; }
+            get { return Fields.weightlabel[this]; }
+            set { Fields.weightlabel[this] = value; }
         }
-        [DisplayName("totalscore3")]
-        public String totalscore3
-        {
-            get { return Fields.AodidSbu[this]; }
-            set { Fields.AodidSbu[this] = value; }
-        }
-        [DisplayName("totalscore1")]
+        [DisplayName("totalscore3"),ReadOnly(true)]
         public String totalscore1
         {
-            get { return Fields.AodidSbu[this]; }
-            set { Fields.AodidSbu[this] = value; }
+            get { return Fields.totalscore3[this]; }
+            set { Fields.totalscore3[this] = value; }
         }
-        [DisplayName("totalscore2")]
+        [DisplayName("totalscore1"), ReadOnly(true)]
         public String totalscore2
         {
-            get { return Fields.AodidSbu[this]; }
-            set { Fields.AodidSbu[this] = value; }
+            get { return Fields.totalscore3[this]; }
+            set { Fields.totalscore3[this] = value; }
+        }
+        [DisplayName("totalscore2"), ReadOnly(true)]
+        public String totalscore3
+        {
+            get { return Fields.totalscore3[this]; }
+            set { Fields.totalscore3[this] = value; }
         }
 
 
@@ -360,30 +361,30 @@ namespace coromendal.ACN.Entities
             public Int32Field SatisfactionratingId;
             public Int32Field Documentscore;
             public StringField Documentcomments;
-            public StringField Compliancescore;
+            public Int32Field Compliancescore;
             public StringField Compliancecomment;
-            public StringField Processfincontrollscore;
+            public Int32Field Processfincontrollscore;
             public StringField Processfincontrollscorecmnts;
-            public StringField Responsescore;
+            public Int32Field Responsescore;
             public StringField Responsecmnts;
-            public StringField Preauditscore;
+            public Int32Field Preauditscore;
             public StringField Preauditcmnts;
-            public StringField Newinitiativescore;
+            public Int32Field Newinitiativescore;
             public StringField Totalscore;
             public Int32Field Aodid;
-            public StringField Documentrating;
-            public StringField Documentweigtage;
-            public StringField Complianceweightage;
-            public StringField Compliancerating;
-            public StringField Processfincontrollweightage;
-            public StringField Processfincontrollrating;
-            public StringField Responserating;
-            public StringField Responseweightage;
-            public StringField Preauditweightage;
-            public StringField Preauditrating;
+            public Int32Field Documentrating;
+            public Int32Field Documentweigtage;
+            public Int32Field Complianceweightage;
+            public Int32Field Compliancerating;
+            public Int32Field Processfincontrollweightage;
+            public Int32Field Processfincontrollrating;
+            public Int32Field Responserating;
+            public Int32Field Responseweightage;
+            public Int32Field Preauditweightage;
+            public Int32Field Preauditrating;
             public StringField Newinitiativecmnts;
-            public StringField Newinitiativeweight;
-            public StringField Newinitiativerating;
+            public Int32Field Newinitiativeweight;
+            public Int32Field Newinitiativerating;
 
             public StringField scorelabel;
             public StringField comeentslabel;
@@ -401,7 +402,7 @@ namespace coromendal.ACN.Entities
             public StringField AodidAreaofscope;
             public StringField AodidExclusions;
             public StringField AodidReasons;
-            public StringField AodidSbu;
+            public Int32Field AodidSbu;
             public Int32Field AodidAcnid;
 
             public RowFields()

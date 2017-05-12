@@ -16,7 +16,7 @@ namespace coromendal.ACN.Forms
     {
         public String Sbu { get; set; }
         public String AcnidLocation { get; set; }
-       // public Int32 Acnid { get; set; }
+        public Int32 Acnid { get; set; }
         public Int32 Meetingid { get; set; }
         [Category("Report No")]
         public Int32 AcnidPhaseNo { get; set; }
