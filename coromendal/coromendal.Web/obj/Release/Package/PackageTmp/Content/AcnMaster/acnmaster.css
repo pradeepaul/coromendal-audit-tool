@@ -1,0 +1,52 @@
+﻿.ui-dialog  {
+    height: 90% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ui-dialog-content {
+    height: 95% !important;
+    overflow: hidden !important;
+}
+.s-AcnDialog {
+    width: 95% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.AcnTilte {
+    max-width: 20%;
+ }
+.PhaseNo {
+    max-width: 25%;
+ }
+.PhaseNo .caption {
+    width: 165px !important;
+}
+.caption {
+    width: auto !important;
+}
+.Fromdate, .Todate,
+.Periodto, .location {
+    max-width: 15%;
+}
+.Periodfrom {
+   max-width: 20%;
+}
+.Periodfrom input{
+   flex: 1 1 45% !important;
+}
+.creationdate {
+    max-width: 20%;
+}
+.Auditor, .Auditee {
+    max-width: 25%;
+}
+.slick-header-columns {
+    left: 0px !important;
+    min-width: 100% !important;
+}
+.slick-header-column {
+    left: 0 !important;
+}
+
+.grid-canvas {
+}

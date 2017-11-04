@@ -19,7 +19,11 @@ namespace coromendal.ACN.Repositories
 
         public SaveResponse Create(IUnitOfWork uow, SaveRequest<MyRow> request)
         {
-            return new MySaveHandler().Process(uow, request, SaveRequestType.Create);
+            var response = new MySaveHandler().Process(uow, request, SaveRequestType.Create);
+             
+            
+            
+            return response;
         }
 
         public SaveResponse Update(IUnitOfWork uow, SaveRequest<MyRow> request)
@@ -37,8 +41,47 @@ namespace coromendal.ACN.Repositories
                     new ScopeRepository().Create(uow, saveRequest);
                 } 
             }
+            var response = new MySaveHandler().Process(uow, request, SaveRequestType.Update);
+            var res1 = request.Entity;
+            if (request.Entity.Status == 1)
+            {
+
+                if (response != null)
+                {
+                    var aod = new AodRow();
+                    aod.Acnid = res1.Acnid;
+                    aod.AcnidLocation = res1.AcnidLocation;
+                    aod.Meetingid = Convert.ToInt32(response.EntityId);
+                    aod.AcnidPhaseNo = res1.AcnidPhaseNo;
+                    aod.AcnidCreationdate = res1.AcnidCreationdate;
+                    aod.Actualcompltedate = res1.AcnidCreationdate;
+                    aod.Actualcomencementdate = res1.AcnidCreationdate;
+                    aod.MeetingidPlanedcloseddate = res1.planeddate;
+                    aod.MeetingidAuditopeningmeetingdate = res1.auditopeneddate;
+                    aod.AcnidFromdate = res1.AcnidFromdate;
+                    aod.AcnidPeriodfrom = res1.AcnidPeriodfrom;
+                    aod.AcnidPeriodto = res1.AcnidPeriodto;
+                    aod.AcnidTodate = res1.AcnidTodate;
+
+                    var saveRequest = new SaveRequest<ACN.Entities.AodRow> { Entity = aod };
+                    new AodRepository().Create(uow, saveRequest);
+
+                    var feedback = new AcnFeedbackRow();
+                    feedback.Acnid = res1.Acnid;
+                    feedback.AcnidAcnTilte = res1.AcnidAcnTilte;
+                    feedback.AcnidCreationdate = res1.AcnidCreationdate;
+                    feedback.AcnidFromdate = res1.AcnidFromdate;
+                    feedback.AcnidLocation = res1.AcnidLocation;
+                    feedback.AcnidTodate = res1.AcnidTodate;
+                    feedback.AcnidPeriodfrom = res1.AcnidPeriodfrom;
+                    feedback.AcnidPeriodto = res1.AcnidPeriodto;
+                    feedback.AcnidPhaseNo = res1.AcnidPhaseNo;
+                    var saveRequest1 = new SaveRequest<ACN.Entities.AcnFeedbackRow> { Entity = feedback };
+                    new AcnFeedbackRepository().Create(uow, saveRequest1);
+                }
+            }
             //if(res.scopeId == null)
-            return new MySaveHandler().Process(uow, request, SaveRequestType.Update);
+            return response;
         }
 
         public DeleteResponse Delete(IUnitOfWork uow, DeleteRequest request)

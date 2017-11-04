@@ -1,0 +1,21 @@
+﻿
+namespace coromendal.Administration {
+    export interface MasterAcnRow {
+        Id?: number;
+        Title?: string;
+    }
+
+    export namespace MasterAcnRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'Title';
+        export const localTextPrefix = 'Administration.MasterAcn';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const Title;
+        }
+
+        ['Id', 'Title'].forEach(x => (<any>Fields)[x] = x);
+    }
+}
+

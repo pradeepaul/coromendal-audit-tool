@@ -26,6 +26,7 @@
         AcnCreationdate?: string;
         rootList?: RootcauseRow[];
         SuggestionList?: SuggestionRow[];
+        Detailedobservation1?: Northwind.NoteRow[];
     }
 
     export namespace AuditobservationRow {
@@ -65,9 +66,10 @@
             export declare const AcnCreationdate: string;
             export declare const rootList: string;
             export declare const SuggestionList: string;
+            export declare const Detailedobservation1: string;
         }
 
-        ['AuditobservationId', 'AcnId', 'Observationtitle', 'Observationsynopsis', 'Detailedobservation', 'Category', 'RiskRating', 'Agreeobservation', 'Justification', 'Suggestion', 'Alternateplan', 'Name', 'Email', 'Targetdate', 'Consequence', 'Likelihood', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'rootList', 'SuggestionList'].forEach(x => (<any>Fields)[x] = x);
+        ['AuditobservationId', 'AcnId', 'Observationtitle', 'Observationsynopsis', 'Detailedobservation', 'Category', 'RiskRating', 'Agreeobservation', 'Justification', 'Suggestion', 'Alternateplan', 'Name', 'Email', 'Targetdate', 'Consequence', 'Likelihood', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'rootList', 'SuggestionList','Detailedobservation1'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

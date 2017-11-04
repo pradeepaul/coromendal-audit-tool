@@ -20,5 +20,7 @@ namespace coromendal.ACN.Columns
         public String Observationtitle { get; set; }
         [DisplayFormat("dd/MM/yyyy")]
         public DateTime Targetdate { get; set; }
+
+        public String Agreeobservation { get; set; }
     }
 }

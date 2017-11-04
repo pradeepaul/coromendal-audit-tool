@@ -15,6 +15,7 @@ namespace coromendal.ACN.Entities
     [ReadPermission(ACN.PermissionKeys.scope.View)]
     [ModifyPermission(ACN.PermissionKeys.scope.Modify)]
     [DeletePermission(ACN.PermissionKeys.scope.Delete)]
+    [LookupScript("ScopeRow")]
     public sealed class ScopeRow : Row, IIdRow, INameRow
     {
         [DisplayName("Scope Id"), Column("scopeId"), Identity]

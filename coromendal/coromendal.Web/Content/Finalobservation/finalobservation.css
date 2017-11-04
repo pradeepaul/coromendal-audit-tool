@@ -1,0 +1,29 @@
+﻿.ui-dialog {
+    height: 90% !important;
+    width: 50% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ui-dialog-content {
+    min-height: 90% !important;
+    overflow: hidden !important;
+}
+
+.slick-header-columns {
+    left: 0px !important;
+    width: 100% !important;
+}
+.slick-header-column {
+    left: 0 !important;
+}
+.rootList .slick-header-columns div {
+    min-width: 48.5% !important;
+}
+.SuggestionList .slick-header-columns div {
+    min-width: 100% !important;
+}
+.s-MessageDialog {
+    height: 20% !important;
+    padding-top: 5% !important;
+}
+

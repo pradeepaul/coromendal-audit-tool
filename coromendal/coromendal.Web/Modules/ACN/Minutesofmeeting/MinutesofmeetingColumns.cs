@@ -8,6 +8,7 @@ namespace coromendal.ACN.Columns
     using System.ComponentModel;
     using System.Collections.Generic;
     using System.IO;
+    using Administration.Columns;
 
     [ColumnsScript("ACN.Minutesofmeeting")]
     [BasedOnRow(typeof(Entities.MinutesofmeetingRow))]
@@ -32,5 +33,8 @@ namespace coromendal.ACN.Columns
         //public DateTime auditopeneddate { get; set; }
         public String Auditscope { get; set; }
         public String Venue { get; set; }
+
+        [AdminListFormatter]
+        public string Status { get; set; }
     }
 }

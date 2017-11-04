@@ -78,7 +78,7 @@ namespace coromendal.ACN.Repositories
                                .From(acnAuditorRef)
                                .Select("acnID")
                                .Where(
-                                   acnAuditorRef.AcnAuditorId == user.UserId)));
+                                   acnAuditorRef.AcnAuditorId == user.UserId && fld.status == 2)));
                 }
                 if (user.RoleId == 2)
                 {
@@ -89,7 +89,7 @@ namespace coromendal.ACN.Repositories
                                .From(acnAuditeeRef)
                                .Select("acnID")
                                .Where(
-                                   acnAuditeeRef.AcnAuditeeId == user.UserId)));
+                                   acnAuditeeRef.AcnAuditeeId == user.UserId && fld.status == 2)));
                 }
                 if (user.RoleId == 3)
                 {
@@ -100,7 +100,7 @@ namespace coromendal.ACN.Repositories
                               .From(acnReviewRef)
                               .Select("acnID")
                               .Where(
-                                  acnReviewRef.AcnReviewId == user.UserId)));
+                                  acnReviewRef.AcnReviewId == user.UserId && fld.status == 2)));
                 }
             }
         }

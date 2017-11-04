@@ -43,6 +43,17 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="Default-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28LocalDb%29\v11.0%3bInitial Catalog=coromendal_Default_v1%3bIntegrated Security=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Default-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -74,11 +85,35 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.SqlServer.DacFx.x64.140.3652.3\lib\net40\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Utilities, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.SqlServer.DacFx.x64.140.3652.3\lib\net40\Microsoft.Data.Tools.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.SqlServer.DacFx.x64.140.3652.3\lib\net40\Microsoft.SqlServer.Dac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.SqlServer.DacFx.x64.140.3652.3\lib\net40\Microsoft.SqlServer.Dac.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.TransactSql.ScriptDom, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.SqlServer.DacFx.x64.140.3652.3\lib\net40\Microsoft.SqlServer.TransactSql.ScriptDom.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -158,6 +193,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
+    <Content Include="Content\AcnMaster\acnmaster.css" />
+    <Content Include="Content\AcnMaster\StyleSheet1.css" />
     <Content Include="Content\Acn\acn.css" />
     <Content Include="Content\adminlte\img\avatar.png" />
     <Content Include="Content\adminlte\img\avatar04.png" />
@@ -200,6 +237,7 @@
     <Content Include="Content\css\select2x2.png" />
     <Content Include="Content\DAR\dar.css" />
     <Content Include="Content\feedback\feedback.css" />
+    <Content Include="Content\Finalobservation\finalobservation.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\font-open-sans.css" />
@@ -1128,8 +1166,13 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnAuditeeListFormatter.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Acn\ACNNameFormatter.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalobservation\consqFormatter.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalobservation\likeFormatter.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalstatusvalue\FinalTextFormat.ts" />
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatter.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Scopeexclude\ScopeFormatter.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Adminstatusvalue\AdminListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\RolePermission\RolePermissionDialog.ts" />
@@ -1187,6 +1230,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="coromendal.Web.nuspec" />
     <None Include="Modules\Common\Imports\ServerTypings\ServerTypings.log">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1417,8 +1461,17 @@
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
-    <None Include="Properties\PublishProfiles\audit-tool - FTP %285%29.pubxml" />
-    <None Include="Properties\PublishProfiles\audit-tool - Web Deploy %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\audit-tool - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\audit-tool - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\audit-tool - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\audit-tool - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\audit-tool-cm - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\audit-tool-cm - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\audit-tool-cm - Web Deploy.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1594,6 +1647,19 @@
     <Content Include="Scripts\site\texts\site.texts.pt-BR.json" />
     <Content Include="Scripts\site\texts\northwind\northwind.pt-BR.json" />
     <Content Include="Scripts\site\texts\samples\samples.pt-BR.json" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="tools\JsEngine\json2.min.js" />
     <Content Include="tools\JsEngine\MsieJavaScriptEngine.dll" />
     <Content Include="tools\JsEngine\typescriptServices.js" />
@@ -1729,7 +1795,9 @@
     <Content Include="Scripts\site\texts\site.texts.invariant.json" />
     <Content Include="Scripts\site\texts\site.texts.tr.json" />
     <Content Include="Modules\Membership\Account\AccountLogin.cshtml" />
-    <Content Include="Modules\Web.config" />
+    <Content Include="Modules\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Modules\Common\Dashboard\DashboardIndex.cshtml" />
     <Content Include="Modules\Membership\_ViewStart.cshtml" />
     <Content Include="Modules\_ViewStart.cshtml" />
@@ -2405,6 +2473,135 @@
     <TypeScriptCompile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Adminstration.AcnMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Adminstration.AcnMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Adminstration.AcnMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.AcnMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.AcnMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.AcnMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\MasterAcn.MasterAcnRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\MasterAcn.MasterAcnService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\MasterAcn.MasterAcnForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.AdminstatusvalueRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.AdminstatusvalueService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.AdminstatusvalueForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueGrid.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.PendingAcnRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.PendingAcnService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.PendingAcnForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Administration\MasterAcn\MasterAcnIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcn\MasterAcnGrid.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcn\MasterAcnDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcn\MasterAcnEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcn\MasterAcnEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Adminstration.LocationRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Adminstration.LocationService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Adminstration.LocationForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Administration\Location\LocationIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.LocationRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.LocationService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.LocationForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Administration\Location\LocationGrid.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Location\LocationDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Location\LocationEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Location\LocationEditorDialog.ts" />
+    <Content Include="Modules\ACN\Observationmaster\ObservationmasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationmasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationmasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ObservationmasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Observationmaster\ObservationmasterGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationmaster\ObservationmasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationmaster\ObservationmasterEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Observationmaster\ObservationmasterEditorDialog.ts" />
+    <Content Include="Modules\ACN\Scopeexclude\ScopeexcludeIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ScopeexcludeRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ScopeexcludeService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ScopeexcludeForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Scopeexclude\ScopeexcludeGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Scopeexclude\ScopeexcludeDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Scopeexclude\ScopeexcludeEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Scopeexclude\ScopeexcludeEditorDialog.ts" />
+    <Content Include="Modules\ACN\Finalobservation\FinalobservationIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalobservationRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalobservationService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalobservationForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2428,6 +2625,7 @@
     <Compile Include="Modules\ACN\Acn\ScopeEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Acn\AcnLookup.cs" />
     <Compile Include="Modules\ACN\Aod\CurrentauditobservationEditorAttribute.cs" />
+    <Compile Include="Modules\ACN\Aod\ExcludeEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Aod\InputfromauditeeEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Aod\ObservationpendingEditorAttribute.cs" />
     <Compile Include="Modules\ACN\Aod\SatisfactionratingEditorAttribute.cs" />
@@ -2438,6 +2636,9 @@
     <Compile Include="Modules\ACN\Conformation\ConformationPage.cs" />
     <Compile Include="Modules\ACN\DarClarifications\FinalTextFormatAttribute.cs" />
     <Compile Include="Modules\ACN\Feedbackvalue\FeedbackvaluePage.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\ACNNameFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\consqFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\likeFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\MeetingAbsentauditee\UserFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditeeLookup.cs" />
@@ -2452,8 +2653,10 @@
     <Compile Include="Modules\ACN\Minutesofmeeting\ObservationpreviousauditEditorAttribute.cs" />
     <Compile Include="Modules\ACN\PermissionKeys.cs" />
     <Compile Include="Modules\ACN\Riskrating\RiskratingPage.cs" />
+    <Compile Include="Modules\ACN\Scopeexclude\ScopeFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Scope\GridColumnAttribute.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
+    <Compile Include="Modules\Administration\MasterAcn\AdminListFormatterAttribute.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListRequest.cs" />
@@ -2466,6 +2669,13 @@
     <Compile Include="Modules\Administration\UserRole\UserRoleListResponse.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleListRequest.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleEndpoint.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Content Include="Modules\AdminLTE\DashboardV2.cshtml" />
     <Compile Include="Modules\Administration\User\Authentication\DirectoryEntry.cs" />
     <Compile Include="Modules\Administration\User\Authentication\ActiveDirectoryService.cs" />
@@ -3132,6 +3342,42 @@
     <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefRepository.cs" />
     <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefEndpoint.cs" />
     <Compile Include="Modules\ACN\AcnAuditeeabsRef\AcnAuditeeabsRefPage.cs" />
+    <Compile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueRow.cs" />
+    <Compile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueColumns.cs" />
+    <Compile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueForm.cs" />
+    <Compile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueRepository.cs" />
+    <Compile Include="Modules\Administration\Adminstatusvalue\AdminstatusvalueEndpoint.cs" />
+    <Compile Include="Modules\Administration\Adminstatusvalue\AdminstatusvaluePage.cs" />
+    <Compile Include="Modules\Administration\MasterAcn\MasterAcnRow.cs" />
+    <Compile Include="Modules\Administration\MasterAcn\MasterAcnColumns.cs" />
+    <Compile Include="Modules\Administration\MasterAcn\MasterAcnForm.cs" />
+    <Compile Include="Modules\Administration\MasterAcn\MasterAcnRepository.cs" />
+    <Compile Include="Modules\Administration\MasterAcn\MasterAcnEndpoint.cs" />
+    <Compile Include="Modules\Administration\MasterAcn\MasterAcnPage.cs" />
+    <Compile Include="Modules\Administration\Location\LocationRow.cs" />
+    <Compile Include="Modules\Administration\Location\LocationColumns.cs" />
+    <Compile Include="Modules\Administration\Location\LocationForm.cs" />
+    <Compile Include="Modules\Administration\Location\LocationRepository.cs" />
+    <Compile Include="Modules\Administration\Location\LocationEndpoint.cs" />
+    <Compile Include="Modules\Administration\Location\LocationPage.cs" />
+    <Compile Include="Modules\ACN\Observationmaster\ObservationmasterRow.cs" />
+    <Compile Include="Modules\ACN\Observationmaster\ObservationmasterColumns.cs" />
+    <Compile Include="Modules\ACN\Observationmaster\ObservationmasterForm.cs" />
+    <Compile Include="Modules\ACN\Observationmaster\ObservationmasterRepository.cs" />
+    <Compile Include="Modules\ACN\Observationmaster\ObservationmasterEndpoint.cs" />
+    <Compile Include="Modules\ACN\Observationmaster\ObservationmasterPage.cs" />
+    <Compile Include="Modules\ACN\Scopeexclude\ScopeexcludeRow.cs" />
+    <Compile Include="Modules\ACN\Scopeexclude\ScopeexcludeColumns.cs" />
+    <Compile Include="Modules\ACN\Scopeexclude\ScopeexcludeForm.cs" />
+    <Compile Include="Modules\ACN\Scopeexclude\ScopeexcludeRepository.cs" />
+    <Compile Include="Modules\ACN\Scopeexclude\ScopeexcludeEndpoint.cs" />
+    <Compile Include="Modules\ACN\Scopeexclude\ScopeexcludePage.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\FinalobservationRow.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\FinalobservationColumns.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\FinalobservationForm.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\FinalobservationRepository.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\FinalobservationEndpoint.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\FinalobservationPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3450,6 +3696,9 @@
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.autotable.d.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -3480,6 +3729,11 @@
     <Exec Command="&quot;$(ProjectDir)tools\node\lessc.cmd&quot; &quot;$(ProjectDir)Content\site\site.less&quot; &gt; &quot;$(ProjectDir)Content\site\site.css&quot;">
     </Exec>
     <Exec Command="&quot;$(TscToolPath)\$(TypeScriptToolsVersion)\$(TscToolExe)&quot; -project &quot;$(ProjectDir)tsconfig.json&quot;" ContinueOnError="true" />
+  </Target>
+  <Import Project="..\..\packages\MsBuild.NuGet.Pack.2.0.0\tools\MsBuild.NuGet.Pack.targets" Condition="Exists('..\..\packages\MsBuild.NuGet.Pack.2.0.0\tools\MsBuild.NuGet.Pack.targets')" />
+  <Target Name="EnsureMsBuildNuGetPackImported" BeforeTargets="BeforeBuild" Condition="'$(MsBuildNuGetPackImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\MsBuild.NuGet.Pack.2.0.0\tools\MsBuild.NuGet.Pack.targets') And ('$(RunNuGetPack)' != '' And $(RunNuGetPack))" Text="You are trying to build with MsBuild.NuGet.Pack, but the MsBuild.NuGet.Pack.targets file is not available on this computer. This is probably because the MsBuild.NuGet.Pack package has not been committed to source control, or NuGet Package Restore is not enabled. Please enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\MsBuild.NuGet.Pack.2.0.0\tools\MsBuild.NuGet.Pack.targets') And ('$(RunNuGetPack)' != '' And $(RunNuGetPack))" Text="MsBuild.NuGet.Pack cannot be run because NuGet packages were restored prior to the build running, and the targets file was unavailable when the build started. Please build the project again to include these packages in the build. You may also need to make sure that your build server does not delete packages prior to each build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

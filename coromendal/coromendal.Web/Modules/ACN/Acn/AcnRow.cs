@@ -30,6 +30,13 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
+        [DisplayName("Acn Master Id"), Column("MId"), ForeignKey("[dbo].[MasterAcn]", "Id"), LeftJoin("jAcn")]
+        [LookupEditor(typeof(AcnRow))]
+        public Int32? MId
+        {
+            get { return Fields.MId[this]; }
+            set { Fields.MId[this] = value; }
+        }
         [DisplayName("Phase No."), Size(200), QuickSearch,NotNull,Required(true)]
         public Int32? PhaseNo
         {
@@ -119,6 +126,13 @@ namespace coromendal.ACN.Entities
             get { return Fields.ScopeList[this]; }
             set { Fields.ScopeList[this] = value; }
         }
+        [DisplayName("Status."), Size(200), QuickSearch, NotNull, Required(true)]
+       
+        public Int32? status
+        {
+            get { return Fields.status[this]; }
+            set { Fields.status[this] = value; }
+        }
         IIdField IIdRow.IdField
         {
             get { return Fields.AcnId; }
@@ -142,6 +156,9 @@ namespace coromendal.ACN.Entities
             public StringField AcnTilte;
             public ListField<Int32> Auditor;
             public ListField<Int32> Auditee;
+
+            public Int32Field MId;
+            public Int32Field status;
 
             public Int32Field PhaseNo;
             public StringField location;

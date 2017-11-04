@@ -18,6 +18,10 @@
         export const nameProperty = 'Title';
         export const localTextPrefix = 'ACN.Scope';
 
+        export function getLookup(): Q.Lookup<ScopeRow> {
+            return Q.getLookup<ScopeRow>('ScopeRow');
+        }
+
         export namespace Fields {
             export declare const ScopeId: string;
             export declare const Title: string;

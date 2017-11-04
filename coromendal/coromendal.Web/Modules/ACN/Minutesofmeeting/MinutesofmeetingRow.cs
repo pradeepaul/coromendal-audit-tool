@@ -329,6 +329,14 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnidScopeList[this] = value; }
         }
 
+        [DisplayName("Status"), Column("status")]
+        [LookupEditor(typeof(AdminstatusvalueRow))]
+        public Int32? Status
+        {
+            get { return Fields.Status[this]; }
+            set { Fields.Status[this] = value; }
+        }
+
 
         IIdField IIdRow.IdField
         {
@@ -363,8 +371,9 @@ namespace coromendal.ACN.Entities
             public StringField momdate;
             public StringField planeddate;
             public StringField auditopeneddate;
+            public Int32Field Status;
 
-           
+
             public RowListField<MeetingIssueRow> DetailList;
             public RowListField<MeetingAbsentauditeeRow> AuditeeAbsent;
             public RowListField<MeetingAbsentauditorRow> AbsentList;

@@ -86,3 +86,10 @@ E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\System.Web.WebPages.Razor
 E:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Release\coromendal.Web.csprojResolveAssemblyReference.cache
 E:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Release\coromendal.Web.dll
 E:\coromendal-audit-tool\coromendal\coromendal.Web\obj\Release\coromendal.Web.pdb
+E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\SqlServerTypes\x64\msvcr120.dll
+E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\SqlServerTypes\x86\msvcr120.dll
+E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\Microsoft.SqlServer.Types.dll
+E:\coromendal-audit-tool\coromendal\coromendal.Web\bin\Microsoft.SqlServer.TransactSql.ScriptDom.pdb

@@ -11,5 +11,9 @@ namespace coromendal.ACN {
         protected getService() { return CurrentauditobservationService.baseUrl; }
 
         protected form = new CurrentauditobservationForm(this.idPrefix);
+        protected afterLoadEntity() {
+            alert("hi");
+
+        }
     }
 }

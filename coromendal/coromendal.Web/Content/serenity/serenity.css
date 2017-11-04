@@ -2592,3 +2592,13 @@ a.quick-search-field {
   margin-bottom: 5px;
   border-radius: 3px;
 }
+.pendingbtn {
+  display: block;
+  float: left;
+  padding: 8px;
+  background-color:forestgreen;
+  cursor: pointer;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
