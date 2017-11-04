@@ -70,5 +70,9 @@ namespace coromendal.ACN.Forms
 
 
 
+        public Int32 Status { get; set; }
+
+
+
     }
 }

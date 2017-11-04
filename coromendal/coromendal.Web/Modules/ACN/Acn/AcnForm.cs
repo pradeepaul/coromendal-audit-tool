@@ -30,5 +30,6 @@ namespace coromendal.ACN.Forms
         [Category("Kindly let us know any additional areas that you suggest us to cover. Kindly ensure to disclose about “discrepancies pending prior to audit, if any” along with status of action. The audit team will be led by self and will consist of the following team member(s): ")]
         public List<Int32> Auditor { get; set; }
         public List<Int32> Auditee { get; set; }
+       // public Int32 status { get; set; }
     }
 }

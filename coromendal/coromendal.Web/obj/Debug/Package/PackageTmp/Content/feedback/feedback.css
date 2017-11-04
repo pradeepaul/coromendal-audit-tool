@@ -40,3 +40,6 @@
 .s-Form {
   height: 700px !important;
 }
+.tool-button, .add-button, .no-texttool-button, .add-button .no-text {
+    visibility:hidden !important;
+}

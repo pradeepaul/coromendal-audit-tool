@@ -1,6 +1,6 @@
 ﻿
 namespace coromendal.ACN {
-    
+
     @Serenity.Decorators.registerClass()
     @Serenity.Decorators.responsive()
     export class AuditobservationDialog extends Serenity.EntityDialog<AuditobservationRow, any> {
@@ -13,87 +13,83 @@ namespace coromendal.ACN {
         protected form = new AuditobservationForm(this.idPrefix);
         constructor() {
             super();
-            this.form.AcnId.changeSelect2(e => {
-                var ancid = this.form.AcnId.value;
-                //var Consequence = this.form.Consequence.value;
 
-                if ((Q.isEmptyOrNull(ancid))) {
+            this.form.Likelihood.changeSelect2(e => {
+               // alert("hi");
+                var Likelihood = this.form.Likelihood.value;
+                var Consequence = this.form.Consequence.value;
+                this.form.Name.value = Authorization.userDefinition.DisplayName;
+                this.form.Email.value = Authorization.userDefinition.Email;
+
+                if ((Q.isEmptyOrNull(Likelihood)) && (Q.isEmptyOrNull(Consequence))) {
 
                     return;
                 }
                 else {
-                    this.form.Name.value = Authorization.userDefinition.DisplayName;
-                    this.form.Email.value = Authorization.userDefinition.Email;
+                    if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "1")) {
+                        this.form.RiskRating.value = "LOW";
+                    }
+                    if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "2")) {
+                        this.form.RiskRating.value = "LOW";
+                    }
+                    if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "3")) {
+                        this.form.RiskRating.value = "LOW";
+                    }
+                    if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "4")) {
+                        this.form.RiskRating.value = "Medium";
+                    }
+
+                    if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "1")) {
+                        this.form.RiskRating.value = "LOW";
+                    }
+                    if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "2")) {
+                        this.form.RiskRating.value = "Medium";
+                    }
+                    if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "3")) {
+                        this.form.RiskRating.value = "Medium";
+                    }
+                    if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "4")) {
+                        this.form.RiskRating.value = "Medium";
+                    }
+
+                    if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "1")) {
+                        this.form.RiskRating.value = "LOW";
+                    }
+                    if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "2")) {
+                        this.form.RiskRating.value = "Medium";
+                    }
+                    if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "3")) {
+                        this.form.RiskRating.value = "High";
+                    }
+                    if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "4")) {
+                        this.form.RiskRating.value = "High";
+                    }
+
+                    if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "1")) {
+                        this.form.RiskRating.value = "Medium";
+                    }
+                    if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "2")) {
+                        this.form.RiskRating.value = "High";
+                    }
+                    if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "3")) {
+                        this.form.RiskRating.value = "High";
+                    }
+                    if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "4")) {
+                        this.form.RiskRating.value = "High";
+                    }
+
+
                 }
-                this.form.Likelihood.changeSelect2(e => {
-                    var Likelihood = this.form.Likelihood.value;
-                    var Consequence = this.form.Consequence.value;
-
-                    if ((Q.isEmptyOrNull(Likelihood)) && (Q.isEmptyOrNull(Consequence))) {
-
-                        return;
-                    }
-                    else {
-                        if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "1")) {
-                            this.form.RiskRating.value = "LOW";
-                        }
-                        if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "2")) {
-                            this.form.RiskRating.value = "LOW";
-                        }
-                        if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "3")) {
-                            this.form.RiskRating.value = "LOW";
-                        }
-                        if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "4")) {
-                            this.form.RiskRating.value = "Medium";
-                        }
-
-                        if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "1")) {
-                            this.form.RiskRating.value = "LOW";
-                        }
-                        if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "2")) {
-                            this.form.RiskRating.value = "Medium";
-                        }
-                        if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "3")) {
-                            this.form.RiskRating.value = "Medium";
-                        }
-                        if ((this.form.Likelihood.value == "2") && (this.form.Consequence.value == "4")) {
-                            this.form.RiskRating.value = "Medium";
-                        }
-
-                        if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "1")) {
-                            this.form.RiskRating.value = "LOW";
-                        }
-                        if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "2")) {
-                            this.form.RiskRating.value = "Medium";
-                        }
-                        if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "3")) {
-                            this.form.RiskRating.value = "High";
-                        }
-                        if ((this.form.Likelihood.value == "3") && (this.form.Consequence.value == "4")) {
-                            this.form.RiskRating.value = "High";
-                        }
-
-                        if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "1")) {
-                            this.form.RiskRating.value = "Medium";
-                        }
-                        if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "2")) {
-                            this.form.RiskRating.value = "High";
-                        }
-                        if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "3")) {
-                            this.form.RiskRating.value = "High";
-                        }
-                        if ((this.form.Likelihood.value == "4") && (this.form.Consequence.value == "4")) {
-                            this.form.RiskRating.value = "High";
-                        }
-
-
-                    }
 
 
 
-                });
-            }
+            });
 
-       
+        }
+
+
+
+
+
     }
 }

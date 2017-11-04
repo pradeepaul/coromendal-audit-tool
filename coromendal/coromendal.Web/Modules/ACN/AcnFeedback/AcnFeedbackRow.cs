@@ -231,28 +231,28 @@ namespace coromendal.ACN.Entities
             set { Fields.Remark14[this] = value; }
         }
 
-        [DisplayName("Auditee Name"), Column("name"), QuickSearch,NotNull]
+        [DisplayName("Auditee Name"), Column("name"), QuickSearch]
         public String Name
         {
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Department"), Column("dept"), NotNull]
+        [DisplayName("Department"), Column("dept")]
         public String Dept
         {
             get { return Fields.Dept[this]; }
             set { Fields.Dept[this] = value; }
         }
 
-        [DisplayName("Name of the Review"), Column("reviewname"), NotNull]
+        [DisplayName("Name of the Review"), Column("reviewname")]
         public String Reviewname
         {
             get { return Fields.Reviewname[this]; }
             set { Fields.Reviewname[this] = value; }
         }
 
-        [DisplayName("Location"), Column("location"), NotNull]
+        [DisplayName("Location"), Column("location")]
         public String Location
         {
             get { return Fields.Location[this]; }

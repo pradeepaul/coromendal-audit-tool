@@ -48,6 +48,8 @@ namespace coromendal.ACN.Endpoints
         }
         public string Sendmail(IDbConnection connection, ListRequest request)
         {
+            
+           
             var fld = coromendal.ACN.Entities.MinutesofmeetingRow.Fields;
             dynamic resultSet1;
             var sqlquery = new SqlQuery()

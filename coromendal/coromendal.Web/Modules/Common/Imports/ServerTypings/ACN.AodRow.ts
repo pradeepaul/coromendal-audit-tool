@@ -6,7 +6,7 @@
         Actualcompltedate?: string;
         ProcessOwner?: string;
         Functionalhead?: string;
-        Areaofscope?: string;
+        Areaofscope?: ScopeRow[];
         Exclusions?: string;
         Reasons?: string;
         Sbu?: string;

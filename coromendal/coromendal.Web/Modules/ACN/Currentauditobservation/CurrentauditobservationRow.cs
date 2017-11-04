@@ -8,6 +8,7 @@ namespace coromendal.ACN.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -15,6 +16,7 @@ namespace coromendal.ACN.Entities
     [ReadPermission(ACN.PermissionKeys.currentauditobservation.View)]
     [ModifyPermission(ACN.PermissionKeys.currentauditobservation.Modify)]
     [DeletePermission(ACN.PermissionKeys.currentauditobservation.Delete)]
+    [LookupScript("CurrentauditobservationRow")]
     public sealed class CurrentauditobservationRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
@@ -43,6 +45,13 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.Aodid[this]; }
             set { Fields.Aodid[this] = value; }
+        }
+        [DisplayName("Scope"), Column("scopeid")]
+        [LookupEditor(typeof(ScopeRow))]        
+        public Int32? scopeid
+        {
+            get { return Fields.scopeid[this];}
+            set { Fields.scopeid[this] = value; }
         }
 
         [DisplayName("Aodid Meetingid"), Expression("jAodid.[Meetingid]")]
@@ -138,6 +147,7 @@ namespace coromendal.ACN.Entities
             public StringField Observation;
             public StringField Comments;
             public Int32Field Aodid;
+            public Int32Field scopeid;
 
             public Int32Field AodidMeetingid;
             public StringField AodidActualcomencementdate;

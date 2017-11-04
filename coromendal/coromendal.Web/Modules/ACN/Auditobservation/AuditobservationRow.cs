@@ -29,22 +29,33 @@ namespace coromendal.ACN.Entities
             set { Fields.AuditobservationId[this] = value; }
         }
 
-        [DisplayName("Assignment"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte")]
+        [DisplayName("Assignment"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte"), ReadOnly(true)]
         [LookupEditor(typeof(AcnLookup))]
         public Int32? AcnId
         {
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
+        [DisplayName("Observation Title"), Column("observationtitle"), QuickSearch, ReadOnly(true)]
 
-        [DisplayName("Observation Title"), Column("observationtitle"), QuickSearch, NotNull]
         public String Observationtitle
         {
             get { return Fields.Observationtitle[this]; }
             set { Fields.Observationtitle[this] = value; }
         }
 
-        [DisplayName("Synopsis"), Column("observationsynopsis"),NotNull, Size(1000)]
+        [DisplayName("Scope"), Column("Scope")]
+        [LookupEditor(typeof(ScopeRow))]
+        public Int32? scope
+        {
+            get {
+                
+                return Fields.scope[this];
+            }
+            set { Fields.scope[this] = value; }
+        }
+
+        [DisplayName("Synopsis"), Column("observationsynopsis"), Size(1000)]
         public String Observationsynopsis
         {
             get { return Fields.Observationsynopsis[this]; }
@@ -65,7 +76,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Detailedobservation1[this] = value; }
         }
 
-        [DisplayName("Category"), Column("category"), NotNull]
+        [DisplayName("Category"), Column("category")]
         [LookupEditor(typeof(CategoryRow))]
         public Int32? Category
         {
@@ -73,14 +84,14 @@ namespace coromendal.ACN.Entities
             set { Fields.Category[this] = value; }
         }
         
-        [DisplayName("Likelihood"), NotNull]
+        [DisplayName("Likelihood")]
         [LookupEditor(typeof(LikeliwoodvalueRow))]
         public Int32? Likelihood
         {
             get { return Fields.Likelihood[this]; }
             set { Fields.Likelihood[this] = value; }
         }
-        [DisplayName("Consequence"), NotNull]
+        [DisplayName("Consequence")]
         [LookupEditor(typeof(RiskratingRow))]
         public Int32? Consequence
         {
@@ -94,7 +105,7 @@ namespace coromendal.ACN.Entities
             set { Fields.RiskRating[this] = value; }
         }
 
-        [DisplayName("Agree this Observation"), Column("agreeobservation")]
+        [DisplayName("Send"), Column("agreeobservation")]
         [LookupEditor(typeof(ConformationRow))]
         public Int32? Agreeobservation
         {
@@ -102,7 +113,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Agreeobservation[this] = value; }
         }
 
-        [DisplayName("Justification"), Column("justification"), NotNull, Size(1000)]
+        [DisplayName("Justification"), Column("justification"), Size(1000)]
        
         public String Justification
         {
@@ -110,14 +121,14 @@ namespace coromendal.ACN.Entities
             set { Fields.Justification[this] = value; }
         }
         [LookupEditor(typeof(ConformationRow))]
-        [DisplayName("Agree this Suggestion"), Column("suggestion"), NotNull]
+        [DisplayName("Agree this Suggestion"), Column("suggestion")]
         public Int32? Suggestion
         {
             get { return Fields.Suggestion[this]; }
             set { Fields.Suggestion[this] = value; }
         }
 
-        [DisplayName("Alternate Plan"), Column("alternateplan"), Size(1000), NotNull]
+        [DisplayName("Alternate Plan"), Column("alternateplan"), Size(1000)]
         public String Alternateplan
         {
             get { return Fields.Alternateplan[this]; }
@@ -138,7 +149,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Email[this] = value; }
         }
 
-        [DisplayName("Target Date"), Column("targetdate"), NotNull]
+        [DisplayName("Target Date"), Column("targetdate")]
         public String Targetdate
         {
             get { return Fields.Targetdate[this]; }
@@ -236,6 +247,7 @@ namespace coromendal.ACN.Entities
         {
             public Int32Field AuditobservationId;
             public Int32Field AcnId;
+            public Int32Field scope;
             public StringField Observationtitle;
             public StringField Observationsynopsis;
             public RowListField<NoteRow> Detailedobservation1;

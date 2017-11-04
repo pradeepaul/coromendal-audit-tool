@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.ACN.DaRrelease.EntityPlural");
+}
+
+
+@section Head {
+    <link rel="stylesheet" href="~/Content/DAR/dar.css">
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new coromendal.ACN.DaRreleaseGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

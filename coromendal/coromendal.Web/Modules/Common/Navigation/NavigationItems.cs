@@ -89,10 +89,13 @@ using coromendal;
 [assembly: NavigationLink(8820, "Theme Samples/Examples/Pace Page", url: "~/AdminLTE/Examples/PacePage", permission: "")]*/
 
 [assembly: NavigationMenu(9000, "Administration", icon: "icon-screen-desktop")]
+[assembly: NavigationLink(9100, "Administration/ACN Master", typeof(Administration.MasterAcnController), icon: "icon-bubbles")]
 [assembly: NavigationLink(9100, "Administration/Languages", typeof(Administration.LanguageController), icon: "icon-bubbles")]
 [assembly: NavigationLink(9200, "Administration/Translations", typeof(Administration.TranslationController), icon: "icon-speech")]
 [assembly: NavigationLink(9300, "Administration/Roles", typeof(Administration.RoleController), icon: "icon-lock")]
 [assembly: NavigationLink(9400, "Administration/User Management", typeof(Administration.UserController), icon: "icon-people")]
+[assembly: NavigationLink(9400, "Administration/Status Value", typeof(Administration.AdminstatusvalueController), icon: "icon-people")]
+
 
 [assembly: NavigationMenu(10000, "Audit Tool", icon: "icon-screen-desktop")]
 [assembly: NavigationLink(10001, "ACN/Assignment Note", typeof(coromendal.ACN.Pages.AcnController), icon: "icon-people")]
@@ -103,7 +106,7 @@ using coromendal;
 //[assembly: NavigationLink(10001, "ACN/Acn Retail Feedback ", typeof(coromendal.ACN.Pages.AcnFeedbackRetailController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Audit Observation", typeof(coromendal.ACN.Pages.AuditobservationController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/Report", typeof(coromendal.ACN.Pages.AcnreportController), icon: "icon-people")]
-[assembly: NavigationLink(10001, "ACN/Dar Clarifications", typeof(coromendal.ACN.Pages.DarClarificationsController), icon: "icon-people")]
+[assembly: NavigationLink(10001, "ACN/Dar Clarifications", typeof(coromendal.ACN.Pages.FinalobservationController), icon: "icon-people")]
 [assembly: NavigationLink(10001, "ACN/DAR Release", typeof(coromendal.ACN.Pages.DaRreleaseController), icon: "icon-people")]
 //[assembly: NavigationLink(10001, "ACN/Auditee", typeof(coromendal.ACN.Pages.AcnAuditeeController), icon: "icon-people")]
 //[assembly: NavigationLink(10001, "ACN/Auditor", typeof(coromendal.ACN.Pages.AcnAuditorController), icon: "icon-people")]

@@ -1,0 +1,310 @@
+﻿.ui-dialog {
+    height: 90% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ui-dialog-content {
+    min-height: 90% !important;
+    overflow: hidden !important;
+}
+.s-AodDialog {
+    width: 98% !important;
+    height: 650px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.s-SatisfactionratingEditorDialog {
+    width: 99% !important;
+    height: 400px !important;
+}
+.category-anchor {
+    color: #000000 !important;
+}
+.category-title {
+    text-align: center !important;
+}
+.caption {
+    width: auto !important;
+    color: #000000 !important;
+    font-size: 0.7vw;
+}
+.Sbu .caption,
+.Acnid .caption,
+.AcnidLocation .caption,
+.Meetingid .caption {
+    display: flex !important;
+}
+.Acnid, .Sbu {
+    max-width: 20%;
+}
+.Meetingid, .AcnidLocation {
+    max-width: 30%;
+}
+.AcnidPhaseNo, .AcnidCreationdate{
+    margin-top: 18px !important;
+    text-align: center;
+}
+.AcnidPhaseNo input, .AcnidCreationdate input {
+    width: 80%;
+    margin: 0 auto;
+}
+.MeetingidPlanedcloseddate {
+    max-width: 50%;
+    text-align: center;
+}
+.MeetingidPlanedcloseddate input{
+    float: left !important;
+    width: 80%;
+    margin-bottom: 20px !important;
+}
+.Actualcomencementdate{
+    max-width: 50%;
+    margin-bottom: 20px !important;
+    text-align: center;
+} 
+.Actualcomencementdate .caption {
+    float: left !important;
+}
+.MeetingidAuditopeningmeetingdate,
+.Actualcompltedate {
+    max-width: 45%;
+    margin-bottom: 20px !important;
+} 
+.MeetingidAuditopeningmeetingdate {
+    padding-left: 10px;
+}
+.Actualcomencementdate input,
+.MeetingidAuditopeningmeetingdate input,
+.Actualcompltedate input {
+    float: left !important;
+    width: 80%;
+} 
+.ProcessOwner, .Functionalhead {
+    max-width: 50%;
+    margin-bottom: 5px !important;
+}
+.ProcessOwner {
+    padding-left: 10px;
+}
+.ProcessOwner input, .Functionalhead input {
+    float: left !important;
+    width: 80%;
+}
+.category:nth-child(2){
+    max-width: 11%;
+    display: inline-flex;
+}
+.category:nth-child(3) {
+    max-width: 12%;
+    display: inline-flex;
+}
+.category:nth-child(4),
+.category:nth-child(5),
+.category:nth-child(6) {
+    max-width: 25%;
+    display: inline-flex;
+}
+.field {
+    height: 218px !important;
+}
+.AcnidPhaseNo,.AcnidCreationdate,
+.MeetingidPlanedcloseddate,
+.Actualcomencementdate,
+.MeetingidAuditopeningmeetingdate,
+.Actualcompltedate,.ProcessOwner,
+.Functionalhead {
+    display: inline-table !important;
+}
+.category:nth-child(7), .category:nth-child(8) {
+    max-width: 50%;
+    display: inline-flex;
+}
+
+.AcnidPeriodfrom, .AcnidPeriodto,
+.AcnidFromdate, .AcnidTodate {
+    max-width: 50%;
+}
+.Areaofscope, .Exclusions,
+.Reasons {
+    display: inline-flex !important;
+}
+.s-InputfromauditeeEditorDialog {
+    width: 570px !important;
+}
+.Additionalareacovered, .Issues,
+.Newimprovements {
+    display: inline-table !important;
+    max-width: 33%;
+}
+.Additionalareacovered label, .Issues label,
+.Newimprovements label {
+    display: flex !important;
+}
+.inputfromauditee, .Satisfactionrating,
+.Currentauditobservation {
+    width: 30%;
+}
+.Observationpending {
+   width: 80%;
+}
+.inputfromauditee, .Satisfactionrating,
+.Currentauditobservation, .Observationpending .AcnidScopeList {
+    height: 200px;
+}
+.s-ObservationpendingEditorDialog {
+    width: 1500px !important;
+}
+.s-SatisfactionratingEditorDialog .first-category {
+    max-width: 9% !important;
+    display: inline-flex;
+}
+.s-SatisfactionratingEditorDialog .category {
+    max-width: 13%;
+    display: inline-flex;
+}
+.s-ObservationpendingEditorDialog .field {
+    max-width: 15%;
+}
+.Originaltargetdate input,
+.Revisedtargetdate input {
+    float: left !important;
+}
+.Reportreference .caption,
+.Remarks .caption {
+    display: flex !important;
+}
+.weightlabel input, .scorelabel input,
+.ratinglabel input, .comeentslabel input,
+.Totalscore .caption, .totalscore1 .caption,
+.totalscore2 .caption, .totalscore3 .caption {
+    display: none;
+}
+.scorelabel .caption, .comeentslabel .caption {
+    text-align: start;
+}
+.Reportreference, .Originaltargetdate,
+.Revisedtargetdate, .Remarks {
+    max-width: 20% !important;
+}
+.Briefdescription {
+    max-width: 20% !important;
+}
+.Briefdescription .caption {
+    max-width: 30% !important;
+}
+.slick-header-columns {
+    left: 0px !important;
+    min-width: 100% !important;
+}
+.inputfromauditee .slick-header-columns,
+.Satisfactionrating .slick-header-columns,
+.Observationpending .slick-header-columns,
+.Currentauditobservation .slick-header-columns {
+    width: 100% !important;
+}
+.slick-header-column {
+    left: 0 !important;
+}
+.inputfromauditee .grid-canvas,
+.Satisfactionrating .grid-canvas,
+.Observationpending .grid-canvas,
+.Currentauditobservation .grid-canvas{
+    width: 100% !important;
+}
+.inputfromauditee .slick-header-columns div:nth-child(1) {
+    min-width: 30% !important;
+}
+.inputfromauditee .slick-header-columns div:nth-child(2) {
+    min-width: 32% !important;
+}
+.inputfromauditee .slick-header-columns div:nth-child(3) {
+    min-width: 36% !important;
+}
+.Satisfactionrating .slick-header-columns div:nth-child(1) {
+    min-width: 19% !important;
+}
+.Satisfactionrating .slick-header-columns div:nth-child(2) {
+    min-width: 79% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(1) {
+    width: 12% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(2) {
+    width: 28% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(3) {
+    width: 15% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(4) {
+    width: 15% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(5) {
+    width: 15% !important;
+}
+.Observationpending .slick-header-columns div:nth-child(6) {
+    width: 11% !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(1) {
+    width: 13% !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(2) {
+    width: 29% !important;
+    left: 13% !important;
+    padding-left: 0px !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(3) {
+    width: 16% !important;
+    left: 42% !important;
+    padding-left: 0px !important;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(4) {
+    width: 16% !important;    
+    left: 57% !important;
+    padding-left: 0px;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(5) {
+    width: 15% !important;
+    left: 73% !important;
+    padding-left: 0px;
+}
+.Observationpending .ui-widget-content .slick-cell:nth-child(6) {
+    width: 11% !important;
+    left: 88% !important;
+    padding-left: 0px;
+}
+.Currentauditobservation .slick-header-columns div {
+    width: 49% !important;
+}
+.Currentauditobservation .ui-widget-content .slick-cell:nth-child(2) {
+    width: 49.5% !important;
+    left: 50% !important;
+    padding-left: 0px;
+}
+.inputfromauditee .ui-widget-content .slick-cell:nth-child(1) {
+    width: 31% !important;
+}
+.inputfromauditee .ui-widget-content .slick-cell:nth-child(2) {
+    width: 33% !important;
+    left: 30.5% !important;
+}
+.inputfromauditee .ui-widget-content .slick-cell:nth-child(3) {
+    width: 31% !important;
+    left: 63% !important;
+}
+.Satisfactionrating .ui-widget-content .slick-cell:nth-child(1) {
+    width: 19% !important;
+}
+.Satisfactionrating .ui-widget-content .slick-cell:nth-child(2) {
+    width: 79% !important;
+    left: 19.5% !important;
+}
+.s-PropertyGrid .category-title {
+    margin: 5px;
+}
+.totalscore1, .totalscore2, .totalscore3 {
+    display: none !important;
+}
+.s-MessageDialog {
+    height: 20% !important;
+    padding-top: 5% !important;
+}

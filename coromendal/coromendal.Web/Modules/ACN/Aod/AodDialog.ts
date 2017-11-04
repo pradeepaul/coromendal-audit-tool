@@ -42,9 +42,28 @@ namespace coromendal.ACN {
             this.form.AcnidPeriodfrom.value = meetingdetails.AcnidPeriodfrom;
             this.form.AcnidPeriodto.value = meetingdetails.AcnidPeriodto;
             this.form.AcnidLocation.value = meetingdetails.AcnidLocation;
+            this.form.Areaofscope.value = meetingdetails.AcnidScopeList;
+                 
 
-           
             
+
+        }
+        private setCustomerDetail(details: ACN.AcnRow) {
+            this.form.Areaofscope.value = details.ScopeList;
+        }
+
+        protected afterLoadEntity() {
+            if (this.form.Acnid.value==0) {
+                this.setCustomerDetail({});
+                return;
+            }
+            
+            var id = Q.first(ACN.AcnRow.getLookup().items, x => x.AcnId == this.form.Acnid.value).AcnId;
+            ACN.AcnService.Retrieve({
+                EntityId: id
+            }, response => {
+                this.setCustomerDetail(response.Entity);
+            });
 
         }
     }

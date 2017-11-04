@@ -8,7 +8,7 @@ namespace coromendal.Migrations.DefaultDB
         public override void Up()
         {
             Alter.Table("Users")
-                .AddColumn("LastDirectoryUpdate").AsDateTime().Nullable();
+                .AddColumn("LastDirectoryUpdateone").AsDateTime().Nullable();
         }
     }
 }

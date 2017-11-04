@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.ACN.Finalobservation.EntityPlural");
+}
+
+
+@section Head {
+    <link rel="stylesheet" href="~/Content/Finalobservation/finalobservation.css">
+}
+
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new coromendal.ACN.FinalobservationGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

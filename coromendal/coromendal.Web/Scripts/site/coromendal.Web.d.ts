@@ -1307,7 +1307,7 @@ declare namespace coromendal.ACN {
         AcnidPeriodto: Serenity.StringEditor;
         AcnidFromdate: Serenity.StringEditor;
         AcnidTodate: Serenity.StringEditor;
-        Areaofscope: Serenity.StringEditor;
+        Areaofscope: ScopeEditor;
         Exclusions: Serenity.StringEditor;
         Reasons: Serenity.StringEditor;
         inputfromauditee: InputfromauditeeEditor;
@@ -1325,7 +1325,7 @@ declare namespace coromendal.ACN {
         Actualcompltedate?: string;
         ProcessOwner?: string;
         Functionalhead?: string;
-        Areaofscope?: string;
+        Areaofscope?: ScopeRow[];
         Exclusions?: string;
         Reasons?: string;
         Sbu?: string;
@@ -1479,6 +1479,7 @@ declare namespace coromendal.ACN {
         AcnCreationdate?: string;
         rootList?: RootcauseRow[];
         SuggestionList?: SuggestionRow[];
+        Detailedobservation1?: Northwind.NoteRow[];
     }
     namespace AuditobservationRow {
         const idProperty: string;
@@ -1513,6 +1514,7 @@ declare namespace coromendal.ACN {
             const AcnCreationdate: string;
             const rootList: string;
             const SuggestionList: string;
+            const Detailedobservation1: string;
         }
     }
 }
@@ -1916,6 +1918,131 @@ declare namespace coromendal.ACN {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FeedbackvalueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FeedbackvalueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalobservationForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface FinalobservationForm {
+        Observationid: Serenity.IntegerEditor;
+        AcnId: Serenity.IntegerEditor;
+        Scope: Serenity.IntegerEditor;
+        Observationtitle: Serenity.StringEditor;
+        Observationsynopsis: Serenity.StringEditor;
+        Detailedobservation: Serenity.StringEditor;
+        Category: Serenity.IntegerEditor;
+        RiskRating: Serenity.StringEditor;
+        Agreeobservation: Serenity.IntegerEditor;
+        Justification: Serenity.StringEditor;
+        Suggestion: Serenity.IntegerEditor;
+        Alternateplan: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+        Email: Serenity.StringEditor;
+        Targetdate: Serenity.StringEditor;
+        Consequence: Serenity.IntegerEditor;
+        Likelihood: Serenity.IntegerEditor;
+        rootList: RootcauseEditor;
+        SuggestionList: SuggestionEditor;
+        Detailedobservation1: Northwind.NotesEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface FinalobservationRow {
+        FinalobservationId?: number;
+        Observationid?: number;
+        AcnId?: number;
+        Scope?: number;
+        Observationtitle?: string;
+        Observationsynopsis?: string;
+        Detailedobservation?: string;
+        Category?: number;
+        RiskRating?: string;
+        Agreeobservation?: number;
+        Justification?: string;
+        Suggestion?: number;
+        Alternateplan?: string;
+        Name?: string;
+        Email?: string;
+        Targetdate?: string;
+        Consequence?: number;
+        Likelihood?: number;
+        ObservationidAcnId?: number;
+        ObservationidScope?: number;
+        ObservationidObservationtitle?: string;
+        ObservationidObservationsynopsis?: string;
+        ObservationidDetailedobservation?: string;
+        ObservationidCategory?: number;
+        ObservationidRiskRating?: string;
+        ObservationidAgreeobservation?: number;
+        ObservationidJustification?: string;
+        ObservationidSuggestion?: number;
+        ObservationidAlternateplan?: string;
+        ObservationidName?: string;
+        ObservationidEmail?: string;
+        ObservationidTargetdate?: string;
+        ObservationidConsequence?: number;
+        ObservationidLikelihood?: number;
+        ObservationidSend?: string;
+    }
+    namespace FinalobservationRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const FinalobservationId: any;
+            const Observationid: any;
+            const AcnId: any;
+            const Scope: any;
+            const Observationtitle: any;
+            const Observationsynopsis: any;
+            const Detailedobservation: any;
+            const Category: any;
+            const RiskRating: any;
+            const Agreeobservation: any;
+            const Justification: any;
+            const Suggestion: any;
+            const Alternateplan: any;
+            const Name: any;
+            const Email: any;
+            const Targetdate: any;
+            const Consequence: any;
+            const Likelihood: any;
+            const ObservationidAcnId: string;
+            const ObservationidScope: string;
+            const ObservationidObservationtitle: string;
+            const ObservationidObservationsynopsis: string;
+            const ObservationidDetailedobservation: string;
+            const ObservationidCategory: string;
+            const ObservationidRiskRating: string;
+            const ObservationidAgreeobservation: string;
+            const ObservationidJustification: string;
+            const ObservationidSuggestion: string;
+            const ObservationidAlternateplan: string;
+            const ObservationidName: string;
+            const ObservationidEmail: string;
+            const ObservationidTargetdate: string;
+            const ObservationidConsequence: string;
+            const ObservationidLikelihood: string;
+            const ObservationidSend: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace FinalobservationService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<FinalobservationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<FinalobservationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FinalobservationRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FinalobservationRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2871,6 +2998,128 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+    class ObservationmasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ObservationmasterForm {
+        Observationid: Serenity.IntegerEditor;
+        AcnId: Serenity.IntegerEditor;
+        Scope: Serenity.StringEditor;
+        Observationtitle: Serenity.StringEditor;
+        Observationsynopsis: Serenity.StringEditor;
+        Detailedobservation: Serenity.StringEditor;
+        Category: Serenity.IntegerEditor;
+        RiskRating: Serenity.StringEditor;
+        Agreeobservation: Serenity.IntegerEditor;
+        Justification: Serenity.StringEditor;
+        Suggestion: Serenity.IntegerEditor;
+        Alternateplan: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+        Email: Serenity.StringEditor;
+        Targetdate: Serenity.StringEditor;
+        Consequence: Serenity.IntegerEditor;
+        Likelihood: Serenity.IntegerEditor;
+        rootList: RootcauseEditor;
+        SuggestionList: SuggestionEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface ObservationmasterRow {
+        ObservationmasterId?: number;
+        Observationid?: number;
+        AcnId?: number;
+        Scope?: number;
+        Observationtitle?: string;
+        Observationsynopsis?: string;
+        Detailedobservation?: string;
+        Category?: number;
+        RiskRating?: string;
+        Agreeobservation?: number;
+        Justification?: string;
+        Suggestion?: number;
+        Alternateplan?: string;
+        Name?: string;
+        Email?: string;
+        Targetdate?: string;
+        Consequence?: number;
+        Likelihood?: number;
+        ObservationidAcnId?: number;
+        ObservationidScope?: string;
+        ObservationidObservationtitle?: string;
+        ObservationidObservationsynopsis?: string;
+        ObservationidDetailedobservation?: string;
+        ObservationidCategory?: number;
+        ObservationidRiskRating?: string;
+        ObservationidAgreeobservation?: number;
+        ObservationidJustification?: string;
+        ObservationidSuggestion?: number;
+        ObservationidAlternateplan?: string;
+        ObservationidName?: string;
+        ObservationidEmail?: string;
+        ObservationidTargetdate?: string;
+        ObservationidConsequence?: number;
+        ObservationidLikelihood?: number;
+    }
+    namespace ObservationmasterRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const ObservationmasterId: any;
+            const Observationid: any;
+            const AcnId: any;
+            const Scope: any;
+            const Observationtitle: any;
+            const Observationsynopsis: any;
+            const Detailedobservation: any;
+            const Category: any;
+            const RiskRating: any;
+            const Agreeobservation: any;
+            const Justification: any;
+            const Suggestion: any;
+            const Alternateplan: any;
+            const Name: any;
+            const Email: any;
+            const Targetdate: any;
+            const Consequence: any;
+            const Likelihood: any;
+            const ObservationidAcnId: string;
+            const ObservationidScope: string;
+            const ObservationidObservationtitle: string;
+            const ObservationidObservationsynopsis: string;
+            const ObservationidDetailedobservation: string;
+            const ObservationidCategory: string;
+            const ObservationidRiskRating: string;
+            const ObservationidAgreeobservation: string;
+            const ObservationidJustification: string;
+            const ObservationidSuggestion: string;
+            const ObservationidAlternateplan: string;
+            const ObservationidName: string;
+            const ObservationidEmail: string;
+            const ObservationidTargetdate: string;
+            const ObservationidConsequence: string;
+            const ObservationidLikelihood: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace ObservationmasterService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<ObservationmasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ObservationmasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ObservationmasterRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ObservationmasterRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
 }
 declare namespace coromendal.ACN {
     class ObservationpendingForm extends Serenity.PrefixedContext {
@@ -3459,6 +3708,105 @@ declare namespace coromendal.ACN {
 declare namespace coromendal.ACN {
 }
 declare namespace coromendal.ACN {
+    class ScopeexcludeForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface ScopeexcludeForm {
+        Scopeid: Serenity.IntegerEditor;
+        Aodid: Serenity.IntegerEditor;
+        AcnId: Serenity.IntegerEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface ScopeexcludeRow {
+        ExcludeId?: number;
+        Scopeid?: number;
+        Aodid?: number;
+        AcnId?: number;
+        ScopeidTitle?: string;
+        ScopeidAcnId?: number;
+        AodidMeetingid?: number;
+        AodidActualcomencementdate?: string;
+        AodidActualcompltedate?: string;
+        AodidProcessOwner?: string;
+        AodidFunctionalhead?: string;
+        AodidAreaofscope?: string;
+        AodidExclusions?: string;
+        AodidReasons?: string;
+        AodidSbu?: string;
+        AodidAcnid?: number;
+        AodidPreview?: string;
+        AodidSend?: string;
+        AcnAcnTilte?: string;
+        AcnPhaseNo?: number;
+        AcnLocation?: string;
+        AcnFromdate?: string;
+        AcnTodate?: string;
+        AcnPeriodfrom?: string;
+        AcnPeriodto?: string;
+        AcnCreationdate?: string;
+        AcnUserid?: number;
+        AcnPreview?: string;
+        AcnSend?: string;
+        AcnMId?: number;
+        AcnStatus?: number;
+    }
+    namespace ScopeexcludeRow {
+        const idProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const ExcludeId: any;
+            const Scopeid: any;
+            const Aodid: any;
+            const AcnId: any;
+            const ScopeidTitle: string;
+            const ScopeidAcnId: string;
+            const AodidMeetingid: string;
+            const AodidActualcomencementdate: string;
+            const AodidActualcompltedate: string;
+            const AodidProcessOwner: string;
+            const AodidFunctionalhead: string;
+            const AodidAreaofscope: string;
+            const AodidExclusions: string;
+            const AodidReasons: string;
+            const AodidSbu: string;
+            const AodidAcnid: string;
+            const AodidPreview: string;
+            const AodidSend: string;
+            const AcnAcnTilte: string;
+            const AcnPhaseNo: string;
+            const AcnLocation: string;
+            const AcnFromdate: string;
+            const AcnTodate: string;
+            const AcnPeriodfrom: string;
+            const AcnPeriodto: string;
+            const AcnCreationdate: string;
+            const AcnUserid: string;
+            const AcnPreview: string;
+            const AcnSend: string;
+            const AcnMId: string;
+            const AcnStatus: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace ScopeexcludeService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<ScopeexcludeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ScopeexcludeRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ScopeexcludeRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ScopeexcludeRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
     class ScopeForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
@@ -3484,6 +3832,7 @@ declare namespace coromendal.ACN {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        function getLookup(): Q.Lookup<ScopeRow>;
         namespace Fields {
             const ScopeId: string;
             const Title: string;
@@ -3589,6 +3938,143 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.Administration {
+    class AcnMasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface AcnMasterForm {
+        AcnTilte: Serenity.StringEditor;
+        PhaseNo: Serenity.IntegerEditor;
+        Location: Serenity.StringEditor;
+        Fromdate: Serenity.StringEditor;
+        Todate: Serenity.StringEditor;
+        Periodfrom: Serenity.StringEditor;
+        Periodto: Serenity.StringEditor;
+        Creationdate: Serenity.StringEditor;
+        Userid: Serenity.IntegerEditor;
+        Preview: Serenity.StringEditor;
+        Send: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.Administration {
+    interface AcnMasterRow {
+        AcnId?: number;
+        AcnTilte?: string;
+        PhaseNo?: number;
+        Location?: string;
+        Fromdate?: string;
+        Todate?: string;
+        Periodfrom?: string;
+        Periodto?: string;
+        Creationdate?: string;
+        Userid?: number;
+        Preview?: string;
+        Send?: string;
+        UseridUsername?: string;
+        UseridDisplayName?: string;
+        UseridEmail?: string;
+        UseridSource?: string;
+        UseridPasswordHash?: string;
+        UseridPasswordSalt?: string;
+        UseridInsertDate?: string;
+        UseridInsertUserId?: number;
+        UseridUpdateDate?: string;
+        UseridUpdateUserId?: number;
+        UseridIsActive?: number;
+        UseridLastDirectoryUpdate?: string;
+        UseridRoleId?: number;
+    }
+    namespace AcnMasterRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const AcnId: any;
+            const AcnTilte: any;
+            const PhaseNo: any;
+            const Location: any;
+            const Fromdate: any;
+            const Todate: any;
+            const Periodfrom: any;
+            const Periodto: any;
+            const Creationdate: any;
+            const Userid: any;
+            const Preview: any;
+            const Send: any;
+            const UseridUsername: string;
+            const UseridDisplayName: string;
+            const UseridEmail: string;
+            const UseridSource: string;
+            const UseridPasswordHash: string;
+            const UseridPasswordSalt: string;
+            const UseridInsertDate: string;
+            const UseridInsertUserId: string;
+            const UseridUpdateDate: string;
+            const UseridUpdateUserId: string;
+            const UseridIsActive: string;
+            const UseridLastDirectoryUpdate: string;
+            const UseridRoleId: string;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    namespace AcnMasterService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<AcnMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AcnMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnMasterRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnMasterRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    class AdminstatusvalueForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface AdminstatusvalueForm {
+        Value: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.Administration {
+    interface AdminstatusvalueRow {
+        Adminstatusvalueid?: number;
+        Value?: string;
+    }
+    namespace AdminstatusvalueRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        function getLookup(): Q.Lookup<AdminstatusvalueRow>;
+        namespace Fields {
+            const Adminstatusvalueid: any;
+            const Value: any;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    namespace AdminstatusvalueService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<AdminstatusvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AdminstatusvalueRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AdminstatusvalueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AdminstatusvalueRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.Administration {
 }
 declare namespace coromendal.Administration {
     class LanguageForm extends Serenity.PrefixedContext {
@@ -3626,6 +4112,132 @@ declare namespace coromendal.Administration {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<LanguageRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<LanguageRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    class LocationForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface LocationForm {
+        Locname: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.Administration {
+    interface LocationRow {
+        Locid?: number;
+        Locname?: string;
+    }
+    namespace LocationRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Locid: any;
+            const Locname: any;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    namespace LocationService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<LocationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<LocationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<LocationRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<LocationRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    class MasterAcnForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MasterAcnForm {
+        Title: Serenity.StringEditor;
+        Statusid: Serenity.IntegerEditor;
+    }
+}
+declare namespace coromendal.Administration {
+    interface MasterAcnRow {
+        Id?: number;
+        Title?: string;
+        Statusid?: number;
+    }
+    namespace MasterAcnRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: any;
+            const Title: any;
+            const Statusid: any;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    namespace MasterAcnService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<MasterAcnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MasterAcnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MasterAcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MasterAcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    class PendingAcnForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface PendingAcnForm {
+        Title: Serenity.StringEditor;
+        Statusid: Serenity.IntegerEditor;
+    }
+}
+declare namespace coromendal.Administration {
+    interface PendingAcnRow {
+        Id?: number;
+        Title?: string;
+        Statusid?: number;
+    }
+    namespace PendingAcnRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: any;
+            const Title: any;
+            const Statusid: any;
+        }
+    }
+}
+declare namespace coromendal.Administration {
+    namespace PendingAcnService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<PendingAcnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PendingAcnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PendingAcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PendingAcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -3944,6 +4556,142 @@ declare namespace coromendal.Administration {
         }
     }
 }
+declare namespace coromendal.Adminstration {
+    class AcnMasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface AcnMasterForm {
+        AcnTilte: Serenity.StringEditor;
+        PhaseNo: Serenity.IntegerEditor;
+        Location: Serenity.StringEditor;
+        Fromdate: Serenity.StringEditor;
+        Todate: Serenity.StringEditor;
+        Periodfrom: Serenity.StringEditor;
+        Periodto: Serenity.StringEditor;
+        Creationdate: Serenity.StringEditor;
+        Userid: Serenity.IntegerEditor;
+        Preview: Serenity.StringEditor;
+        Send: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.Adminstration {
+    interface AcnMasterRow {
+        AcnId?: number;
+        AcnTilte?: string;
+        PhaseNo?: number;
+        Location?: string;
+        Fromdate?: string;
+        Todate?: string;
+        Periodfrom?: string;
+        Periodto?: string;
+        Creationdate?: string;
+        Userid?: number;
+        Preview?: string;
+        Send?: string;
+        UseridUsername?: string;
+        UseridDisplayName?: string;
+        UseridEmail?: string;
+        UseridSource?: string;
+        UseridPasswordHash?: string;
+        UseridPasswordSalt?: string;
+        UseridInsertDate?: string;
+        UseridInsertUserId?: number;
+        UseridUpdateDate?: string;
+        UseridUpdateUserId?: number;
+        UseridIsActive?: number;
+        UseridLastDirectoryUpdate?: string;
+        UseridRoleId?: number;
+    }
+    namespace AcnMasterRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const AcnId: any;
+            const AcnTilte: any;
+            const PhaseNo: any;
+            const Location: any;
+            const Fromdate: any;
+            const Todate: any;
+            const Periodfrom: any;
+            const Periodto: any;
+            const Creationdate: any;
+            const Userid: any;
+            const Preview: any;
+            const Send: any;
+            const UseridUsername: string;
+            const UseridDisplayName: string;
+            const UseridEmail: string;
+            const UseridSource: string;
+            const UseridPasswordHash: string;
+            const UseridPasswordSalt: string;
+            const UseridInsertDate: string;
+            const UseridInsertUserId: string;
+            const UseridUpdateDate: string;
+            const UseridUpdateUserId: string;
+            const UseridIsActive: string;
+            const UseridLastDirectoryUpdate: string;
+            const UseridRoleId: string;
+        }
+    }
+}
+declare namespace coromendal.Adminstration {
+    namespace AcnMasterService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<AcnMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AcnMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AcnMasterRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AcnMasterRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.Adminstration {
+    class LocationForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface LocationForm {
+        Locname: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.Adminstration {
+    interface LocationRow {
+        Locid?: number;
+        Locname?: string;
+    }
+    namespace LocationRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Locid: any;
+            const Locname: any;
+        }
+    }
+}
+declare namespace coromendal.Adminstration {
+    namespace LocationService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<LocationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<LocationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<LocationRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<LocationRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
 declare namespace coromendal.BasicSamples {
     namespace BasicSamplesService {
         const baseUrl: string;
@@ -4152,6 +4900,48 @@ declare namespace coromendal {
     interface GetNextNumberResponse extends Serenity.ServiceResponse {
         Number?: number;
         Serial?: string;
+    }
+}
+declare namespace coromendal.MasterAcn {
+    class MasterAcnForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MasterAcnForm {
+        Title: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.MasterAcn {
+    interface MasterAcnRow {
+        Id?: number;
+        Title?: string;
+        Statusid?: number;
+    }
+    namespace MasterAcnRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const Id: any;
+            const Title: any;
+            const Statusid: any;
+        }
+    }
+}
+declare namespace coromendal.MasterAcn {
+    namespace MasterAcnService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<MasterAcnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MasterAcnRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MasterAcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MasterAcnRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
     }
 }
 declare namespace coromendal.Membership {
@@ -5980,6 +6770,79 @@ declare namespace coromendal.Administration {
     }
 }
 declare namespace coromendal.Administration {
+    class MasterAcnDialog extends Serenity.EntityDialog<MasterAcnRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MasterAcnForm;
+    }
+}
+declare namespace coromendal.Administration {
+    class MasterAcnEditor extends Common.GridEditorBase<MasterAcnRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MasterAcnEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Administration {
+    class MasterAcnEditorDialog extends Common.GridEditorDialog<MasterAcnRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: MasterAcnForm;
+    }
+}
+declare namespace coromendal.Administration {
+    class MasterAcnGrid extends Serenity.EntityGrid<MasterAcnRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MasterAcnDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+    }
+}
+declare namespace coromendal.Administration {
+    class LocationDialog extends Serenity.EntityDialog<LocationRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: LocationForm;
+    }
+}
+declare namespace coromendal.Administration {
+    class LocationEditor extends Common.GridEditorBase<LocationRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof LocationEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Administration {
+    class LocationEditorDialog extends Common.GridEditorDialog<LocationRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: LocationForm;
+    }
+}
+declare namespace coromendal.Administration {
+    class LocationGrid extends Serenity.EntityGrid<LocationRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof LocationDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Administration {
     class LanguageDialog extends Serenity.EntityDialog<LanguageRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -5998,6 +6861,47 @@ declare namespace coromendal.Administration {
         protected getService(): string;
         constructor(container: JQuery);
         protected getDefaultSortBy(): string[];
+    }
+}
+declare namespace coromendal.Administration {
+    class AdminListFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace coromendal.Administration {
+    class AdminstatusvalueDialog extends Serenity.EntityDialog<AdminstatusvalueRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: AdminstatusvalueForm;
+    }
+}
+declare namespace coromendal.Administration {
+    class AdminstatusvalueEditor extends Common.GridEditorBase<AdminstatusvalueRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AdminstatusvalueEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.Administration {
+    class AdminstatusvalueEditorDialog extends Common.GridEditorDialog<AdminstatusvalueRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: AdminstatusvalueForm;
+    }
+}
+declare namespace coromendal.Administration {
+    class AdminstatusvalueGrid extends Serenity.EntityGrid<AdminstatusvalueRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AdminstatusvalueDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace coromendal.ACN {
@@ -6034,6 +6938,45 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class ScopeexcludeDialog extends Serenity.EntityDialog<ScopeexcludeRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: ScopeexcludeForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class ScopeexcludeEditor extends Common.GridEditorBase<ScopeexcludeRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ScopeexcludeEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class ScopeexcludeEditorDialog extends Common.GridEditorDialog<ScopeexcludeRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: ScopeexcludeForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class ScopeexcludeGrid extends Serenity.EntityGrid<ScopeexcludeRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ScopeexcludeDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class ScopeFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
     }
 }
 declare namespace coromendal.ACN {
@@ -6380,6 +7323,42 @@ declare namespace coromendal.ACN {
     class ObservationpendingGrid extends Serenity.EntityGrid<ObservationpendingRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof ObservationpendingDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class ObservationmasterDialog extends Serenity.EntityDialog<ObservationmasterRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ObservationmasterForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class ObservationmasterEditor extends Common.GridEditorBase<ObservationmasterRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ObservationmasterEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class ObservationmasterEditorDialog extends Common.GridEditorDialog<ObservationmasterRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: ObservationmasterForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class ObservationmasterGrid extends Serenity.EntityGrid<ObservationmasterRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ObservationmasterDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
@@ -6875,6 +7854,54 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+    class consqFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalobservationDialog extends Serenity.EntityDialog<FinalobservationRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: FinalobservationForm;
+        private setCustomerDetail(details);
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalobservationEditor extends Common.GridEditorBase<FinalobservationRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof FinalobservationEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalobservationEditorDialog extends Common.GridEditorDialog<FinalobservationRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: FinalobservationForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalobservationGrid extends Serenity.EntityGrid<FinalobservationRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof FinalobservationDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class likeFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace coromendal.ACN {
     class FeedbackvalueDialog extends Serenity.EntityDialog<FeedbackvalueRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -7022,6 +8049,7 @@ declare namespace coromendal.ACN {
         protected getNameProperty(): string;
         protected getService(): string;
         protected form: CurrentauditobservationForm;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -7157,6 +8185,9 @@ declare namespace coromendal.ACN {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
+        protected preview(respose: any): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -7169,6 +8200,8 @@ declare namespace coromendal.ACN {
         protected form: AodForm;
         constructor();
         private setMeetingDetails(meetingdetails);
+        private setCustomerDetail(details);
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace coromendal.ACN {
@@ -7569,5 +8602,10 @@ declare namespace coromendal.ACN {
         protected getColumns(): Slick.Column[];
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
         protected preview(respose: any): void;
+    }
+}
+declare namespace coromendal.ACN {
+    class ACNNameFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
     }
 }

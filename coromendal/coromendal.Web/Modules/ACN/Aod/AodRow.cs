@@ -34,21 +34,21 @@ namespace coromendal.ACN.Entities
             set { Fields.Meetingid[this] = value; }
         }
 
-        [DisplayName("Audit commencement  (Actual)"), Size(100), QuickSearch, NotNull]
+        [DisplayName("Audit commencement  (Actual)"), Size(100), QuickSearch]
         public String Actualcomencementdate
         {
             get { return Fields.Actualcomencementdate[this]; }
             set { Fields.Actualcomencementdate[this] = value; }
         }
 
-        [DisplayName("Audit Completion  (Actual)"), Size(100), NotNull]
+        [DisplayName("Audit Completion  (Actual)"), Size(100)]
         public String Actualcompltedate
         {
             get { return Fields.Actualcompltedate[this]; }
             set { Fields.Actualcompltedate[this] = value; }
         }
 
-        [DisplayName("Process owners"), Column("Process owner"), Size(100), NotNull]
+        [DisplayName("Process owners"), Column("Process owner"), Size(100)]
         public String ProcessOwner
         {
             get { return Fields.ProcessOwner[this]; }
@@ -68,35 +68,36 @@ namespace coromendal.ACN.Entities
             set { Fields.Send[this] = value; }
         }
 
-        [DisplayName("Functional Heads"), Size(100), NotNull]
+        [DisplayName("Functional Heads"), Size(100)]
         public String Functionalhead
         {
             get { return Fields.Functionalhead[this]; }
             set { Fields.Functionalhead[this] = value; }
         }
 
-        [DisplayName("Areas of Scope"), Size(200), NotNull]
+
+       /* [DisplayName("Areas of Scope"), Size(200), NotNull]
         public String Areaofscope
         {
             get { return Fields.Areaofscope[this]; }
             set { Fields.Areaofscope[this] = value; }
-        }
+        }*/
 
-        [DisplayName("Exclusions"), Size(200), NotNull]
+        [DisplayName("Exclusions"), Size(200)]
         public String Exclusions
         {
             get { return Fields.Exclusions[this]; }
             set { Fields.Exclusions[this] = value; }
         }
 
-        [DisplayName("Reasons"), Size(200), NotNull]
+        [DisplayName("Reasons"), Size(200)]
         public String Reasons
         {
             get { return Fields.Reasons[this]; }
             set { Fields.Reasons[this] = value; }
         }
 
-        [DisplayName("SBU"), Size(200), NotNull]
+        [DisplayName("SBU"), Size(200)]
         [LookupEditor(typeof(SbuRow))]
         public Int32? Sbu
         {
@@ -202,6 +203,12 @@ namespace coromendal.ACN.Entities
             get { return Fields.MeetingidAuditopeningmeetingdate[this]; }
             set { Fields.MeetingidAuditopeningmeetingdate[this] = value; }
         }
+        [DisplayName("Audit Scope List"), Expression("jMeetingid.[AcnidScopeList]"), NotNull, Required(true), ClientSide]
+        public List<ScopeRow> Areaofscope
+        {
+            get { return Fields.Areaofscope[this]; }
+            set { Fields.Areaofscope[this] = value; }
+        }
 
         [DisplayName("Assignment"), Expression("jAcnid.[AcnTilte]"), Updatable(false), ReadOnly(true)]
         public String AcnidAcnTilte
@@ -291,9 +298,16 @@ namespace coromendal.ACN.Entities
             get { return Fields.Currentauditobservation[this]; }
             set { Fields.Currentauditobservation[this] = value; }
         }
+        [DisplayName("Exclude Scope"), MasterDetailRelation(foreignKey: "aodid" ), NotNull, ClientSide]
+        public List<ScopeexcludeRow> scopeexclude
+        {
+            get { return Fields.scopeexclude[this]; }
+            set { Fields.scopeexclude[this] = value; }
+        }
+        
 
 
-        IIdField IIdRow.IdField
+       IIdField IIdRow.IdField
         {
             get { return Fields.AodId; }
         }
@@ -317,8 +331,8 @@ namespace coromendal.ACN.Entities
             public StringField Actualcomencementdate;
             public StringField Actualcompltedate;
             public StringField ProcessOwner;
-            public StringField Functionalhead;
-            public StringField Areaofscope;
+            public StringField Functionalhead;            
+            public RowListField<ScopeRow> Areaofscope;
             public StringField Exclusions;
             public StringField Reasons;
             public Int32Field Sbu;
@@ -355,6 +369,7 @@ namespace coromendal.ACN.Entities
             public RowListField<SatisfactionratingRow> Satisfactionrating;
             public RowListField<ObservationpendingRow> Observationpending;
             public RowListField<CurrentauditobservationRow> Currentauditobservation;
+            public RowListField<ScopeexcludeRow> scopeexclude;
 
             public RowFields()
                 : base("[dbo].[AOD]")

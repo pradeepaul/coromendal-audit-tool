@@ -42,13 +42,21 @@ namespace coromendal.ACN.Forms
 
         public String AcnidFromdate { get; set; }
         public String AcnidTodate { get; set; }
-        [Category("")]
-        public String Areaofscope { get; set; }
-        public String Exclusions { get; set; }
-        public String Reasons { get; set; }        
-       
+        
+        [Category("Audit Scope Details")]
+        [ScopeEditor]
+        public List<ScopeRow> Areaofscope { get; set; }
 
-        [Category("Inputs received from Auditee")]
+        [Category("Exclusions")]
+        [ExcludeEditor]
+        public List<ScopeexcludeRow> scopeexclude { get; set; }
+      //  public String Exclusions { get; set; }
+
+       // [Category("Reasons")]
+       // public String Reasons { get; set; }
+        
+
+         [Category("Inputs received from Auditee")]
         [InputfromauditeeEditor]
         public List<InputfromauditeeRow> inputfromauditee { get; set; }
 

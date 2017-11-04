@@ -1,0 +1,30 @@
+﻿.ui-dialog {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ui-dialog-content {
+    height: 90% !important;
+    overflow: hidden !important;
+}
+.ui-dialog-buttonset {
+    padding-top: 55px !important;
+}
+iframe {
+    height: 500px;
+}
+.s-NoteDialog {
+    height: 60% !important;
+    overflow: hidden;
+}
+.s-NoteDialog .ui-dialog-titlebar {
+    top: 107px !important;
+}
+.s-NoteDialog .ui-dialog-content {
+    top: 100px !important;
+}
+.s-DarClarificationsDialog {
+    width: 50% !important;
+    height: 65% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
