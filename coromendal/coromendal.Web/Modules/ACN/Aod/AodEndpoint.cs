@@ -57,7 +57,6 @@ namespace coromendal.ACN.Endpoints
                     .Select(aod.Actualcompltedate)
                     .Select(aod.ProcessOwner)
                     .Select(aod.Functionalhead)
-                    .Select(aod.Areaofscope)
                     .Select(aod.Exclusions)
                     .Select(aod.Reasons)
                     .Select(aod.Sbu)

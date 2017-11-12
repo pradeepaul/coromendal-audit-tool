@@ -2602,6 +2602,14 @@
     <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationEditorDialog.ts" />
+    <Content Include="Modules\ACN\Finalreport\FinalreportIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -3378,6 +3386,12 @@
     <Compile Include="Modules\ACN\Finalobservation\FinalobservationRepository.cs" />
     <Compile Include="Modules\ACN\Finalobservation\FinalobservationEndpoint.cs" />
     <Compile Include="Modules\ACN\Finalobservation\FinalobservationPage.cs" />
+    <Compile Include="Modules\ACN\Finalreport\FinalreportRow.cs" />
+    <Compile Include="Modules\ACN\Finalreport\FinalreportColumns.cs" />
+    <Compile Include="Modules\ACN\Finalreport\FinalreportForm.cs" />
+    <Compile Include="Modules\ACN\Finalreport\FinalreportRepository.cs" />
+    <Compile Include="Modules\ACN\Finalreport\FinalreportEndpoint.cs" />
+    <Compile Include="Modules\ACN\Finalreport\FinalreportPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

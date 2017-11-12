@@ -59,7 +59,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Qc[this] = value; }
         }
 
-        [DisplayName("Audit Status"), Column("status"), Size(100), QuickSearch]
+        [DisplayName("Status"), Column("status"), Size(100), QuickSearch]
         public String status
         {
             get { return Fields.status[this]; }

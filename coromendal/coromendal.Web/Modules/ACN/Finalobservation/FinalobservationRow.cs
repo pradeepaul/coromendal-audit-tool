@@ -16,8 +16,9 @@ namespace coromendal.ACN.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Observation"), InstanceName("finalobservation"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(ACN.PermissionKeys.finalobservation.View)]
+    [ModifyPermission(ACN.PermissionKeys.finalobservation.Modify)]
+    [DeletePermission(ACN.PermissionKeys.finalobservation.Delete)]
     public sealed class FinalobservationRow : Row, IIdRow, INameRow
     {
         [DisplayName("Finalobservation Id"), Column("finalobservationID"), Identity]
@@ -34,7 +35,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Observationid[this] = value; }
         }
 
-        [DisplayName("Assignment"), Column("acnId"),ReadOnly(true)]
+        [DisplayName("Assignment"), Column("acnId"), ReadOnly(true), Size(200)]
         [LookupEditor(typeof(AcnLookup))]
         public Int32? AcnId
         {
@@ -42,7 +43,7 @@ namespace coromendal.ACN.Entities
             set { Fields.AcnId[this] = value; }
         }
 
-        [DisplayName("Audit Scope"), Column("scope"), ReadOnly(true)]
+        [DisplayName("Audit Scope"), Column("scope"), ReadOnly(true), Size(200)]
         [LookupEditor(typeof(ScopeRow))]
         public Int32? Scope
         {
@@ -297,6 +298,14 @@ namespace coromendal.ACN.Entities
             set { Fields.Detailedobservation1[this] = value; }
         }
 
+        [DisplayName("Status"), Column("status"), NotNull]
+        [LookupEditor(typeof(FinalstatusvalueRow))]
+        public Int32? Status
+        {
+            get { return Fields.Status[this]; }
+            set { Fields.Status[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.FinalobservationId; }
@@ -334,6 +343,7 @@ namespace coromendal.ACN.Entities
             public StringField Targetdate;
             public Int32Field Consequence;
             public Int32Field Likelihood;
+            public Int32Field Status;
 
             public Int32Field ObservationidAcnId;
             public Int32Field ObservationidScope;

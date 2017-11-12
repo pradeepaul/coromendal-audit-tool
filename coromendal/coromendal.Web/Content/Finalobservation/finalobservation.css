@@ -26,4 +26,7 @@
     height: 20% !important;
     padding-top: 5% !important;
 }
+.slick-cell .l0 .r0 {
+    width: 300px !important;
+}
 

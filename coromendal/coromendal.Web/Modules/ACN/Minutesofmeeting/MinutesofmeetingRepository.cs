@@ -18,10 +18,8 @@ namespace coromendal.ACN.Repositories
         private static MyRow.RowFields fld { get { return MyRow.Fields; } }
 
         public SaveResponse Create(IUnitOfWork uow, SaveRequest<MyRow> request)
-        {
+        {                           
             var response = new MySaveHandler().Process(uow, request, SaveRequestType.Create);
-             
-            
             
             return response;
         }
@@ -29,7 +27,8 @@ namespace coromendal.ACN.Repositories
         public SaveResponse Update(IUnitOfWork uow, SaveRequest<MyRow> request)
         {
             var res = request.Entity.AcnidScopeList;
-           
+           // request.Entity.Status = 1;
+           if(res != null) { 
             foreach (var data in res)
             {
                 if (data.ScopeId == null)
@@ -41,8 +40,9 @@ namespace coromendal.ACN.Repositories
                     new ScopeRepository().Create(uow, saveRequest);
                 } 
             }
+            }
             var response = new MySaveHandler().Process(uow, request, SaveRequestType.Update);
-            var res1 = request.Entity;
+           /* var res1 = request.Entity;
             if (request.Entity.Status == 1)
             {
 
@@ -80,7 +80,7 @@ namespace coromendal.ACN.Repositories
                     new AcnFeedbackRepository().Create(uow, saveRequest1);
                 }
             }
-            //if(res.scopeId == null)
+            //if(res.scopeId == null)*/
             return response;
         }
 

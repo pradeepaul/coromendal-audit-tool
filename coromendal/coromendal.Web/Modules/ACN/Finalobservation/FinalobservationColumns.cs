@@ -17,11 +17,11 @@ namespace coromendal.ACN.Columns
        // public Int32 FinalobservationId { get; set; }        
         public Int32 Observationid { get; set; }
         [ACNNameFormatter]
-        [EditLink]
+        [EditLink, Width(400)]
         public Int32 AcnId { get; set; }
-        [ScopeFormatter]
+        [ScopeFormatter, Width(500)]
         public Int32 Scope { get; set; }
-        
-       
+        [FinalTextFormat]
+        public String Status { get; set; }
     }
 }

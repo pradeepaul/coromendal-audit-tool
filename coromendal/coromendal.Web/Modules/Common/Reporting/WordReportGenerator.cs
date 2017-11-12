@@ -54,7 +54,7 @@ namespace Serenity.Reporting
             int reportid)
         {
 
-            //Geting ACN id based on report id
+            /*Geting ACN id based on report id
             var fld = coromendal.ACN.Entities.AcnreportRow.Fields;
             dynamic reportset;
             var reportsqlquery = new SqlQuery()
@@ -63,8 +63,8 @@ namespace Serenity.Reporting
                     .Where(
                     fld.ReportId == reportid);
             using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnreportRow>())
-                reportset = connection.Query(reportsqlquery).FirstOrDefault();
-            int acnid = reportset.Acnid;
+                reportset = connection.Query(reportsqlquery).FirstOrDefault();*/
+            int acnid = reportid;
             // Add a new Paragraph to the document.
             Novacode.Paragraph p = document.InsertParagraph();
             var fld1 = coromendal.ACN.Entities.AcnRow.Fields;
@@ -410,7 +410,7 @@ namespace Serenity.Reporting
                 newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.Observationtitle));
                 newOrderRow.Cells[1].Paragraphs.First().Append(Convert.ToString(item.RiskRating));
                
-                if (item.Category != 0)
+                if (item.Category != null)
                 {
                     var name = PopulatecategoryIndexPage(item.Category);
                     newOrderRow.Cells[3].Paragraphs.First().Append(name);
@@ -476,7 +476,11 @@ namespace Serenity.Reporting
                     document.ReplaceText("%#AGREE%", "NO");
                 }
 
-                document.ReplaceText("#% AlternateAction#", Convert.ToString(obervationResultSet.Alternateplan));
+                if (obervationResultSet.Alternateplan != null)
+                {
+                    document.ReplaceText("#% AlternateAction#", Convert.ToString(obervationResultSet.Alternateplan)); 
+                }
+                
                 if (obervationResultSet.Agreeobservation != 0)
                 {
                     document.ReplaceText("#%YES#", "YES");
@@ -485,12 +489,27 @@ namespace Serenity.Reporting
                 {
                     document.ReplaceText("#%YES#", "NO");
                 }
-                document.ReplaceText("%# Justification#", Convert.ToString(obervationResultSet.Justification));
+                if (obervationResultSet.Justification != null)
+                {
+                    document.ReplaceText("%# Justification#", Convert.ToString(obervationResultSet.Justification));
+                }
                 document.ReplaceText("%#TDATE%", Convert.ToString(obervationResultSet.Targetdate));
-                document.ReplaceText("%#RISKRATING#", Convert.ToString(obervationResultSet.RiskRating));
-                document.ReplaceText("CATEGORY###", PopulatecategoryIndexPage(obervationResultSet.Category));
-                document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
-                document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));
+                if (obervationResultSet.RiskRating != null)
+                {
+                    document.ReplaceText("%#RISKRATING#", Convert.ToString(obervationResultSet.RiskRating));
+                }
+                if (obervationResultSet.Category != null)
+                {
+                    document.ReplaceText("CATEGORY###", PopulatecategoryIndexPage(obervationResultSet.Category));
+                }
+                if (obervationResultSet.Name != null)
+                {
+                    document.ReplaceText("%#UNAME%", Convert.ToString(obervationResultSet.Name));
+                }
+                if (obervationResultSet.Email != null)
+                {
+                    document.ReplaceText("%%EMAIL#", Convert.ToString(obervationResultSet.Email));
+                }
             }
         }
         public static void populateauditObservationdetails(DocX document, int ob)

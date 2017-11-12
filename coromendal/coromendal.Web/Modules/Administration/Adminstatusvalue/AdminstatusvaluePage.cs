@@ -1,6 +1,6 @@
 ﻿
 
-//[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Administration/Adminstatusvalue", typeof(coromendal.Administration.Pages.AdminstatusvalueController))]
+[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Administration/Adminstatusvalue", typeof(coromendal.Administration.Pages.AdminstatusvalueController))]
 
 namespace coromendal.Administration.Pages
 {

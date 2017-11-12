@@ -36,7 +36,7 @@ namespace coromendal.ACN.Entities
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
-        [DisplayName("Observation Title"), Column("observationtitle"), QuickSearch, ReadOnly(true)]
+        [DisplayName("Observation Title"), Column("observationtitle"), QuickSearch]
 
         public String Observationtitle
         {
@@ -103,6 +103,13 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.RiskRating[this]; }
             set { Fields.RiskRating[this] = value; }
+        }
+        [DisplayName("Primary Image"), Size(100),
+        ImageUploadEditor(FilenameFormat = "Person/PrimaryImage/~")]
+        public string PrimaryImage
+        {
+            get { return Fields.PrimaryImage[this]; }
+            set { Fields.PrimaryImage[this] = value; }
         }
 
         [DisplayName("Send"), Column("agreeobservation")]
@@ -263,6 +270,7 @@ namespace coromendal.ACN.Entities
             public StringField Targetdate;
             public Int32Field Consequence;
             public Int32Field Likelihood;
+            public StringField PrimaryImage; 
 
             public StringField AcnAcnTilte;
             public Int32Field AcnPhaseNo;

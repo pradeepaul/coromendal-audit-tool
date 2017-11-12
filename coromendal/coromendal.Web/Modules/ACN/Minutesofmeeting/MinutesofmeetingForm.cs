@@ -69,7 +69,7 @@ namespace coromendal.ACN.Forms
         public List<NewchangesRow> Newchanges { get; set; }
 
 
-
+       [Hidden]
         public Int32 Status { get; set; }
 
 

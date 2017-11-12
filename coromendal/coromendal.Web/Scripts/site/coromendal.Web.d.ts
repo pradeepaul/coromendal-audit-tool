@@ -2053,6 +2053,84 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+    class FinalreportForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface FinalreportForm {
+        Title: Serenity.StringEditor;
+        Acnid: Serenity.IntegerEditor;
+        Download: Serenity.IntegerEditor;
+        Userid: Serenity.IntegerEditor;
+        Status: Serenity.StringEditor;
+    }
+}
+declare namespace coromendal.ACN {
+    interface FinalreportRow {
+        ReportId?: number;
+        Title?: string;
+        Acnid?: number;
+        Download?: number;
+        Userid?: number;
+        Status?: string;
+        AcnidAcnTilte?: string;
+        AcnidPhaseNo?: number;
+        AcnidLocation?: string;
+        AcnidFromdate?: string;
+        AcnidTodate?: string;
+        AcnidPeriodfrom?: string;
+        AcnidPeriodto?: string;
+        AcnidCreationdate?: string;
+        AcnidUserid?: number;
+        AcnidPreview?: string;
+        AcnidSend?: string;
+        AcnidMId?: number;
+        AcnidStatus?: number;
+    }
+    namespace FinalreportRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const ReportId: any;
+            const Title: any;
+            const Acnid: any;
+            const Download: any;
+            const Userid: any;
+            const Status: any;
+            const AcnidAcnTilte: string;
+            const AcnidPhaseNo: string;
+            const AcnidLocation: string;
+            const AcnidFromdate: string;
+            const AcnidTodate: string;
+            const AcnidPeriodfrom: string;
+            const AcnidPeriodto: string;
+            const AcnidCreationdate: string;
+            const AcnidUserid: string;
+            const AcnidPreview: string;
+            const AcnidSend: string;
+            const AcnidMId: string;
+            const AcnidStatus: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
+    namespace FinalreportService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<FinalreportRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<FinalreportRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<FinalreportRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<FinalreportRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace coromendal.ACN {
 }
 declare namespace coromendal.ACN {
     class FinalstatusvalueForm extends Serenity.PrefixedContext {
@@ -2736,6 +2814,7 @@ declare namespace coromendal.ACN {
         planeddate: Serenity.DateEditor;
         auditopeneddate: Serenity.DateEditor;
         momdate: Serenity.DateEditor;
+        Status: Serenity.IntegerEditor;
         Acnid: Serenity.LookupEditor;
         MeetingTitle: Serenity.StringEditor;
         AcnidScopeList: ScopeEditor;
@@ -2765,6 +2844,7 @@ declare namespace coromendal.ACN {
         Auditee?: number;
         Download?: number;
         Userid?: number;
+        Status?: number;
         momdate?: string;
         planeddate?: string;
         auditopeneddate?: string;
@@ -2817,6 +2897,7 @@ declare namespace coromendal.ACN {
             const Auditee: string;
             const Download: string;
             const Userid: string;
+            const Status: string;
             const momdate: string;
             const planeddate: string;
             const auditopeneddate: string;
@@ -7854,6 +7935,42 @@ declare namespace coromendal.ACN {
     }
 }
 declare namespace coromendal.ACN {
+    class FinalreportDialog extends Serenity.EntityDialog<FinalreportRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: FinalreportForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalreportEditor extends Common.GridEditorBase<FinalreportRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof FinalreportEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalreportEditorDialog extends Common.GridEditorDialog<FinalreportRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: FinalreportForm;
+    }
+}
+declare namespace coromendal.ACN {
+    class FinalreportGrid extends Serenity.EntityGrid<FinalreportRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof FinalreportDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace coromendal.ACN {
     class consqFormatter implements Slick.Formatter {
         format(ctx: Slick.FormatterContext): string;
     }
@@ -8303,6 +8420,7 @@ declare namespace coromendal.ACN {
         constructor(container: JQuery);
         protected getColumns(): Slick.Column[];
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
+        protected preview(respose: any): void;
     }
 }
 declare namespace coromendal.ACN {

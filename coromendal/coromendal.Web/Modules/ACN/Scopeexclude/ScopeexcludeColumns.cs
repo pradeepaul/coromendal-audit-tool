@@ -14,8 +14,8 @@ namespace coromendal.ACN.Columns
     public class ScopeexcludeColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
-       // public Int32 ExcludeId { get; set; }
-        [ScopeFormatter]
+        public Int32 ExcludeId { get; set; }
+        [ScopeFormatter, Width(1700)]
         public string Scopeid { get; set; }
        // public Int32 Aodid { get; set; }
        // public Int32 AcnId { get; set; }

@@ -18,11 +18,12 @@ namespace coromendal.ACN.Columns
         [EditLink]
         public String Title { get; set; }
         [EditLink]
-        public String AcnidAcnTilte { get; set; }
-        [EditLink]
-        public String status { get; set; }
+        public String AcnidAcnTilte { get; set; }        
+       
         [EditLink, Width(100), AlignCenter]
         public Int32 Download { get; set; }
+
+        public String status { get; set; }
 
 
     }

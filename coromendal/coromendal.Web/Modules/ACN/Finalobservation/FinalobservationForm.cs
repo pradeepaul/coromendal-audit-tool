@@ -23,6 +23,7 @@ namespace coromendal.ACN.Forms
         public List<object> Detailedobservation1 { get; set; }
         [RootcauseEditor]
         public List<RootcauseRow> rootList { get; set; }
+       
 
         [SuggestionEditor]
         public List<SuggestionRow> SuggestionList { get; set; }
@@ -43,5 +44,6 @@ namespace coromendal.ACN.Forms
         public String Targetdate { get; set; }
         [Category("Comments if any....:")]
         public List<object> Comments { get; set; }
+        public Int32 Status { get; set; }
     }
 }

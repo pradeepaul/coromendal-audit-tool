@@ -34,5 +34,6 @@ namespace coromendal.ACN.Forms
         public DateTime Targetdate { get; set; }
         public String Name { get; set; }
         public String Email { get; set; }
+        public String PrimaryImage { get; set; }
     }
 }

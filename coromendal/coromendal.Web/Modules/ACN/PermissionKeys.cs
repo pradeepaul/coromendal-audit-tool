@@ -215,6 +215,13 @@ namespace coromendal.ACN
             public const string View = "currentauditobservation:View";
         }
 
+        public class finalobservation
+        {
+            public const string Delete = "finalobservation:Delete";
+            public const string Modify = "finalobservation:Modify";
+            public const string View = "finalobservation:View";
+        }
+
 
 
 

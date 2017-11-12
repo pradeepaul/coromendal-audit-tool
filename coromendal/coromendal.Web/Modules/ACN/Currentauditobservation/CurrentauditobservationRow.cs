@@ -46,7 +46,8 @@ namespace coromendal.ACN.Entities
             get { return Fields.Aodid[this]; }
             set { Fields.Aodid[this] = value; }
         }
-        [DisplayName("Scope"), Column("scopeid")]
+        [DisplayName("Scope"), Column("scopeid"), ForeignKey("[dbo].[Acn]", "acnID")]
+        [LeftJoin("jAcn")]
         [LookupEditor(typeof(ScopeRow))]        
         public Int32? scopeid
         {

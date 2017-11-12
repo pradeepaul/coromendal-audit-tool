@@ -330,7 +330,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Status"), Column("status")]
-        [LookupEditor(typeof(AdminstatusvalueRow))]
+        //[LookupEditor(typeof(AdminstatusvalueRow))]
         public Int32? Status
         {
             get { return Fields.Status[this]; }

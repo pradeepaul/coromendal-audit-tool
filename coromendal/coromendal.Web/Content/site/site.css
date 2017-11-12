@@ -8716,3 +8716,12 @@ section.content > .s-DataGrid {
 .s-ACN-FinalobservationDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-FinalreportDialog > .size {
+  width: 650px;
+}
+.s-ACN-FinalreportDialog .caption {
+  width: 150px;
+}

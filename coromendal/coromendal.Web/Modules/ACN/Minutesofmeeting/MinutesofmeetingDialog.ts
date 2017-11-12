@@ -39,6 +39,8 @@ namespace coromendal.ACN {
             this.form.AcnidTodate.value = details.Todate;
             this.form.AcnidScopeList.value = details.ScopeList;
             this.form.MeetingTitle.value = details.AcnTilte;
+            this.form.Status.value = 2;
+            
             
 
         }

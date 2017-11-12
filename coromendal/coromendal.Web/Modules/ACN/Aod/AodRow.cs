@@ -97,6 +97,8 @@ namespace coromendal.ACN.Entities
             set { Fields.Reasons[this] = value; }
         }
 
+       
+
         [DisplayName("SBU"), Size(200)]
         [LookupEditor(typeof(SbuRow))]
         public Int32? Sbu

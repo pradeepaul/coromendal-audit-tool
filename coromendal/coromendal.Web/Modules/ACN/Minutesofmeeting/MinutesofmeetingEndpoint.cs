@@ -1,6 +1,8 @@
 ﻿
 namespace coromendal.ACN.Endpoints
 {
+    using Entities;
+    using Repositories;
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
@@ -46,7 +48,7 @@ namespace coromendal.ACN.Endpoints
         {
             return new MyRepository().List(connection, request);
         }
-        public string Sendmail(IDbConnection connection, ListRequest request)
+        public string Sendmail(IUnitOfWork uow, IDbConnection connection, ListRequest request)
         {
             
            
@@ -58,7 +60,8 @@ namespace coromendal.ACN.Endpoints
                     .Select(fld.MeetingTitle)
                     .Select(fld.momdate)
                     .Select(fld.planeddate)
-                    .Select(fld.auditopeneddate)                    
+                    .Select(fld.auditopeneddate)
+                    .Select(fld.Status)
                     .Where(
                     fld.Meetingid == request.ContainsField);
             using (var connection1 = SqlConnections.NewFor<coromendal.ACN.Entities.MinutesofmeetingRow>())
@@ -81,6 +84,45 @@ namespace coromendal.ACN.Endpoints
                     fld1.AcnId == acnid);
             using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.AcnRow>())
                 resultSet = connection2.Query(sqlquery1).FirstOrDefault();
+            if(resultSet1.Status == 2) { 
+
+            var mom = new MinutesofmeetingRow();
+            mom.Status = 1;
+            mom.Meetingid = Convert.ToInt32(request.ContainsField);
+            var updatereq = new SaveRequest<ACN.Entities.MinutesofmeetingRow> { Entity = mom };
+            new MinutesofmeetingRepository().Update(uow, updatereq);
+
+            var aod = new AodRow();
+            aod.Acnid = resultSet1.Acnid;
+            aod.AcnidLocation = resultSet.location;
+            aod.Meetingid = Convert.ToInt32(request.ContainsField);
+            aod.AcnidPhaseNo = resultSet.AcnidPhaseNo;
+            aod.AcnidCreationdate = resultSet.AcnidCreationdate;
+            aod.Actualcompltedate = resultSet.AcnidCreationdate;
+            aod.Actualcomencementdate = resultSet.AcnidCreationdate;
+            aod.MeetingidPlanedcloseddate = resultSet1.planeddate;
+            aod.MeetingidAuditopeningmeetingdate = resultSet1.auditopeneddate;
+            aod.AcnidFromdate = resultSet.Periodfrom;
+            aod.AcnidPeriodfrom = resultSet.AcnidPeriodfrom;
+            aod.AcnidPeriodto = resultSet.Periodto;
+            aod.AcnidTodate = resultSet.Todate;
+
+            var saveRequest = new SaveRequest<ACN.Entities.AodRow> { Entity = aod };
+            new AodRepository().Create(uow, saveRequest);
+
+            var feedback = new AcnFeedbackRow();
+            feedback.Acnid = resultSet1.Acnid;
+            feedback.AcnidAcnTilte = resultSet1.AcnTilte;
+            feedback.AcnidCreationdate = resultSet.creationdate;
+            feedback.AcnidFromdate = resultSet1.Fromdate;
+            feedback.AcnidLocation = resultSet1.location;
+            feedback.AcnidTodate = resultSet1.Todate;
+            feedback.AcnidPeriodfrom = resultSet.Periodfrom;
+            feedback.AcnidPeriodto = resultSet1.Periodto;
+            feedback.AcnidPhaseNo = resultSet1.AcnidPhaseNo;
+            var saveRequest1 = new SaveRequest<ACN.Entities.AcnFeedbackRow> { Entity = feedback };
+            new AcnFeedbackRepository().Create(uow, saveRequest1);
+            }
             //auditee display
             var audit = coromendal.ACN.Entities.AcnAuditeeRefRow.Fields;
             List<dynamic> auditresultSet;
@@ -232,7 +274,7 @@ namespace coromendal.ACN.Endpoints
             using (var connection1 = SqlConnections.NewFor<coromendal.ACN.Entities.MeetingPointsRow>())
                 meetingpointsresultSet = connection1.Query(meetingpointssqlquery).ToList();
 
-            //meeting points
+            /*meeting points
             var notes = coromendal.Northwind.Entities.NoteRow.Fields;
             List<dynamic> notesresultSet;
             var notessqlquery = new SqlQuery()
@@ -241,7 +283,7 @@ namespace coromendal.ACN.Endpoints
                     .Where(
                     notes.EntityId == request.ContainsField);
             using (var connection2 = SqlConnections.NewFor<coromendal.Northwind.Entities.NoteRow>())
-                notesresultSet = connection2.Query(notessqlquery).ToList();
+                notesresultSet = connection2.Query(notessqlquery).ToList();*/
             //Pre-audit Disclosure
             var Preaudit = coromendal.ACN.Entities.MeetingIssueRow.Fields;
             List<dynamic> PreauditresultSet;
@@ -406,7 +448,7 @@ namespace coromendal.ACN.Endpoints
                 Points = string.Concat(Points, "-");
             }
             string note = "";
-            if (notesresultSet != null)
+          /*  if (notesresultSet != null)
             {
                 foreach (var item in notesresultSet)
                 {
@@ -418,7 +460,7 @@ namespace coromendal.ACN.Endpoints
             else
             {
                 note = string.Concat(note, "-");
-            }
+            }*/
 
             string Preaudits = "";
             if (PreauditresultSet != null)
