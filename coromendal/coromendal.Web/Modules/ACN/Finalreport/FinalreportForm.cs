@@ -15,8 +15,6 @@ namespace coromendal.ACN.Forms
     {
         public String Title { get; set; }
         public Int32 Acnid { get; set; }
-        public Int32 Download { get; set; }
-        public Int32 Userid { get; set; }
-        public String Status { get; set; }
+       
     }
 }

@@ -19,12 +19,32 @@ namespace coromendal.ACN {
                 Q.first(columns, x => x.field == fld.Agreeobservation).format =
                     ctx => `<a href="" class="send sendbtn"></a>`;
             }
+            Q.first(columns, x => x.field == fld.Suggestion).format =
+                    ctx => `<a href="" class="send releasebtn"></a>`;
+           
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {
             super.onClick(e, row, cell);
             if (e.isDefaultPrevented()) {
                 return;
+            }
+            var item = this.itemAt(row);
+            debugger;
+            
+                 var target = $(e.target);
+                 if (target.hasClass("releasebtn")) {
+                     if (item.status == 1) {
+                     e.preventDefault();
+                     var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
+                     request.ContainsField = String(item.AuditobservationId);
+                     request.ContainsText = "preview";
+                     Q.postToService({ service: 'ACN/Auditobservation/Send', request: request, target: '_blank' });
+                     //Q.postToService({ service: 'ACN/Acn/Sendmail', request: request, target: '_blank' });
+                 }
+                 else {
+                     alert("Sorry This Observation is not approved waiting for approval..");
+                 }
             }
             var item = this.itemAt(row);
             var target = $(e.target);           

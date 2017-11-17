@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.Administration.NewAcnMaster.EntityPlural");
+}
+
+@section Head {
+    <link rel="stylesheet" href="~/Content/NewAcnMaster/newacnmaster.css">
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new coromendal.Administration.NewAcnMasterGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

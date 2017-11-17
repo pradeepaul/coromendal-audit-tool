@@ -3,6 +3,7 @@
         ScopeId?: number;
         Title?: string;
         AcnId?: number;
+        exclude?: number;
         AcnAcnTilte?: string;
         AcnPhaseNo?: number;
         AcnLocation?: string;
@@ -26,6 +27,7 @@
             export declare const ScopeId: string;
             export declare const Title: string;
             export declare const AcnId: string;
+            export declare const exclude: string;
             export declare const AcnAcnTilte: string;
             export declare const AcnPhaseNo: string;
             export declare const AcnLocation: string;
@@ -36,7 +38,7 @@
             export declare const AcnCreationdate: string;
         }
 
-        ['ScopeId', 'Title', 'AcnId', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate'].forEach(x => (<any>Fields)[x] = x);
+        ['ScopeId', 'Title', 'AcnId','exclude', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

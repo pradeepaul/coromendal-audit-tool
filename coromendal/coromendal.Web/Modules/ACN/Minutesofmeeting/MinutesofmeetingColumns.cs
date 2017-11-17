@@ -20,21 +20,23 @@ namespace coromendal.ACN.Columns
         public string MeetingTitle { get; set; }
         [EditLink]
         public String AcnidAcnTilte { get; set; }
+        [Width(200)]
         public Int32 AcnidPhaseNo { get; set; }
         [DisplayFormat("dd/MM/yyyy")]
         public DateTime AcnidFromdate { get; set; }
         [DisplayFormat("dd/MM/yyyy")]
         public DateTime AcnidTodate { get; set; }
+        [Width(200)]
         //[DisplayFormat("dd/MM/yyyy")]
         //public DateTime momdate { get; set; }
         //[DisplayFormat("dd/MM/yyyy")]
-       // public DateTime planeddate { get; set; }
+        // public DateTime planeddate { get; set; }
         //[DisplayFormat("dd/MM/yyyy")]
         //public DateTime auditopeneddate { get; set; }
         public String Auditscope { get; set; }
+        [Width(200)]
         public String Venue { get; set; }
-
-        [AdminListFormatter]
+        [AdminListFormatter, Width(200)]
         public string Status { get; set; }
     }
 }

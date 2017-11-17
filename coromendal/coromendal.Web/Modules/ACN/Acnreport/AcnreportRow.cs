@@ -2,6 +2,7 @@
 
 namespace coromendal.ACN.Entities
 {
+    using Administration.Entities;
     using Administration.Scripts;
     using Newtonsoft.Json;
     using Scripts;
@@ -14,7 +15,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Acn Report"), InstanceName("Acnreport"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Primary Report"), InstanceName("Acnreport"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.Acnreport.View)]
     [ModifyPermission(ACN.PermissionKeys.Acnreport.Modify)]
     [DeletePermission(ACN.PermissionKeys.Acnreport.Delete)]
@@ -59,14 +60,15 @@ namespace coromendal.ACN.Entities
             set { Fields.Qc[this] = value; }
         }
 
-        [DisplayName("Status"), Column("status"), Size(100), QuickSearch]
+        [DisplayName("Update Status"), Column("status"), Size(100), QuickSearch]
         public String status
         {
             get { return Fields.status[this]; }
             set { Fields.status[this] = value; }
         }
 
-        [DisplayName("Created User"), Column("userid")]
+        [DisplayName("Status"), Column("userid")]
+        [LookupEditor(typeof(AdminstatusvalueRow))]
         public Int32? userid
         {
             get { return Fields.userid[this]; }

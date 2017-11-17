@@ -194,7 +194,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
     <Content Include="Content\AcnMaster\acnmaster.css" />
-    <Content Include="Content\AcnMaster\StyleSheet1.css" />
     <Content Include="Content\Acn\acn.css" />
     <Content Include="Content\adminlte\img\avatar.png" />
     <Content Include="Content\adminlte\img\avatar04.png" />
@@ -238,6 +237,7 @@
     <Content Include="Content\DAR\dar.css" />
     <Content Include="Content\feedback\feedback.css" />
     <Content Include="Content\Finalobservation\finalobservation.css" />
+    <Content Include="Content\Finalreport\final.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\font-open-sans.css" />
@@ -366,8 +366,11 @@
     <Content Include="Content\ionicons.min.css" />
     <Content Include="Content\jquery.fileupload.css" />
     <Content Include="Content\MOM\mom.css" />
+    <Content Include="Content\NewAcnMaster\newacnmaster.css" />
     <Content Include="Content\pace.css" />
     <Content Include="Content\pace.min.css" />
+    <Content Include="Content\Preobservation\preobservation.css" />
+    <Content Include="Content\Primaryreport\primary.css" />
     <Content Include="Content\retailfeedback\retailfeedback.css" />
     <Content Include="Content\serenity\images\32px.png" />
     <Content Include="Content\serenity\images\accessright.png" />
@@ -2603,13 +2606,98 @@
     <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalobservation\FinalobservationEditorDialog.ts" />
     <Content Include="Modules\ACN\Finalreport\FinalreportIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.FinalreportForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportGrid.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalreport\FinalreportEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\NewAcnMaster.NewAcnMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\NewAcnMaster.NewAcnMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\NewAcnMaster.NewAcnMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Administration\NewAcnMaster\NewAcnMasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.NewAcnMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.NewAcnMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.NewAcnMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Administration\NewAcnMaster\NewAcnMasterGrid.ts" />
+    <TypeScriptCompile Include="Modules\Administration\NewAcnMaster\NewAcnMasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\NewAcnMaster\NewAcnMasterEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\NewAcnMaster\NewAcnMasterEditorDialog.ts" />
+    <Content Include="Modules\Administration\Masterscope\MasterscopeIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterscopeRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterscopeService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterscopeForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Administration\Masterscope\MasterscopeGrid.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Masterscope\MasterscopeDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Masterscope\MasterscopeEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Masterscope\MasterscopeEditorDialog.ts" />
+    <Content Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnAuditeeRefRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnAuditeeRefService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnAuditeeRefForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefGrid.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefEditorDialog.ts" />
+    <Content Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnAuditorRefRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnAuditorRefService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.MasterAcnAuditorRefForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefGrid.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefEditorDialog.ts" />
+    <Content Include="Modules\ACN\Preobservation\PreobservationIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PreobservationRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PreobservationService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.PreobservationForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Preobservation\PreobservationGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Preobservation\PreobservationDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Preobservation\PreobservationEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Preobservation\PreobservationEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2665,6 +2753,7 @@
     <Compile Include="Modules\ACN\Scope\GridColumnAttribute.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\MasterAcn\AdminListFormatterAttribute.cs" />
+    <Compile Include="Modules\Administration\NewAcnMaster\MasterScopeEditorAttribute.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListRequest.cs" />
@@ -3392,6 +3481,36 @@
     <Compile Include="Modules\ACN\Finalreport\FinalreportRepository.cs" />
     <Compile Include="Modules\ACN\Finalreport\FinalreportEndpoint.cs" />
     <Compile Include="Modules\ACN\Finalreport\FinalreportPage.cs" />
+    <Compile Include="Modules\Administration\NewAcnMaster\NewAcnMasterRow.cs" />
+    <Compile Include="Modules\Administration\NewAcnMaster\NewAcnMasterColumns.cs" />
+    <Compile Include="Modules\Administration\NewAcnMaster\NewAcnMasterForm.cs" />
+    <Compile Include="Modules\Administration\NewAcnMaster\NewAcnMasterRepository.cs" />
+    <Compile Include="Modules\Administration\NewAcnMaster\NewAcnMasterEndpoint.cs" />
+    <Compile Include="Modules\Administration\NewAcnMaster\NewAcnMasterPage.cs" />
+    <Compile Include="Modules\Administration\Masterscope\MasterscopeRow.cs" />
+    <Compile Include="Modules\Administration\Masterscope\MasterscopeColumns.cs" />
+    <Compile Include="Modules\Administration\Masterscope\MasterscopeForm.cs" />
+    <Compile Include="Modules\Administration\Masterscope\MasterscopeRepository.cs" />
+    <Compile Include="Modules\Administration\Masterscope\MasterscopeEndpoint.cs" />
+    <Compile Include="Modules\Administration\Masterscope\MasterscopePage.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefRow.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefColumns.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefForm.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefRepository.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefEndpoint.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditeeRef\MasterAcnAuditeeRefPage.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefRow.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefColumns.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefForm.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefRepository.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefEndpoint.cs" />
+    <Compile Include="Modules\Administration\MasterAcnAuditorRef\MasterAcnAuditorRefPage.cs" />
+    <Compile Include="Modules\ACN\Preobservation\PreobservationRow.cs" />
+    <Compile Include="Modules\ACN\Preobservation\PreobservationColumns.cs" />
+    <Compile Include="Modules\ACN\Preobservation\PreobservationForm.cs" />
+    <Compile Include="Modules\ACN\Preobservation\PreobservationRepository.cs" />
+    <Compile Include="Modules\ACN\Preobservation\PreobservationEndpoint.cs" />
+    <Compile Include="Modules\ACN\Preobservation\PreobservationPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

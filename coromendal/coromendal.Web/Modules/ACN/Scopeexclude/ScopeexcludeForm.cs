@@ -14,7 +14,7 @@ namespace coromendal.ACN.Forms
     public class ScopeexcludeForm
     {
         public Int32 Scopeid { get; set; }
-        public Int32 Aodid { get; set; }
+   //     public Int32 Aodid { get; set; }
       //  public Int32 AcnId { get; set; }
     }
 }

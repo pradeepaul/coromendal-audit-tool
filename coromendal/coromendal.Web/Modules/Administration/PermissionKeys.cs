@@ -21,5 +21,7 @@ namespace coromendal.Administration
     {
         public const string Security = "Administration:Security";
         public const string Translation = "Administration:Translation";
+
+     
     }
 }

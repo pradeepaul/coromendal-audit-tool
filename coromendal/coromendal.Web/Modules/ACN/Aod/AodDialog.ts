@@ -49,6 +49,7 @@ namespace coromendal.ACN {
 
         }
         private setCustomerDetail(details: ACN.AcnRow) {
+            debugger;
             this.form.Areaofscope.value = details.ScopeList;
         }
 

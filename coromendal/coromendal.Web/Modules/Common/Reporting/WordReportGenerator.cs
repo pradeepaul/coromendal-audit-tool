@@ -52,18 +52,7 @@ namespace Serenity.Reporting
         }
         public static void PopulateDocument(DocX document, List<ReportColumn> columns, IList rows,
             int reportid)
-        {
-
-            /*Geting ACN id based on report id
-            var fld = coromendal.ACN.Entities.AcnreportRow.Fields;
-            dynamic reportset;
-            var reportsqlquery = new SqlQuery()
-                    .From(fld)
-                    .Select(fld.Acnid)
-                    .Where(
-                    fld.ReportId == reportid);
-            using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.AcnreportRow>())
-                reportset = connection.Query(reportsqlquery).FirstOrDefault();*/
+        {            
             int acnid = reportid;
             // Add a new Paragraph to the document.
             Novacode.Paragraph p = document.InsertParagraph();

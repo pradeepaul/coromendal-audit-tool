@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/Finalreport", typeof(coromendal.ACN.Pages.FinalreportController))]
+//[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "ACN/Finalreport", typeof(coromendal.ACN.Pages.FinalreportController))]
 
 namespace coromendal.ACN.Pages
 {

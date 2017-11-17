@@ -26,8 +26,7 @@ namespace coromendal.ACN.Repositories
 
         public SaveResponse Update(IUnitOfWork uow, SaveRequest<MyRow> request)
         {
-            var res = request.Entity.AcnidScopeList;
-           // request.Entity.Status = 1;
+            var res = request.Entity.AcnidScopeList;          
            if(res != null) { 
             foreach (var data in res)
             {

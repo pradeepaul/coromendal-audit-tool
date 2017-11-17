@@ -36,6 +36,19 @@ namespace coromendal.ACN.Repositories
                     scope.AcnId = request.Entity.Acnid;
                     var saveRequest = new SaveRequest<ACN.Entities.ScopeRow> { Entity = scope };
                     new ScopeRepository().Create(uow, saveRequest);
+                    
+                }
+            }
+            var scopeex = request.Entity.scopeexclude;
+            foreach (var data in scopeex)
+            {
+                if (data.Scopeid != 0)
+                {
+                    var scope = new ScopeRow();
+                    scope.ScopeId = data.Scopeid;
+                    scope.exclude = 1;
+                    var saveRequest1 = new SaveRequest<ACN.Entities.ScopeRow> { Entity = scope };
+                    new ScopeRepository().Update(uow, saveRequest1);
                 }
             }
             var res3 = request.Entity;

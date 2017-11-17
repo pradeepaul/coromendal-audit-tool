@@ -10,6 +10,7 @@
         Agreeobservation?: number;
         Justification?: string;
         Suggestion?: number;
+        status?: number;
         Alternateplan?: string;
         Name?: string;
         Email?: string;
@@ -50,6 +51,7 @@
             export declare const Agreeobservation: string;
             export declare const Justification: string;
             export declare const Suggestion: string;
+            export declare const status: string;
             export declare const Alternateplan: string;
             export declare const Name: string;
             export declare const Email: string;
@@ -69,7 +71,7 @@
             export declare const Detailedobservation1: string;
         }
 
-        ['AuditobservationId', 'AcnId', 'Observationtitle', 'Observationsynopsis', 'Detailedobservation', 'Category', 'RiskRating', 'Agreeobservation', 'Justification', 'Suggestion', 'Alternateplan', 'Name', 'Email', 'Targetdate', 'Consequence', 'Likelihood', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'rootList', 'SuggestionList','Detailedobservation1'].forEach(x => (<any>Fields)[x] = x);
+        ['AuditobservationId', 'AcnId', 'Observationtitle', 'Observationsynopsis', 'Detailedobservation', 'Category', 'RiskRating', 'Agreeobservation', 'Justification','status', 'Suggestion', 'Alternateplan', 'Name', 'Email', 'Targetdate', 'Consequence', 'Likelihood', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'rootList', 'SuggestionList','Detailedobservation1'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

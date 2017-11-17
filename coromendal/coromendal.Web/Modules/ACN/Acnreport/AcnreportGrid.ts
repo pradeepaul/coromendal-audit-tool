@@ -16,18 +16,13 @@ namespace coromendal.ACN {
             var columns = super.getColumns();
             var fld = ACN.AcnreportRow.Fields;            
             Q.first(columns, x => x.field == fld.status).format =
-                ctx => `<div class="down-button"></div>`;
+                ctx => `<div class="previewbtn"></div>`;
             Q.first(columns, x => x.field == fld.Download).format =
-                ctx => `<div class="send previewbtn"></div>`;
+                ctx => `<div class="down-button"></div>`;
             return columns;
         }
         protected onClick(e: JQueryEventObject, row: number, cell: number): void {
-          //  var c = confirm("Are you sure you want to Generate report,once done Audit will clomplete?");
-           // if (c == true) {
-              //  super.onClick(e, row, cell);
-             //   if (e.isDefaultPrevented()) {
-                   // return;
-              //  }
+          
             var item = this.itemAt(row);
             var target = $(e.target);
             if (target.hasClass("previewbtn")) {
@@ -55,22 +50,23 @@ namespace coromendal.ACN {
             //debugger;
             var total = respose[2];
             var completed = respose[1];
-            var acnid = respose[0];
+            var acnid = respose[0];            
             var st1 = " Total Observarions : ";
-            var st2 = "Competed Observations :";
+            var st2 = "Competed Observations :";           
             var str = st1.concat(total);
             var str1 = st2.concat(completed);
             var str2 = str.concat(str1); 
-            var msg = " Are you sure you want to do Report ?";
-            var finalmsg = str2.concat(msg);
+            var msg = " Total Audit Observation approved and not approved information here";
+            var finalmsg = msg.concat(str2);
             var c = confirm(finalmsg);           
             if (c == true) {
-               // alert(respose[0]);
-
-               // var request = Q.deepClone(this.getView().params) as Serenity.ListRequest;
-                //request.ContainsField = respose[0];
-                Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: this.request, target: '_blank' })
-                //Q.serviceCall({ service: 'ACN/Acnreport/DownloadWord', request: request, onSuccess: this.preview });
+                if (respose[1] != 0) {
+                    Q.postToService({ service: 'ACN/Acnreport/DownloadWord', request: this.request, target: '_blank' })
+                    //Q.serviceCall({ service: 'ACN/Acnreport/DownloadWord', request: request, onSuccess: this.preview });
+                }
+                else {
+                    alert("No Audit Observations have been reported.  Cannot generate Report");
+                }
             } 
             
             console.log(respose);        

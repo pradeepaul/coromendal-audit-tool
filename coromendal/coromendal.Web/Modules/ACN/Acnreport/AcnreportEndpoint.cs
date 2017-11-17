@@ -63,13 +63,20 @@ namespace coromendal.ACN.Endpoints
                     fld1.ReportId == reportid);
             using (var connection2 = SqlConnections.NewFor<coromendal.ACN.Entities.AcnRow>())
                 resultSet = connection2.Query(sqlquery1).FirstOrDefault();
-
+            if (resultSet.userid == 2) {  
             var freport = new FinalreportRow();
             freport.Acnid = resultSet.Acnid;
             freport.Title = resultSet.Title;          
             
             var updatereq = new SaveRequest<ACN.Entities.FinalreportRow> { Entity = freport };
             new FinalreportRepository().Create(uow, updatereq);
+           
+            var mom = new AcnreportRow();
+            mom.userid = 1;
+            mom.ReportId = Convert.ToInt32(request.ContainsField);
+            var ap = new SaveRequest<ACN.Entities.AcnreportRow> { Entity = mom };
+            new AcnreportRepository().Update(uow, ap);
+            }
             return "hi";
         }
         public String[] Download(IDbConnection connection, ListRequest request)

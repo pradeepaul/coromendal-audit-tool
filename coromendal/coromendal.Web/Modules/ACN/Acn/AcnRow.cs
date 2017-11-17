@@ -29,22 +29,15 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
-        }
-        [DisplayName("Acn Master Id"), Column("MId"), ForeignKey("[dbo].[MasterAcn]", "Id"), LeftJoin("jAcn")]
-        [LookupEditor(typeof(AcnRow))]
-        public Int32? MId
-        {
-            get { return Fields.MId[this]; }
-            set { Fields.MId[this] = value; }
-        }
-        [DisplayName("Phase No."), Size(200), QuickSearch,NotNull,Required(true)]
+        }        
+        [DisplayName("Phase No."), Size(200), QuickSearch,NotNull]
         public Int32? PhaseNo
         {
             get { return Fields.PhaseNo[this]; }
             set { Fields.PhaseNo[this] = value; }
         }
 
-        [DisplayName("audit of"), Size(200), QuickSearch, NotNull, Required(true)]
+        [DisplayName("audit of"), Size(200), QuickSearch, NotNull]
         public String AcnTilte
         {
             get { return Fields.AcnTilte[this]; }
@@ -67,7 +60,7 @@ namespace coromendal.ACN.Entities
         [LookupEditor(typeof(AuditeeUserLookup), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnAuditorRefRow), "acnID", "AcnAuditorID")]
         [MinSelectLevel(SelectLevel.Details)]
-        [DisplayName("Auditor"), Size(40), NotNull, Required(true), QuickSearch]
+        [DisplayName("Auditor"), Size(40), NotNull, QuickSearch]
         public List<Int32> Auditor
         {
             get { return Fields.Auditor[this]; }
@@ -76,7 +69,7 @@ namespace coromendal.ACN.Entities
         [LookupEditor(typeof(UserLookup1), Multiple = true), ClientSide]
         [LinkingSetRelation(typeof(AcnAuditeeRefRow), "acnID", "AcnAuditeeID")]
         [MinSelectLevel(SelectLevel.Details)]
-        [DisplayName("Auditee"), Size(40), NotNull, Required(true), QuickSearch]
+        [DisplayName("Auditee"), Size(40), NotNull, QuickSearch]
         public List<Int32> Auditee
         {
             get { return Fields.Auditee[this]; }
@@ -84,13 +77,13 @@ namespace coromendal.ACN.Entities
         }
        
         
-       [DisplayName("for the period"), Size(40), QuickSearch, NotNull, Required(true)]
+       [DisplayName("for the period"), Size(40), QuickSearch, NotNull, ]
         public String Periodfrom
         {
             get { return Fields.Periodfrom[this]; }
             set { Fields.Periodfrom[this] = value; }
         }
-        [DisplayName("to"), Size(40), QuickSearch, NotNull, Required(true)]
+        [DisplayName("to"), Size(40), QuickSearch, NotNull]
         public String Periodto
         {
             get { return Fields.Periodto[this]; }
@@ -102,31 +95,31 @@ namespace coromendal.ACN.Entities
             get { return Fields.Fromdate[this]; }
             set { Fields.Fromdate[this] = value; }
         }
-        [DisplayName("to"), Size(40), QuickSearch, NotNull, Required(true)]
+        [DisplayName("to"), Size(40), QuickSearch, NotNull]
         public String Todate
         {
             get { return Fields.Todate[this]; }
             set { Fields.Todate[this] = value; }
         }
-        [DisplayName("at"), Size(200), QuickSearch, NotNull, Required(true)]
+        [DisplayName("at"), Size(200), QuickSearch, NotNull]
         public String location
         {
             get { return Fields.location[this]; }
             set { Fields.location[this] = value; }
         }
-        [DisplayName("Assignment Creation Date"), Size(40), NotNull, Required(true), QuickSearch]
+        [DisplayName("Assignment Creation Date"), Size(40), NotNull, QuickSearch]
         public String creationdate
         {
             get { return Fields.creationdate[this]; }
             set { Fields.creationdate[this] = value; }
         }
-        [DisplayName("Audit Scope List"), MasterDetailRelation(foreignKey: "acnId"), Width(800), Required(true), ClientSide]
+        [DisplayName("Audit Scope List"), MasterDetailRelation(foreignKey: "acnId"), Width(800),  ClientSide]
         public List<ScopeRow> ScopeList
         {
             get { return Fields.ScopeList[this]; }
             set { Fields.ScopeList[this] = value; }
         }
-        [DisplayName("Status."), Size(200), QuickSearch, NotNull, Required(true)]
+        [DisplayName("Status."), Size(200), QuickSearch, NotNull]
        
         public Int32? status
         {
@@ -157,7 +150,7 @@ namespace coromendal.ACN.Entities
             public ListField<Int32> Auditor;
             public ListField<Int32> Auditee;
 
-            public Int32Field MId;
+           
             public Int32Field status;
 
             public Int32Field PhaseNo;

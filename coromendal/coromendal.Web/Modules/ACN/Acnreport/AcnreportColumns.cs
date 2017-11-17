@@ -8,6 +8,7 @@ namespace coromendal.ACN.Columns
     using System.ComponentModel;
     using System.Collections.Generic;
     using System.IO;
+    using Administration.Columns;
 
     [ColumnsScript("ACN.Acnreport")]
     [BasedOnRow(typeof(Entities.AcnreportRow))]
@@ -15,15 +16,18 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"),Hidden]
         public Int32 ReportId { get; set; }
-        [EditLink]
+        [EditLink, Width(300)]
         public String Title { get; set; }
-        [EditLink]
-        public String AcnidAcnTilte { get; set; }        
+        [EditLink, Width(300)]
+        public String AcnidAcnTilte { get; set; }
        
-        [EditLink, Width(100), AlignCenter]
+
+        [EditLink, Width(300), AlignCenter]
+        public String status { get; set; }
+        [Width(300)]
         public Int32 Download { get; set; }
 
-        public String status { get; set; }
+       
 
 
     }

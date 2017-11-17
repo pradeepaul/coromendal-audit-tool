@@ -39,7 +39,7 @@ namespace coromendal.Administration.Entities
             get { return Fields.Statusid[this]; }
             set { Fields.Statusid[this] = value; }
         }
-        [DisplayName("NEW ACN"), MasterDetailRelation(foreignKey: "MId"), Width(800), Required(true), ClientSide]
+      
         public List<AcnRow> NewACN
         {
             get { return Fields.NewACN[this]; }

@@ -31,6 +31,12 @@ namespace coromendal.ACN.Entities
             get { return Fields.Title[this]; }
             set { Fields.Title[this] = value; }
         }
+        [DisplayName("exclude"), Column("exclude")]
+        public Int32? exclude
+        {
+            get { return Fields.exclude[this]; }
+            set { Fields.exclude[this] = value; }
+        }
 
         [DisplayName("Acn"), Column("acnId"), ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcn"), TextualField("AcnAcnTilte")]
         [LookupEditor(typeof(AcnRow))]
@@ -118,6 +124,7 @@ namespace coromendal.ACN.Entities
             public Int32Field ScopeId;
             public StringField Title;
             public Int32Field AcnId;
+            public Int32Field exclude;  
 
             public StringField AcnAcnTilte;
             public Int32Field AcnPhaseNo;

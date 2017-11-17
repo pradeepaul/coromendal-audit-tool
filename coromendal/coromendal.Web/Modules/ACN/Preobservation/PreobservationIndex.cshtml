@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.ACN.Preobservation.EntityPlural");
+}
+
+
+@section Head {
+    <link rel="stylesheet" href="~/Content/Preobservation/preobservation.css">
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new coromendal.ACN.PreobservationGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

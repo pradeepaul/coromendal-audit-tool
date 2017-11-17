@@ -23,7 +23,7 @@ namespace coromendal.ACN.Entities
             set { Fields.ExcludeId[this] = value; }
         }
 
-        [DisplayName("Scopeid"), Column("scopeid"), ForeignKey("[dbo].[scope]", "scopeId"), LeftJoin("jScopeid"), TextualField("ScopeidTitle")]
+        [DisplayName("Scope"), Column("scopeid"), ForeignKey("[dbo].[scope]", "scopeId"), LeftJoin("jScopeid"), TextualField("ScopeidTitle")]
         [LookupEditor(typeof(ScopeRow))]
         public Int32? Scopeid
         {

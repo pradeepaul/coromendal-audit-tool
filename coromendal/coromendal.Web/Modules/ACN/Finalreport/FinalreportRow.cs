@@ -11,7 +11,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Finalreport"), InstanceName("Finalreport"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Final Report"), InstanceName("Finalreport"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class FinalreportRow : Row, IIdRow, INameRow
@@ -30,7 +30,7 @@ namespace coromendal.ACN.Entities
             set { Fields.Title[this] = value; }
         }
 
-        [DisplayName("Acnid"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
+        [DisplayName("Assignment"), Column("acnid"), NotNull, ForeignKey("[dbo].[Acn]", "acnID"), LeftJoin("jAcnid"), TextualField("AcnidAcnTilte")]
         public Int32? Acnid
         {
             get { return Fields.Acnid[this]; }

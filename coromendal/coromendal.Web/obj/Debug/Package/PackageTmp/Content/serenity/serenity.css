@@ -2592,6 +2592,18 @@ a.quick-search-field {
   margin-bottom: 5px;
   border-radius: 3px;
 }
+.releasebtn {
+  display: block;
+  float: left;
+  padding: 8px;
+  background: url(../serenity/images/report-arrow.png);
+  background-repeat: no-repeat;
+  background-position: center left;
+  cursor: pointer;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
 .pendingbtn {
   display: block;
   float: left;

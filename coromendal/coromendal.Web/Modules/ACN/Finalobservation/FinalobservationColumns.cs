@@ -21,7 +21,7 @@ namespace coromendal.ACN.Columns
         public Int32 AcnId { get; set; }
         [ScopeFormatter, Width(500)]
         public Int32 Scope { get; set; }
-        [FinalTextFormat]
-        public String Status { get; set; }
+       // [FinalTextFormat]
+       // public String Status { get; set; }
     }
 }

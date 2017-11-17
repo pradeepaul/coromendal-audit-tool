@@ -44,6 +44,43 @@ namespace coromendal.ACN.Endpoints
         {
             return new MyRepository().List(connection, request);
         }
+        public string Send(IUnitOfWork uow, IDbConnection connection, ListRequest request)
+        {
+
+            var aod = coromendal.ACN.Entities.AuditobservationRow.Fields;
+            dynamic aodresultSet;
+            var aodsqlquery = new SqlQuery()
+                    .From(aod)
+                    .Select(aod.AcnId)
+                    .Select(aod.scope)
+                    .Select(aod.Observationtitle)
+                    .Select(aod.Observationsynopsis)
+                    .Select(aod.Likelihood)
+                    .Select(aod.Consequence)
+                    .Select(aod.Targetdate)
+                    .Select(aod.Category)
+                    .Select(aod.RiskRating)
+                    .Where(
+                    aod.AuditobservationId == request.ContainsField);
+            using (var connection1 = SqlConnections.NewFor<coromendal.ACN.Entities.AodRow>())
+                aodresultSet = connection1.Query(aodsqlquery).FirstOrDefault();
+
+            var objervation = new FinalobservationRow();
+            objervation.AcnId = aodresultSet.AcnId;
+            objervation.Scope = aodresultSet.scope;
+            objervation.Observationid = Convert.ToInt32(request.ContainsField);
+            objervation.Likelihood = aodresultSet.Likelihood;
+            objervation.Consequence = aodresultSet.Consequence;
+            objervation.Targetdate = aodresultSet.Targetdate;
+            objervation.RiskRating = aodresultSet.RiskRating;
+            objervation.Category = aodresultSet.Category;
+            objervation.Observationtitle = aodresultSet.Observationtitle;
+            objervation.Observationsynopsis = aodresultSet.Observationsynopsis;
+            var saveRequest = new SaveRequest<ACN.Entities.FinalobservationRow> { Entity = objervation };
+            new FinalobservationRepository().Create(uow, saveRequest);
+            return "Sent Successfully"; ;
+
+        }
         public string Sendmail(IUnitOfWork uow,IDbConnection connection, ListRequest request)
         {
 
@@ -65,7 +102,7 @@ namespace coromendal.ACN.Endpoints
             using (var connection1 = SqlConnections.NewFor<coromendal.ACN.Entities.AodRow>())
                 aodresultSet = connection1.Query(aodsqlquery).FirstOrDefault();
             
-            var objervation = new FinalobservationRow();
+            var objervation = new PreobservationRow();
             objervation.AcnId = aodresultSet.AcnId;
             objervation.Scope = aodresultSet.scope;
             objervation.Observationid = Convert.ToInt32(request.ContainsField);
@@ -76,8 +113,8 @@ namespace coromendal.ACN.Endpoints
             objervation.Category = aodresultSet.Category;
             objervation.Observationtitle = aodresultSet.Observationtitle;
            objervation.Observationsynopsis = aodresultSet.Observationsynopsis;
-            var saveRequest = new SaveRequest<ACN.Entities.FinalobservationRow> { Entity = objervation };
-            new FinalobservationRepository().Create(uow, saveRequest);
+            var saveRequest = new SaveRequest<ACN.Entities.PreobservationRow> { Entity = objervation };
+            new PreobservationRepository().Create(uow, saveRequest);
             return  "Sent Successfully"; ;
 
         }

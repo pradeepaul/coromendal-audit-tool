@@ -17,7 +17,11 @@ namespace coromendal.ACN {
             this.form.Detailedobservation1.value = details.Detailedobservation1;
             this.form.Name.value = details.Name;
             this.form.Email.value = details.Email;
-           
+            
+            if ((Authorization.userDefinition.RoleId == 4) || (Authorization.userDefinition.RoleId == 1)) {
+                Serenity.EditorUtils.setReadOnly(this.form.Agreeobservation, true);
+
+            }
         }
 
         protected afterLoadEntity() {

@@ -15,7 +15,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Auditobservation"), InstanceName("Auditobservation"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Audit Observation"), InstanceName("Auditobservation"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.Auditobservation.View)]
     [ModifyPermission(ACN.PermissionKeys.Auditobservation.Modify)]
     [DeletePermission(ACN.PermissionKeys.Auditobservation.Delete)]
@@ -112,7 +112,7 @@ namespace coromendal.ACN.Entities
             set { Fields.PrimaryImage[this] = value; }
         }
 
-        [DisplayName("Send"), Column("agreeobservation")]
+        [DisplayName("Send For Review"), Column("agreeobservation")]
         [LookupEditor(typeof(ConformationRow))]
         public Int32? Agreeobservation
         {
@@ -126,15 +126,19 @@ namespace coromendal.ACN.Entities
         {
             get { return Fields.Justification[this]; }
             set { Fields.Justification[this] = value; }
-        }
-        [LookupEditor(typeof(ConformationRow))]
-        [DisplayName("Agree this Suggestion"), Column("suggestion")]
+        }        
+        [DisplayName("Release To Auditee"), Column("suggestion")]
         public Int32? Suggestion
         {
             get { return Fields.Suggestion[this]; }
             set { Fields.Suggestion[this] = value; }
         }
-
+        [DisplayName("Status"), Column("status")]
+        public Int32? status
+        {
+            get { return Fields.status[this]; }
+            set { Fields.status[this] = value; }
+        }
         [DisplayName("Alternate Plan"), Column("alternateplan"), Size(1000)]
         public String Alternateplan
         {
@@ -270,7 +274,8 @@ namespace coromendal.ACN.Entities
             public StringField Targetdate;
             public Int32Field Consequence;
             public Int32Field Likelihood;
-            public StringField PrimaryImage; 
+            public StringField PrimaryImage;
+            public Int32Field status;
 
             public StringField AcnAcnTilte;
             public Int32Field AcnPhaseNo;

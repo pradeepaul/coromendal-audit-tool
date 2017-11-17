@@ -1,0 +1,10 @@
+﻿.ui-dialog {
+    height: 90% !important;
+    width: 50% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ui-dialog-content {
+    min-height: 90% !important;
+    overflow: hidden !important;
+}

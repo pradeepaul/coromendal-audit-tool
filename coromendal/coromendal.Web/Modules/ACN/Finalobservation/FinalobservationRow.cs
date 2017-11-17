@@ -15,7 +15,7 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Observation"), InstanceName("finalobservation"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("Dar Clarificaiton"), InstanceName("finalobservation"), TwoLevelCached]
     [ReadPermission(ACN.PermissionKeys.finalobservation.View)]
     [ModifyPermission(ACN.PermissionKeys.finalobservation.Modify)]
     [DeletePermission(ACN.PermissionKeys.finalobservation.Delete)]
@@ -73,6 +73,7 @@ namespace coromendal.ACN.Entities
         }
 
         [DisplayName("Category"), Column("category"), ReadOnly(true)]
+        [LookupEditor(typeof(CategoryRow))]
         public Int32? Category
         {
             get { return Fields.Category[this]; }

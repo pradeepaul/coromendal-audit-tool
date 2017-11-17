@@ -15,6 +15,7 @@ namespace coromendal.ACN.Repositories
 
         public SaveResponse Create(IUnitOfWork uow, SaveRequest<MyRow> request)
         {
+            request.Entity.userid = 2;
             return new MySaveHandler().Process(uow, request, SaveRequestType.Create);
         }
 
