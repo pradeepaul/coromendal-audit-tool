@@ -1171,6 +1171,7 @@
     <TypeScriptCompile Include="Modules\ACN\Acn\AcnAuditeeListFormatter.ts" />
     <TypeScriptCompile Include="Modules\ACN\Acn\ACNNameFormatter.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalobservation\consqFormatter.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Finalobservation\transfusetextarea.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalobservation\likeFormatter.ts" />
     <TypeScriptCompile Include="Modules\ACN\Finalstatusvalue\FinalTextFormat.ts" />
     <TypeScriptCompile Include="Modules\ACN\Minutesofmeeting\AuditorListFormatter.ts" />
@@ -2734,7 +2735,9 @@
     <Compile Include="Modules\ACN\Feedbackvalue\FeedbackvaluePage.cs" />
     <Compile Include="Modules\ACN\Finalobservation\ACNNameFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Finalobservation\consqFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\transfusetextareaEditor.cs" />
     <Compile Include="Modules\ACN\Finalobservation\likeFormatterAttribute.cs" />
+    <Compile Include="Modules\ACN\Finalobservation\transfusetextareaAttribute.cs" />
     <Compile Include="Modules\ACN\MeetingAbsentauditee\UserFormatterAttribute.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\MeetingLookup.cs" />
     <Compile Include="Modules\ACN\Minutesofmeeting\AuditeeLookup.cs" />

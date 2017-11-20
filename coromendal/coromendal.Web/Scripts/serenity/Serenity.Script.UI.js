@@ -7715,6 +7715,7 @@
 			this.saveAndCloseButton = this.toolbar.findButton('save-and-close-button');
 			this.applyChangesButton = this.toolbar.findButton('apply-changes-button');
 			this.deleteButton = this.toolbar.findButton('delete-button');
+			this.addButton = this.toolbar.findButton('add-button');
 			this.undeleteButton = this.toolbar.findButton('undo-delete-button');
 			this.cloneButton = this.toolbar.findButton('clone-button');
 			this.localizationButton = this.toolbar.findButton('localization-button');

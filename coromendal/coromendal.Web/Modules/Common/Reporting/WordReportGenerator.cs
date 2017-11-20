@@ -88,6 +88,8 @@ namespace Serenity.Reporting
             document.ReplaceText("#%FINALDATE%", Convert.ToString(dt.AddDays(12)));
             document.ReplaceText("#%PERIODFROM%", Convert.ToString(resultSet.Periodfrom));
             document.ReplaceText("#%PERIODTO%", Convert.ToString(resultSet.Periodto));
+            Word.Section s = document.AddSection();
+
             //Auditor list
             populateAuditor(acnid, document);
             //Auditee List

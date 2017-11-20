@@ -34,7 +34,7 @@ namespace coromendal.ACN.Forms
         public Int32 Consequence { get; set; }
         public Int32 Likelihood { get; set; }
         public Int32 Agreeobservation { get; set; }
-        [TextAreaEditor(Rows = 8)]
+        [transfusetextarea(Rows = 8)]
         public String Justification { get; set; }
         public Int32 Suggestion { get; set; }
         [TextAreaEditor(Rows = 8)]

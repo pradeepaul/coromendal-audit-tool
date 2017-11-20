@@ -9,6 +9,7 @@ namespace coromendal.ACN {
         protected getLocalTextPrefix() { return FinalobservationRow.localTextPrefix; }
         protected getNameProperty() { return FinalobservationRow.nameProperty; }
         protected getService() { return FinalobservationService.baseUrl; }
+       
 
         protected form = new FinalobservationForm(this.idPrefix);
         private setCustomerDetail(details: ACN.AuditobservationRow) {
@@ -19,8 +20,8 @@ namespace coromendal.ACN {
             this.form.Email.value = details.Email;
             
             if ((Authorization.userDefinition.RoleId == 4) || (Authorization.userDefinition.RoleId == 1)) {
-                Serenity.EditorUtils.setReadOnly(this.form.Agreeobservation, true);
-
+               
+                this.form.Justification.toggleReadOnly(true);
             }
         }
 
@@ -29,6 +30,7 @@ namespace coromendal.ACN {
                 this.setCustomerDetail({});
                 return;
             }
+         
 
             var id = Q.first(ACN.AuditobservationRow.getLookup().items, x => x.AuditobservationId == this.form.Observationid.value).AuditobservationId;
             ACN.AuditobservationService.Retrieve({
@@ -36,6 +38,15 @@ namespace coromendal.ACN {
             }, response => {
                 this.setCustomerDetail(response.Entity);
             });
+
+        }
+        protected updateInterface(): void {
+
+            debugger;
+            //this.element.find('.add-button').hide();
+            this.form.SuggestionList.element.find('.add-button').hide();
+            this.form.rootList.element.find('.add-button').hide();
+            console.log("success");
 
         }
 

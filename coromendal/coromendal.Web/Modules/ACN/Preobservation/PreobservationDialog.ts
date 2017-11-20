@@ -10,17 +10,25 @@ namespace coromendal.ACN {
         protected getNameProperty() { return PreobservationRow.nameProperty; }
         protected getService() { return PreobservationService.baseUrl; }
 
+        debugger;
+
         protected form = new PreobservationForm(this.idPrefix);
+        protected updateInterface(): void {
+
+            debugger;
+            //this.element.find('.add-button').hide();
+            this.form.SuggestionList.element.find('.add-button').hide();
+            this.form.rootList.element.find('.add-button').hide();
+            console.log("success");
+
+        }
         private setCustomerDetail(details: ACN.AuditobservationRow) {
             this.form.SuggestionList.value = details.SuggestionList;
             this.form.rootList.value = details.rootList;
             this.form.Detailedobservation1.value = details.Detailedobservation1;
             this.form.Name.value = details.Name;
             this.form.Email.value = details.Email;
-            if ((Authorization.userDefinition.RoleId == 4) || (Authorization.userDefinition.RoleId == 1)) {
-                Serenity.EditorUtils.setReadOnly(this.form.Justification, true);
-
-            }
+           
             
 
         }
@@ -31,6 +39,8 @@ namespace coromendal.ACN {
                 return;
             }
 
+         
+
             var id = Q.first(ACN.AuditobservationRow.getLookup().items, x => x.AuditobservationId == this.form.Observationid.value).AuditobservationId;
             ACN.AuditobservationService.Retrieve({
                 EntityId: id
@@ -39,5 +49,7 @@ namespace coromendal.ACN {
             });
 
         }
+
+       
     }
 }

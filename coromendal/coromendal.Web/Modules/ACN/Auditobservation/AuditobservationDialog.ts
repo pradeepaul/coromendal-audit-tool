@@ -11,6 +11,15 @@ namespace coromendal.ACN {
         protected getService() { return AuditobservationService.baseUrl; }
 
         protected form = new AuditobservationForm(this.idPrefix);
+        protected updateInterface(): void {
+
+            debugger;
+            //this.element.find('.add-button').hide();
+            this.form.SuggestionList.element.find('.add-button').hide();
+            this.form.rootList.element.find('.add-button').hide();
+            console.log("success");
+
+        }
         constructor() {
             super();
 
@@ -21,9 +30,14 @@ namespace coromendal.ACN {
                 this.form.Name.value = Authorization.userDefinition.DisplayName;
                 this.form.Email.value = Authorization.userDefinition.Email;
 
+              
+
+               
+
                 if ((Q.isEmptyOrNull(Likelihood)) && (Q.isEmptyOrNull(Consequence))) {
 
                     return;
+                  
                 }
                 else {
                     if ((this.form.Likelihood.value == "1") && (this.form.Consequence.value == "1")) {

@@ -43,6 +43,7 @@ namespace coromendal.ACN {
             this.form.AcnidPeriodto.value = meetingdetails.AcnidPeriodto;
             this.form.AcnidLocation.value = meetingdetails.AcnidLocation;
             this.form.Areaofscope.value = meetingdetails.AcnidScopeList;
+            
                  
 
             
