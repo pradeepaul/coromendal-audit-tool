@@ -2699,6 +2699,14 @@
     <TypeScriptCompile Include="Modules\ACN\Preobservation\PreobservationDialog.ts" />
     <TypeScriptCompile Include="Modules\ACN\Preobservation\PreobservationEditor.ts" />
     <TypeScriptCompile Include="Modules\ACN\Preobservation\PreobservationEditorDialog.ts" />
+    <Content Include="Modules\ACN\Exclude\ExcludeIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ExcludeRow.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ExcludeService.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\ACN.ExcludeForm.ts">  <DependentUpon>ServerTypings.tt</DependentUpon></TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\ACN\Exclude\ExcludeGrid.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Exclude\ExcludeDialog.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Exclude\ExcludeEditor.ts" />
+    <TypeScriptCompile Include="Modules\ACN\Exclude\ExcludeEditorDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -3514,6 +3522,12 @@
     <Compile Include="Modules\ACN\Preobservation\PreobservationRepository.cs" />
     <Compile Include="Modules\ACN\Preobservation\PreobservationEndpoint.cs" />
     <Compile Include="Modules\ACN\Preobservation\PreobservationPage.cs" />
+    <Compile Include="Modules\ACN\Exclude\ExcludeRow.cs" />
+    <Compile Include="Modules\ACN\Exclude\ExcludeColumns.cs" />
+    <Compile Include="Modules\ACN\Exclude\ExcludeForm.cs" />
+    <Compile Include="Modules\ACN\Exclude\ExcludeRepository.cs" />
+    <Compile Include="Modules\ACN\Exclude\ExcludeEndpoint.cs" />
+    <Compile Include="Modules\ACN\Exclude\ExcludePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

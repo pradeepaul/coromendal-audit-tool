@@ -9,7 +9,7 @@ namespace coromendal.ACN.Forms
 {
     internal class ExcludeEditorAttribute : CustomEditorAttribute
     {
-        public const string Key = "ACN.ScopeexcludeEditor";
+        public const string Key = "ACN.ExcludeEditor";
         public ExcludeEditorAttribute()
             : base(Key)
         {

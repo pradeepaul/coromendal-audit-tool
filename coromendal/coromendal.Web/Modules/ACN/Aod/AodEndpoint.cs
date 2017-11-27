@@ -122,8 +122,7 @@ namespace coromendal.ACN.Endpoints
                     .From(audituser)
                     .Select(audituser.DisplayName)
                     .Select(audituser.Email)
-                    .Where(
-                    audituser.UserId.In(numbers));
+                    .Where(audituser.UserId.In(numbers));
             using (var connection4 = SqlConnections.NewFor<coromendal.Administration.Entities.UserRow>())
                 audituserresultSet = connection4.Query(auditusersqlquery).ToList();
             //auditor display

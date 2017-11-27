@@ -42,13 +42,11 @@ namespace coromendal.ACN.Repositories
             var scopeex = request.Entity.scopeexclude;
             foreach (var data in scopeex)
             {
-                if (data.Scopeid != 0)
+                if (data.ExcludeId == null)
                 {
-                    var scope = new ScopeRow();
-                    scope.ScopeId = data.Scopeid;
-                    scope.exclude = 1;
-                    var saveRequest1 = new SaveRequest<ACN.Entities.ScopeRow> { Entity = scope };
-                    new ScopeRepository().Update(uow, saveRequest1);
+                    var scope = new ScopeRow();                   
+                    var saveRequest1 = new DeleteRequest{ EntityId = data.Scopeid };
+                    new ScopeRepository().Delete(uow, saveRequest1);
                 }
             }
             var res3 = request.Entity;

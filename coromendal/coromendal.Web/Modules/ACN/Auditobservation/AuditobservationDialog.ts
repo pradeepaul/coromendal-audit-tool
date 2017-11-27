@@ -13,11 +13,11 @@ namespace coromendal.ACN {
         protected form = new AuditobservationForm(this.idPrefix);
         protected updateInterface(): void {
 
-            debugger;
+            //debugger;
             //this.element.find('.add-button').hide();
-            this.form.SuggestionList.element.find('.add-button').hide();
-            this.form.rootList.element.find('.add-button').hide();
-            console.log("success");
+           // this.form.SuggestionList.element.find('.add-button').hide();
+            //this.form.rootList.element.find('.add-button').hide();
+           // console.log("success");
 
         }
         constructor() {

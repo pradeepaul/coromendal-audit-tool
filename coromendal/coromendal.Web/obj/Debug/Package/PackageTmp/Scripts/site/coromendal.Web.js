@@ -3290,7 +3290,7 @@ var coromendal;
             return FinalobservationForm;
         }(Serenity.PrefixedContext));
         ACN.FinalobservationForm = FinalobservationForm;
-        [['FinalobservationId', function () { return Serenity.IntegerEditor; }], ['Observationid', function () { return Serenity.IntegerEditor; }], ['AcnId', function () { return Serenity.IntegerEditor; }], ['Scope', function () { return Serenity.IntegerEditor; }], ['Observationtitle', function () { return Serenity.StringEditor; }], ['Observationsynopsis', function () { return Serenity.StringEditor; }], ['Detailedobservation', function () { return Serenity.StringEditor; }], ['Category', function () { return Serenity.IntegerEditor; }], ['RiskRating', function () { return Serenity.StringEditor; }], ['Agreeobservation', function () { return Serenity.IntegerEditor; }], ['Justification', function () { return Serenity.StringEditor; }], ['Suggestion', function () { return Serenity.IntegerEditor; }], ['Alternateplan', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.StringEditor; }], ['Targetdate', function () { return Serenity.StringEditor; }], ['Consequence', function () { return Serenity.IntegerEditor; }], ['Likelihood', function () { return Serenity.IntegerEditor; }], ['rootList', function () { return ACN.RootcauseEditor; }], ['SuggestionList', function () { return ACN.SuggestionEditor; }], ['Detailedobservation1', function () { return coromendal.Northwind.NotesEditor; }]].forEach(function (x) { return Object.defineProperty(FinalobservationForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        [['FinalobservationId', function () { return Serenity.IntegerEditor; }], ['Observationid', function () { return Serenity.IntegerEditor; }], ['AcnId', function () { return Serenity.IntegerEditor; }], ['Scope', function () { return Serenity.IntegerEditor; }], ['Observationtitle', function () { return Serenity.StringEditor; }], ['Observationsynopsis', function () { return Serenity.StringEditor; }], ['Detailedobservation', function () { return Serenity.StringEditor; }], ['Category', function () { return Serenity.IntegerEditor; }], ['RiskRating', function () { return Serenity.StringEditor; }], ['Agreeobservation', function () { return Serenity.IntegerEditor; }], ['Justification', function () { return ACN.transfusetextarea; }], ['Suggestion', function () { return Serenity.IntegerEditor; }], ['Alternateplan', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Email', function () { return Serenity.StringEditor; }], ['Targetdate', function () { return Serenity.StringEditor; }], ['Consequence', function () { return Serenity.IntegerEditor; }], ['Likelihood', function () { return Serenity.IntegerEditor; }], ['rootList', function () { return ACN.RootcauseEditor; }], ['SuggestionList', function () { return ACN.SuggestionEditor; }], ['Detailedobservation1', function () { return coromendal.Northwind.NotesEditor; }]].forEach(function (x) { return Object.defineProperty(FinalobservationForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -10962,15 +10962,19 @@ var coromendal;
             PreobservationDialog.prototype.getLocalTextPrefix = function () { return ACN.PreobservationRow.localTextPrefix; };
             PreobservationDialog.prototype.getNameProperty = function () { return ACN.PreobservationRow.nameProperty; };
             PreobservationDialog.prototype.getService = function () { return ACN.PreobservationService.baseUrl; };
+            PreobservationDialog.prototype.updateInterface = function () {
+                debugger;
+                //this.element.find('.add-button').hide();
+                this.form.SuggestionList.element.find('.add-button').hide();
+                this.form.rootList.element.find('.add-button').hide();
+                console.log("success");
+            };
             PreobservationDialog.prototype.setCustomerDetail = function (details) {
                 this.form.SuggestionList.value = details.SuggestionList;
                 this.form.rootList.value = details.rootList;
                 this.form.Detailedobservation1.value = details.Detailedobservation1;
                 this.form.Name.value = details.Name;
                 this.form.Email.value = details.Email;
-                if ((coromendal.Authorization.userDefinition.RoleId == 4) || (coromendal.Authorization.userDefinition.RoleId == 1)) {
-                    Serenity.EditorUtils.setReadOnly(this.form.Justification, true);
-                }
             };
             PreobservationDialog.prototype.afterLoadEntity = function () {
                 var _this = this;
@@ -12939,7 +12943,7 @@ var coromendal;
                 this.form.Name.value = details.Name;
                 this.form.Email.value = details.Email;
                 if ((coromendal.Authorization.userDefinition.RoleId == 4) || (coromendal.Authorization.userDefinition.RoleId == 1)) {
-                    Serenity.EditorUtils.setReadOnly(this.form.Agreeobservation, true);
+                    this.form.Justification.toggleReadOnly(true);
                 }
             };
             FinalobservationDialog.prototype.afterLoadEntity = function () {
@@ -12954,6 +12958,13 @@ var coromendal;
                 }, function (response) {
                     _this.setCustomerDetail(response.Entity);
                 });
+            };
+            FinalobservationDialog.prototype.updateInterface = function () {
+                debugger;
+                //this.element.find('.add-button').hide();
+                this.form.SuggestionList.element.find('.add-button').hide();
+                this.form.rootList.element.find('.add-button').hide();
+                console.log("success");
             };
             FinalobservationDialog = __decorate([
                 Serenity.Decorators.registerClass(),
@@ -13057,6 +13068,33 @@ var coromendal;
             return likeFormatter;
         }());
         ACN.likeFormatter = likeFormatter;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var transfusetextarea = (function (_super) {
+            __extends(transfusetextarea, _super);
+            function transfusetextarea(input, opt) {
+                _super.call(this, input, opt);
+                this.inputelement = input;
+            }
+            // get_readOnly(): boolean;
+            // set_readOnly(value: boolean): void; 
+            transfusetextarea.prototype.toggleReadOnly = function (readonly) {
+                debugger;
+                if (readonly)
+                    this.inputelement.attr("disabled", "disabled");
+                else
+                    this.inputelement.removeAttr("disabled");
+            };
+            transfusetextarea = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], transfusetextarea);
+            return transfusetextarea;
+        }(Serenity.TextAreaEditor));
+        ACN.transfusetextarea = transfusetextarea;
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;
@@ -13764,6 +13802,13 @@ var coromendal;
             AuditobservationDialog.prototype.getLocalTextPrefix = function () { return ACN.AuditobservationRow.localTextPrefix; };
             AuditobservationDialog.prototype.getNameProperty = function () { return ACN.AuditobservationRow.nameProperty; };
             AuditobservationDialog.prototype.getService = function () { return ACN.AuditobservationService.baseUrl; };
+            AuditobservationDialog.prototype.updateInterface = function () {
+                //debugger;
+                //this.element.find('.add-button').hide();
+                // this.form.SuggestionList.element.find('.add-button').hide();
+                //this.form.rootList.element.find('.add-button').hide();
+                // console.log("success");
+            };
             AuditobservationDialog = __decorate([
                 Serenity.Decorators.registerClass(),
                 Serenity.Decorators.responsive()

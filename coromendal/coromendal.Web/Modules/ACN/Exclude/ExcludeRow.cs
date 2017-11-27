@@ -11,10 +11,10 @@ namespace coromendal.ACN.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("scopeexclude"), InstanceName("scopeexclude"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("exclude"), InstanceName("exclude"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
-    public sealed class ScopeexcludeRow : Row, IIdRow
+    public sealed class ExcludeRow : Row, IIdRow
     {
         [DisplayName("Exclude Id"), Column("excludeId"), Identity]
         public Int32? ExcludeId
@@ -38,14 +38,12 @@ namespace coromendal.ACN.Entities
             set { Fields.Aodid[this] = value; }
         }
 
-        [DisplayName("Acn"), Column("acnId")]
+        [DisplayName("Acn Id"), Column("acnId")]
         public Int32? AcnId
         {
             get { return Fields.AcnId[this]; }
             set { Fields.AcnId[this] = value; }
         }
-
-       
 
         [DisplayName("Aodid Meetingid"), Expression("jAodid.[Meetingid]")]
         public Int32? AodidMeetingid
@@ -131,8 +129,6 @@ namespace coromendal.ACN.Entities
             set { Fields.AodidSend[this] = value; }
         }
 
-       
-
         IIdField IIdRow.IdField
         {
             get { return Fields.ExcludeId; }
@@ -140,7 +136,7 @@ namespace coromendal.ACN.Entities
 
         public static readonly RowFields Fields = new RowFields().Init();
 
-        public ScopeexcludeRow()
+        public ExcludeRow()
             : base(Fields)
         {
         }
@@ -151,8 +147,6 @@ namespace coromendal.ACN.Entities
             public Int32Field Scopeid;
             public Int32Field Aodid;
             public Int32Field AcnId;
-
-           
 
             public Int32Field AodidMeetingid;
             public StringField AodidActualcomencementdate;
@@ -167,12 +161,10 @@ namespace coromendal.ACN.Entities
             public StringField AodidPreview;
             public StringField AodidSend;
 
-           
-
             public RowFields()
-                : base("[dbo].[scopeexclude]")
+                : base("[dbo].[exclude]")
             {
-                LocalTextPrefix = "ACN.Scopeexclude";
+                LocalTextPrefix = "ACN.Exclude";
             }
         }
     }

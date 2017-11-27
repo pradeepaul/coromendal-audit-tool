@@ -88,8 +88,9 @@ namespace Serenity.Reporting
             document.ReplaceText("#%FINALDATE%", Convert.ToString(dt.AddDays(12)));
             document.ReplaceText("#%PERIODFROM%", Convert.ToString(resultSet.Periodfrom));
             document.ReplaceText("#%PERIODTO%", Convert.ToString(resultSet.Periodto));
-            Word.Section s = document.AddSection();
-
+            //Word.Section s = document.addse();
+            //document.AddImage(@"C:\Users\Asha\Pictures\pink.jpg");
+          
             //Auditor list
             populateAuditor(acnid, document);
             //Auditee List
@@ -647,6 +648,10 @@ namespace Serenity.Reporting
 
         }
 
+        public static void insertimage(DocX document)
+        {
+            document.AddImage(@"C:\Users\Asha\Pictures\pink.jpg");
+        }
         public static void MeetingInfo()
         {
 
