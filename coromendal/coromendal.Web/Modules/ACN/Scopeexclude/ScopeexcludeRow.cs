@@ -130,13 +130,17 @@ namespace coromendal.ACN.Entities
             get { return Fields.AodidSend[this]; }
             set { Fields.AodidSend[this] = value; }
         }
-
-       
+        [DisplayName("Scope"), Column("title"),Width(1680)]
+        public String Title
+        {
+            get { return Fields.Title[this]; }
+            set { Fields.Title[this] = value; }
+        }
 
         IIdField IIdRow.IdField
         {
             get { return Fields.ExcludeId; }
-        }
+        }       
 
         public static readonly RowFields Fields = new RowFields().Init();
 
@@ -151,8 +155,8 @@ namespace coromendal.ACN.Entities
             public Int32Field Scopeid;
             public Int32Field Aodid;
             public Int32Field AcnId;
+            public StringField Title;
 
-           
 
             public Int32Field AodidMeetingid;
             public StringField AodidActualcomencementdate;

@@ -3173,6 +3173,54 @@ var coromendal;
 (function (coromendal) {
     var ACN;
     (function (ACN) {
+        var ExcludeForm = (function (_super) {
+            __extends(ExcludeForm, _super);
+            function ExcludeForm() {
+                _super.apply(this, arguments);
+            }
+            ExcludeForm.formKey = 'ACN.Exclude';
+            return ExcludeForm;
+        }(Serenity.PrefixedContext));
+        ACN.ExcludeForm = ExcludeForm;
+        [['ExcludeId', function () { return Serenity.IntegerEditor; }], ['Scopeid', function () { return Serenity.IntegerEditor; }], ['Aodid', function () { return Serenity.IntegerEditor; }], ['AcnId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ExcludeForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var ExcludeRow;
+        (function (ExcludeRow) {
+            ExcludeRow.idProperty = 'ExcludeId';
+            ExcludeRow.localTextPrefix = 'ACN.Exclude';
+            var Fields;
+            (function (Fields) {
+            })(Fields = ExcludeRow.Fields || (ExcludeRow.Fields = {}));
+            ['ExcludeId', 'Scopeid', 'Aodid', 'AcnId', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid', 'AodidPreview', 'AodidSend'].forEach(function (x) { return Fields[x] = x; });
+        })(ExcludeRow = ACN.ExcludeRow || (ACN.ExcludeRow = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var ExcludeService;
+        (function (ExcludeService) {
+            ExcludeService.baseUrl = 'ACN/Exclude';
+            var Methods;
+            (function (Methods) {
+            })(Methods = ExcludeService.Methods || (ExcludeService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                ExcludeService[x] = function (r, s, o) { return Q.serviceRequest(ExcludeService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = ExcludeService.baseUrl + '/' + x;
+            });
+        })(ExcludeService = ACN.ExcludeService || (ACN.ExcludeService = {}));
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
         var FeedbackForm = (function (_super) {
             __extends(FeedbackForm, _super);
             function FeedbackForm() {
@@ -4613,7 +4661,7 @@ var coromendal;
             var Fields;
             (function (Fields) {
             })(Fields = ScopeexcludeRow.Fields || (ScopeexcludeRow.Fields = {}));
-            ['ExcludeId', 'Scopeid', 'Aodid', 'AcnId', 'ScopeidTitle', 'ScopeidAcnId', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid', 'AodidPreview', 'AodidSend', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'AcnUserid', 'AcnPreview', 'AcnSend', 'AcnMId', 'AcnStatus'].forEach(function (x) { return Fields[x] = x; });
+            ['ExcludeId', 'Scopeid', 'Aodid', 'AcnId', 'Title', 'ScopeidTitle', 'ScopeidAcnId', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid', 'AodidPreview', 'AodidSend', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'AcnUserid', 'AcnPreview', 'AcnSend', 'AcnMId', 'AcnStatus'].forEach(function (x) { return Fields[x] = x; });
         })(ScopeexcludeRow = ACN.ScopeexcludeRow || (ACN.ScopeexcludeRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
@@ -13275,6 +13323,94 @@ var coromendal;
             return FeedbackGrid;
         }(Serenity.EntityGrid));
         ACN.FeedbackGrid = FeedbackGrid;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var ExcludeDialog = (function (_super) {
+            __extends(ExcludeDialog, _super);
+            function ExcludeDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.ExcludeForm(this.idPrefix);
+            }
+            ExcludeDialog.prototype.getFormKey = function () { return ACN.ExcludeForm.formKey; };
+            ExcludeDialog.prototype.getIdProperty = function () { return ACN.ExcludeRow.idProperty; };
+            ExcludeDialog.prototype.getLocalTextPrefix = function () { return ACN.ExcludeRow.localTextPrefix; };
+            ExcludeDialog.prototype.getService = function () { return ACN.ExcludeService.baseUrl; };
+            ExcludeDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], ExcludeDialog);
+            return ExcludeDialog;
+        }(Serenity.EntityDialog));
+        ACN.ExcludeDialog = ExcludeDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var ExcludeEditor = (function (_super) {
+            __extends(ExcludeEditor, _super);
+            function ExcludeEditor(container) {
+                _super.call(this, container);
+            }
+            ExcludeEditor.prototype.getColumnsKey = function () { return 'ACN.Exclude'; };
+            ExcludeEditor.prototype.getDialogType = function () { return ACN.ExcludeEditorDialog; };
+            ExcludeEditor.prototype.getLocalTextPrefix = function () { return ACN.ExcludeRow.localTextPrefix; };
+            ExcludeEditor = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ExcludeEditor);
+            return ExcludeEditor;
+        }(coromendal.Common.GridEditorBase));
+        ACN.ExcludeEditor = ExcludeEditor;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var ExcludeEditorDialog = (function (_super) {
+            __extends(ExcludeEditorDialog, _super);
+            function ExcludeEditorDialog() {
+                _super.apply(this, arguments);
+                this.form = new ACN.ExcludeForm(this.idPrefix);
+            }
+            ExcludeEditorDialog.prototype.getFormKey = function () { return ACN.ExcludeForm.formKey; };
+            ExcludeEditorDialog.prototype.getLocalTextPrefix = function () { return ACN.ExcludeRow.localTextPrefix; };
+            ExcludeEditorDialog = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.responsive()
+            ], ExcludeEditorDialog);
+            return ExcludeEditorDialog;
+        }(coromendal.Common.GridEditorDialog));
+        ACN.ExcludeEditorDialog = ExcludeEditorDialog;
+    })(ACN = coromendal.ACN || (coromendal.ACN = {}));
+})(coromendal || (coromendal = {}));
+var coromendal;
+(function (coromendal) {
+    var ACN;
+    (function (ACN) {
+        var ExcludeGrid = (function (_super) {
+            __extends(ExcludeGrid, _super);
+            function ExcludeGrid(container) {
+                _super.call(this, container);
+            }
+            ExcludeGrid.prototype.getColumnsKey = function () { return 'ACN.Exclude'; };
+            ExcludeGrid.prototype.getDialogType = function () { return ACN.ExcludeDialog; };
+            ExcludeGrid.prototype.getIdProperty = function () { return ACN.ExcludeRow.idProperty; };
+            ExcludeGrid.prototype.getLocalTextPrefix = function () { return ACN.ExcludeRow.localTextPrefix; };
+            ExcludeGrid.prototype.getService = function () { return ACN.ExcludeService.baseUrl; };
+            ExcludeGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ExcludeGrid);
+            return ExcludeGrid;
+        }(Serenity.EntityGrid));
+        ACN.ExcludeGrid = ExcludeGrid;
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
 var coromendal;

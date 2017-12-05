@@ -8797,3 +8797,12 @@ section.content > .s-DataGrid {
 .s-ACN-PreobservationDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-ACN-ExcludeDialog > .size {
+  width: 650px;
+}
+.s-ACN-ExcludeDialog .caption {
+  width: 150px;
+}

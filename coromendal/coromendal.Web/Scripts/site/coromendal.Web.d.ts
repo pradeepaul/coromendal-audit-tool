@@ -4000,6 +4000,7 @@ declare namespace coromendal.ACN {
         Scopeid?: number;
         Aodid?: number;
         AcnId?: number;
+        Title?: string;
         ScopeidTitle?: string;
         ScopeidAcnId?: number;
         AodidMeetingid?: number;
@@ -4036,6 +4037,7 @@ declare namespace coromendal.ACN {
             const Scopeid: any;
             const Aodid: any;
             const AcnId: any;
+            const Title: string;
             const ScopeidTitle: string;
             const ScopeidAcnId: string;
             const AodidMeetingid: string;

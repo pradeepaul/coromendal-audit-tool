@@ -15,9 +15,10 @@ namespace coromendal.ACN.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 ExcludeId { get; set; }
-       // [ScopeFormatter, Width(1700)]
-        public string Scopeid { get; set; }
-       // public Int32 Aodid { get; set; }
+        public string Title { get; set; }
+        // [ScopeFormatter, Width(1700)]
+        // public string Scopeid { get; set; }
+       // public string Title { get; set; }
        // public Int32 AcnId { get; set; }
     }
 }

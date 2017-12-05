@@ -5,6 +5,7 @@ namespace coromendal.ACN {
         Scopeid?: number;
         Aodid?: number;
         AcnId?: number;
+        Title?: string;
         ScopeidTitle?: string;
         ScopeidAcnId?: number;
         AodidMeetingid?: number;
@@ -43,6 +44,7 @@ namespace coromendal.ACN {
             export declare const Scopeid;
             export declare const Aodid;
             export declare const AcnId;
+            export declare const Title: string;
             export declare const ScopeidTitle: string;
             export declare const ScopeidAcnId: string;
             export declare const AodidMeetingid: string;
@@ -72,7 +74,7 @@ namespace coromendal.ACN {
             export declare const AcnStatus: string;
         }
 
-        ['ExcludeId', 'Scopeid', 'Aodid', 'AcnId', 'ScopeidTitle', 'ScopeidAcnId', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid', 'AodidPreview', 'AodidSend', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'AcnUserid', 'AcnPreview', 'AcnSend', 'AcnMId', 'AcnStatus'].forEach(x => (<any>Fields)[x] = x);
+        ['ExcludeId', 'Scopeid', 'Aodid', 'AcnId','Title', 'ScopeidTitle', 'ScopeidAcnId', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid', 'AodidPreview', 'AodidSend', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'AcnUserid', 'AcnPreview', 'AcnSend', 'AcnMId', 'AcnStatus'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

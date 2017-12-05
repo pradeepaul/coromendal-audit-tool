@@ -7,7 +7,9 @@ namespace coromendal.ACN.Repositories
     using Serenity.Data;
     using Serenity.Services;
     using System;
+    using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
     using MyRow = Entities.AodRow;
 
     public class AodRepository
@@ -40,15 +42,43 @@ namespace coromendal.ACN.Repositories
                 }
             }
             var scopeex = request.Entity.scopeexclude;
+            List<ScopeexcludeRow> ScopeResultSet  = new List<ScopeexcludeRow>();
             foreach (var data in scopeex)
             {
                 if (data.ExcludeId == null)
                 {
+                    dynamic resultSet;
+                    var fld1 = coromendal.ACN.Entities.ScopeRow.Fields;
+                    var sqlquery = new SqlQuery()
+                            .From(fld1)
+                            .Select(fld1.Title)                            
+                            .Where(
+                            fld1.ScopeId == Convert.ToInt32(data.Scopeid));
+                    using (var connection = SqlConnections.NewFor<coromendal.ACN.Entities.ScopeRow>())
+                        resultSet = connection.Query(sqlquery).FirstOrDefault();
+                    var scopeexcl = new ScopeexcludeRow();
+                    scopeexcl.Scopeid = data.Scopeid;
+                    scopeexcl.Title = resultSet.Title;
+                    scopeexcl.Aodid = request.Entity.AodId;
+                    ScopeResultSet.Add(scopeexcl);                    
                     var scope = new ScopeRow();                   
                     var saveRequest1 = new DeleteRequest{ EntityId = data.Scopeid };
                     new ScopeRepository().Delete(uow, saveRequest1);
+                    request.Entity.scopeexclude = ScopeResultSet;
                 }
+                else
+                {
+                    var scopeexcl1 = new ScopeexcludeRow();
+                    scopeexcl1.Scopeid = data.Scopeid;
+                    scopeexcl1.Title = data.Title;
+                    scopeexcl1.Aodid = request.Entity.AodId;
+                    ScopeResultSet.Add(scopeexcl1);
+                    
+
+                }
+                request.Entity.scopeexclude = ScopeResultSet;
             }
+            
             var res3 = request.Entity;
             var res1 = request.Entity.Currentauditobservation;
             var res2 = request.Entity.Currentauditobservation;

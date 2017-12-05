@@ -4661,7 +4661,7 @@ var coromendal;
             var Fields;
             (function (Fields) {
             })(Fields = ScopeexcludeRow.Fields || (ScopeexcludeRow.Fields = {}));
-            ['ExcludeId', 'Scopeid', 'Aodid', 'AcnId', 'ScopeidTitle', 'ScopeidAcnId', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid', 'AodidPreview', 'AodidSend', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'AcnUserid', 'AcnPreview', 'AcnSend', 'AcnMId', 'AcnStatus'].forEach(function (x) { return Fields[x] = x; });
+            ['ExcludeId', 'Scopeid', 'Aodid', 'AcnId', 'Title', 'ScopeidTitle', 'ScopeidAcnId', 'AodidMeetingid', 'AodidActualcomencementdate', 'AodidActualcompltedate', 'AodidProcessOwner', 'AodidFunctionalhead', 'AodidAreaofscope', 'AodidExclusions', 'AodidReasons', 'AodidSbu', 'AodidAcnid', 'AodidPreview', 'AodidSend', 'AcnAcnTilte', 'AcnPhaseNo', 'AcnLocation', 'AcnFromdate', 'AcnTodate', 'AcnPeriodfrom', 'AcnPeriodto', 'AcnCreationdate', 'AcnUserid', 'AcnPreview', 'AcnSend', 'AcnMId', 'AcnStatus'].forEach(function (x) { return Fields[x] = x; });
         })(ScopeexcludeRow = ACN.ScopeexcludeRow || (ACN.ScopeexcludeRow = {}));
     })(ACN = coromendal.ACN || (coromendal.ACN = {}));
 })(coromendal || (coromendal = {}));
